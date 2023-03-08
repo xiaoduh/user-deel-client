@@ -1,0 +1,14 @@
+header {
+    min-height: 50px;
+    background: $white;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    align-items: center;
+                border-bottom: 1px solid #EBEFF2;
+
+    h2 {
+        cursor: pointer;
+        color: $accent-blue;
+    }
+}

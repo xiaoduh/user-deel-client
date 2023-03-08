@@ -1,0 +1,53 @@
+.connection-form {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+
+        .title-connexion {
+            margin-bottom: 2rem;
+
+            span {
+                color: $accent-blue;
+            }
+        }
+
+        ul {
+            display: flex;
+            margin: 2rem 0;
+
+            li {
+                cursor: pointer;
+
+                &:hover {
+                    color: $accent-blue-hover;
+                }
+
+                &:first-child {
+                    margin-right: 1rem;
+                }
+            }
+
+            .active-btn {
+                color: $accent-blue;
+            }
+
+        }
+
+        .reset-password {
+            margin: 2rem 0;
+
+            p { cursor: pointer;
+            
+            &:hover {
+                color: $accent-blue;
+            }}
+        }
+
+
+    }
+}
