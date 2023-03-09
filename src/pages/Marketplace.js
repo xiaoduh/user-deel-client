@@ -3,6 +3,7 @@ import { UidContext } from "../components/AppContext";
 import Log from "../components/Log";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
+import Grid from "../components/Marketplace/Grid";
 
 const Marketplace = () => {
   const uid = useContext(UidContext);
@@ -12,7 +13,7 @@ const Marketplace = () => {
         <div className="logged-user">
           <Header />
           <Sidebar />
-          marketplace
+          <Grid />
         </div>
       ) : (
         <div className="log-container">

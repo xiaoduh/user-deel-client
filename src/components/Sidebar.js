@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { isEmpty, upperCase } from "../utils";
 
 const Sidebar = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const userData = useSelector((state) => state.userReducer);
+  // console.log(userData);
+
+  useEffect(() => {
+    !isEmpty(userData) && setIsLoading(false);
+  }, [userData]);
+
   return (
     <nav>
       <div className="sidebar-header">
@@ -11,8 +21,10 @@ const Sidebar = () => {
         <div className="profil-info">
           <img className="img-profil" src="/profil.png" alt="alt-profil-user" />
           <div className="user-info-container">
-            <h3>John Doe</h3>
-            <small>john.doe@gmail.com</small>
+            <h3>
+              {userData.first_name} {userData.last_name}
+            </h3>
+            <small>{userData.email}</small>
           </div>
         </div>
         <div className="navlinks">

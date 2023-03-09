@@ -1,0 +1,33 @@
+main {
+    position: absolute;
+    left: 300px;
+    width: calc(100% - 300px);
+    padding: 1.5rem;
+
+    table {
+        width: 100%;
+        height: calc(100vh - 10vh);
+        background: $white;
+        padding: 1rem;
+        border-radius: 10px;
+
+        th {
+            text-align: left;
+        }
+
+        tbody {
+
+            tr {
+                box-shadow: 0px 1px 0px #EBEFF2;
+
+                &:first-child {
+                    box-shadow: 0px 1px 0px #EBEFF2;
+                }
+            }
+        }
+
+
+    }
+
+
+}

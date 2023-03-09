@@ -7,6 +7,16 @@ header {
     align-items: center;
                 border-bottom: 1px solid #EBEFF2;
 
+    .credit-balance {
+        display: flex;
+
+        span {
+            margin-right: .5rem;
+            font-weight: bold;
+            color: $green;
+        }
+    }
+
     h2 {
         cursor: pointer;
         color: $accent-blue;
