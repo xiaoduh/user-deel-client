@@ -11,13 +11,16 @@ const Header = () => {
     <>
       <header>
         <h2>Deel</h2>
-        <div className="credit-balance">
-          <span>{userData.coin}</span> <p>Crédits</p>
+
+        <div className="icon">
+          <div className="credit-balance">
+            <span>{userData.coin}</span> <p>Crédits</p>
+          </div>{" "}
+          <NavLink to="/store">
+            <button>Acheter des crédits</button>
+          </NavLink>
+          {uid ? <Logout /> : <></>}
         </div>
-        <NavLink to="/store">
-          <button>Acheter des crédits</button>
-        </NavLink>
-        <div className="icon">{uid ? <Logout /> : <></>}</div>
       </header>
     </>
   );

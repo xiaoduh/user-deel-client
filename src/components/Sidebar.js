@@ -1,16 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { isEmpty, upperCase } from "../utils";
 
 const Sidebar = () => {
-  const [isLoading, setIsLoading] = useState(true);
   const userData = useSelector((state) => state.userReducer);
   // console.log(userData);
-
-  useEffect(() => {
-    !isEmpty(userData) && setIsLoading(false);
-  }, [userData]);
 
   return (
     <nav>

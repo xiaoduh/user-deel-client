@@ -1,14 +1,15 @@
 header {
-    min-height: 50px;
+    min-height: 60px;
     background: $white;
     display: flex;
     justify-content: space-between;
     padding: 0 1rem;
     align-items: center;
-                border-bottom: 1px solid #EBEFF2;
+    border-bottom: 1px solid #EBEFF2;
 
     .credit-balance {
         display: flex;
+        margin-right: 2rem;
 
         span {
             margin-right: .5rem;
@@ -17,8 +18,17 @@ header {
         }
     }
 
+    a {
+        margin-right: 2rem;
+    }
+
     h2 {
         cursor: pointer;
         color: $accent-blue;
+    }
+
+    .icon {
+        display: flex;
+        align-items: center;
     }
 }
