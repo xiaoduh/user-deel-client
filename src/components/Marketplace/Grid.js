@@ -10,7 +10,7 @@ const Grid = () => {
 
   const [unlock, setUnlock] = useState(false);
   const [leadBought, setLeadBought] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const closePopup = () => {
     setUnlock(!unlock);
@@ -22,54 +22,50 @@ const Grid = () => {
   };
 
   useEffect(() => {
-    !isEmpty(userData) && !isEmpty(leadsData) && setIsLoading(!isLoading);
+    !isEmpty(userData) && !isEmpty(leadsData) && setIsLoading(false);
   }, [userData, leadsData]);
 
   return (
     <main>
-      {isLoading ? (
-        "chargement"
-      ) : (
-        <table>
-          <thead>
-            <tr>
-              <th>Entreprise</th>
-              <th>Fiabilité</th>
-              <th>Ajouté le</th>
-              <th>Nombre de vue</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {!isEmpty(leadsData[0]) &&
-              leadsData.map((lead) => {
-                return (
-                  <>
-                    <tr lead={lead} key={lead._id}>
-                      {" "}
-                      <td>{lead.company}</td>
-                      <td>
-                        <PercentFiability
-                          percent={Math.floor(Math.random() * 100)}
-                        />
-                      </td>
-                      <td>{dateParser(lead.createdAt)}</td>
-                      <td>{Math.floor(Math.random() * 1000)}</td>
-                      <td>
-                        <button onClick={() => buyLead(lead)}>
-                          Débloquer contre 1 crédit
-                        </button>
-                      </td>
-                    </tr>
-                    {unlock && (
-                      <Popup lead={leadBought} closePopup={closePopup} />
-                    )}
-                  </>
-                );
-              })}
-          </tbody>
-        </table>
-      )}
+      <table>
+        <thead>
+          <tr>
+            <th>Entreprise</th>
+            <th>Fiabilité</th>
+            <th>Ajouté le</th>
+            <th>Nombre de vue</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {!isEmpty(leadsData[0]) &&
+            leadsData.map((lead) => {
+              return (
+                <>
+                  <tr lead={lead} key={lead._id}>
+                    {" "}
+                    <td>{lead.company}</td>
+                    <td>
+                      <PercentFiability
+                        percent={Math.floor(Math.random() * 100)}
+                      />
+                    </td>
+                    <td>{dateParser(lead.createdAt)}</td>
+                    <td>{Math.floor(Math.random() * 1000)}</td>
+                    <td>
+                      <button onClick={() => buyLead(lead)}>
+                        Débloquer contre 1 crédit
+                      </button>
+                    </td>
+                  </tr>
+                  {unlock && (
+                    <Popup lead={leadBought} closePopup={closePopup} />
+                  )}
+                </>
+              );
+            })}
+        </tbody>
+      </table>
     </main>
   );
 };

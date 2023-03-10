@@ -21,7 +21,7 @@ const Logout = () => {
     window.location = "/";
   };
   return (
-      <img onClick={logout} className="img-icon" src="./exit.svg" alt="logout" />
+    <img onClick={logout} className="img-icon" src="./exit.svg" alt="logout" />
   );
 };
 
