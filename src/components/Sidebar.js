@@ -52,14 +52,16 @@ const Sidebar = () => {
         </div>
       </div>
       <div className="lower-container">
-        <div className="navlinks-container">
-          <NavLink
-            to="/store"
-            className={({ isActive }) => (isActive ? "active-left-nav" : "")}
-          >
-            <img className="img-icon" src="./info.svg" alt="info" />
-            <p>Mon compte</p>
-          </NavLink>
+        <div className="navlinks">
+          <div className="navlinks-container">
+            <NavLink
+              to="/info"
+              className={({ isActive }) => (isActive ? "active-left-nav" : "")}
+            >
+              <img className="img-icon" src="./info.svg" alt="info" />
+              <p>Mon compte</p>
+            </NavLink>
+          </div>
         </div>
       </div>
     </nav>

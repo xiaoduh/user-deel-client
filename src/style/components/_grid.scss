@@ -2,27 +2,43 @@ main {
     position: absolute;
     left: 300px;
     width: calc(100% - 300px);
+    height: 92%;
     padding: 1.5rem;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+
 
     table {
         width: 100%;
-        height: calc(100vh - 10vh);
+        height: auto;
         background: $white;
         padding: 1rem;
         border-radius: 10px;
 
-        th {
-            text-align: left;
+        thead {
+
+
+            th {
+                text-align: left;
+                box-shadow: 0px 1px 0px #EBEFF2;
+                padding-bottom: 2rem;
+            }
         }
+
+
 
         tbody {
 
             tr {
-                max-height: 50px;
+
                 box-shadow: 0px 1px 0px #EBEFF2;
 
                 &:first-child {
                     box-shadow: 0px 1px 0px #EBEFF2;
+                }
+
+                td {
+                    padding: .5rem 0;
                 }
             }
 

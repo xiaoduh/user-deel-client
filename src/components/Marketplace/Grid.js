@@ -1,21 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { isEmpty } from "../../utils";
 import Lead from "./Lead";
+import { getLeads } from "../../actions/leads.actions";
 
 const Grid = () => {
   const leadsData = useSelector((state) => state.leadsReducer);
-  const userData = useSelector((state) => state.userReducer);
   const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    !isEmpty(userData) && !isEmpty(leadsData) && setIsLoading(false);
-  }, [userData, leadsData]);
+    if (isLoading) {
+      dispatch(getLeads());
+      setIsLoading(false);
+    }
+  }, [isLoading]);
 
   return (
     <main>
       {isLoading ? (
-        <>loading</>
+        <i className="fas fa-spinner fa-spin"></i>
       ) : (
         <table>
           <thead>
@@ -31,7 +35,7 @@ const Grid = () => {
           <tbody>
             {!isEmpty(leadsData[0]) &&
               leadsData.map((lead) => {
-                return <Lead lead={lead} />;
+                return <Lead lead={lead} key={lead} />;
               })}
           </tbody>
         </table>

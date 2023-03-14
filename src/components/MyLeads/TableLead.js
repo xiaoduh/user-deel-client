@@ -22,6 +22,7 @@ const TableLead = () => {
         <table>
           <thead>
             <tr>
+              <th>Id</th>
               <th>Nom et Prénom</th>
               <th>Position</th>
               <th>Email</th>
@@ -39,6 +40,12 @@ const TableLead = () => {
                     return (
                       <tr contact={leadsData[i]} key={leadsData[i]._id}>
                         {" "}
+                        <td>
+                          {leadsData[i]._id.slice(
+                            leadsData[i]._id.length - 4,
+                            leadsData[i]._id.length
+                          )}
+                        </td>
                         <td>
                           {leadsData[i].first_name} {leadsData[i].last_name}
                         </td>
