@@ -6,6 +6,7 @@ import { getLeads } from "../../actions/leads.actions";
 
 const Grid = () => {
   const leadsData = useSelector((state) => state.leadsReducer);
+  const userData = useSelector((state) => state.userReducer);
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
 
@@ -35,7 +36,7 @@ const Grid = () => {
           <tbody>
             {!isEmpty(leadsData[0]) &&
               leadsData.map((lead) => {
-                return <Lead lead={lead} key={lead} />;
+                return <Lead lead={lead} user={userData} key={lead} />;
               })}
           </tbody>
         </table>

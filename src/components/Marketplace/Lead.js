@@ -3,18 +3,21 @@ import Popup from "./Popup";
 import { dateParser, isEmpty } from "../../utils";
 import PercentFiability from "../utils/PercentFiability";
 import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 
-const Lead = ({ lead }) => {
+const Lead = ({ lead, user }) => {
   const [unlock, setUnlock] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const leadsData = useSelector((state) => state.leadsReducer);
-  const userData = useSelector((state) => state.userReducer);
 
   useEffect(() => {
-    !isEmpty(leadsData[0]) && setIsLoading(false);
-  }, [leadsData]);
+    if (isLoading) {
+      setIsLoading(false);
+    }
+  }, [isLoading]);
 
   const closePopup = () => {
+    setIsLoading(true);
     setUnlock(!unlock);
   };
 
@@ -32,12 +35,19 @@ const Lead = ({ lead }) => {
           <td>{dateParser(lead.createdAt)}</td>
           <td>{Math.floor(Math.random() * 1000)}</td>
           <td>
-            <button onClick={() => setUnlock(!unlock)}>
-              Débloquer contre 1 crédit
-            </button>
+            {user?.lead_bought?.find((el) => el === lead._id) ? (
+              <NavLink to="/lead">
+                <button className="btn-confirm">Voir le contact</button>
+              </NavLink>
+            ) : (
+              <button onClick={() => closePopup()}>
+                Débloquer contre 1 crédit
+              </button>
+            )}
           </td>
         </>
       )}
+      {unlock ? <Popup lead={lead} closePopup={closePopup} /> : null}
     </tr>
   );
 };

@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { isEmpty, dateParser } from "../../utils";
+import { dateParser } from "../../utils";
 import PercentFiability from "../utils/PercentFiability";
+import { getLeads } from "../../actions/leads.actions";
 
 const TableLead = () => {
   const leadsData = useSelector((state) => state.leadsReducer);
   const userData = useSelector((state) => state.userReducer);
+  const dispatch = useDispatch();
 
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    !isEmpty(userData) && !isEmpty(leadsData) && setIsLoading(false);
-  }, [userData, leadsData]);
+    if (isLoading) {
+      dispatch(getLeads());
+      setIsLoading(false);
+    }
+  }, [isLoading]);
 
   return (
     <main>
       {isLoading ? (
-        "chargement"
+        <i className="fas fa-spinner fa-spin"></i>
       ) : (
         <table>
           <thead>
@@ -32,6 +37,7 @@ const TableLead = () => {
               <th>Ajouté sur Deel le</th>
             </tr>
           </thead>
+
           <tbody>
             {userData.lead_bought.length > 0 ? (
               userData.lead_bought.map((contact) => {
