@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { upperCase } from "../utils";
 
 const Sidebar = () => {
   const userData = useSelector((state) => state.userReducer);
@@ -9,14 +10,16 @@ const Sidebar = () => {
   return (
     <nav>
       <div className="sidebar-header">
-        <h2>Deel</h2>
+        <NavLink to="/">
+          <h2>Deel</h2>
+        </NavLink>
       </div>
       <div className="upper-container">
         <div className="profil-info">
           <img className="img-profil" src="/profil.png" alt="alt-profil-user" />
           <div className="user-info-container">
             <h3>
-              {userData.first_name} {userData.last_name}
+              {userData?.first_name} {userData?.last_name}
             </h3>
             <small>{userData.email}</small>
           </div>
