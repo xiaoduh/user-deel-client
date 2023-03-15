@@ -29,3 +29,21 @@ export const upperCase = (word) => {
   let newWord = word.charAt(0).toUpperCase() + word.slice(1);
   return newWord;
 };
+
+export const calcLeadQuality = (lead) => {
+  if (
+    lead.first_name &&
+    lead.last_name &&
+    lead.email &&
+    lead.role &&
+    lead.isVerified === true
+  ) {
+    return 100;
+  } else if (lead.first_name && lead.last_name && lead.email && lead.role) {
+    return 78;
+  } else if (lead.first_name && lead.last_name && lead.email) {
+    return 66;
+  } else if (lead.first_name && lead.last_name) {
+    return 45;
+  } else return 25;
+};

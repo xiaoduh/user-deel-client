@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { dateParser } from "../../utils";
+import { calcLeadQuality, dateParser } from "../../utils";
 import PercentFiability from "../utils/PercentFiability";
 import { getLeads } from "../../actions/leads.actions";
 
@@ -34,6 +34,7 @@ const TableLead = () => {
               <th>Entreprise</th>
               <th>Profil recherché</th>
               <th>Fiabilité</th>
+              <th>Qualité</th>
               <th>Ajouté sur Deel le</th>
             </tr>
           </thead>
@@ -60,8 +61,15 @@ const TableLead = () => {
                         <td>{leadsData[i].company}</td>
                         <td>{leadsData[i].lookingFor}</td>
                         <td>
+                          {leadsData[i].isVerified ? (
+                            <img src="./verified.svg" />
+                          ) : (
+                            <img src="./interrogatoire.svg" />
+                          )}
+                        </td>
+                        <td>
                           <PercentFiability
-                            percent={Math.floor(Math.random() * 100)}
+                            percent={calcLeadQuality(leadsData[i])}
                           />
                         </td>
                         <td>{dateParser(leadsData[i].createdAt)}</td>

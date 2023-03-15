@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Popup from "./Popup";
-import { dateParser} from "../../utils";
+import { calcLeadQuality, dateParser } from "../../utils";
 import PercentFiability from "../utils/PercentFiability";
 import { NavLink } from "react-router-dom";
 
@@ -21,6 +21,8 @@ const Lead = ({ lead, user }) => {
     setUnlock(!unlock);
   };
 
+  console.log(lead.first_name ? "existe" : "existe pas");
+
   return (
     <tr className="lead" key={lead._id}>
       {isLoading ? (
@@ -30,10 +32,17 @@ const Lead = ({ lead, user }) => {
           <td>{lead._id.slice(lead._id.length - 4, lead._id.length)}</td>
           <td>{lead.company}</td>
           <td>
-            <PercentFiability percent={Math.floor(Math.random() * 100)} />
+            <PercentFiability percent={calcLeadQuality(lead)} />
           </td>
           <td>{dateParser(lead.createdAt)}</td>
           <td>{lead?.buyer?.length}</td>
+          <td>
+            {lead?.isVerified === true ? (
+              <img src="./verified.svg" />
+            ) : (
+              <img src="./interrogatoire.svg" />
+            )}
+          </td>
           <td>
             {user?.lead_bought?.find((el) => el === lead._id) ? (
               <NavLink to="/lead">

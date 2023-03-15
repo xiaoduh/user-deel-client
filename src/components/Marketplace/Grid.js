@@ -27,9 +27,10 @@ const Grid = () => {
             <tr>
               <th>Id</th>
               <th>Entreprise</th>
-              <th>Fiabilité</th>
+              <th>Qualité</th>
               <th>Ajouté le</th>
               <th>Nombre de vue</th>
+              <th>Fiabilité</th>
               <th>Action</th>
             </tr>
           </thead>
