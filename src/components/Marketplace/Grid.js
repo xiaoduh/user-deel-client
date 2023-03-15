@@ -3,11 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { isEmpty } from "../../utils";
 import Lead from "./Lead";
 import { getLeads } from "../../actions/leads.actions";
+import PopupInfo from "./PopupInfo";
+import PopupReliability from "./PopupReliability";
 
 const Grid = () => {
   const leadsData = useSelector((state) => state.leadsReducer);
   const userData = useSelector((state) => state.userReducer);
   const [isLoading, setIsLoading] = useState(true);
+  const [popupInfo, setPopupInfo] = useState(false);
+  const [infoReliability, setInfoReliability] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,6 +20,14 @@ const Grid = () => {
       setIsLoading(false);
     }
   }, [isLoading]);
+
+  const closePopupInfo = () => {
+    setPopupInfo(false);
+  };
+
+  const closePopupReliability = () => {
+    setInfoReliability(false);
+  };
 
   return (
     <main>
@@ -27,10 +39,16 @@ const Grid = () => {
             <tr>
               <th>Id</th>
               <th>Entreprise</th>
-              <th>Qualité</th>
+              <th>
+                Qualité{" "}
+                <img src="/info.svg" onClick={() => setPopupInfo(true)} />
+              </th>
               <th>Ajouté le</th>
               <th>Nombre de vue</th>
-              <th>Fiabilité</th>
+              <th>
+                Fiabilité{" "}
+                <img src="/info.svg" onClick={() => setInfoReliability(true)} />
+              </th>
               <th>Action</th>
             </tr>
           </thead>
@@ -42,6 +60,10 @@ const Grid = () => {
           </tbody>
         </table>
       )}
+      {popupInfo ? <PopupInfo closePopupInfo={closePopupInfo} /> : null}
+      {infoReliability ? (
+        <PopupReliability closePopupReliability={closePopupReliability} />
+      ) : null}
     </main>
   );
 };

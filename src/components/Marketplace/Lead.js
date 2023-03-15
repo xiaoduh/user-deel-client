@@ -21,8 +21,6 @@ const Lead = ({ lead, user }) => {
     setUnlock(!unlock);
   };
 
-  console.log(lead.first_name ? "existe" : "existe pas");
-
   return (
     <tr className="lead" key={lead._id}>
       {isLoading ? (
