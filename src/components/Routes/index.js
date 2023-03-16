@@ -9,6 +9,7 @@ import Info from "../../pages/Info";
 import Marketplace from "../../pages/Marketplace";
 import MyLeads from "../../pages/MyLeads";
 import Store from "../../pages/Store";
+import Payment from "../../pages/Payment";
 
 const index = () => {
   return (
@@ -18,6 +19,7 @@ const index = () => {
         <Route path="/lead" exact element={<MyLeads />} />
         <Route path="/store" exact element={<Store />} />
         <Route path="/info" exact element={<Info />} />
+        <Route path="/payment" exact element={<Payment />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>

@@ -1,6 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
+import Checkout from "../Checkout/Checkout";
 
 const Plan = () => {
+  const [checkout, setCheckout] = useState(false);
+  const [plan, setPlan] = useState();
+
+  const planA = {
+    credit: 1,
+    amount: 99.99,
+  };
+
+  const planB = {
+    credit: 5,
+    amount: 345.99,
+  };
+
+  const planC = {
+    credit: 10,
+    amount: 499.99,
+  };
+
+  const handleCheckoutForm = async (plan) => {
+    setPlan(plan);
+    setCheckout(true);
+  };
+
   return (
     <main>
       <div className="plan-container">
@@ -17,7 +41,12 @@ const Plan = () => {
             </p>
             <small>TTC</small>
           </div>
-          <button className="btn-confirm">Acheter</button>
+          <button
+            className="btn-confirm"
+            onClick={() => handleCheckoutForm(planA)}
+          >
+            Acheter
+          </button>
         </div>
         <div className="wrapper main-plan">
           <div className="header-plan">
@@ -32,7 +61,12 @@ const Plan = () => {
             </p>
             <small>TTC</small>
           </div>
-          <button className="btn-confirm">Acheter</button>
+          <button
+            className="btn-confirm"
+            onClick={() => handleCheckoutForm(planB)}
+          >
+            Acheter
+          </button>
         </div>
         <div className="wrapper">
           <div className="header-plan">
@@ -47,9 +81,15 @@ const Plan = () => {
             </p>
             <small>TTC</small>
           </div>
-          <button className="btn-confirm">Acheter</button>
+          <button
+            className="btn-confirm"
+            onClick={() => handleCheckoutForm(planC)}
+          >
+            Acheter
+          </button>
         </div>
       </div>
+      {checkout ? <Checkout plan={plan} /> : null}
     </main>
   );
 };
