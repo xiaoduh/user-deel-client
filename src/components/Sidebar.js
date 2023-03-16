@@ -73,9 +73,9 @@ const Sidebar = () => {
             </NavLink>
           </div>
         </div>
-        <div className="release-version">
+        {/* <div className="release-version">
           <small>version Beta 0.0.1</small>
-        </div>
+        </div> */}
       </div>
     </nav>
   );
