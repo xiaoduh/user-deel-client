@@ -26,7 +26,7 @@ const CheckoutForm = ({ closeCheckoutForm, plan }) => {
           }
         );
         if (response.data.success)
-          console.log("payment successful" + response.data);
+          console.log("payment successful : " + response);
       } catch (error) {
         console.log("erreur :" + error);
       }
