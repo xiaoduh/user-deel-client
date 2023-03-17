@@ -40,7 +40,7 @@ const Plan = () => {
               <h2>
                 <span>1</span> Crédit
               </h2>
-              <small>99,99€ par lead</small>
+              <small>99,99€ par contact</small>
             </div>
             <div className="plan-content">
               <p>
@@ -60,7 +60,7 @@ const Plan = () => {
               <h2>
                 <span>5</span> Crédits
               </h2>
-              <small>69,99€ par lead</small>
+              <small>69,99€ par contact</small>
             </div>
             <div className="plan-content">
               <p>
@@ -80,7 +80,7 @@ const Plan = () => {
               <h2>
                 <span>10</span> Crédits
               </h2>
-              <small>49,99€ par lead</small>
+              <small>49,99€ par contact</small>
             </div>
             <div className="plan-content">
               <p>
