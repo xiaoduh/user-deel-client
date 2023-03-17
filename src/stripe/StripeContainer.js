@@ -7,9 +7,14 @@ const PUBLIC_KEY =
 const stripeTestPromise = loadStripe(PUBLIC_KEY);
 
 const Stripe = ({ closeCheckoutForm, plan }) => {
+  // const options = {
+  //   // passing the client secret obtained from the server
+  //   clientSecret: "{{CLIENT_SECRET}}",
+  // };
   return (
     <Elements
       stripe={stripeTestPromise}
+      // options={options}
       closeCheckoutForm={closeCheckoutForm}
       plan={plan}
     >

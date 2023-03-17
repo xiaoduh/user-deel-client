@@ -39,7 +39,7 @@ const CheckoutForm = ({ closeCheckoutForm, plan }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <CardElement options={{ hidePostalCode: true }} />
+      <CardElement />
       <button type="submit">Confirmer mon paiement</button>
       <button className="btn-cancel" onClick={() => closeCheckoutForm()}>
         Annuler
