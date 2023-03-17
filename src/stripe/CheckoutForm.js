@@ -2,12 +2,12 @@ import React from "react";
 import axios from "axios";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 
-const CheckoutForm = ({ closeCheckoutForm }) => {
+const CheckoutForm = ({ closeCheckoutForm, plan }) => {
   const stripe = useStripe();
   const elements = useElements();
-  console.log(closeCheckoutForm);
 
   const handleSubmit = async (e) => {
+    console.log(plan.amount);
     e.preventDefault();
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
@@ -15,8 +15,24 @@ const CheckoutForm = ({ closeCheckoutForm }) => {
     });
     if (!error) {
       console.log("Token Généré", paymentMethod);
+      // envoie du token au backend **peut être faire un dispach/action pour mettre à jour le store**
+      try {
+        const { id } = paymentMethod;
+        const response = await axios.post(
+          "http://localhost:5000/api/stripe/charge",
+          {
+            amount: plan.amount,
+            id: id,
+          }
+        );
+        if (response.data.success) console.log("payment successful");
+      } catch (error) {
+        console.log("erreur :" + error);
+      }
       closeCheckoutForm();
       //pop achat reussi
+    } else {
+      console.log(error.message);
     }
   };
 

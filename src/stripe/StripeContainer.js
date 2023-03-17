@@ -6,10 +6,14 @@ const PUBLIC_KEY =
   "pk_test_51MmFnAAFkffstGESiUofja54O8QkibxvCmxb9eIKThBRJ5t0rWd0tgYBGXu9Vap29MQGppZ4kvddedOzx3F3yEDG00HbIU0Hoc";
 const stripeTestPromise = loadStripe(PUBLIC_KEY);
 
-const Stripe = ({ closeCheckoutForm }) => {
+const Stripe = ({ closeCheckoutForm, plan }) => {
   return (
-    <Elements stripe={stripeTestPromise} closeCheckoutForm={closeCheckoutForm}>
-      <CheckoutForm closeCheckoutForm={closeCheckoutForm} />
+    <Elements
+      stripe={stripeTestPromise}
+      closeCheckoutForm={closeCheckoutForm}
+      plan={plan}
+    >
+      <CheckoutForm closeCheckoutForm={closeCheckoutForm} plan={plan} />
     </Elements>
   );
 };

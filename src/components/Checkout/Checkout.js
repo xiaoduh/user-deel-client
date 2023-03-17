@@ -32,7 +32,7 @@ const Checkout = ({ plan, closeCheckoutForm }) => {
         </div>
         <div className="cta-checkout">
           <p>Veuillez saisir vos informations de paiement</p>
-          <Stripe closeCheckoutForm={closeCheckoutForm} />
+          <Stripe closeCheckoutForm={closeCheckoutForm} plan={plan}/>
         </div>
       </div>
     </div>

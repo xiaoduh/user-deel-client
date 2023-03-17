@@ -8,8 +8,6 @@ const Lead = ({ lead, user }) => {
   const [unlock, setUnlock] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  console.log(lead);
-
   useEffect(() => {
     if (isLoading) {
       setIsLoading(false);
