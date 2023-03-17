@@ -1,4 +1,5 @@
 import React from "react";
+import Stripe from "../../stripe/StripeContainer";
 
 const Checkout = ({ plan, closeCheckoutForm }) => {
   return (
@@ -15,16 +16,22 @@ const Checkout = ({ plan, closeCheckoutForm }) => {
             </span>{" "}
             crédit(s)
           </p>
-          <p>{plan.credit} crédit (s)</p>
-          <p>{plan.amount} €</p>
+          <p>
+            <span style={{ color: "#109CF1", fontWeight: "bold" }}>
+              {plan.credit}
+            </span>{" "}
+            crédit (s)
+          </p>
+          <p>
+            Total :{" "}
+            <span style={{ color: "#109CF1", fontWeight: "bold" }}>
+              {plan.amount}
+            </span>{" "}
+            €
+          </p>
         </div>
         <div className="cta-checkout">
-          <button className="btn-cancel" onClick={() => closeCheckoutForm()}>
-            Annuler
-          </button>
-          <button onClick={() => closeCheckoutForm()}>
-            Confirmer mon paiement
-          </button>
+          <Stripe closeCheckoutForm={closeCheckoutForm} />
         </div>
       </div>
     </div>
