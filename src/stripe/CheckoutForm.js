@@ -19,13 +19,14 @@ const CheckoutForm = ({ closeCheckoutForm, plan }) => {
       try {
         const { id } = paymentMethod;
         const response = await axios.post(
-          "http://localhost:5000/api/stripe/charge",
+          `${process.env.REACT_APP_API_URL}api/stripe/charge`,
           {
             amount: plan.amount,
             id: id,
           }
         );
-        if (response.data.success) console.log("payment successful");
+        if (response.data.success)
+          console.log("payment successful" + response.data);
       } catch (error) {
         console.log("erreur :" + error);
       }

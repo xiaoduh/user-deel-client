@@ -7,17 +7,17 @@ const Plan = () => {
 
   const planA = {
     credit: 1,
-    amount: 99.99,
+    amount: 9999,
   };
 
   const planB = {
     credit: 5,
-    amount: 345.99,
+    amount: 34599,
   };
 
   const planC = {
     credit: 10,
-    amount: 499.99,
+    amount: 49999,
   };
 
   const handleCheckoutForm = (plan) => {
