@@ -6,7 +6,7 @@ const Checkout = ({ plan, closeCheckoutForm }) => {
     <div className="plan-container">
       <div className="checkout">
         <div className="header-checkout">
-          <h2>Récapitulatif de mon panier</h2>
+          <h2>Récapitulatif de votre panier</h2>
         </div>
         <div className="checkout-content">
           <p>
@@ -14,16 +14,16 @@ const Checkout = ({ plan, closeCheckoutForm }) => {
             <span style={{ color: "#109CF1", fontWeight: "bold" }}>
               {plan.credit}
             </span>{" "}
-            crédit(s)
+            {plan.credit > 1 ? "crédits" : "crédit"}
           </p>
           <p>
             <span style={{ color: "#109CF1", fontWeight: "bold" }}>
               {plan.credit}
             </span>{" "}
-            crédit (s)
+            {plan.credit > 1 ? "crédits" : "crédit"}
           </p>
           <p>
-            Total :{" "}
+            Total de{" "}
             <span style={{ color: "#109CF1", fontWeight: "bold" }}>
               {plan.amount}
             </span>{" "}
