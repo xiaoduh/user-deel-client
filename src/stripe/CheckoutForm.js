@@ -1,11 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { UidContext } from "../components/AppContext";
 import { useDispatch } from "react-redux";
 import { getUser } from "../actions/user.actions";
 
-const CheckoutForm = ({ closeCheckoutForm, plan }) => {
+const CheckoutForm = ({
+  closeCheckoutForm,
+  plan,
+  paymentSuccessful,
+  paymentFailed,
+}) => {
   const stripe = useStripe();
   const elements = useElements();
   const uid = useContext(UidContext);
@@ -38,22 +43,28 @@ const CheckoutForm = ({ closeCheckoutForm, plan }) => {
         }
       } catch (error) {
         console.log("erreur :" + error);
+        closeCheckoutForm();
+        paymentFailed();
       }
       closeCheckoutForm();
-      //pop achat reussi
+      paymentSuccessful();
     } else {
       console.log(error.message);
+      closeCheckoutForm();
+      paymentFailed();
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <CardElement options={{ hidePostalCode: true }} />
-      <button type="submit">Confirmer mon paiement</button>
-      <button className="btn-cancel" onClick={() => closeCheckoutForm()}>
-        Annuler
-      </button>
-    </form>
+    <>
+      <form onSubmit={handleSubmit}>
+        <CardElement options={{ hidePostalCode: true }} />
+        <button type="submit">Confirmer mon paiement</button>
+        <button className="btn-cancel" onClick={() => closeCheckoutForm()}>
+          Annuler
+        </button>
+      </form>
+    </>
   );
 };
 

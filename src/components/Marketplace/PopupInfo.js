@@ -25,7 +25,7 @@ const PopupInfo = ({ closePopupInfo }) => {
           <span style={{ color: "#109CF1", fontWeight: "bold" }}>
             profil recherché
           </span>
-          .<br></br> 100% indique que toutes les informations sont présentes.
+          .<br></br> > 75% indique que toutes les informations sont présentes.
         </p>
         <div className="btn-unlock">
           <button onClick={() => closePopupInfo()}>J'ai compris</button>

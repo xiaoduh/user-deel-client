@@ -12,28 +12,31 @@ const PopupReliability = ({ closePopupReliability }) => {
           L'indice de fiabilité permet de classer les contacts en deux
           catégories:{" "}
           <span style={{ color: "#109CF1", fontWeight: "bold" }}>vérifié</span>{" "}
-          <img style={{ widht: "12px", height: "12px" }} src="/verified.svg" />{" "}
+          <img
+            style={{ widht: "12px", height: "12px", margin: "0" }}
+            src="/verified.svg"
+          />{" "}
           et{" "}
           <span style={{ color: "#109CF1", fontWeight: "bold" }}>
             non-vérifié
           </span>{" "}
           <img
-            style={{ widht: "12px", height: "12px" }}
+            style={{ widht: "12px", height: "12px", margin: "0" }}
             src="/interrogatoire.svg"
           />
           .<br></br>
           <img
-            style={{ widht: "12px", height: "12px" }}
+            style={{ widht: "12px", height: "12px", margin: "0" }}
             src="/verified.svg"
           />{" "}
           : <span style={{ color: "#109CF1", fontWeight: "bold" }}>toutes</span>{" "}
           les informations ont pu être vérifiées et validées.<br></br>
           <img
-            style={{ widht: "12px", height: "12px" }}
+            style={{ widht: "12px", height: "12px", margin: "0" }}
             src="/interrogatoire.svg"
           />{" "}
           : <span style={{ color: "#109CF1", fontWeight: "bold" }}>toutes</span>{" "}
-          les informations n'ont pas pu être vérifiées et validées. ou sont en
+          les informations n'ont pas pu être vérifiées et validées ou sont en
           cours de vérification.
         </p>
         <div className="btn-unlock">

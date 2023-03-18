@@ -99,7 +99,7 @@ main {
 
         .modal {
             position: absolute;
-            height: 250px;
+            height: auto;
             width: 40%;
             top: 35%;
             left: 50%;
@@ -118,18 +118,25 @@ main {
             justify-content: center;
       
             h3 {
-              min-width: 200px;
               margin-bottom: .5rem;
             }
 
+            img {
+                margin: 2rem 0;
+            }
+
             p {
-                min-width: 200px;
                 margin-bottom: 2.5rem;
             }
 
             button:first-child {
                 margin-right: 1rem;
             }
+
+            #paiement-failed {
+                margin-right: 0;
+            }
+
         }
 
         @keyframes modal {

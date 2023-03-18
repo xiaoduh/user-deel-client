@@ -1,7 +1,12 @@
 import React from "react";
 import Stripe from "../../stripe/StripeContainer";
 
-const Checkout = ({ plan, closeCheckoutForm }) => {
+const Checkout = ({
+  plan,
+  closeCheckoutForm,
+  paymentSuccessful,
+  paymentFailed,
+}) => {
   return (
     <div className="plan-container">
       <div className="checkout">
@@ -25,14 +30,19 @@ const Checkout = ({ plan, closeCheckoutForm }) => {
           <p>
             Total de{" "}
             <span style={{ color: "#109CF1", fontWeight: "bold" }}>
-              {plan.amount}
+              {plan.price}
             </span>{" "}
             €
           </p>
         </div>
         <div className="cta-checkout">
           <p>Veuillez saisir vos informations de paiement</p>
-          <Stripe closeCheckoutForm={closeCheckoutForm} plan={plan}/>
+          <Stripe
+            closeCheckoutForm={closeCheckoutForm}
+            plan={plan}
+            paymentSuccessful={paymentSuccessful}
+            paymentFailed={paymentFailed}
+          />
         </div>
       </div>
     </div>
