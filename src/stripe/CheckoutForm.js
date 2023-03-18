@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import axios from "axios";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { UidContext } from "../components/AppContext";
+import { useDispatch } from "react-redux";
+import { getUser } from "../actions/user.actions";
 
 const CheckoutForm = ({ closeCheckoutForm, plan }) => {
   const stripe = useStripe();
   const elements = useElements();
+  const uid = useContext(UidContext);
+  const dispatch = useDispatch();
+  console.log(plan.credit);
 
   const handleSubmit = async (e) => {
-    console.log(plan.amount);
     e.preventDefault();
+
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card: elements.getElement(CardElement),
@@ -19,14 +25,17 @@ const CheckoutForm = ({ closeCheckoutForm, plan }) => {
       try {
         const { id } = paymentMethod;
         const response = await axios.post(
-          `${process.env.REACT_APP_API_URL}api/stripe/charge`,
+          `${process.env.REACT_APP_API_URL}api/stripe/charge/${uid}`,
           {
             amount: plan.amount,
             id: id,
+            credit: plan.credit,
           }
         );
-        if (response.data.success)
-          console.log("payment successful : " + response);
+        if (response.data.success) {
+          console.log("payment successful");
+          dispatch(getUser(uid));
+        }
       } catch (error) {
         console.log("erreur :" + error);
       }
@@ -39,7 +48,7 @@ const CheckoutForm = ({ closeCheckoutForm, plan }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <CardElement />
+      <CardElement options={{ hidePostalCode: true }} />
       <button type="submit">Confirmer mon paiement</button>
       <button className="btn-cancel" onClick={() => closeCheckoutForm()}>
         Annuler
