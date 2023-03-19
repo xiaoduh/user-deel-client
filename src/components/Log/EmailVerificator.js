@@ -4,7 +4,7 @@ import axios from "axios";
 
 const EmailVerificator = () => {
   const param = useParams();
-  const [validUrl, setValidUrl] = useState(true);
+  const [validUrl, setValidUrl] = useState(null);
 
   useEffect(() => {
     const verifyEmailUrl = async () => {
