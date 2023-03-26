@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import Logout from "../Log/Logout";
-import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 
-const TwoFA = ({ handleTwoFA }) => {
+const TwoFA = ({ handleTwoFA, userData }) => {
   const [code, setCode] = useState();
   const [isVerified, setIsVerified] = useState(false);
-  const userData = useSelector((state) => state.userReducer);
+
+  console.log(userData);
 
   const verifyNumPhone = (e) => {
     e.preventDefault();
@@ -30,10 +30,11 @@ const TwoFA = ({ handleTwoFA }) => {
           </h3>
           <form onSubmit={verifyNumPhone}>
             <label htmlFor="">
-              Entrez le code envoyé au numéro se terminant par
+              Entrez le code envoyé au numéro se terminant par{" "}
+              {userData.phone_number ? userData.phone_number.slice(6) : "non"}
             </label>
             <input
-              type="number"
+              type="text"
               onChange={(e) => setCode(e.target.value)}
               required
             />
