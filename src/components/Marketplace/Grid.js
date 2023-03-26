@@ -38,7 +38,7 @@ const Grid = () => {
           <thead>
             <tr>
               <th>Id</th>
-              <th>Entreprise</th>
+              <th>Recherche</th>
               <th>
                 Qualité{" "}
                 <img src="/info.svg" onClick={() => setPopupInfo(true)} />

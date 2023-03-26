@@ -26,7 +26,7 @@ const Lead = ({ lead, user }) => {
       ) : (
         <>
           <td>{lead._id.slice(lead._id.length - 4, lead._id.length)}</td>
-          <td>{lead.company}</td>
+          <td>{lead.lookingFor}</td>
           <td>
             <PercentFiability percent={calcLeadQuality(lead)} />
           </td>
