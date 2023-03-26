@@ -1,0 +1,48 @@
+.twoFA-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+
+    img {
+        width: 100px;
+        margin: 0 auto 3rem;
+    }
+
+    h3 {
+        margin-bottom: 1rem;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        max-width: 500px;
+
+        label {
+            font-size: 1rem;
+        }
+        input {
+            margin-bottom: 1rem;
+        }
+        
+        button {
+            margin-bottom: 1rem;
+        }
+    }
+
+    .resend-container {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto 1rem;
+        cursor: pointer;
+    }
+
+    .logout {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+}
