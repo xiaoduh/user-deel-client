@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Logout from "../Log/Logout";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
+import { UidContext } from "../AppContext";
 
 const TwoFA = ({ handleTwoFA, userData }) => {
-  const [codeUser, setCodeUser] = useState("null");
-  const [codeGenerated, setCodeGenerated] = useState(
-    Math.round(Math.random() * 10000)
-  );
+  const [codeUser, setCodeUser] = useState(null);
   const [isVerified, setIsVerified] = useState(false);
+  const [codeGenerated, setCodeGenerated] = useState(null);
+  const uid = useContext(UidContext);
 
   const verifyNumPhone = (e, codeUser, codeGenerated) => {
     e.preventDefault();
@@ -35,7 +36,7 @@ const TwoFA = ({ handleTwoFA, userData }) => {
       headers: headers,
       mode: "cors",
       body:
-        "To=+33686553473&From=+16729060660&Body=Bonjour, voici votre code pour relier votre numéro à votre compte Deeel : " +
+        "To=+33686553473&From=+16729060660&Body=Bonjour, voici votre code pour vous connecter sur Deeel : " +
         codeGenerated,
     };
     fetch(url, init)
@@ -44,7 +45,21 @@ const TwoFA = ({ handleTwoFA, userData }) => {
   };
 
   useEffect(() => {
-    sendCode(codeGenerated);
+    const generateCode = async () => {
+      const code = await Math.round(Math.random() * 10000);
+      await axios({
+        method: "get",
+        url: `${process.env.REACT_APP_API_URL}api/user/${uid}`,
+      })
+        .then((res) => {
+          if (res.data.twoFA != true) {
+            sendCode(code);
+            setCodeGenerated(code);
+          }
+        })
+        .catch((err) => console.log(err));
+    };
+    generateCode();
   }, []);
 
   return (
@@ -65,9 +80,9 @@ const TwoFA = ({ handleTwoFA, userData }) => {
             />
             <button type="submit">Valider ma connexion</button>
           </form>
-          <div className="resend-container">
+          {/* <div className="resend-container">
             <p>Renvoyer le SMS</p>
-          </div>
+          </div> */}
           <div className="logout">
             <p>Abandonner</p>
             <Logout />
@@ -77,7 +92,8 @@ const TwoFA = ({ handleTwoFA, userData }) => {
         <div className="twoFA-container">
           <img src="/succes.svg" />
           <h3>
-            Félicitations, votre compte Deeel est maintenant activé et sécurisé.
+            Votre identité est confirmée, vous pouvez poursuivre en toute
+            sécurité.
           </h3>
           <NavLink to="/">
             <button onClick={() => handleTwoFA(userData)}>Poursuivre</button>
