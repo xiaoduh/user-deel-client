@@ -11,6 +11,7 @@ import MyLeads from "../../pages/MyLeads";
 import Store from "../../pages/Store";
 import Payment from "../../pages/Payment";
 import EmailVerificator from "../Log/EmailVerificator";
+import ResetPW from "../ResetPW/ResetPW";
 
 const index = () => {
   return (
@@ -22,6 +23,11 @@ const index = () => {
         <Route path="/info" exact element={<Info />} />
         <Route path="/payment" exact element={<Payment />} />
         <Route path="/user/:id/verify/:token" element={<EmailVerificator />} />
+        <Route
+          path="/api/user/user-reset-password/:id/:token"
+          exact
+          element={<ResetPW />}
+        />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
