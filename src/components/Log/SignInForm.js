@@ -71,6 +71,7 @@ const SignIn = () => {
         <>
           <form onSubmit={handleResetPassword} id="reset-password-form">
             <div className="title-connexion">
+              <img src="./logo.png" />
               <h2>
                 Mot de passe <span>oublié</span>
               </h2>
