@@ -39,6 +39,7 @@ const Lead = ({ lead, user }) => {
               <img src="./interrogatoire.svg" />
             )}
           </td>
+          <td>{dateParser(lead.updatedAt)}</td>
           <td>
             {user?.lead_bought?.find((el) => el === lead._id) ? (
               <NavLink to="/lead">

@@ -11,12 +11,12 @@ const Sidebar = () => {
     <nav>
       <div className="sidebar-header">
         <NavLink to="/">
-          <h2>Deel</h2>
+          <img src="./logo.png" />
         </NavLink>
       </div>
       <div className="upper-container">
         <div className="profil-info">
-          <img className="img-profil" src="/profil.png" alt="alt-profil-user" />
+          {/* <img className="img-profil" src="/profil.png" alt="alt-profil-user" /> */}
           <div className="user-info-container">
             <h3>
               {userData?.first_name} {userData?.last_name}

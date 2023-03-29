@@ -49,6 +49,7 @@ const Grid = () => {
                 Fiabilité{" "}
                 <img src="/info.svg" onClick={() => setInfoReliability(true)} />
               </th>
+              <th>Dernière MAJ</th>
               <th>Action</th>
             </tr>
           </thead>
