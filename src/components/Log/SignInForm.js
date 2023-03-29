@@ -100,8 +100,9 @@ const SignIn = () => {
         <>
           {" "}
           <div className="title-connexion">
+            <img src="./logo.png" />
             <h2>
-              Connexion <span>Utilisateur</span>
+              Connexion en tant qu'<span>utilisateur</span>.
             </h2>
           </div>
           <form onSubmit={handleLogin} id="sign-up-form">

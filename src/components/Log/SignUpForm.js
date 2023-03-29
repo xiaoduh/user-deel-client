@@ -90,8 +90,9 @@ const SignUp = () => {
       ) : (
         <form action="" onSubmit={handleRegister} id="sign-up-form">
           <div className="title-connexion">
+            <img src="./logo.png" />
             <h2>
-              Inscription<span> Utilisateur</span>
+              Inscription en tant qu'<span>utilisateur</span>.
             </h2>
           </div>
           <label htmlFor="identifiant" class="form__label">

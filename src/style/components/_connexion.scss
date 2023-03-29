@@ -38,6 +38,11 @@
         .title-connexion {
             margin-bottom: 2rem;
 
+            img {
+                width: 200px;
+                margin-bottom: 1rem;
+            }
+
             span {
                 color: $accent-blue;
             }
