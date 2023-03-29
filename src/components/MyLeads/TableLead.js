@@ -35,7 +35,7 @@ const TableLead = () => {
               <th>Profil recherché</th>
               <th>Fiabilité</th>
               <th>Qualité</th>
-              <th>Ajouté sur Deel le</th>
+              <th>Ajouté le</th>
             </tr>
           </thead>
 
