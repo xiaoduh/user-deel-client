@@ -143,10 +143,10 @@ input[type="submit"] {
 }
 
 input[type="text"], input[type='password'], input[type='email'] {
-  padding: .2rem 0;
+  padding: .5rem .2rem;
   cursor: pointer;
-  background-color: $bg;
-  border-bottom: 1px solid #192A3E;
+  background-color: white;
+  border-radius: 5px;
 
   &::placeholder {
     background: #109CF1;
