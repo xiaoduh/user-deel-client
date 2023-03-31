@@ -92,7 +92,7 @@ const SignUp = () => {
           <div className="title-connexion">
             <img src="./logo.png" alt="logo" />
             <h2>
-              Inscription en tant qu'<span>utilisateur</span>.
+              Inscription <span>utilisateur</span>.
             </h2>
           </div>
           <label htmlFor="identifiant" class="form__label">
