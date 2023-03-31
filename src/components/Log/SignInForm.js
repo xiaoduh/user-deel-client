@@ -103,7 +103,7 @@ const SignIn = () => {
           <div className="title-connexion">
             <img src="./logo.png" alt="logo" />
             <h2>
-              Connexion en tant qu'<span>utilisateur</span>.
+              Connexion en tant que <span>utilisateur</span>.
             </h2>
           </div>
           <form onSubmit={handleLogin} id="sign-up-form">
