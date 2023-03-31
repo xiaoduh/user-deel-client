@@ -26,7 +26,7 @@ const Lead = ({ lead, user }) => {
       ) : (
         <>
           <td>{lead._id.slice(lead._id.length - 4, lead._id.length)}</td>
-          <td>{lead.company}</td>
+          <td>{lead.lookingFor}</td>
           <td>
             <PercentFiability percent={calcLeadQuality(lead)} />
           </td>
@@ -39,6 +39,7 @@ const Lead = ({ lead, user }) => {
               <img src="./interrogatoire.svg" />
             )}
           </td>
+          <td>{dateParser(lead.updatedAt)}</td>
           <td>
             {user?.lead_bought?.find((el) => el === lead._id) ? (
               <NavLink to="/lead">

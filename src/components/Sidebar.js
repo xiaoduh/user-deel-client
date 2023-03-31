@@ -5,18 +5,19 @@ import { upperCase } from "../utils";
 
 const Sidebar = () => {
   const userData = useSelector((state) => state.userReducer);
-  // console.log(userData);
+  const leadsData = useSelector((state) => state.leadsReducer);
+  console.log(userData.lead_bought.length);
 
   return (
     <nav>
       <div className="sidebar-header">
         <NavLink to="/">
-          <h2>Deel</h2>
+          <img src="./logo.png" />
         </NavLink>
       </div>
       <div className="upper-container">
         <div className="profil-info">
-          <img className="img-profil" src="/profil.png" alt="alt-profil-user" />
+          {/* <img className="img-profil" src="/profil.png" alt="alt-profil-user" /> */}
           <div className="user-info-container">
             <h3>
               {userData?.first_name} {userData?.last_name}
@@ -35,14 +36,14 @@ const Sidebar = () => {
                 src="./marketplace.svg"
                 alt="marketplace"
               />
-              <p>Marketplace</p>
+              <p>Marketplace ({leadsData?.length})</p>
             </NavLink>
             <NavLink
               to="/lead"
               className={({ isActive }) => (isActive ? "active-left-nav" : "")}
             >
               <img className="img-icon" src="./lead.svg" alt="contact" />
-              <p>Mes contacts</p>
+              <p>Mes contacts ({userData?.lead_bought.length})</p>
             </NavLink>
             <NavLink
               to="/store"

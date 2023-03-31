@@ -45,7 +45,7 @@ const SignIn = () => {
     console.log(email);
     axios({
       method: "post",
-      url: `${process.env.REACT_APP_API_URL}api/user/forgot-password/`,
+      url: `${process.env.REACT_APP_API_URL}api/user/user-forgot-password/`,
       withCredentials: true,
       data: {
         email,
@@ -71,6 +71,7 @@ const SignIn = () => {
         <>
           <form onSubmit={handleResetPassword} id="reset-password-form">
             <div className="title-connexion">
+              <img src="./logo.png" />
               <h2>
                 Mot de passe <span>oublié</span>
               </h2>
@@ -100,8 +101,9 @@ const SignIn = () => {
         <>
           {" "}
           <div className="title-connexion">
+            <img src="./logo.png" />
             <h2>
-              Connexion <span>Utilisateur</span>
+              Connexion en tant qu'<span>utilisateur</span>.
             </h2>
           </div>
           <form onSubmit={handleLogin} id="sign-up-form">

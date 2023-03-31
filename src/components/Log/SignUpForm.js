@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import SignIn from "./SignInForm";
 
 const SignUp = () => {
   const [formSubmit, setFormSubmit] = useState(false);
@@ -74,15 +73,26 @@ const SignUp = () => {
     <>
       {formSubmit ? (
         <>
-          <SignIn />
-          <span></span>
-          <h4 className="success">Inscription validée</h4>
+          {" "}
+          <div className="register-confirmation">
+            <img src="./telegram.svg" alt="register-completed" />
+            <div className="register-confirmation-content">
+              <h4>
+                Inscription bien{" "}
+                <span className="success">prise en compte</span>. <br></br>
+                <span className="success">Validez</span> votre Email pour vous
+                connecter.
+              </h4>
+              <small>Pensez à vérifier vos spams.</small>
+            </div>
+          </div>
         </>
       ) : (
         <form action="" onSubmit={handleRegister} id="sign-up-form">
           <div className="title-connexion">
+            <img src="./logo.png" />
             <h2>
-              Inscription<span> Utilisateur</span>
+              Inscription en tant qu'<span>utilisateur</span>.
             </h2>
           </div>
           <label htmlFor="identifiant" class="form__label">
