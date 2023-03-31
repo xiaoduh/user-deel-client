@@ -3,7 +3,7 @@ import React from "react";
 const HelpForm = () => {
   return (
     <div className="contact">
-      <img src="/support.svg" />
+      <img src="/support.svg" alt="support" />
       <h3>
         Vous faites face à des difficultés d'utilisation ou à un problème ?
       </h3>

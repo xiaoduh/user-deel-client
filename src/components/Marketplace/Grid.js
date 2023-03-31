@@ -41,13 +41,21 @@ const Grid = () => {
               <th>Recherche</th>
               <th>
                 Qualité{" "}
-                <img src="/info.svg" onClick={() => setPopupInfo(true)} />
+                <img
+                  src="/info.svg"
+                  alt="info"
+                  onClick={() => setPopupInfo(true)}
+                />
               </th>
               <th>Ajouté le</th>
               <th>Nombre de vue</th>
               <th>
                 Fiabilité{" "}
-                <img src="/info.svg" onClick={() => setInfoReliability(true)} />
+                <img
+                  src="/info.svg"
+                  alt="info"
+                  onClick={() => setInfoReliability(true)}
+                />
               </th>
               <th>Dernière MAJ</th>
               <th>Action</th>

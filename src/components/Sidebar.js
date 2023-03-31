@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { upperCase } from "../utils";
 
 const Sidebar = () => {
   const userData = useSelector((state) => state.userReducer);
@@ -12,7 +11,7 @@ const Sidebar = () => {
     <nav>
       <div className="sidebar-header">
         <NavLink to="/">
-          <img src="./logo.png" />
+          <img src="./logo.png" alt="logo" />
         </NavLink>
       </div>
       <div className="upper-container">

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { dateParser, upperCase } from "../../utils";
+import { dateParser } from "../../utils";
 
 const Profil = () => {
   const user = useSelector((state) => state.userReducer);

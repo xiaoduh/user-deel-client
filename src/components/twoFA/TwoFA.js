@@ -60,13 +60,13 @@ const TwoFA = ({ handleTwoFA, userData }) => {
         .catch((err) => console.log(err));
     };
     generateCode();
-  }, []);
+  }, [uid]);
 
   return (
     <>
       {!isVerified ? (
         <div className="twoFA-container">
-          <img src="/exclamation.svg" />
+          <img src="/exclamation.svg" alt="warning" />
           <h3>Veuillez confirmer votre connexion.</h3>
           <form onSubmit={(e) => verifyNumPhone(e, codeUser, codeGenerated)}>
             <label htmlFor="">
@@ -90,7 +90,7 @@ const TwoFA = ({ handleTwoFA, userData }) => {
         </div>
       ) : (
         <div className="twoFA-container">
-          <img src="/succes.svg" />
+          <img src="/succes.svg" alt="success" />
           <h3>
             Votre identité est confirmée, vous pouvez poursuivre en toute
             sécurité.
