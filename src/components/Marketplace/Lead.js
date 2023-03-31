@@ -34,9 +34,9 @@ const Lead = ({ lead, user }) => {
           <td>{lead?.buyer?.length}</td>
           <td>
             {lead?.isVerified === true ? (
-              <img src="./verified.svg" />
+              <img src="./verified.svg" alt="verified" />
             ) : (
-              <img src="./interrogatoire.svg" />
+              <img src="./interrogatoire.svg" alt="no-verified" />
             )}
           </td>
           <td>{dateParser(lead.updatedAt)}</td>

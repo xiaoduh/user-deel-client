@@ -15,6 +15,7 @@ const PopupReliability = ({ closePopupReliability }) => {
           <img
             style={{ widht: "12px", height: "12px", margin: "0" }}
             src="/verified.svg"
+            alt="verified"
           />{" "}
           et{" "}
           <span style={{ color: "#109CF1", fontWeight: "bold" }}>
@@ -23,17 +24,20 @@ const PopupReliability = ({ closePopupReliability }) => {
           <img
             style={{ widht: "12px", height: "12px", margin: "0" }}
             src="/interrogatoire.svg"
+            alt="no-verified"
           />
           .<br></br>
           <img
             style={{ widht: "12px", height: "12px", margin: "0" }}
             src="/verified.svg"
+            alt="verified"
           />{" "}
           : <span style={{ color: "#109CF1", fontWeight: "bold" }}>toutes</span>{" "}
           les informations ont pu être vérifiées et validées.<br></br>
           <img
             style={{ widht: "12px", height: "12px", margin: "0" }}
             src="/interrogatoire.svg"
+            alt="no-verified"
           />{" "}
           : <span style={{ color: "#109CF1", fontWeight: "bold" }}>toutes</span>{" "}
           les informations n'ont pas pu être vérifiées et validées ou sont en

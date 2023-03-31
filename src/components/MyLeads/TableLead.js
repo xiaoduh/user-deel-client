@@ -62,9 +62,9 @@ const TableLead = () => {
                         <td>{leadsData[i].lookingFor}</td>
                         <td>
                           {leadsData[i].isVerified ? (
-                            <img src="./verified.svg" />
+                            <img src="./verified.svg" alt="verified" />
                           ) : (
-                            <img src="./interrogatoire.svg" />
+                            <img src="./interrogatoire.svg" alt="no-verified" />
                           )}
                         </td>
                         <td>
