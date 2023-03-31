@@ -23,17 +23,20 @@
     form {
         display: flex;
         flex-direction: column;
-        max-width: 500px;
+        max-width: 400px;
 
         label {
             font-size: 1rem;
+            margin-bottom: 1rem;
         }
         input {
+            width: 100%;
             margin-bottom: 1rem;
         }
         
         button {
             margin-bottom: 1rem;
+            max-width: 400px;
         }
     }
 

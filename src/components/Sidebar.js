@@ -5,7 +5,8 @@ import { upperCase } from "../utils";
 
 const Sidebar = () => {
   const userData = useSelector((state) => state.userReducer);
-  // console.log(userData);
+  const leadsData = useSelector((state) => state.leadsReducer);
+  console.log(userData.lead_bought.length);
 
   return (
     <nav>
@@ -35,14 +36,14 @@ const Sidebar = () => {
                 src="./marketplace.svg"
                 alt="marketplace"
               />
-              <p>Marketplace</p>
+              <p>Marketplace ({leadsData?.length})</p>
             </NavLink>
             <NavLink
               to="/lead"
               className={({ isActive }) => (isActive ? "active-left-nav" : "")}
             >
               <img className="img-icon" src="./lead.svg" alt="contact" />
-              <p>Mes contacts</p>
+              <p>Mes contacts ({userData?.lead_bought.length})</p>
             </NavLink>
             <NavLink
               to="/store"
