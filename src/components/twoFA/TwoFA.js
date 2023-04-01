@@ -49,7 +49,7 @@ const TwoFA = ({ handleTwoFA, userData }) => {
       const code = await Math.round(Math.random() * 10000);
       await axios({
         method: "get",
-        url: `${process.env.REACT_APP_API_URL}api/user/${uid}`,
+        url: `http://localhost:5000/api/user/${uid}`,
       })
         .then((res) => {
           if (res.data.twoFA != true) {

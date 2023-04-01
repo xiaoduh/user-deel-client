@@ -15,7 +15,7 @@ const ResetPW = () => {
 
     const res = await axios({
       method: "put",
-      url: `${process.env.REACT_APP_API_URL}api/user/user-reset-password/${id}/${token}`,
+      url: `http://localhost:5000/api/user/user-reset-password/${id}/${token}`,
       data: { password: newPassword },
     });
     if (res.status === 200) {

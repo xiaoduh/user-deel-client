@@ -15,7 +15,7 @@ const SignIn = () => {
 
     axios({
       method: "post",
-      url: `${process.env.REACT_APP_API_URL}api/user/login`,
+      url: `http://localhost:5000/api/user/login`,
       withCredentials: true,
       data: {
         email,
@@ -45,7 +45,7 @@ const SignIn = () => {
     console.log(email);
     axios({
       method: "post",
-      url: `${process.env.REACT_APP_API_URL}api/user/user-forgot-password/`,
+      url: `http://localhost:5000/api/user/user-forgot-password/`,
       withCredentials: true,
       data: {
         email,
