@@ -11,7 +11,7 @@ const EmailVerificator = () => {
       try {
         await axios({
           method: "get",
-          url: `${process.env.REACT_APP_API_URL}api/user/${param.id}/verify/${param.token}`,
+          url: `http://localhost:5000/api/user/${param.id}/verify/${param.token}`,
         }).then((res) => {
           setValidUrl(true);
         });

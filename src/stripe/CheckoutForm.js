@@ -30,7 +30,7 @@ const CheckoutForm = ({
       try {
         const { id } = paymentMethod;
         const response = await axios.post(
-          `${process.env.REACT_APP_API_URL}api/stripe/charge/${uid}`,
+          `http://localhost:5000/api/stripe/charge/${uid}`,
           {
             amount: plan.amount,
             id: id,
