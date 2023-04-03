@@ -26,7 +26,7 @@ export const logout = (uid) => {
       url: `https://deeel-v0-test.onrender.com/api/user/logout/${uid}`,
       withCredentials: true,
     })
-      .then(() => {
+      .then((res) => {
         dispatch({ type: LOGOUT, payload: res.data });
         removeCookie("jwt");
       })
