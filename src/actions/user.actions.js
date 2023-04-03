@@ -9,7 +9,7 @@ export const VERIFY_NUMBER = "VERIFY_NUMBER";
 export const getUser = (uid) => {
   return (dispatch) => {
     return axios
-      .get(`http://localhost:5000/api/user/${uid}`)
+      .get(`https://deeel-v0-test.onrender.com/api/user/${uid}`)
       .then((res) => {
         dispatch({ type: GET_USER, payload: res.data });
       })
@@ -21,7 +21,7 @@ export const buyLead = (leadId, userId, dealerId) => {
   return (dispatch) => {
     return axios({
       method: "patch",
-      url: `http://localhost:5000/api/lead/buy-lead/` + leadId,
+      url: `https://deeel-v0-test.onrender.com/api/lead/buy-lead/` + leadId,
       data: { userID: userId, dealerID: dealerId },
     })
       .then((res) => {
@@ -35,7 +35,8 @@ export const verifyNumber = (userId) => {
   return (dispatch) => {
     return axios({
       method: "put",
-      url: `http://localhost:5000/api/user/verify/number/` + userId,
+      url:
+        `https://deeel-v0-test.onrender.com/api/user/verify/number/` + userId,
     })
       .then((res) => {
         dispatch({ type: VERIFY_NUMBER, payload: res.data });

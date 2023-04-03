@@ -14,7 +14,7 @@ const Logout = () => {
   const logout = async () => {
     await axios({
       method: "get",
-      url: `http://localhost:5000/api/user/logout/${uid}`,
+      url: `https://deeel-v0-test.onrender.com/api/user/logout/${uid}`,
       withCredentials: true,
     })
       .then(() => removeCookie("jwt"))

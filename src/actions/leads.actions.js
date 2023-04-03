@@ -7,7 +7,7 @@ export const GET_LEADS = "GET_LEADS";
 export const getLeads = () => {
   return (dispatch) => {
     return axios
-      .get(`http://localhost:5000/api/lead`)
+      .get(`https://deeel-v0-test.onrender.com/api/lead`)
       .then((res) => {
         console.log(res.data);
         dispatch({ type: GET_LEADS, payload: res.data });

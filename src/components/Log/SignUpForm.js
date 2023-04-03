@@ -40,7 +40,7 @@ const SignUp = () => {
     } else {
       await axios({
         method: "post",
-        url: `http://localhost:5000/api/user/register`,
+        url: `https://deeel-v0-test.onrender.com/api/user/register`,
         data: {
           user_username,
           first_name,
