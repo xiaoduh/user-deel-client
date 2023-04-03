@@ -17,7 +17,10 @@ const Logout = () => {
       url: `https://deeel-v0-test.onrender.com/api/user/logout/${uid}`,
       withCredentials: true,
     })
-      .then(() => removeCookie("jwt"))
+      .then(() => {
+        removeCookie("jwt");
+        UidContext(null);
+      })
       .catch((err) => console.log(err));
 
     window.location = "/";
