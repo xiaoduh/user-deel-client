@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { UidContext } from "../AppContext";
 import { useDispatch } from "react-redux";
-import { getUser } from "./actions/user.actions";
+import { getUser } from "../../actions/user.actions";
 import axios from "axios";
 import cookie from "js-cookie";
 
