@@ -19,7 +19,7 @@ const Logout = () => {
     })
       .then(() => {
         removeCookie("jwt");
-        UidContext(null);
+        useContext(null);
       })
       .catch((err) => console.log(err));
 
