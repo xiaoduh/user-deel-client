@@ -8,7 +8,7 @@ import Grid from "../components/Marketplace/Grid";
 import TwoFA from "../components/twoFA/TwoFA";
 import { verifyNumber } from "../actions/user.actions";
 
-const Marketplace = () => {
+const Marketplace = ({ uidLogout }) => {
   const uid = useContext(UidContext);
   const userData = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();

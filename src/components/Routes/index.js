@@ -14,16 +14,21 @@ import Payment from "../../pages/Payment";
 import EmailVerificator from "../Log/EmailVerificator";
 import ResetPW from "../ResetPW/ResetPW";
 
-const index = () => {
+const index = ({ uidLogout }) => {
   return (
     <Router>
       <Routes>
-        <Route path="/" exact element={<Marketplace />} />
-        <Route path="/lead" exact element={<MyLeads />} />
-        <Route path="/store" exact element={<Store />} />
-        <Route path="/info" exact element={<Info />} />
-        <Route path="/help" exact element={<Help />} />
-        <Route path="/payment" exact element={<Payment />} />
+        <Route uidLogout={uidLogout} path="/" exact element={<Marketplace />} />
+        <Route uidLogout={uidLogout} path="/lead" exact element={<MyLeads />} />
+        <Route uidLogout={uidLogout} path="/store" exact element={<Store />} />
+        <Route uidLogout={uidLogout} path="/info" exact element={<Info />} />
+        <Route uidLogout={uidLogout} path="/help" exact element={<Help />} />
+        <Route
+          uidLogout={uidLogout}
+          path="/payment"
+          exact
+          element={<Payment />}
+        />
         <Route path="/user/:id/verify/:token" element={<EmailVerificator />} />
         <Route
           path="/api/user/user-reset-password/:id/:token"

@@ -5,13 +5,13 @@ import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import HelpForm from "../components/Help/HelpForm";
 
-const Help = () => {
+const Help = ({ uidLogout }) => {
   const uid = useContext(UidContext);
   return (
     <>
       {uid ? (
         <div className="logged-user">
-          <Header />
+          <Header uidLogout={uidLogout} />
           <Sidebar />
           <HelpForm />
         </div>

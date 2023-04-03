@@ -4,7 +4,7 @@ import Logout from "./Log/Logout";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const Header = () => {
+const Header = ({ uidLogout }) => {
   const uid = useContext(UidContext);
   const userData = useSelector((state) => state.userReducer);
   return (
@@ -19,7 +19,7 @@ const Header = () => {
           <NavLink to="/store">
             <button>Acheter des crédits</button>
           </NavLink>
-          {uid ? <Logout /> : <></>}
+          {uid ? <Logout uidLogout={uidLogout} /> : <></>}
         </div>
       </header>
     </>

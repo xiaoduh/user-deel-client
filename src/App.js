@@ -9,6 +9,10 @@ function App() {
   const [uid, setUid] = useState(null);
   const dispatch = useDispatch();
 
+  const uidLogout = () => {
+    setUid(null);
+  };
+
   useEffect(() => {
     const fetchToken = async () => {
       await axios({
@@ -26,8 +30,8 @@ function App() {
   }, [dispatch, uid]);
 
   return (
-    <UidContext.Provider value={uid}>
-      <Routes />
+    <UidContext.Provider value={uid} uidLogout={uidLogout}>
+      <Routes uidLogout={uidLogout} />
     </UidContext.Provider>
   );
 }

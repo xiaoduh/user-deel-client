@@ -1,13 +1,10 @@
 import React, { useContext } from "react";
 import { UidContext } from "../AppContext";
-import { useDispatch } from "react-redux";
-import { getUser } from "../../actions/user.actions";
 import axios from "axios";
 import cookie from "js-cookie";
 
-const Logout = () => {
+const Logout = ({ uidLogout }) => {
   const uid = useContext(UidContext);
-  const dispatch = useDispatch();
 
   const removeCookie = (key) => {
     if (window !== "undefined") {
@@ -23,7 +20,7 @@ const Logout = () => {
     })
       .then(() => {
         removeCookie("jwt");
-        dispatch(getUser(null));
+        uidLogout(null);
       })
       .catch((err) => console.log(err));
 

@@ -5,13 +5,13 @@ import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import Plan from "../components/Store/Plan";
 
-const Store = () => {
+const Store = ({ uidLogout }) => {
   const uid = useContext(UidContext);
   return (
     <>
       {uid ? (
         <div className="logged-user">
-          <Header />
+          <Header uidLogout={uidLogout} />
           <Sidebar />
           <Plan />
         </div>

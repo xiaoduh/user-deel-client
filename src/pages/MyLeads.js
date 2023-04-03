@@ -5,13 +5,13 @@ import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import TableLead from "../components/MyLeads/TableLead";
 
-const MyLeads = () => {
+const MyLeads = ({ uidLogout }) => {
   const uid = useContext(UidContext);
   return (
     <>
       {uid ? (
         <div className="logged-user">
-          <Header />
+          <Header uidLogout={uidLogout} />
           <Sidebar />
           <TableLead />
         </div>
