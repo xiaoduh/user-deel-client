@@ -14,18 +14,21 @@ function App() {
   };
 
   useEffect(() => {
-    const fetchToken = async () => {
-      await axios({
-        method: "get",
-        url: `https://deeel-v0-test.onrender.com/jwtid`,
-        withCredentials: true,
-      })
-        .then((res) => {
-          setUid(res.data.user._id);
+    if (uid !== "notoken") {
+      const fetchToken = async () => {
+        await axios({
+          method: "get",
+          url: `https://deeel-v0-test.onrender.com/jwtid`,
+          withCredentials: true,
         })
-        .catch((err) => console.log("No token"));
-    };
-    fetchToken();
+          .then((res) => {
+            setUid(res.data.user._id);
+          })
+          .catch((err) => console.log("No token"));
+      };
+      fetchToken();
+    }
+
     if (uid) dispatch(getUser(uid));
   }, [dispatch, uid]);
 
