@@ -1,3 +1,5 @@
+import cookie from "js-cookie";
+
 export const dateParser = (num) => {
   let options = {
     // hour: "2-digit",
@@ -46,4 +48,10 @@ export const calcLeadQuality = (lead) => {
   } else if (lead.first_name && lead.last_name) {
     return 45;
   } else return 25;
+};
+
+export const removeCookie = (key) => {
+  if (window !== "undefined") {
+    cookie.remove(key, { expires: 1 });
+  }
 };

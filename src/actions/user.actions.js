@@ -1,8 +1,10 @@
 import axios from "axios";
+import { removeCookie } from "../utils";
 
 export const GET_USER = "GET_USER";
 export const BUY_LEAD = "BUY_LEAD";
 export const VERIFY_NUMBER = "VERIFY_NUMBER";
+export const LOGOUT = "LOGOUT";
 
 // dispatch : ce qui est envoyé au reducer
 
@@ -12,6 +14,21 @@ export const getUser = (uid) => {
       .get(`https://deeel-v0-test.onrender.com/api/user/${uid}`)
       .then((res) => {
         dispatch({ type: GET_USER, payload: res.data });
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+export const logout = (uid) => {
+  return (dispatch) => {
+    return axios({
+      method: "get",
+      url: `https://deeel-v0-test.onrender.com/api/user/logout/${uid}`,
+      withCredentials: true,
+    })
+      .then(() => {
+        dispatch({ type: LOGOUT, payload: res.data });
+        removeCookie("jwt");
       })
       .catch((err) => console.log(err));
   };
