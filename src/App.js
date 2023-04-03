@@ -10,7 +10,7 @@ function App() {
   const dispatch = useDispatch();
 
   const uidLogout = () => {
-    setUid(null);
+    setUid("notoken");
   };
 
   useEffect(() => {

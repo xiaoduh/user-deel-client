@@ -20,7 +20,7 @@ const Logout = ({ uidLogout }) => {
     })
       .then(() => {
         removeCookie("jwt");
-        uidLogout("notoken");
+        uidLogout();
       })
       .catch((err) => console.log(err));
 
