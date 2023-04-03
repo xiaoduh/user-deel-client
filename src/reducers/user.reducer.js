@@ -1,9 +1,4 @@
-import {
-  GET_USER,
-  BUY_LEAD,
-  VERIFY_NUMBER,
-  LOGOUT,
-} from "../actions/user.actions";
+import { GET_USER, BUY_LEAD, VERIFY_NUMBER } from "../actions/user.actions";
 
 const initialState = {};
 
@@ -20,9 +15,6 @@ export default function userReducer(state = initialState, action) {
         ...state,
         twoFA: true,
       };
-
-    case LOGOUT:
-      return action.payload;
 
     default:
       return state;
