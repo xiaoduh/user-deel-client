@@ -19,7 +19,6 @@ const Logout = () => {
     })
       .then(() => {
         removeCookie("jwt");
-        useContext(null);
       })
       .catch((err) => console.log(err));
 
