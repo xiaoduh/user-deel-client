@@ -28,6 +28,7 @@ export const logout = (uid) => {
     })
       .then((res) => {
         dispatch({ type: LOGOUT, payload: res.data });
+        dispatch(getUser(null));
         removeCookie("jwt");
       })
       .catch((err) => console.log(err));
