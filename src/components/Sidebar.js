@@ -72,7 +72,9 @@ const Sidebar = () => {
               <p>Aide</p>
             </NavLink>
           </div>
+          <small>Version beta 0.0.1 2023</small>
         </div>
+
         {/* <div className="release-version">
           <small>version Beta 0.0.1</small>
         </div> */}

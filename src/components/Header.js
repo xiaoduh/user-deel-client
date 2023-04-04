@@ -10,11 +10,28 @@ const Header = () => {
   return (
     <>
       <header>
-        <h2>Deel</h2>
-
+        <NavLink to="/">
+          <img src="./logo.png" alt="logo" />
+        </NavLink>
         <div className="icon">
+          <div className="menu-burger">
+            <img
+              className="img-icon"
+              src="./menu-burger.svg"
+              alt="menu-burger"
+            />
+          </div>
           <div className="credit-balance">
-            <span>{userData.coin}</span> <p>Crédits</p>
+            {userData.coin > 0 ? (
+              <>
+                <span>{userData.coin}</span> <p>Crédits</p>
+              </>
+            ) : (
+              <>
+                <span style={{ color: "#F7685B" }}>{userData.coin}</span>{" "}
+                <p>Crédit</p>
+              </>
+            )}
           </div>{" "}
           <NavLink to="/store">
             <button>Acheter des crédits</button>

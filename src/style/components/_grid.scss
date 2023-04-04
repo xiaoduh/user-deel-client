@@ -7,6 +7,16 @@ main {
     overflow-y: scroll;
     scrollbar-width: thin;
 
+    @media screen and (max-width: 1500px)  {
+        left: 220px;
+        width: calc(100% - 220px);
+    }
+
+    @media screen and (max-width: 800px)  {
+        left: 0px;
+        width: calc(100%);
+    }
+
 
     table {
         width: 100%;
@@ -16,6 +26,13 @@ main {
         border-radius: 10px;
 
         thead {
+
+            .disable {
+
+                @media screen and (max-width: 600px)  {
+                    display: none;
+                  }
+            }
 
 
             th {
@@ -47,6 +64,13 @@ main {
 
                 &:first-child {
                     box-shadow: 0px 1px 0px #EBEFF2;
+                }
+
+                .disable {
+
+                    @media screen and (max-width: 600px)  {
+                        display: none;
+                      }
                 }
 
                 td {

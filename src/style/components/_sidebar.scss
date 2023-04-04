@@ -9,6 +9,14 @@
         background: $white;
         box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
+        @media screen and (max-width: 1500px)  {
+            width: 220px;
+        }
+
+        @media screen and (max-width: 800px)  {
+            display: none;
+        }
+
         .sidebar-header {
             height: 60px;
             border-bottom: 1px solid #EBEFF2;
@@ -87,6 +95,10 @@
             justify-content: space-between;
 
             .navlinks {
+                height: 40vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
                 
                 a {
                     display: flex;
@@ -105,6 +117,11 @@
                 }
     
                 .navlinks-container {
+                    margin: 1rem 1rem 1rem 1rem;
+                }
+
+                small {
+                    color: $accent-blue;
                     margin: 1rem 1rem 1rem 1rem;
                 }
 

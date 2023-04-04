@@ -37,7 +37,7 @@ const Grid = () => {
         <table>
           <thead>
             <tr>
-              <th>Id</th>
+              <th className="disable">Id</th>
               <th>Recherche</th>
               <th>
                 Qualité{" "}
@@ -47,7 +47,7 @@ const Grid = () => {
                   onClick={() => setPopupInfo(true)}
                 />
               </th>
-              <th>Ajouté le</th>
+              <th className="disable">Ajouté le</th>
               <th>Nombre de vue</th>
               <th>
                 Fiabilité{" "}
@@ -57,7 +57,7 @@ const Grid = () => {
                   onClick={() => setInfoReliability(true)}
                 />
               </th>
-              <th>Dernière MAJ</th>
+              <th className="disable">Dernière MAJ</th>
               <th>Action</th>
             </tr>
           </thead>
