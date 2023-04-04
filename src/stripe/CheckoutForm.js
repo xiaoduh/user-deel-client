@@ -77,9 +77,13 @@ const CheckoutForm = ({
             )}{" "}
           </button>
         </>
-        <button className="btn-cancel" onClick={() => closeCheckoutForm()}>
-          Annuler
-        </button>
+        {loading ? (
+          ""
+        ) : (
+          <button className="btn-cancel" onClick={() => closeCheckoutForm()}>
+            Annuler
+          </button>
+        )}
       </form>
     </>
   );
