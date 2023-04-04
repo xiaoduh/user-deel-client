@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { UidContext } from "../components/AppContext";
@@ -14,10 +14,12 @@ const CheckoutForm = ({
   const stripe = useStripe();
   const elements = useElements();
   const uid = useContext(UidContext);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   console.log(plan.credit);
 
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
@@ -39,16 +41,19 @@ const CheckoutForm = ({
         );
         if (response.data.success) {
           console.log("payment successful");
+          setLoading(false);
           dispatch(getUser(uid));
         }
       } catch (error) {
         console.log("erreur :" + error);
+        setLoading(false);
         closeCheckoutForm();
         paymentFailed();
       }
       closeCheckoutForm();
       paymentSuccessful();
     } else {
+      setLoading(false);
       console.log(error.message);
       closeCheckoutForm();
       paymentFailed();
@@ -59,6 +64,11 @@ const CheckoutForm = ({
     <>
       <form onSubmit={handleSubmit}>
         <CardElement options={{ hidePostalCode: true }} />
+        {loading ? (
+          <i className="fas fa-spinner fa-spin"></i>
+        ) : (
+          <button type="submit">Confirmer mon paiement</button>
+        )}
         <button type="submit">Confirmer mon paiement</button>
         <button className="btn-cancel" onClick={() => closeCheckoutForm()}>
           Annuler
