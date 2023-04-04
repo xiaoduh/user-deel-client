@@ -95,9 +95,7 @@ const SignUp = () => {
         <form action="" onSubmit={handleRegister} id="sign-up-form">
           <div className="title-connexion">
             <img src="./logo.png" alt="logo" />
-            <h2>
-              Inscription <span>utilisateur</span>.
-            </h2>
+            <h2>Inscription</h2>
           </div>
           <label htmlFor="identifiant" class="form__label">
             Identifiant
@@ -214,12 +212,16 @@ const SignUp = () => {
           </label>
           <div className="terms error"></div>
           <br /> */}
-
-          {loading ? (
-            <i className="fas fa-spinner fa-spin"></i>
-          ) : (
-            <input type="submit" value="S'inscrire" />
-          )}
+          <>
+            <button type="submit">
+              {" "}
+              {loading ? (
+                <i className="fas fa-spinner fa-spin"></i>
+              ) : (
+                <p>S'inscrire</p>
+              )}{" "}
+            </button>
+          </>
         </form>
       )}
     </>
