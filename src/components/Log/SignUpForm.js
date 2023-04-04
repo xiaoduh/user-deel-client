@@ -10,8 +10,10 @@ const SignUp = () => {
   const [phone_number, setPhone_number] = useState("");
   const [password, setPassword] = useState("");
   const [controlPassword, setControlPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleRegister = async (e) => {
+    setLoading(true);
     e.preventDefault();
     const terms = document.getElementById("terms");
     const pseudoError = document.querySelector(".identifiant.error");
@@ -53,6 +55,7 @@ const SignUp = () => {
         .then((res) => {
           console.log(res);
           if (res.data.errors) {
+            setLoading(false);
             pseudoError.innerHTML = res.data.errors.user_username;
             nomError.innerHTML = res.data.errors.last_name;
             prenomError.innerHTML = res.data.errors.first_name;
@@ -61,6 +64,7 @@ const SignUp = () => {
             passwordError.innerHTML = res.data.errors.password;
           } else {
             setFormSubmit(true);
+            setLoading(false);
             register.classList.remove("active-btn");
             login.classList.add("active-btn");
           }
@@ -210,7 +214,12 @@ const SignUp = () => {
           </label>
           <div className="terms error"></div>
           <br /> */}
-          <input type="submit" value="S'inscrire" />
+
+          {loading ? (
+            <i className="fas fa-spinner fa-spin"></i>
+          ) : (
+            <input type="submit" value="S'inscrire" />
+          )}
         </form>
       )}
     </>
