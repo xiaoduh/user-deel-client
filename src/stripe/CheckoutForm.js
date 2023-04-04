@@ -71,7 +71,9 @@ const CheckoutForm = ({
             {loading ? (
               <i className="fas fa-spinner fa-spin"></i>
             ) : (
-              <p>Confirmer mon paiement</p>
+              <p style={{ color: "white", margin: "0" }}>
+                Confirmer mon paiement
+              </p>
             )}{" "}
           </button>
         </>
