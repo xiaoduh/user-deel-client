@@ -6,9 +6,11 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
   const [resetPassword, setResetPassword] = useState(false);
   const [emailToReset, setEmailToReset] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = (e) => {
     e.preventDefault();
+    setLoading(true);
 
     const emailError = document.querySelector(".email.error");
     const passwordError = document.querySelector(".password.error");
@@ -38,6 +40,7 @@ const SignIn = () => {
 
   const handleResetPassword = (e) => {
     e.preventDefault();
+    setLoading(true);
     const email = emailToReset;
     const emailError = document.querySelector(".email.error");
     const emailSuccess = document.querySelector(".email.success");
@@ -52,6 +55,7 @@ const SignIn = () => {
       },
     })
       .then((res) => {
+        setLoading(false);
         emailSuccess.innerHTML = res.data;
         setTimeout(() => {
           emailSuccess.innerHTML = "";
@@ -91,7 +95,11 @@ const SignIn = () => {
             <div className="email error"></div>
             <div className="email success"></div>
             <br />
-            <input type="submit" value="Demander un nouveau mot de passe" />
+            {loading ? (
+              <i className="fas fa-spinner fa-spin"></i>
+            ) : (
+              <input type="submit" value="Demander un nouveau mot de passe" />
+            )}
           </form>
           <div className="reset-password">
             <p onClick={() => setResetPassword(!resetPassword)}>Retour</p>
@@ -135,7 +143,11 @@ const SignIn = () => {
             />
             <div className="password error"></div>
             <br />
-            <input type="submit" value="Se connecter" />
+            {loading ? (
+              <i className="fas fa-spinner fa-spin"></i>
+            ) : (
+              <input type="submit" value="Se connecter" />
+            )}
           </form>
           <div className="reset-password">
             <p onClick={() => setResetPassword(!resetPassword)}>
