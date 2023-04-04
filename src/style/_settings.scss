@@ -116,6 +116,19 @@ input[type="submit"] {
   border-radius: 5px;
   box-shadow: $accent-blue 1.95px 1.95px 2.6px;
 
+  @media screen and (max-width: 1500px)  {
+    font-size: .7rem;
+}
+
+@media screen and (max-width: 1200px)  {
+  font-size: .6rem;
+  padding: 5px 5px;
+}
+
+@media screen and (max-width: 1200px)  {
+  font-size: .5rem;
+}
+
   &:hover {
     background: $accent-blue-hover;
     color: white;
@@ -173,6 +186,15 @@ body {
     line-height: 1.4rem;
     background: $bg;
     color: $dark-blue-text;
+
+    
+    @media screen and (max-width: 1500px)  {
+      font-size: .7rem;
+  }
+
+  @media screen and (max-width: 1200px)  {
+    font-size: .6rem;
+  }
   }
 
 .img-icon {

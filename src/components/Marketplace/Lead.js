@@ -25,12 +25,14 @@ const Lead = ({ lead, user }) => {
         <i className="fas fa-spinner fa-spin"></i>
       ) : (
         <>
-          <td>{lead._id.slice(lead._id.length - 4, lead._id.length)}</td>
+          <td className="disable">
+            {lead._id.slice(lead._id.length - 4, lead._id.length)}
+          </td>
           <td>{lead.lookingFor}</td>
           <td>
             <PercentFiability percent={calcLeadQuality(lead)} />
           </td>
-          <td>{dateParser(lead.createdAt)}</td>
+          <td className="disable">{dateParser(lead.createdAt)}</td>
           <td>{lead?.buyer?.length}</td>
           <td>
             {lead?.isVerified === true ? (
@@ -39,7 +41,7 @@ const Lead = ({ lead, user }) => {
               <img src="./interrogatoire.svg" alt="no-verified" />
             )}
           </td>
-          <td>{dateParser(lead.updatedAt)}</td>
+          <td className="disable">{dateParser(lead.updatedAt)}</td>
           <td>
             {user?.lead_bought?.find((el) => el === lead._id) ? (
               <NavLink to="/lead">
