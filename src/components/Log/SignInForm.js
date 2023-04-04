@@ -95,11 +95,16 @@ const SignIn = () => {
             <div className="email error"></div>
             <div className="email success"></div>
             <br />
-            {loading ? (
-              <i className="fas fa-spinner fa-spin"></i>
-            ) : (
-              <input type="submit" value="Demander un nouveau mot de passe" />
-            )}
+            <>
+              <button type="submit">
+                {" "}
+                {loading ? (
+                  <i className="fas fa-spinner fa-spin"></i>
+                ) : (
+                  <p>Demander un nouveau mot de passe</p>
+                )}{" "}
+              </button>
+            </>
           </form>
           <div className="reset-password">
             <p onClick={() => setResetPassword(!resetPassword)}>Retour</p>
@@ -110,9 +115,7 @@ const SignIn = () => {
           {" "}
           <div className="title-connexion">
             <img src="./logo.png" alt="logo" />
-            <h2>
-              Connexion en tant que <span>utilisateur</span>.
-            </h2>
+            <h2>Connexion</h2>
           </div>
           <form onSubmit={handleLogin} id="sign-up-form">
             <label htmlFor="email" class="form__label">
@@ -143,11 +146,16 @@ const SignIn = () => {
             />
             <div className="password error"></div>
             <br />
-            {loading ? (
-              <i className="fas fa-spinner fa-spin"></i>
-            ) : (
-              <input type="submit" value="Se connecter" />
-            )}
+            <>
+              <button type="submit">
+                {" "}
+                {loading ? (
+                  <i className="fas fa-spinner fa-spin"></i>
+                ) : (
+                  <p>Se connecter</p>
+                )}{" "}
+              </button>
+            </>
           </form>
           <div className="reset-password">
             <p onClick={() => setResetPassword(!resetPassword)}>

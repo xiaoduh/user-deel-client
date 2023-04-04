@@ -20,7 +20,7 @@ const Profil = () => {
             <p>{dateParser(user.createdAt)}</p>
           </div>
           <div className="user-credit-balance">
-            <h3>Mes cédrits</h3>
+            <h3>Mes crédits</h3>
             <div className="content">
               <span>{user?.coin}</span> <p>Crédits</p>
             </div>

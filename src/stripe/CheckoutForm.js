@@ -64,12 +64,16 @@ const CheckoutForm = ({
     <>
       <form onSubmit={handleSubmit}>
         <CardElement options={{ hidePostalCode: true }} />
-        {loading ? (
-          <i className="fas fa-spinner fa-spin"></i>
-        ) : (
-          <button type="submit">Confirmer mon paiement</button>
-        )}
-        <button type="submit">Confirmer mon paiement</button>
+        <>
+          <button type="submit">
+            {" "}
+            {loading ? (
+              <i className="fas fa-spinner fa-spin"></i>
+            ) : (
+              <p>Confirmer mon paiement</p>
+            )}{" "}
+          </button>
+        </>
         <button className="btn-cancel" onClick={() => closeCheckoutForm()}>
           Annuler
         </button>
