@@ -94,6 +94,11 @@ textarea {
     width: 370px;
     font-family: $font-Regular;
     border-bottom: #109CF1;
+
+    &::placeholder {
+      color: $icon-gray;
+      font-size: .6rem;
+    }
   }
 
 textarea {
