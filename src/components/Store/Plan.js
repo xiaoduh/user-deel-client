@@ -11,14 +11,14 @@ const Plan = () => {
 
   const planA = {
     credit: 1,
-    amount: 9999,
-    price: "99,99",
+    amount: 7999,
+    price: "79,99",
   };
 
   const planB = {
     credit: 5,
-    amount: 34599,
-    price: "345,99",
+    amount: 32500,
+    price: "325,00",
   };
 
   const planC = {
@@ -60,11 +60,11 @@ const Plan = () => {
               <h2>
                 <span>1</span> Crédit
               </h2>
-              <small>99,99€ par contact</small>
+              <small>79,99€ par contact</small>
             </div>
             <div className="plan-content">
               <p>
-                99,<span> 99 €</span>
+                79,<span> 99 €</span>
               </p>
               <small>TTC</small>
             </div>
@@ -80,11 +80,11 @@ const Plan = () => {
               <h2>
                 <span>5</span> Crédits
               </h2>
-              <small>69,99€ par contact</small>
+              <small>65,00€ par contact</small>
             </div>
             <div className="plan-content">
               <p>
-                345,<span> 99 €</span>
+                325,<span> 00 €</span>
               </p>
               <small>TTC</small>
             </div>

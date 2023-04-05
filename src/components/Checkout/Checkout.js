@@ -15,7 +15,7 @@ const Checkout = ({
         </div>
         <div className="checkout-content">
           <p>
-            Vous avez choisi le plan{" "}
+            Vous avez choisi l'offre{" "}
             <span style={{ color: "#109CF1", fontWeight: "bold" }}>
               {plan.credit}
             </span>{" "}
