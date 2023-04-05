@@ -162,7 +162,8 @@ input[type="text"], input[type='password'], input[type='email'] {
   border-radius: 5px;
 
   &::placeholder {
-    background: #109CF1;
+    color: $icon-gray;
+    font-size: .6rem;
   }
 }
 

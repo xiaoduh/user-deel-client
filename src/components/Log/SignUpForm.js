@@ -106,7 +106,9 @@ const SignUp = () => {
             type="text"
             name="identifiant"
             id="identifiant"
+            autocomplete="off"
             required
+            placeholder="JohnDuff"
             onChange={(e) => setUser_username(e.target.value)}
             value={user_username}
           />
@@ -121,7 +123,9 @@ const SignUp = () => {
             type="text"
             name="nom"
             id="nom"
+            autocomplete="off"
             required
+            placeholder="Duff"
             onChange={(e) => setLast_name(e.target.value)}
             value={last_name}
           />
@@ -136,7 +140,9 @@ const SignUp = () => {
             type="text"
             name="prenom"
             id="prenom"
+            autocomplete="off"
             required
+            placeholder="John"
             onChange={(e) => setFirst_name(e.target.value)}
             value={first_name}
           />
@@ -151,7 +157,9 @@ const SignUp = () => {
             type="text"
             name="tel"
             id="tel"
+            autocomplete="off"
             required
+            placeholder="doit être vérifié pour vous connecter"
             onChange={(e) => setPhone_number(e.target.value)}
             value={phone_number}
           />
@@ -166,7 +174,9 @@ const SignUp = () => {
             type="text"
             name="email"
             id="email"
+            autocomplete="off"
             required
+            placeholder="doit être vérifié pour activer votre compte"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
@@ -181,6 +191,8 @@ const SignUp = () => {
             type="password"
             name="password"
             id="password"
+            autocomplete="off"
+            placeholder="********"
             required
             onChange={(e) => setPassword(e.target.value)}
             value={password}
@@ -196,6 +208,8 @@ const SignUp = () => {
             type="password"
             name="password"
             id="password-conf"
+            autocomplete="off"
+            placeholder="********"
             required
             onChange={(e) => setControlPassword(e.target.value)}
             value={controlPassword}
