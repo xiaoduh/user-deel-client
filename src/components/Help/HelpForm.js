@@ -73,6 +73,7 @@ const HelpForm = () => {
           )}
         </button>
         <div className="form-message"></div>
+      </form>
     </div>
   );
 };
