@@ -7,7 +7,7 @@
     flex-direction: column;
 
     img {
-        width: 100px;
+        width: 80px;
         margin: 0 auto 3rem;
     }
 
@@ -28,11 +28,17 @@
             width: auto;
         }
 
+        button {
+
+            p { margin: 0;}
+        }
+
         textarea {
+            border-radius: 5px;
             padding: .5rem .5rem;
             margin-bottom: 2rem;
             width: auto;
-            height: 260px;
+            height: 200px;
         }
     }
 }
