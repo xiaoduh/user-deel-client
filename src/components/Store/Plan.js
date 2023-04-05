@@ -11,14 +11,14 @@ const Plan = () => {
 
   const planA = {
     credit: 1,
-    amount: 9999,
-    price: "99,99",
+    amount: 7999,
+    price: "79,99",
   };
 
   const planB = {
     credit: 5,
-    amount: 34599,
-    price: "345,99",
+    amount: 32500,
+    price: "325,00",
   };
 
   const planC = {
