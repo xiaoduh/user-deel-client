@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
-const HelpForm = () => {
+const HelpForm = ({ title, p, subject }) => {
   const form = useRef();
   const [loading, setLoading] = useState(false);
 
@@ -22,8 +22,7 @@ const HelpForm = () => {
           console.log(result.text);
           form.current.reset();
           setLoading(false);
-          formMess.innerHTML =
-            "<p class='success'>Demande d'assistance envoyée ! Nous vous recontactons dans les plus bref délais.</p>";
+          formMess.innerHTML = `<p class='success'>Demande ${subject} envoyée ! Nous vous recontactons dans les plus bref délais.</p>`;
 
           setTimeout(() => {
             formMess.innerHTML = "";
@@ -44,13 +43,8 @@ const HelpForm = () => {
   return (
     <div className="contact">
       <img src="/support.svg" alt="support" />
-      <h3>
-        Vous faites face à des difficultés d'utilisation ou à un problème ?
-      </h3>
-      <p>
-        Contactez-nous et nous prendre contacte avec vous dans les plus bref
-        délais.
-      </p>
+      <h3>{title}</h3>
+      <p>{p}</p>
       <form ref={form} onSubmit={sendEmail}>
         <input
           type="email"
@@ -62,7 +56,7 @@ const HelpForm = () => {
         <textarea
           name="message"
           required
-          placeholder="Votre message décrivant votre difficulté"
+          placeholder="Votre message décrivant votre demande"
         ></textarea>
         <button type="submit">
           {" "}

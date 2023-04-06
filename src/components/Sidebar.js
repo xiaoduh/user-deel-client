@@ -71,6 +71,13 @@ const Sidebar = () => {
               <img className="img-icon" src="./help.svg" alt="help" />
               <p>Aide</p>
             </NavLink>
+            <NavLink
+              to="/report"
+              className={({ isActive }) => (isActive ? "active-left-nav" : "")}
+            >
+              <img className="img-icon" src="./usd-cercle.svg" alt="report" />
+              <p>Remboursement</p>
+            </NavLink>
           </div>
           <small>Version beta 0.0.1 2023</small>
         </div>
