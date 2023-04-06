@@ -27,7 +27,7 @@ const Marketplace = () => {
             <Grid />
           </div>
         ) : (
-          <TwoFA handleTwoFA={handleTwoFA} userData={userData} />
+          <TwoFA handleTwoFA={handleTwoFA}  userData={userData} />
         )
       ) : (
         <div className="log-container">

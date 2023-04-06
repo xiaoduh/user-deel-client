@@ -159,8 +159,10 @@ const SignUp = () => {
             id="tel"
             autocomplete="off"
             required
-            placeholder="doit être vérifié pour vous connecter"
-            onChange={(e) => setPhone_number(e.target.value)}
+            placeholder="Un code vous sera envoyé à chaque connexion"
+            onChange={(e) =>
+              setPhone_number(e.target.value.replace("0", "+33"))
+            }
             value={phone_number}
           />
           <div className="tel error"></div>
