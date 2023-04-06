@@ -5,14 +5,12 @@ import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import HelpForm from "../components/Help/HelpForm";
 
-const Help = () => {
+const Report = () => {
   const uid = useContext(UidContext);
-  const title =
-    "Vous faites face à des difficultés d'utilisation ou à un problème ?";
+  const title = "Vous avez acheté un contact obsolete ?";
   const p =
-    "Contactez-nous et nous prendre contacte avec vous dans les plus bref délais.";
-  const subject = "d'assictance";
-
+    "Demandez le remboursement de votre crédit. Vous devrez apporter la preuve que le poste/besoin/mission n'est plus d'actualité(e).";
+  const subject = "de remboursement";
   return (
     <>
       {uid ? (
@@ -30,4 +28,4 @@ const Help = () => {
   );
 };
 
-export default Help;
+export default Report;

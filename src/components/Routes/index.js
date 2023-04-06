@@ -13,6 +13,7 @@ import Store from "../../pages/Store";
 import Payment from "../../pages/Payment";
 import EmailVerificator from "../Log/EmailVerificator";
 import ResetPW from "../ResetPW/ResetPW";
+import Report from "../../pages/Report";
 
 const index = () => {
   return (
@@ -23,6 +24,7 @@ const index = () => {
         <Route path="/store" exact element={<Store />} />
         <Route path="/info" exact element={<Info />} />
         <Route path="/help" exact element={<Help />} />
+        <Route path="/report" exact element={<Report />} />
         <Route path="/payment" exact element={<Payment />} />
         <Route path="/user/:id/verify/:token" element={<EmailVerificator />} />
         <Route
