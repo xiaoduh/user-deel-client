@@ -44,12 +44,12 @@ const SignUp = () => {
         method: "post",
         url: `http://localhost:5000/api/user/register`,
         data: {
-          user_username,
-          first_name,
-          last_name,
-          email,
-          phone_number,
-          password,
+          user_username: user_username,
+          first_name: first_name,
+          last_name: last_name,
+          email: email,
+          phone_number: phone_number.replace("0", "+33"),
+          password: password,
         },
       })
         .then((res) => {
@@ -160,9 +160,7 @@ const SignUp = () => {
             autocomplete="off"
             required
             placeholder="Un code vous sera envoyé à chaque connexion"
-            onChange={(e) =>
-              setPhone_number(e.target.value.replace("0", "+33"))
-            }
+            onChange={(e) => setPhone_number(e.target.value)}
             value={phone_number}
           />
           <div className="tel error"></div>
