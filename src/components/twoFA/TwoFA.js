@@ -44,7 +44,7 @@ const TwoFA = ({ handleTwoFA, userData }) => {
   };
 
   useEffect(() => {
-    const generateCode = async (number) => {
+    const generateCode = async () => {
       const code = await Math.round(Math.random() * 10000);
       await axios({
         method: "get",
