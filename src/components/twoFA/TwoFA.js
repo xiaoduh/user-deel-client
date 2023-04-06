@@ -6,6 +6,7 @@ import { UidContext } from "../AppContext";
 
 const TwoFA = ({ handleTwoFA, userData }) => {
   const [codeUser, setCodeUser] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [isVerified, setIsVerified] = useState(false);
   const [codeGenerated, setCodeGenerated] = useState(null);
   const uid = useContext(UidContext);
@@ -22,7 +23,7 @@ const TwoFA = ({ handleTwoFA, userData }) => {
     }
   };
 
-  const sendCode = (codeGenerated) => {
+  const sendCode = (codeGenerated, number) => {
     const url =
       "https://api.twilio.com/2010-04-01/Accounts/ACb520541f549c9efe149f562714a5c72e/Messages.json";
     const auth =
@@ -35,9 +36,7 @@ const TwoFA = ({ handleTwoFA, userData }) => {
       method: "post",
       headers: headers,
       mode: "cors",
-      body:
-        "To=+33686553473&From=+16729060660&Body=Bonjour, voici votre code pour vous connecter sur Deeel : " +
-        codeGenerated,
+      body: `To=${number}&From=+16729060660&Body=Bonjour, voici votre code pour vous connecter sur deeel : ${codeGenerated}`,
     };
     fetch(url, init)
       .then((res) => console.log(res))
@@ -53,18 +52,23 @@ const TwoFA = ({ handleTwoFA, userData }) => {
       })
         .then((res) => {
           if (res.data.twoFA != true) {
-            sendCode(code);
+            sendCode(code, res.data.phone_number);
             setCodeGenerated(code);
           }
         })
         .catch((err) => console.log(err));
     };
-    generateCode();
+    if ((userData.isVerified = true)) {
+      setLoading(false);
+      generateCode();
+    }
   }, [uid]);
 
   return (
     <>
-      {!isVerified ? (
+      {loading ? (
+        <i className="fas fa-spinner fa-spin"></i>
+      ) : !isVerified ? (
         <div className="twoFA-container">
           <img src="/exclamation.svg" alt="warning" />
           <h3>Veuillez confirmer votre connexion.</h3>
@@ -81,10 +85,9 @@ const TwoFA = ({ handleTwoFA, userData }) => {
             <button type="submit">Valider ma connexion</button>
           </form>
           {/* <div className="resend-container">
-            <p>Renvoyer le SMS</p>
-          </div> */}
+              <p>Renvoyer le SMS</p>
+            </div> */}
           <div className="logout">
-            <p>Abandonner</p>
             <Logout />
           </div>
         </div>
