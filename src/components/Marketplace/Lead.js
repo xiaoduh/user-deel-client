@@ -29,6 +29,13 @@ const Lead = ({ lead, user }) => {
           </td>
           <td>{lead.lookingFor}</td>
           <td>
+            {lead.company !== "" ? (
+              <img src="./known.svg" alt="known" />
+            ) : (
+              <img src="./unknown.svg" alt="unknown" />
+            )}
+          </td>
+          <td>
             {lead.first_name && lead.last_name !== "" ? (
               <img src="./known.svg" alt="known" />
             ) : (
