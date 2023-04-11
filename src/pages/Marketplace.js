@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { UidContext } from "../components/AppContext";
 import { useSelector, useDispatch } from "react-redux";
 import Log from "../components/Log";
@@ -7,6 +7,7 @@ import Header from "../components/Header";
 import Grid from "../components/Marketplace/Grid";
 import TwoFA from "../components/twoFA/TwoFA";
 import { verifyNumber } from "../actions/user.actions";
+import ReactGA from "react-ga";
 
 const Marketplace = () => {
   const uid = useContext(UidContext);
@@ -16,6 +17,10 @@ const Marketplace = () => {
   const handleTwoFA = (user) => {
     dispatch(verifyNumber(user._id));
   };
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname);
+  }, []);
 
   return (
     <>
@@ -27,7 +32,7 @@ const Marketplace = () => {
             <Grid />
           </div>
         ) : (
-          <TwoFA handleTwoFA={handleTwoFA}  userData={userData} />
+          <TwoFA handleTwoFA={handleTwoFA} userData={userData} />
         )
       ) : (
         <div className="log-container">

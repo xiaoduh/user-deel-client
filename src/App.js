@@ -4,6 +4,11 @@ import { UidContext } from "./components/AppContext";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { getUser } from "./actions/user.actions";
+import ReactGA from "react-ga";
+
+const TRACKING_ID = "G-PX6V2GRHT5";
+
+ReactGA.initialize(TRACKING_ID);
 
 function App() {
   const [uid, setUid] = useState(null);
