@@ -3,12 +3,17 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./style/index.scss";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { applyMiddleware, createStore } from "redux";
 // dev tools
 import rootReducer from "./reducers";
+import { composeWithDevTools } from "redux-devtools-extension";
+import logger from "redux-logger";
 // import { getLeads } from "./actions/leads.actions";
 
-const store = createStore(rootReducer);
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(thunk, logger))
+);
 
 // store.dispatch(getLeads());
 
