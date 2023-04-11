@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { getUser } from "./actions/user.actions";
 import ReactGA from "react-ga";
 
-ReactGA.initialize('G-PX6V2GRHT5');
+ReactGA.initialize("G-PX6V2GRHT5");
 
 function App() {
   const [uid, setUid] = useState(null);
@@ -17,6 +17,7 @@ function App() {
   };
 
   useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
     if (uid !== "notoken") {
       const fetchToken = async () => {
         await axios({
@@ -36,8 +37,8 @@ function App() {
   }, [dispatch, uid]);
 
   return (
-    <UidContext.Provider value={uid} uidLogout={uidLogout}>
-      <Routes uidLogout={uidLogout} />
+    <UidContext.Provider value={uid}>
+      <Routes />
     </UidContext.Provider>
   );
 }
