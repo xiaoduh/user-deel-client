@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { calcLeadQuality, dateParser } from "../../utils";
-import PercentFiability from "../utils/PercentFiability";
+import { dateParser } from "../../utils";
 import { getLeads } from "../../actions/leads.actions";
 
 const TableLead = () => {
