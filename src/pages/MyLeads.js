@@ -4,6 +4,7 @@ import Log from "../components/Log";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import TableLead from "../components/MyLeads/TableLead";
+import ReactGA from "react-ga";
 
 const MyLeads = ({ uidLogout }) => {
   const uid = useContext(UidContext);

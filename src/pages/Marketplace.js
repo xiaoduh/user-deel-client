@@ -9,7 +9,7 @@ import TwoFA from "../components/twoFA/TwoFA";
 import { verifyNumber } from "../actions/user.actions";
 import ReactGA from "react-ga";
 
-const Marketplace = ({ uidLogout }) => {
+const Marketplace = () => {
   const uid = useContext(UidContext);
   const userData = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
