@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -14,8 +14,12 @@ import Payment from "../../pages/Payment";
 import EmailVerificator from "../Log/EmailVerificator";
 import ResetPW from "../ResetPW/ResetPW";
 import Report from "../../pages/Report";
+import ReactGA from "react-ga";
 
 const index = () => {
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
   return (
     <Router>
       <Routes>
