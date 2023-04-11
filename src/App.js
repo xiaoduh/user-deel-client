@@ -12,10 +12,6 @@ function App() {
   const [uid, setUid] = useState(null);
   const dispatch = useDispatch();
 
-  const uidLogout = () => {
-    setUid("notoken");
-  };
-
   useEffect(() => {
     ReactGA.pageview(window.location.pathname + window.location.search);
     if (uid !== "notoken") {
