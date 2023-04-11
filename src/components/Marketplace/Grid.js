@@ -40,13 +40,15 @@ const Grid = () => {
               <th className="disable">Id</th>
               <th>Recherche</th>
               <th>
-                Qualité{" "}
-                <img
+                Demandeur
+                {/* <img
                   src="/info.svg"
                   alt="info"
                   onClick={() => setPopupInfo(true)}
-                />
+                /> */}
               </th>
+              <th>Email</th>
+              <th>Téléphone</th>
               <th className="disable">Ajouté le</th>
               <th>Nombre de vue</th>
               <th>
@@ -57,7 +59,7 @@ const Grid = () => {
                   onClick={() => setInfoReliability(true)}
                 />
               </th>
-              <th className="disable">Dernière MAJ</th>
+              {/* <th className="disable">Dernière MAJ</th> */}
               <th>Action</th>
             </tr>
           </thead>
