@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Popup from "./Popup";
-import { calcLeadQuality, dateParser } from "../../utils";
-import PercentFiability from "../utils/PercentFiability";
+import { dateParser } from "../../utils";
 import { NavLink } from "react-router-dom";
 
 const Lead = ({ lead, user }) => {
@@ -30,7 +29,25 @@ const Lead = ({ lead, user }) => {
           </td>
           <td>{lead.lookingFor}</td>
           <td>
-            <PercentFiability percent={calcLeadQuality(lead)} />
+            {lead.first_name && lead.last_name !== "" ? (
+              <img src="./known.svg" alt="known" />
+            ) : (
+              <img src="./unknown.svg" alt="unknown" />
+            )}
+          </td>
+          <td>
+            {lead.email !== "" ? (
+              <img src="./known.svg" alt="known" />
+            ) : (
+              <img src="./unknown.svg" alt="unknown" />
+            )}
+          </td>
+          <td>
+            {lead.phone !== "" ? (
+              <img src="./known.svg" alt="known" />
+            ) : (
+              <img src="./unknown.svg" alt="unknown" />
+            )}
           </td>
           <td className="disable">{dateParser(lead.createdAt)}</td>
           <td>{lead?.buyer?.length}</td>
@@ -41,7 +58,6 @@ const Lead = ({ lead, user }) => {
               <img src="./interrogatoire.svg" alt="no-verified" />
             )}
           </td>
-          <td className="disable">{dateParser(lead.updatedAt)}</td>
           <td>
             {user?.lead_bought?.find((el) => el === lead._id) ? (
               <NavLink to="/lead">
