@@ -57,7 +57,13 @@ const Lead = ({ lead, user }) => {
               <img src="./unknown.svg" alt="unknown" />
             )}
           </td>
-          <td>{lead.isOpen == true ? <p>Ouvert</p> : <p>?</p>}</td>
+          <td>
+            {lead.isOpen == true ? (
+              <p style={{ color: "#2ED47A", fontWeight: "bold" }}>Ouvert</p>
+            ) : (
+              <p style={{ color: "#FFB946", fontWeight: "bold" }}>?</p>
+            )}
+          </td>
           <td className="disable">{dateParser(lead.createdAt)}</td>
           <td>{lead?.buyer?.length}</td>
           <td>
