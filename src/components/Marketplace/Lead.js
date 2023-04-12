@@ -27,8 +27,8 @@ const Lead = ({ lead, user }) => {
           <td className="disable">
             {lead._id.slice(lead._id.length - 4, lead._id.length)}
           </td>
-          <td>{lead.lookingFor}</td>
-          <td>{lead.sector}</td>
+          <td className="needs">{lead.lookingFor}</td>
+          <td className="sector">{lead.sector}</td>
           <td>
             {lead.company !== "" ? (
               <img src="./known.svg" alt="known" />
