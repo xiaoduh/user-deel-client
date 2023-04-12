@@ -38,7 +38,7 @@ const Grid = () => {
           <thead>
             <tr>
               <th className="disable">Id</th>
-              <th>Recherche</th>
+              <th>Besoin</th>
               <th>Secteur</th>
               <th>Société</th>
               <th>
