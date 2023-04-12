@@ -39,6 +39,7 @@ const Grid = () => {
             <tr>
               <th className="disable">Id</th>
               <th>Recherche</th>
+              <th>Secteur</th>
               <th>Société</th>
               <th>
                 Demandeur
