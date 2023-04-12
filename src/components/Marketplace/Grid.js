@@ -51,6 +51,7 @@ const Grid = () => {
               </th>
               <th>Email</th>
               <th>Téléphone</th>
+              <th>Statut</th>
               <th className="disable">Ajouté le</th>
               <th>Nombre de vue</th>
               <th>
