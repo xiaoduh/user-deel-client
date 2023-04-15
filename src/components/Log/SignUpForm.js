@@ -65,8 +65,8 @@ const SignUp = () => {
           } else {
             setFormSubmit(true);
             setLoading(false);
-            register.classList.remove("active-btn");
-            login.classList.add("active-btn");
+            // register.classList.remove("active-btn");
+            // login.classList.add("active-btn");
           }
         })
         .catch((err) => console.log(err));
