@@ -1,44 +1,64 @@
-.contact {
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 300px;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
+    left: 300px;
+    width: calc(100% - 300px);
+    height: 90%;
+    padding: 1.5rem;
+    overflow-y: scroll;
+    scrollbar-width: thin;
 
-    img {
-        width: 80px;
-        margin: 0 auto 3rem;
-    }
-
-    h3 {
-        margin-bottom: .5rem;
-    }
-
-    P {
+    .title-container { 
         margin-bottom: 2rem;
+
+        h3 {
+            font-size: 1.5rem;
+        }
     }
 
-    form {
+    .contact {
         display: flex;
         flex-direction: column;
-
-        input {
-            margin-bottom: 2rem;
-            width: auto;
+    
+        img {
+            width: 80px;
+            margin-bottom: 3rem;
         }
-
-        button {
-
-            p { margin: 0;}
+    
+        h3 {
+            margin-bottom: .5rem;
         }
-
-        textarea {
-            border-radius: 5px;
-            padding: .5rem .5rem;
+    
+        P {
             margin-bottom: 2rem;
-            width: auto;
-            height: 200px;
+        }
+    
+        form {
+            display: flex;
+            flex-direction: column;
+    
+            input {
+                margin-bottom: 2rem;
+                width: auto;
+            }
+    
+            button {
+    
+                p { margin: 0;}
+            }
+    
+            textarea {
+                border-radius: 5px;
+                padding: .5rem .5rem;
+                margin-bottom: 2rem;
+                width: auto;
+                height: 200px;
+            }
         }
     }
 }
+

@@ -11,20 +11,20 @@ const Plan = () => {
 
   const planA = {
     credit: 1,
-    amount: 7999,
-    price: "79,99",
+    amount: 2990,
+    price: "29,90",
   };
 
   const planB = {
     credit: 5,
-    amount: 32500,
-    price: "325,00",
+    amount: 12450,
+    price: "124,50",
   };
 
   const planC = {
     credit: 10,
-    amount: 49999,
-    price: "499,99",
+    amount: 19090,
+    price: "199,90",
   };
 
   const handleCheckoutForm = (plan) => {
@@ -45,80 +45,90 @@ const Plan = () => {
   };
 
   return (
-    <main className="main-plan">
-      {checkout ? (
-        <Checkout
-          plan={plan}
-          closeCheckoutForm={closeCheckoutForm}
-          paymentSuccessful={handlePopupSuccess}
-          paymentFailed={handlePopupFailed}
-        />
-      ) : (
-        <div className="plan-container">
-          <div className="wrapper">
-            <div className="header-plan">
-              <h2>
-                <span>1</span> Crédit
-              </h2>
-              <small>79,99€ par contact</small>
-            </div>
-            <div className="plan-content">
-              <p>
-                79,<span> 99 €</span>
-              </p>
-              <small>TTC</small>
-            </div>
-            <button
-              className="btn-confirm"
-              onClick={() => handleCheckoutForm(planA)}
-            >
-              Acheter
-            </button>
-          </div>
-          <div className="wrapper main-plan">
-            <div className="header-plan">
-              <h2>
-                <span>5</span> Crédits
-              </h2>
-              <small>65,00€ par contact</small>
-            </div>
-            <div className="plan-content">
-              <p>
-                325,<span> 00 €</span>
-              </p>
-              <small>TTC</small>
-            </div>
-            <button
-              className="btn-confirm"
-              onClick={() => handleCheckoutForm(planB)}
-            >
-              Acheter
-            </button>
-          </div>
-          <div className="wrapper">
-            <div className="header-plan">
-              <h2>
-                <span>10</span> Crédits
-              </h2>
-              <small>49,99€ par contact</small>
-            </div>
-            <div className="plan-content">
-              <p>
-                499,<span> 99 €</span>
-              </p>
-              <small>TTC</small>
-            </div>
-            <button
-              className="btn-confirm"
-              onClick={() => handleCheckoutForm(planC)}
-            >
-              Acheter
-            </button>
-          </div>
+    <main>
+      <div className="main-plan">
+        <div className="title-container">
+          <h3>
+            <span style={{ color: "#109CF1" }}>Créditer</span> mon compte
+          </h3>
+          <p>
+            Ne payez que les besoins qui vous intéressent.
+          </p>
         </div>
-      )}
-      {paymentSuccessful ? <PopupPaymentSuccess /> : null}
-      {paymentFailed ? <PopupPaymentFailed /> : null}
+        {checkout ? (
+          <Checkout
+            plan={plan}
+            closeCheckoutForm={closeCheckoutForm}
+            paymentSuccessful={handlePopupSuccess}
+            paymentFailed={handlePopupFailed}
+          />
+        ) : (
+          <>
+            <div className="wrapper planA">
+              <div className="header-plan">
+                <h2>
+                  <span>1</span> Crédit
+                </h2>
+                <small>29,90€ par contact</small>
+              </div>
+              <div className="plan-content">
+                <p>
+                  29,<span> 90 €</span>
+                </p>
+                <small>TTC</small>
+              </div>
+              <button
+                className="btn-confirm"
+                onClick={() => handleCheckoutForm(planA)}
+              >
+                Acheter
+              </button>
+            </div>
+            <div className="wrapper planB">
+              <div className="header-plan">
+                <h2>
+                  <span>5</span> Crédits
+                </h2>
+                <small>24,90€ par contact</small>
+              </div>
+              <div className="plan-content">
+                <p>
+                  124,<span> 50 €</span>
+                </p>
+                <small>TTC</small>
+              </div>
+              <button
+                className="btn-confirm"
+                onClick={() => handleCheckoutForm(planB)}
+              >
+                Acheter
+              </button>
+            </div>
+            <div className="wrapper planC">
+              <div className="header-plan">
+                <h2>
+                  <span>10</span> Crédits
+                </h2>
+                <small>19,90€ par contact</small>
+              </div>
+              <div className="plan-content">
+                <p>
+                  199,<span> 90 €</span>
+                </p>
+                <small>TTC</small>
+              </div>
+              <button
+                className="btn-confirm"
+                onClick={() => handleCheckoutForm(planC)}
+              >
+                Acheter
+              </button>
+            </div>
+          </>
+        )}
+        {paymentSuccessful ? <PopupPaymentSuccess /> : null}
+        {paymentFailed ? <PopupPaymentFailed /> : null}
+      </div>
     </main>
   );
 };

@@ -31,53 +31,64 @@ const Grid = () => {
 
   return (
     <main>
-      {isLoading ? (
-        <i className="fas fa-spinner fa-spin"></i>
-      ) : (
-        <table>
-          <thead>
-            <tr>
-              <th className="disable">Id</th>
-              <th className="needs">Besoin</th>
-              <th className="sector">Secteur</th>
-              <th>Société</th>
-              <th>
-                Demandeur
-                {/* <img
+      <div className="table-grid">
+        <div className="title-container">
+          <h3>
+            Besoins à la vente sur la
+            <span style={{ color: "#109CF1" }}>
+              {" "}
+              Markeplace ({leadsData.length})
+            </span>
+          </h3>
+        </div>
+        {isLoading ? (
+          <i className="fas fa-spinner fa-spin"></i>
+        ) : (
+          <table>
+            <thead>
+              <tr>
+                <th className="disable">Id</th>
+                <th className="needs">Besoin</th>
+                <th className="sector">Secteur</th>
+                <th>Société</th>
+                <th>
+                  Demandeur
+                  {/* <img
                   src="/info.svg"
                   alt="info"
                   onClick={() => setPopupInfo(true)}
                 /> */}
-              </th>
-              <th>Email</th>
-              <th>Téléphone</th>
-              <th>Statut</th>
-              <th className="disable">Ajouté le</th>
-              <th>Nombre de vue</th>
-              <th>
-                Fiabilité{" "}
-                <img
-                  src="/info.svg"
-                  alt="info"
-                  onClick={() => setInfoReliability(true)}
-                />
-              </th>
-              {/* <th className="disable">Dernière MAJ</th> */}
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {!isEmpty(leadsData[0]) &&
-              leadsData.map((lead) => {
-                return <Lead lead={lead} user={userData} key={lead} />;
-              })}
-          </tbody>
-        </table>
-      )}
-      {popupInfo ? <PopupInfo closePopupInfo={closePopupInfo} /> : null}
-      {infoReliability ? (
-        <PopupReliability closePopupReliability={closePopupReliability} />
-      ) : null}
+                </th>
+                <th>Email</th>
+                <th>Téléphone</th>
+                <th>Statut</th>
+                <th className="disable">Ajouté le</th>
+                <th>Nombre de vue</th>
+                <th>
+                  Fiabilité{" "}
+                  <img
+                    src="/info.svg"
+                    alt="info"
+                    onClick={() => setInfoReliability(true)}
+                  />
+                </th>
+                {/* <th className="disable">Dernière MAJ</th> */}
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {!isEmpty(leadsData[0]) &&
+                leadsData.map((lead) => {
+                  return <Lead lead={lead} user={userData} key={lead} />;
+                })}
+            </tbody>
+          </table>
+        )}
+        {popupInfo ? <PopupInfo closePopupInfo={closePopupInfo} /> : null}
+        {infoReliability ? (
+          <PopupReliability closePopupReliability={closePopupReliability} />
+        ) : null}
+      </div>
     </main>
   );
 };
