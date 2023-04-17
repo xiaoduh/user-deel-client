@@ -6,7 +6,14 @@ const Profil = () => {
   const user = useSelector((state) => state.userReducer);
   console.log(user);
   return (
-    <main>
+    <main className="profil">
+      <div className="title-container">
+        <h3>
+          Mon
+          <span style={{ color: "#109CF1" }}> Compte</span>
+        </h3>
+        <p>Ici, retrouvez toutes vos données personnelles et statistiques.</p>
+      </div>
       <div className="info-user-container">
         <div className="wrapper">
           <div className="profil-info">

@@ -41,34 +41,44 @@ const HelpForm = ({ title, p, subject }) => {
   };
 
   return (
-    <div className="contact">
-      <img src="/support.svg" alt="support" />
-      <h3>{title}</h3>
-      <p>{p}</p>
-      <form ref={form} onSubmit={sendEmail}>
-        <input
-          type="email"
-          name="email"
-          placeholder="Mon adresse email"
-          required
-          autoComplete="off"
-        />
-        <textarea
-          name="message"
-          required
-          placeholder="Votre message décrivant votre demande"
-        ></textarea>
-        <button type="submit">
-          {" "}
-          {loading ? (
-            <i className="fas fa-spinner fa-spin"></i>
-          ) : (
-            <p>Envoyer</p>
-          )}
-        </button>
-        <div className="form-message"></div>
-      </form>
-    </div>
+    <main>
+      <div className="form-grid">
+        <div className="title-container">
+          <h3>
+            Contacter le
+            <span style={{ color: "#109CF1" }}> Support</span>
+          </h3>
+        </div>
+        <div className="contact">
+          <img src="/support.svg" alt="support" />
+          <h3>{title}</h3>
+          <p>{p}</p>
+          <form ref={form} onSubmit={sendEmail}>
+            <input
+              type="email"
+              name="email"
+              placeholder="Mon adresse email"
+              required
+              autoComplete="off"
+            />
+            <textarea
+              name="message"
+              required
+              placeholder="Votre message décrivant votre demande"
+            ></textarea>
+            <button type="submit">
+              {" "}
+              {loading ? (
+                <i className="fas fa-spinner fa-spin"></i>
+              ) : (
+                <p>Envoyer</p>
+              )}
+            </button>
+            <div className="form-message"></div>
+          </form>
+        </div>
+      </div>
+    </main>
   );
 };
 

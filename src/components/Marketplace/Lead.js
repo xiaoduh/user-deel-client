@@ -76,12 +76,10 @@ const Lead = ({ lead, user }) => {
           <td>
             {user?.lead_bought?.find((el) => el === lead._id) ? (
               <NavLink to="/lead">
-                <button className="btn-confirm">Voir le contact</button>
+                <button className="btn-confirm">Voir le besoin</button>
               </NavLink>
             ) : (
-              <button onClick={() => closePopup()}>
-                Débloquer contre 1 crédit
-              </button>
+              <button onClick={() => closePopup()}>Débloquer le besoin</button>
             )}
           </td>
         </>
