@@ -50,6 +50,7 @@ const Grid = () => {
                 <th className="disable">Id</th>
                 <th className="needs">Besoin</th>
                 <th className="sector">Secteur</th>
+                <th className="sector">Lieu</th>
                 <th>Société</th>
                 <th>
                   Demandeur
