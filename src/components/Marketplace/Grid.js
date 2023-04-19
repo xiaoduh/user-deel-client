@@ -34,7 +34,7 @@ const Grid = () => {
       <div className="table-grid">
         <div className="title-container">
           <h3>
-            Besoins à la vente sur la
+            Besoins en ventes sur la
             <span style={{ color: "#109CF1" }}>
               {" "}
               Markeplace ({leadsData.length})
@@ -50,6 +50,7 @@ const Grid = () => {
                 <th className="disable">Id</th>
                 <th className="needs">Besoin</th>
                 <th className="sector">Secteur</th>
+                <th className="sector">Lieu</th>
                 <th>Société</th>
                 <th>
                   Demandeur

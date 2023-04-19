@@ -3,9 +3,9 @@ export const dateParser = (num) => {
     // hour: "2-digit",
     // minute: "2-digit",
     // second: "2-digit",
-    weekday: "short",
+    // weekday: "short",
     year: "numeric",
-    month: "short",
+    month: "numeric",
     day: "numeric",
   };
 

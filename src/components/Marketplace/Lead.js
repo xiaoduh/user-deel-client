@@ -29,6 +29,7 @@ const Lead = ({ lead, user }) => {
           </td>
           <td className="needs">{lead.lookingFor}</td>
           <td className="sector">{lead.sector}</td>
+          <td className="sector">{lead.region}</td>
           <td>
             {lead.company !== "" ? (
               <img src="./known.svg" alt="known" />

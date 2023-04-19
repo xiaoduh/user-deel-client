@@ -67,10 +67,6 @@ $shadow: rgb(219, 218, 218);
     outline: none;
     border: none;
     text-decoration: none;
-  
-    &::selection {
-      background: $accent-blue;
-    }
   }
 
 a,
@@ -98,6 +94,10 @@ textarea {
     &::placeholder {
       color: $icon-gray;
       font-size: .6rem;
+    }
+
+    &:focus {
+      border: 1px solid $accent-blue;
     }
   }
 
@@ -169,6 +169,10 @@ input[type="text"], input[type='password'], input[type='email'] {
   &::placeholder {
     color: $icon-gray;
     font-size: .6rem;
+  }
+
+  &:focus {
+    border: 1px solid $accent-blue;
   }
 }
 
