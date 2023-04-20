@@ -66,7 +66,7 @@ const Lead = ({ lead, user }) => {
             )}
           </td>
           <td className="disable">{dateParser(lead.createdAt)}</td>
-          <td>{lead?.buyer?.length}</td>
+          <td>{lead?.buyer?.length} / 4</td>
           <td>
             {lead?.isVerified === true ? (
               <img src="./verified.svg" alt="verified" />
@@ -79,8 +79,10 @@ const Lead = ({ lead, user }) => {
               <NavLink to="/lead">
                 <button className="btn-confirm">Voir le besoin</button>
               </NavLink>
-            ) : (
+            ) : lead.buyer.length < 4 ? (
               <button onClick={() => closePopup()}>Débloquer le besoin</button>
+            ) : (
+              <button className="btn-not-allowed">Vente terminée</button>
             )}
           </td>
         </>
