@@ -160,6 +160,17 @@ input[type="submit"] {
   }
 }
 
+.btn-not-allowed {
+  background: $red;
+  color: $white;
+  box-shadow: $red 1.95px 1.95px 2.6px;
+  cursor: not-allowed;
+
+  &:hover {
+    background: #fa7d72;
+  }
+}
+
 input[type="text"], input[type='password'], input[type='email'] {
   padding: .5rem .2rem;
   cursor: pointer;
