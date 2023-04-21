@@ -85,16 +85,11 @@ h4 {
 }
 
 input,
-textarea {
+textarea, select {
     resize: none;
     width: 370px;
     font-family: $font-Regular;
     border-bottom: #109CF1;
-
-    &::placeholder {
-      color: $icon-gray;
-      font-size: .6rem;
-    }
 
     &:focus {
       border: 1px solid $accent-blue;
@@ -170,8 +165,18 @@ input[type="submit"] {
     background: #fa7d72;
   }
 }
+select {
+  padding: .5rem .2rem;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 5px;
 
-input[type="text"], input[type='password'], input[type='email'] {
+  &:focus {
+    border: 1px solid $accent-blue;
+  }
+}
+
+input[type="text"], input[type='password'], input[type='email'], input[type='select'] {
   padding: .5rem .2rem;
   cursor: pointer;
   background-color: white;
@@ -179,7 +184,6 @@ input[type="text"], input[type='password'], input[type='email'] {
 
   &::placeholder {
     color: $icon-gray;
-    font-size: .6rem;
   }
 
   &:focus {
