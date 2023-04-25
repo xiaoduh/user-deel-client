@@ -20,7 +20,7 @@ const Popup = ({ lead, closePopup }) => {
       <div className="modal">
         <h3>
           Voulez-vous dépenser <span style={{ color: "#109CF1" }}>1</span>{" "}
-          crédit pour débloquer ce contact ?
+          crédit pour contacter cet apporteur d'affaire ?
         </h3>
         <p>
           Votre solde est de{" "}

@@ -1,37 +1,26 @@
 import React, { useContext, useEffect } from "react";
-import { useSelector } from "react-redux";
 import { UidContext } from "../components/AppContext";
+import { useSelector } from "react-redux";
 import Log from "../components/Log";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
-import TableLead from "../components/MyLeads/TableLead";
-import Sales from "../components/MyLeads/BusinessProvider";
+import GridSeller from "../components/Marketplace/GridSeller";
 import ReactGA from "react-ga";
 
-const MyLeads = () => {
+const Announce = () => {
   const uid = useContext(UidContext);
   const userData = useSelector((state) => state.userReducer);
-
   useEffect(() => {
     ReactGA.pageview(window.location.pathname);
   }, []);
-
   return (
     <>
       {uid ? (
-        userData.user_type === "sales" ? (
-          <div className="logged-user">
-            <Header />
-            <Sidebar />
-            <TableLead />
-          </div>
-        ) : (
-          <div className="logged-user">
-            <Header />
-            <Sidebar />
-            <Sales />
-          </div>
-        )
+        <div className="logged-user">
+          <Header />
+          <Sidebar />
+          <GridSeller />
+        </div>
       ) : (
         <div className="log-container">
           <Log signin={true} signup={false} />
@@ -41,4 +30,4 @@ const MyLeads = () => {
   );
 };
 
-export default MyLeads;
+export default Announce;

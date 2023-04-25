@@ -5,19 +5,26 @@ import Lead from "./Lead";
 import { getLeads } from "../../actions/leads.actions";
 import PopupInfo from "./PopupInfo";
 import PopupReliability from "./PopupReliability";
+import PopupReview from "./PopupReview";
+import { getAllUsers } from "../../actions/users.actions";
 
 const Grid = () => {
   const leadsData = useSelector((state) => state.leadsReducer);
   const userData = useSelector((state) => state.userReducer);
+  const usersData = useSelector((state) => state.usersReducer);
   const [isLoading, setIsLoading] = useState(true);
   const [popupInfo, setPopupInfo] = useState(false);
   const [infoReliability, setInfoReliability] = useState(false);
+  const [infoReview, setInfoReview] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (isLoading) {
       dispatch(getLeads());
-      setIsLoading(false);
+      dispatch(getAllUsers());
+      if (!isEmpty(leadsData) && !isEmpty(userData) && !isEmpty(usersData)) {
+        setIsLoading(false);
+      }
     }
   }, [isLoading]);
 
@@ -29,16 +36,17 @@ const Grid = () => {
     setInfoReliability(false);
   };
 
+  const closePopupReview = () => {
+    setInfoReview(false);
+  };
+
   return (
     <main>
       <div className="table-grid">
         <div className="title-container">
           <h3>
-            Besoins en ventes sur la
-            <span style={{ color: "#109CF1" }}>
-              {" "}
-              Markeplace ({leadsData.length})
-            </span>
+            Annonces d'apports d'affaires
+            <span style={{ color: "#109CF1" }}> ({leadsData.length})</span>
           </h3>
         </div>
         {isLoading ? (
@@ -68,9 +76,17 @@ const Grid = () => {
                 <th>
                   Fiabilité{" "}
                   <img
-                    src="/info.svg"
+                    src="/information.svg"
                     alt="info"
-                    onClick={() => setInfoReliability(true)}
+                    onMouseOver={() => setInfoReliability(true)}
+                  />
+                </th>
+                <th>
+                  Note globale de l'apporteur d'affaires{" "}
+                  <img
+                    src="/information.svg"
+                    alt="info"
+                    onMouseOver={() => setInfoReview(true)}
                   />
                 </th>
                 {/* <th className="disable">Dernière MAJ</th> */}
@@ -80,7 +96,14 @@ const Grid = () => {
             <tbody>
               {!isEmpty(leadsData[0]) &&
                 leadsData.map((lead) => {
-                  return <Lead lead={lead} user={userData} key={lead} />;
+                  return (
+                    <Lead
+                      lead={lead}
+                      user={userData}
+                      users={usersData}
+                      key={lead}
+                    />
+                  );
                 })}
             </tbody>
           </table>
@@ -88,6 +111,9 @@ const Grid = () => {
         {popupInfo ? <PopupInfo closePopupInfo={closePopupInfo} /> : null}
         {infoReliability ? (
           <PopupReliability closePopupReliability={closePopupReliability} />
+        ) : null}
+        {infoReview ? (
+          <PopupReview closePopupReview={closePopupReview} />
         ) : null}
       </div>
     </main>

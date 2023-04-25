@@ -1,4 +1,8 @@
-import { GET_USER, BUY_LEAD, VERIFY_NUMBER } from "../actions/user.actions";
+import {
+  GET_USER,
+  BUY_LEAD,
+  VERIFY_NUMBER,
+} from "../actions/user.actions";
 
 const initialState = {};
 

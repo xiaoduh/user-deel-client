@@ -4,9 +4,9 @@ import { useSelector } from "react-redux";
 import Log from "../components/Log";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
-import Plan from "../components/Store/Plan";
+import ConvertCredit from "../components/Store/ConvertCredit";
 
-const Store = () => {
+const Transfert = () => {
   const uid = useContext(UidContext);
   const userData = useSelector((state) => state.userReducer);
   return (
@@ -15,7 +15,7 @@ const Store = () => {
         <div className="logged-user">
           <Header />
           <Sidebar />
-          <Plan />
+          <ConvertCredit />
         </div>
       ) : (
         <div className="log-container">
@@ -26,4 +26,4 @@ const Store = () => {
   );
 };
 
-export default Store;
+export default Transfert;

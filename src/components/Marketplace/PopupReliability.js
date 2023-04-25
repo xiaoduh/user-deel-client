@@ -23,7 +23,7 @@ const PopupReliability = ({ closePopupReliability }) => {
           </span>{" "}
           <img
             style={{ widht: "12px", height: "12px", margin: "0" }}
-            src="/interrogatoire.svg"
+            src="/aide.svg"
             alt="no-verified"
           />
           .<br></br>
@@ -36,7 +36,7 @@ const PopupReliability = ({ closePopupReliability }) => {
           les informations ont pu être vérifiées et validées.<br></br>
           <img
             style={{ widht: "12px", height: "12px", margin: "0" }}
-            src="/interrogatoire.svg"
+            src="/aide.svg"
             alt="no-verified"
           />{" "}
           : <span style={{ color: "#109CF1", fontWeight: "bold" }}>toutes</span>{" "}

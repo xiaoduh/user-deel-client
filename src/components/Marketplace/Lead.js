@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import Popup from "./Popup";
-import { dateParser } from "../../utils";
+import { dateParser, isEmpty, upperCase } from "../../utils";
 import { NavLink } from "react-router-dom";
 
-const Lead = ({ lead, user }) => {
+const Lead = ({ lead, user, users }) => {
   const [unlock, setUnlock] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  let initialValue = 0;
 
   useEffect(() => {
     if (isLoading) {
-      setIsLoading(false);
+      if (!isEmpty(lead) && !isEmpty(user) && !isEmpty(users)) {
+        setIsLoading(false);
+      }
     }
   }, [isLoading]);
 
@@ -27,8 +30,8 @@ const Lead = ({ lead, user }) => {
           <td className="disable">
             {lead._id.slice(lead._id.length - 4, lead._id.length)}
           </td>
-          <td className="needs">{lead.lookingFor}</td>
-          <td className="sector">{lead.sector}</td>
+          <td className="needs">{upperCase(lead.lookingFor)}</td>
+          <td className="sector">{upperCase(lead.sector)}</td>
           <td className="sector">{lead.region}</td>
           <td>
             {lead.company !== "" ? (
@@ -71,18 +74,33 @@ const Lead = ({ lead, user }) => {
             {lead?.isVerified === true ? (
               <img src="./verified.svg" alt="verified" />
             ) : (
-              <img src="./interrogatoire.svg" alt="no-verified" />
+              <img src="./aide.svg" alt="no-verified" />
             )}
           </td>
           <td>
+            {/* {lead.dealerID} */}
+            {users
+              .filter((el) => el._id.includes(lead.dealerID))
+              .map(
+                (el) =>
+                  el.review.reduce(
+                    (accumulator, currentValue) => accumulator + currentValue,
+                    initialValue
+                  ) / el.review.length
+              )}{" "}
+            / 5
+          </td>
+          <td>
+            //a faire tester aussi si le lead n'est pas le sien auquel cas
+            afficher boutton voir
             {user?.lead_bought?.find((el) => el === lead._id) ? (
-              <NavLink to="/lead">
-                <button className="btn-confirm">Voir le besoin</button>
+              <NavLink to="/conversation">
+                <button className="btn-confirm">Voir</button>
               </NavLink>
             ) : lead.buyer.length < 4 ? (
-              <button onClick={() => closePopup()}>Débloquer le besoin</button>
+              <button onClick={() => closePopup()}>Contacter</button>
             ) : (
-              <button className="btn-not-allowed">Vente terminée</button>
+              <button className="btn-not-allowed">Fermée</button>
             )}
           </td>
         </>

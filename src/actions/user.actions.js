@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const GET_USER = "GET_USER";
+
 export const BUY_LEAD = "BUY_LEAD";
 export const VERIFY_NUMBER = "VERIFY_NUMBER";
 
@@ -16,6 +17,8 @@ export const getUser = (uid) => {
       .catch((err) => console.log(err));
   };
 };
+
+
 
 export const buyLead = (leadId, userId, dealerId) => {
   return (dispatch) => {

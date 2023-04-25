@@ -26,7 +26,7 @@ const TableLead = () => {
             Mes
             <span style={{ color: "#109CF1" }}>
               {" "}
-              Achats ({userData.lead_bought.length})
+              infos business ({userData.lead_bought.length})
             </span>
           </h3>
         </div>

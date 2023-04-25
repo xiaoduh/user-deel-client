@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import axios from "axios";
+import { isEmpty } from "../../utils";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -7,6 +9,7 @@ const SignIn = () => {
   const [resetPassword, setResetPassword] = useState(false);
   const [emailToReset, setEmailToReset] = useState("");
   const [loading, setLoading] = useState(false);
+  const leadsData = useSelector((state) => state.leadsReducer);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -114,7 +117,14 @@ const SignIn = () => {
         <>
           {" "}
           <div className="title-connexion">
-            <img src="./logo.png" alt="logo" />
+            <img style={{ marginBottom: "0" }} src="./logo.png" alt="logo" />
+            <p style={{ marginBottom: "1.5rem" }}>
+              Il y a actuellement{" "}
+              <span style={{ color: "#109CF1" }}>
+                {!isEmpty(leadsData) && leadsData.length}
+              </span>{" "}
+              annonces d'apports d'affaires en ligne.
+            </p>
             <h2>Connexion</h2>
           </div>
           <form onSubmit={handleLogin} id="sign-up-form">

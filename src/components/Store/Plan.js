@@ -46,14 +46,10 @@ const Plan = () => {
 
   return (
     <main>
-      <div className="main-plan">
+      <div className="main-plan grid-form-need">
         <div className="title-container">
-          <h3>
-            <span style={{ color: "#109CF1" }}>Créditer</span> mon compte
-          </h3>
-          <p>
-            Ne payez que les besoins qui vous intéressent.
-          </p>
+          <h3>Créditer mon compte</h3>
+          <p>Ne payez uniquement les besoins qui vous intéressent.</p>
         </div>
         {checkout ? (
           <Checkout
@@ -69,7 +65,7 @@ const Plan = () => {
                 <h2>
                   <span>1</span> Crédit
                 </h2>
-                <small>29,90€ par contact</small>
+                <small>29,90€ par apport d'affaire</small>
               </div>
               <div className="plan-content">
                 <p>
@@ -89,7 +85,7 @@ const Plan = () => {
                 <h2>
                   <span>5</span> Crédits
                 </h2>
-                <small>24,90€ par contact</small>
+                <small>24,90€ par apport d'affaire</small>
               </div>
               <div className="plan-content">
                 <p>
@@ -109,7 +105,7 @@ const Plan = () => {
                 <h2>
                   <span>10</span> Crédits
                 </h2>
-                <small>19,90€ par contact</small>
+                <small>19,90€ par apport d'affaire</small>
               </div>
               <div className="plan-content">
                 <p>

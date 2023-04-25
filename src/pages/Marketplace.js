@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Log from "../components/Log";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
-import Grid from "../components/Marketplace/Grid";
+import GridBuyer from "../components/Marketplace/GridBuyer";
 import TwoFA from "../components/twoFA/TwoFA";
 import { verifyNumber } from "../actions/user.actions";
 import ReactGA from "react-ga";
@@ -29,7 +29,7 @@ const Marketplace = () => {
           <div className="logged-user">
             <Header />
             <Sidebar />
-            <Grid />
+            <GridBuyer />
           </div>
         ) : (
           <TwoFA handleTwoFA={handleTwoFA} userData={userData} />

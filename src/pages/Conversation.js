@@ -1,21 +1,24 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { UidContext } from "../components/AppContext";
-import { useSelector } from "react-redux";
 import Log from "../components/Log";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
-import Plan from "../components/Store/Plan";
+import ReactGA from "react-ga";
 
-const Store = () => {
+const Conversation = () => {
   const uid = useContext(UidContext);
-  const userData = useSelector((state) => state.userReducer);
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname);
+  }, []);
+
   return (
     <>
       {uid ? (
         <div className="logged-user">
           <Header />
           <Sidebar />
-          <Plan />
+          <h2>conversation page</h2>
         </div>
       ) : (
         <div className="log-container">
@@ -26,4 +29,4 @@ const Store = () => {
   );
 };
 
-export default Store;
+export default Conversation;

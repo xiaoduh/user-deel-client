@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import axios from "axios";
+import { isEmpty } from "../../utils";
 
 const SignUp = () => {
   const [formSubmit, setFormSubmit] = useState(false);
@@ -10,6 +12,7 @@ const SignUp = () => {
   const [phone_number, setPhone_number] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const leadsData = useSelector((state) => state.leadsReducer);
 
   const handleRegister = async (e) => {
     setLoading(true);
@@ -79,7 +82,12 @@ const SignUp = () => {
       ) : (
         <form action="" onSubmit={handleRegister} id="sign-up-form">
           <div className="title-connexion">
-            <img src="./logo.png" alt="logo" />
+            <img style={{ marginBottom: "0" }} src="./logo.png" alt="logo" />
+            <p style={{ marginBottom: "1.5rem" }}>
+              Il y a actuellement{" "}
+              <span>{!isEmpty(leadsData) && leadsData.length}</span> annonces
+              d'apports d'affaires en ligne.
+            </p>
             <h2>Inscription</h2>
           </div>
           <br />

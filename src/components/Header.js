@@ -3,6 +3,7 @@ import { UidContext } from "../components/AppContext";
 import Logout from "./Log/Logout";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { isEmpty } from "../utils";
 
 const Header = () => {
   const uid = useContext(UidContext);
@@ -24,18 +25,28 @@ const Header = () => {
           <div className="credit-balance">
             {userData.coin > 0 ? (
               <>
-                <span>{userData.coin}</span> <p>Crédits</p>
+                <span>{!isEmpty(userData) && userData.coin}</span>{" "}
+                <p>Crédits</p>
               </>
             ) : (
               <>
-                <span style={{ color: "#F7685B" }}>{userData.coin}</span>{" "}
+                <span style={{ color: "#F7685B" }}>
+                  {!isEmpty(userData) && userData.coin}
+                </span>{" "}
                 <p>Crédit</p>
               </>
             )}
           </div>{" "}
-          <NavLink to="/store">
-            <button>Acheter des crédits</button>
-          </NavLink>
+          {userData.isBusinessProvider && (
+            <NavLink to="/transfert">
+              <button className="btn-purple">Convertir mes crédits</button>
+            </NavLink>
+          )}
+          {userData.isSales && (
+            <NavLink to="/store">
+              <button>Acheter des crédits</button>
+            </NavLink>
+          )}
           {uid ? <Logout /> : <></>}
         </div>
       </header>
