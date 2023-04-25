@@ -155,7 +155,7 @@ const Sidebar = () => {
                 </NavLink>
               )}
             </div>
-            <small>Version beta 0.0.1 2023</small>
+            <small>Version beta 0.1.1 2023</small>
           </div>
 
           {/* <div className="release-version">
