@@ -4,6 +4,7 @@ import Log from "../components/Log";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import ReactGA from "react-ga";
+import Chat from "../components/Chat/Chat";
 
 const Conversation = () => {
   const uid = useContext(UidContext);
@@ -18,7 +19,7 @@ const Conversation = () => {
         <div className="logged-user">
           <Header />
           <Sidebar />
-          <h2>conversation page</h2>
+          <Chat />
         </div>
       ) : (
         <div className="log-container">

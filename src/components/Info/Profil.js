@@ -4,7 +4,6 @@ import { dateParser } from "../../utils";
 
 const Profil = () => {
   const user = useSelector((state) => state.userReducer);
-  console.log(user);
   return (
     <main className="profil">
       <div className="title-container">

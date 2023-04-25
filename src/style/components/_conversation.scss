@@ -1,0 +1,26 @@
+.chat-container {
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 0px;
+    margin-top: 2rem;
+    height: calc(100vh - 230px);
+    background: $white;
+    border-radius: 10px;
+    padding: 10px;
+
+    .conversation-list {
+        grid-area: 1 / 1 / 2 / 3;
+        height: 100%;
+        overflow-y: hidden;
+        padding: 10px;
+    }
+
+    .chat-room {
+        grid-area: 1 / 2 / 2 / 3;
+        height: 100%;
+        overflow-y: hidden;
+        padding: 10px;
+    }
+}
