@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { dateParser, upperCase } from "../../utils";
 import { getLeads } from "../../actions/leads.actions";
 import PopupEdit from "./PopupEdit";
+import PopupDeleteLead from "./PopupDeleteLead";
 
 const GridSeller = () => {
   const leadsData = useSelector((state) => state.leadsReducer);
@@ -11,8 +12,10 @@ const GridSeller = () => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
   const [edit, setEdit] = useState(false);
-  //recuperation des data a modifier
+  const [del, setDel] = useState(false);
+  //recuperation des data a modifier ou supp
   const [contactToEdit, setContactToEdit] = useState(null);
+  const [contactToDel, setContactToDel] = useState(null);
 
   console.log(Array.isArray(leadsData), leadsData);
 
@@ -27,9 +30,18 @@ const GridSeller = () => {
     setEdit(false);
   };
 
+  const closePopupDel = () => {
+    setDel(false);
+  };
+
   const handleEditContact = (contact) => {
     setContactToEdit(contact);
     setEdit(true);
+  };
+
+  const handleDeleteContact = (contact) => {
+    setContactToDel(contact);
+    setDel(true);
   };
 
   return (
@@ -59,7 +71,7 @@ const GridSeller = () => {
                   <th>Téléphone</th>
                   <th>Ajouté le</th>
                   <th>Gain(s)</th>
-                  <th>Modifier</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
 
@@ -137,6 +149,14 @@ const GridSeller = () => {
                                 Modifier
                               </button>
                             ) : null}
+                            {!del ? (
+                              <button
+                                className="btn-cancel"
+                                onClick={() => handleDeleteContact(contact)}
+                              >
+                                Supprimer
+                              </button>
+                            ) : null}
                           </td>
                         </tr>
                       );
@@ -164,6 +184,12 @@ const GridSeller = () => {
               <PopupEdit
                 closePopupEdit={closePopupEdit}
                 contactToEdit={contactToEdit}
+              />
+            ) : null}
+            {del ? (
+              <PopupDeleteLead
+                closePopupDel={closePopupDel}
+                contactToDel={contactToDel}
               />
             ) : null}
           </div>
