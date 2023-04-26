@@ -35,7 +35,7 @@ const GridSeller = () => {
   return (
     <main>
       {isLoading ? (
-        <i className="fas fa-spinner fa-spin"></i>
+        <i className="fas fa-spinner fa-spin loading"></i>
       ) : (
         <>
           <div className="table-grid">
@@ -78,27 +78,37 @@ const GridSeller = () => {
                             )}
                           </td>
                           <td>
-                            {contact.lookingFor &&
-                              upperCase(contact.lookingFor)}
+                            {contact.lookingFor
+                              ? upperCase(contact.lookingFor)
+                              : "-"}
                           </td>
                           <td>
-                            {contact.company && upperCase(contact.company)}
-                          </td>
-                          <td>{contact.sector && upperCase(contact.sector)}</td>
-                          <td>{contact.region}</td>
-                          <td>{contact.skills && upperCase(contact.skills)}</td>
-                          <td>
-                            {contact.last_name && upperCase(contact.last_name)}
+                            {contact.company ? upperCase(contact.company) : "-"}
                           </td>
                           <td>
-                            {contact.first_name &&
-                              upperCase(contact.first_name)}
+                            {contact.sector ? upperCase(contact.sector) : "-"}
+                          </td>
+                          <td>{contact.region ? contact.region : "-"}</td>
+                          <td>
+                            {contact.skills ? upperCase(contact.skills) : "-"}
                           </td>
                           <td>
-                            {contact.position && upperCase(contact.position)}
+                            {contact.last_name
+                              ? upperCase(contact.last_name)
+                              : "-"}
                           </td>
-                          <td>{contact.email}</td>
-                          <td>{contact.phone}</td>
+                          <td>
+                            {contact.first_name
+                              ? upperCase(contact.first_name)
+                              : "-"}
+                          </td>
+                          <td>
+                            {contact.position
+                              ? upperCase(contact.position)
+                              : "-"}
+                          </td>
+                          <td>{contact.email ? contact.email : "-"}</td>
+                          <td>{contact.phone ? contact.phone : "-"}</td>
                           <td>{dateParser(contact.createdAt)}</td>
                           <td className="center">
                             {contact.buyer?.length > 0 ? (

@@ -34,49 +34,117 @@ const Lead = ({ lead, user, users }) => {
           <td className="needs">{upperCase(lead.lookingFor)}</td>
           <td className="needs">{lead.skills}</td>
           <td className="sector">{upperCase(lead.sector)}</td>
-          <td className="sector">{lead.region}</td>
+          <td className="sector">
+            {" "}
+            <p style={{ display: "inline-block", margin: "0 auto" }}>
+              {lead.region}
+            </p>{" "}
+          </td>
           <td>
             {lead.company !== "" ? (
-              <img src="./known.svg" alt="known" />
+              <img
+                src="./known.svg"
+                alt="known"
+                style={{ display: "block", margin: "0 auto" }}
+              />
             ) : (
-              <img src="./unknown.svg" alt="unknown" />
+              <img
+                src="./unknown.svg"
+                alt="unknown"
+                style={{ display: "block", margin: "0 auto" }}
+              />
             )}
           </td>
           <td>
             {lead.first_name && lead.last_name !== "" ? (
-              <img src="./known.svg" alt="known" />
+              <img
+                src="./known.svg"
+                alt="known"
+                style={{ display: "block", margin: "0 auto" }}
+              />
             ) : (
-              <img src="./unknown.svg" alt="unknown" />
+              <img
+                src="./unknown.svg"
+                alt="unknown"
+                style={{ display: "block", margin: "0 auto" }}
+              />
             )}
           </td>
           <td>
             {lead.email !== "" ? (
-              <img src="./known.svg" alt="known" />
+              <img
+                src="./known.svg"
+                alt="known"
+                style={{ display: "block", margin: "0 auto" }}
+              />
             ) : (
-              <img src="./unknown.svg" alt="unknown" />
+              <img
+                src="./unknown.svg"
+                alt="unknown"
+                style={{ display: "block", margin: "0 auto" }}
+              />
             )}
           </td>
           <td>
             {lead.phone !== "" ? (
-              <img src="./known.svg" alt="known" />
+              <img
+                src="./known.svg"
+                alt="known"
+                style={{ display: "block", margin: "0 auto" }}
+              />
             ) : (
-              <img src="./unknown.svg" alt="unknown" />
+              <img
+                src="./unknown.svg"
+                alt="unknown"
+                style={{ display: "block", margin: "0 auto" }}
+              />
             )}
           </td>
           <td>
             {lead.isOpen == true ? (
-              <p style={{ color: "#2ED47A", fontWeight: "bold" }}>Ouvert</p>
+              <p
+                style={{
+                  color: "#2ED47A",
+                  fontWeight: "bold",
+                  display: "block",
+                  margin: "0 auto",
+                }}
+              >
+                Ouvert
+              </p>
             ) : (
-              <p style={{ color: "#FFB946", fontWeight: "bold" }}>?</p>
+              <p
+                style={{
+                  color: "#FFB946",
+                  fontWeight: "bold",
+                  display: "block",
+                  margin: "0 auto",
+                }}
+              >
+                ?
+              </p>
             )}
           </td>
           <td className="disable">{dateParser(lead.createdAt)}</td>
-          <td>{lead?.buyer?.length} / 4</td>
+          <td>
+            {" "}
+            <p style={{ display: "block", margin: "0 auto" }}>
+              {lead?.buyer?.length} / 4
+            </p>{" "}
+          </td>
           <td>
             {lead?.isVerified === true ? (
-              <img src="./verified.svg" alt="verified" />
+              <img
+                src="./verified.svg"
+                alt="verified"
+                style={{ display: "block", margin: "0 auto" }}
+              />
             ) : (
-              <img src="./aide.svg" alt="no-verified" />
+              <img
+                src="./aide.svg"
+                alt="no-verified"
+                style={{ display: "block", margin: "0 auto" }}
+              />
             )}
           </td>
           <td>

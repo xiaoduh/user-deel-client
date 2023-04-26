@@ -54,7 +54,7 @@ const Grid = () => {
           </p>
         </div>
         {isLoading ? (
-          <i className="fas fa-spinner fa-spin"></i>
+          <i className="fas fa-spinner fa-spin loading"></i>
         ) : (
           <table style={{ marginTop: "2rem" }}>
             <thead>

@@ -20,8 +20,9 @@ const Sidebar = () => {
             {/* <img className="img-profil" src="/profil.png" alt="alt-profil-user" /> */}
             <div className="user-info-container">
               <h3>
-                {!isEmpty(userData) && upperCase(userData.first_name)}{" "}
-                {!isEmpty(userData) && upperCase(userData.last_name)}
+                {!isEmpty(userData.first_name) &&
+                  upperCase(userData.first_name)}{" "}
+                {!isEmpty(userData.last_name) && upperCase(userData.last_name)}
               </h3>
               <small>{userData.email}</small>
             </div>
