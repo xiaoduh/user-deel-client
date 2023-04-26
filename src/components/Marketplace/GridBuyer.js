@@ -48,15 +48,20 @@ const Grid = () => {
             Annonces d'apports d'affaires
             <span style={{ color: "#109CF1" }}> ({leadsData.length})</span>
           </h3>
+          <p>
+            Ici, entrez en contact avec les apporteurs d'affaires pour tout
+            savoir sur les besoins qui vous intéressent.
+          </p>
         </div>
         {isLoading ? (
           <i className="fas fa-spinner fa-spin"></i>
         ) : (
-          <table>
+          <table style={{ marginTop: "2rem" }}>
             <thead>
               <tr>
                 <th className="disable">Id</th>
-                <th className="needs">Besoin</th>
+                <th className="needs">Profil</th>
+                <th className="needs">Compétences</th>
                 <th className="sector">Secteur</th>
                 <th className="sector">Lieu</th>
                 <th>Société</th>
@@ -82,7 +87,7 @@ const Grid = () => {
                   />
                 </th>
                 <th>
-                  Note globale de l'apporteur d'affaires{" "}
+                  Réputation de l'AP{" "}
                   <img
                     src="/information.svg"
                     alt="info"

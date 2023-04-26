@@ -5,13 +5,14 @@ const PopupReview = ({ closePopupReview }) => {
     <div className="popup">
       <div className="modal">
         <h3>
-          Que veut dire la
-          <span style={{ color: "#109CF1" }}> note </span> ?
+          Comment interpréter la
+          <span style={{ color: "#109CF1" }}> réputation </span> ?
         </h3>
         <p>
-          La note prend en compte toutes les évaluations reçues par l'apporteur
-          d'affaires . Après chaque mise en relation, vous êtes invité à noter
-          (sur 5) les informations reçues par votre apporteur d'affaires.
+          La réputation prend en compte toutes les évaluations reçues par
+          l'apporteur d'affaires sur ces affaires publiées. Après chaque mise en
+          relation, vous êtes invité à noter (sur 5) les informations reçues par
+          votre apporteur d'affaires.
           <br></br>
         </p>
         <div className="btn-unlock">

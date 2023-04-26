@@ -14,6 +14,54 @@ const SignUp = () => {
   const [loading, setLoading] = useState(false);
   const leadsData = useSelector((state) => state.leadsReducer);
 
+  const checkUserType = (e) => {
+    setMyType(e.target.value);
+    const errorUTRequired = document.querySelector(".utype");
+    if (!e.target.value || e.target.value === null)
+      errorUTRequired.style.border = "1px solid #F7685B";
+    else errorUTRequired.style.border = "1px solid #2ED47A";
+  };
+
+  const checkLastName = (e) => {
+    setLast_name(e.target.value);
+    const errorLastNameRequired = document.querySelector(".name");
+    if (!e.target.value || e.target.value === null)
+      errorLastNameRequired.style.border = "1px solid #F7685B";
+    else errorLastNameRequired.style.border = "1px solid #2ED47A";
+  };
+
+  const checkFirstName = (e) => {
+    setFirst_name(e.target.value);
+    const errorFirstNameRequired = document.querySelector(".firstname");
+    if (!e.target.value || e.target.value === null)
+      errorFirstNameRequired.style.border = "1px solid #F7685B";
+    else errorFirstNameRequired.style.border = "1px solid #2ED47A";
+  };
+
+  const checkPhone = (e) => {
+    setPhone_number(e.target.value.replace("0", "+33"));
+    const errorPhoneRequired = document.querySelector(".phone");
+    if (!e.target.value || e.target.value === null)
+      errorPhoneRequired.style.border = "1px solid #F7685B";
+    else errorPhoneRequired.style.border = "1px solid #2ED47A";
+  };
+
+  const checkEmail = (e) => {
+    setEmail(e.target.value);
+    const errorEmailRequired = document.querySelector(".email");
+    if (!e.target.value || e.target.value === null)
+      errorEmailRequired.style.border = "1px solid #F7685B";
+    else errorEmailRequired.style.border = "1px solid #2ED47A";
+  };
+
+  const checkPW = (e) => {
+    setPassword(e.target.value);
+    const errorPWRequired = document.querySelector(".pw");
+    if (!e.target.value || e.target.value === null)
+      errorPWRequired.style.border = "1px solid #F7685B";
+    else errorPWRequired.style.border = "1px solid #2ED47A";
+  };
+
   const handleRegister = async (e) => {
     setLoading(true);
     e.preventDefault();
@@ -96,14 +144,14 @@ const SignUp = () => {
           </label>
           <br />
           <select
-            class="form__field"
+            class="form__field utype"
             type="select"
             name="type"
             id="type"
             autocomplete="off"
             required
             value={myType}
-            onChange={(e) => setMyType(e.target.value)}
+            onChange={(e) => checkUserType(e)}
           >
             {!myType && <option value="">Choisissez votre type</option>}
             <option value="sales">Commercial</option>
@@ -116,14 +164,14 @@ const SignUp = () => {
           </label>
           <br />
           <input
-            class="form__field"
+            class="form__field name"
             type="text"
             name="nom"
             id="nom"
             autocomplete="off"
             required
             placeholder="Duff"
-            onChange={(e) => setLast_name(e.target.value)}
+            onChange={(e) => checkLastName(e)}
             value={last_name}
           />
           <div className="nom error"></div>
@@ -133,14 +181,14 @@ const SignUp = () => {
           </label>
           <br />
           <input
-            class="form__field"
+            class="form__field firstname"
             type="text"
             name="prenom"
             id="prenom"
             autocomplete="off"
             required
             placeholder="John"
-            onChange={(e) => setFirst_name(e.target.value)}
+            onChange={(e) => checkFirstName(e)}
             value={first_name}
           />
           <div className="prenom error"></div>
@@ -150,16 +198,14 @@ const SignUp = () => {
           </label>
           <br />
           <input
-            class="form__field"
+            class="form__field phone"
             type="text"
             name="tel"
             id="tel"
             autocomplete="off"
             required
             placeholder="Un code vous sera envoyé à chaque connexion"
-            onChange={(e) =>
-              setPhone_number(e.target.value.replace("0", "+33"))
-            }
+            onChange={(e) => checkPhone(e)}
             value={phone_number}
           />
           <div className="tel error"></div>
@@ -169,14 +215,14 @@ const SignUp = () => {
           </label>
           <br />
           <input
-            class="form__field"
+            class="form__field email"
             type="text"
             name="email"
             id="email"
             autocomplete="off"
             required
             placeholder="doit être vérifié pour activer votre compte"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => checkEmail(e)}
             value={email}
           />
           <div className="email error"></div>
@@ -186,14 +232,14 @@ const SignUp = () => {
           </label>
           <br />
           <input
-            class="form__field"
+            class="form__field pw"
             type="password"
             name="password"
             id="password"
             autocomplete="off"
             placeholder="********"
             required
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => checkPW(e)}
             value={password}
           />
           <div className="password error"></div>

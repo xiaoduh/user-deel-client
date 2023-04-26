@@ -41,8 +41,9 @@ const GridSeller = () => {
           <div className="table-grid">
             <div className="title-container">
               <h3>Mes annonces d'apports d'affaire en ligne</h3>
+              <p>Ici, gérez vos annonces en ligne sur la place de marché.</p>
             </div>
-            <table>
+            <table style={{ marginTop: "2rem" }}>
               <thead>
                 <tr>
                   <th className="disable">Id</th>

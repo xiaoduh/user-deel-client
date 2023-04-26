@@ -8,7 +8,7 @@ const ConvertCredit = () => {
   return (
     <main>
       <div className="grid-form-need">
-        <div className="title-container">
+        <div className="title-container" style={{ marginBottom: "2rem" }}>
           <h3>Transferer votre solde sur votre compte</h3>
           <p>
             Convertissez vos crédits en € et faites une demande de virement sur

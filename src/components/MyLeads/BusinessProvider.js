@@ -18,28 +18,45 @@ const Sales = () => {
   const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
+  const checkProfil = (e) => {
+    setProfil(e.target.value);
     const errorProfilRequired = document.querySelector(".profil-required");
-    const errorCompanyRequired = document.querySelector(".company-required");
-    const errorSkillRequired = document.querySelector(".skill-required");
-    const errorSectorRequired = document.querySelector(".sector-required");
-    const errorRegionRequired = document.querySelector(".region-required");
-    if (profil === "") {
+    if (!e.target.value || e.target.value === null)
       errorProfilRequired.style.border = "1px solid #F7685B";
-    }
-    if (company === "") {
+    else errorProfilRequired.style.border = "1px solid #2ED47A";
+  };
+
+  const checkCompany = (e) => {
+    setCompany(e.target.value);
+    const errorCompanyRequired = document.querySelector(".company-required");
+    if (e.target.value === "" || e.target.value === null)
       errorCompanyRequired.style.border = "1px solid #F7685B";
-    }
-    if (skill === "") {
-      errorSkillRequired.style.border = "1px solid #F7685B";
-    }
-    if (sector === "") {
+    else errorCompanyRequired.style.border = "1px solid #2ED47A";
+  };
+
+  const checkSector = (e) => {
+    setSector(e.target.value);
+    const errorSectorRequired = document.querySelector(".sector-required");
+    if (e.target.value === "" || e.target.value === null)
       errorSectorRequired.style.border = "1px solid #F7685B";
-    }
-    if (region === "") {
+    else errorSectorRequired.style.border = "1px solid #2ED47A";
+  };
+
+  const checkRegion = (e) => {
+    setRegion(e.target.value);
+    const errorRegionRequired = document.querySelector(".region-required");
+    if (e.target.value === "" || e.target.value === null)
       errorRegionRequired.style.border = "1px solid #F7685B";
-    }
-  }, [profil, company, skill, sector, region]);
+    else errorRegionRequired.style.border = "1px solid #2ED47A";
+  };
+
+  const checkSkills = (e) => {
+    setSkill(e.target.value);
+    const errorSkillRequired = document.querySelector(".skill-required");
+    if (e.target.value === "" || e.target.value === null)
+      errorSkillRequired.style.border = "1px solid #F7685B";
+    else errorSkillRequired.style.border = "1px solid #2ED47A";
+  };
 
   const handleFormSubmit = async (e) => {
     setLoading(true);
@@ -113,8 +130,12 @@ const Sales = () => {
   return (
     <main>
       <div className="grid-form-need">
-        <div className="title-container">
+        <div className="title-container" style={{ marginBottom: "2rem" }}>
           <h3>Publier une annonce d'apport d'affaire</h3>
+          <p>
+            Ici, publiez l'annonce sur l'affaire que vous souhaitez revendre aux
+            commerciaux.
+          </p>
         </div>
         <>
           <div className="left-side">
@@ -142,9 +163,9 @@ const Sales = () => {
               id="besoin"
               autocomplete="off"
               required
-              onChange={(e) => setProfil(e.target.value)}
+              onChange={(e) => checkProfil(e)}
               placeholder="Développeur React"
-              value={profil}
+              // value={profil}
             />
             <br />
             <label
@@ -162,7 +183,7 @@ const Sales = () => {
               id="company"
               autocomplete="off"
               required
-              onChange={(e) => setCompany(e.target.value)}
+              onChange={(e) => checkCompany(e)}
               placeholder="Google"
             />
             <br />
@@ -181,7 +202,7 @@ const Sales = () => {
               id="sector"
               autocomplete="off"
               required
-              onChange={(e) => setSector(e.target.value)}
+              onChange={(e) => checkSector(e)}
               placeholder="Internet"
             />
             <br />
@@ -200,7 +221,7 @@ const Sales = () => {
               id="region"
               autocomplete="off"
               required
-              onChange={(e) => setRegion(e.target.value)}
+              onChange={(e) => checkRegion(e)}
               placeholder="75"
             />
             <label
@@ -218,7 +239,7 @@ const Sales = () => {
               id="skills"
               autocomplete="off"
               required
-              onChange={(e) => setSkill(e.target.value)}
+              onChange={(e) => checkSkills(e)}
               placeholder="React, Redux, SASS..."
             />
           </div>

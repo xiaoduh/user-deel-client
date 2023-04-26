@@ -11,6 +11,30 @@ const SignIn = () => {
   const [loading, setLoading] = useState(false);
   const leadsData = useSelector((state) => state.leadsReducer);
 
+  const checkEmail2Reset = (e) => {
+    setEmailToReset(e.target.value);
+    const errorEmail2ResetRequired = document.querySelector(".email2reset");
+    if (!e.target.value || e.target.value === null)
+      errorEmail2ResetRequired.style.border = "1px solid #F7685B";
+    else errorEmail2ResetRequired.style.border = "1px solid #2ED47A";
+  };
+
+  const checkEmail = (e) => {
+    setEmail(e.target.value);
+    const errorEmailRequired = document.querySelector(".email");
+    if (!e.target.value || e.target.value === null)
+      errorEmailRequired.style.border = "1px solid #F7685B";
+    else errorEmailRequired.style.border = "1px solid #2ED47A";
+  };
+
+  const checkPW = (e) => {
+    setPassword(e.target.value);
+    const errorPWRequired = document.querySelector(".pw");
+    if (!e.target.value || e.target.value === null)
+      errorPWRequired.style.border = "1px solid #F7685B";
+    else errorPWRequired.style.border = "1px solid #2ED47A";
+  };
+
   const handleLogin = (e) => {
     e.preventDefault();
     setLoading(true);
@@ -32,6 +56,7 @@ const SignIn = () => {
         if (res.data.errors) {
           emailError.innerHTML = res.data.errors.email;
           passwordError.innerHTML = res.data.errors.password;
+          setLoading(false);
         } else {
           window.location = "/";
         }
@@ -66,6 +91,7 @@ const SignIn = () => {
       })
       .catch((err) => {
         if (err.response.data) emailError.innerHTML = err.response.data;
+        setLoading(false);
         setTimeout(() => {
           emailError.innerHTML = "";
         }, 5000);
@@ -91,9 +117,9 @@ const SignIn = () => {
               type="text"
               name="email"
               id="email"
-              onChange={(e) => setEmailToReset(e.target.value)}
+              onChange={(e) => checkEmail2Reset(e)}
               value={emailToReset}
-              class="form__field"
+              class="form__field email2reset"
             />
             <div className="email error"></div>
             <div className="email success"></div>
@@ -136,9 +162,9 @@ const SignIn = () => {
               type="text"
               name="email"
               id="email"
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => checkEmail(e)}
               value={email}
-              class="form__field"
+              class="form__field email"
             />
             <div className="email error"></div>
             <br />
@@ -150,9 +176,9 @@ const SignIn = () => {
               type="password"
               name="password"
               id="password"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => checkPW(e)}
               value={password}
-              class="form__field"
+              class="form__field pw"
             />
             <div className="password error"></div>
             <br />
