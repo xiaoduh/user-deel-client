@@ -8,10 +8,26 @@ export default function leadsReducer(state = initialState, action) {
       return action.payload;
 
     case SELL_LEAD:
-      return action.payload;
+      return [action.payload, ...state];
 
     case UPDATE_LEAD:
-      return action.payload;
+      return state.map((lead) => {
+        if (lead._id === action.payload.id) {
+          return {
+            ...lead,
+            lookingFor: action.payload.lookingFor,
+            company: action.payload.company,
+            sector: action.payload.sector,
+            region: action.payload.region,
+            skills: action.payload.skills,
+            first_name: action.payload.first_name,
+            last_name: action.payload.last_name,
+            role: action.payload.role,
+            email: action.payload.email,
+            phone: action.payload.phone,
+          };
+        } else return lead;
+      });
 
     default:
       return state;

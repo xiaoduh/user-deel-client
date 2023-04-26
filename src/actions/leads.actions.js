@@ -35,6 +35,7 @@ export const editLead = (
       method: "put",
       url: `http://localhost:5000/api/lead/${id}`,
       data: {
+        id,
         lookingFor,
         company,
         sector,
