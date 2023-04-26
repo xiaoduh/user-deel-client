@@ -28,6 +28,7 @@ const Lead = ({ lead, user }) => {
             {lead._id.slice(lead._id.length - 4, lead._id.length)}
           </td>
           <td className="needs">{lead.lookingFor}</td>
+          <td className="needs">{lead.skills}</td>
           <td className="sector">{lead.sector}</td>
           <td className="sector">{lead.region}</td>
           <td>
