@@ -46,6 +46,22 @@ const Sidebar = () => {
                   </p>
                 </NavLink>
               )}
+              <NavLink
+                to="/conversation"
+                className={({ isActive }) =>
+                  isActive ? "active-left-nav" : ""
+                }
+              >
+                <img
+                  className="img-icon"
+                  src="./commentaires.svg"
+                  alt="mes échanges"
+                />
+                <p>
+                  Mes échanges (
+                  {!isEmpty(userData) && userData?.lead_bought.length})
+                </p>
+              </NavLink>
               {userData.isBusinessProvider && (
                 <NavLink
                   to="/announce"
@@ -85,22 +101,7 @@ const Sidebar = () => {
                   <p>Convertir mes crédits</p>
                 </NavLink>
               )}
-              <NavLink
-                to="/conversation"
-                className={({ isActive }) =>
-                  isActive ? "active-left-nav" : ""
-                }
-              >
-                <img
-                  className="img-icon"
-                  src="./commentaires.svg"
-                  alt="mes échanges"
-                />
-                <p>
-                  Mes échanges (
-                  {!isEmpty(userData) && userData?.lead_bought.length})
-                </p>
-              </NavLink>
+
               {userData.isSales && (
                 <NavLink
                   to="/store"

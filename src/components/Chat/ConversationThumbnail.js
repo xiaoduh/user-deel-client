@@ -1,10 +1,12 @@
 import React from "react";
 
-const ConversationThumbnail = () => {
+const ConversationThumbnail = ({ leadData }) => {
   return (
     <div className="thumbnail-conversation-container">
-      <h4>Dev Java</h4>
-      <small>87567</small>
+      <h4>{leadData.lookingFor}</h4>
+      <small>
+        {leadData._id.slice(leadData._id.length - 4, leadData._id.length)}
+      </small>
     </div>
   );
 };

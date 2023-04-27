@@ -4,9 +4,9 @@ import ConversationThumbnail from "./ConversationThumbnail";
 
 const Chat = () => {
   const user = useSelector((state) => state.userReducer);
-  const arr = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-  ];
+  const leadsData = useSelector((state) => state.leadsReducer);
+  const usersData = useSelector((state) => state.usersReducer);
+
   return (
     <main className="conversation-container">
       <div className="title-container">
@@ -18,10 +18,23 @@ const Chat = () => {
             : "vos acheteurs."}
           <div className="chat-container">
             <div className="conversation-list">
-              {Array.isArray(arr) &&
-                arr.map((chat) => {
-                  return <ConversationThumbnail />;
-                })}
+              {Array.isArray(user.lead_bought) &&
+                user.lead_bought
+                  .sort((a, b) => {
+                    return b.createdAt - a.createdAt;
+                  })
+                  .map((id) => {
+                    for (let i = 0; i < leadsData.length; i++) {
+                      if (id === leadsData[i]._id) {
+                        return (
+                          <ConversationThumbnail
+                            key={leadsData[i]._id}
+                            leadData={leadsData[i]}
+                          />
+                        );
+                      }
+                    }
+                  })}
             </div>
             <div className="chat-room">
               <div className="messanges-container">messages</div>
