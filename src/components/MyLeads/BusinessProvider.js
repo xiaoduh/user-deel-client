@@ -117,7 +117,6 @@ const Sales = () => {
           setEmail("");
           setPhone("");
           formMess.innerHTML = `<p class='success'>Votre annonce d'apport d'affaire a bien été envoyée. elle sera vérifiée avant d'être publiée sur la marketplace.</p>`;
-          window.location.reload(false);
 
           setTimeout(() => {
             formMess.innerHTML = "";
