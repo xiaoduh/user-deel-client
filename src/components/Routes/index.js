@@ -17,12 +17,19 @@ import Report from "../../pages/Report";
 import Conversation from "../../pages/Conversation";
 import Announce from "../../pages/Announce";
 import Transfert from "../../pages/Transfert";
+import AccountVerification from "../../pages/AccountVerification";
+import ProtectedRoutes from "./ProtectedRoutes";
 
 const index = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" exact element={<Marketplace />} />
+        <Route
+          path="/account-verification"
+          exact
+          element={<AccountVerification />}
+        />
         <Route path="/announce" exact element={<Announce />} />
         <Route path="/lead" exact element={<MyLeads />} />
         <Route path="/store" exact element={<Store />} />

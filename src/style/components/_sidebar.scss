@@ -37,7 +37,7 @@
         }
 
         .upper-container {
-            height: 50%;
+            height: auto;
             border-bottom: 1px solid #EBEFF2;
             
         .profil-info {
@@ -87,6 +87,13 @@
             }
         }
 
+        }
+
+        .version {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            margin: 1rem 1rem 1rem 1rem;
         }
 
         .lower-container {

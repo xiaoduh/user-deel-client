@@ -26,7 +26,7 @@ const Grid = () => {
         setIsLoading(false);
       }
     }
-  }, [isLoading]);
+  }, [isLoading, leadsData, userData, usersData]);
 
   const closePopupInfo = () => {
     setPopupInfo(false);
@@ -87,7 +87,7 @@ const Grid = () => {
                   />
                 </th>
                 <th>
-                  Réputation de l'AP{" "}
+                  Rép. de l'apporteur{" "}
                   <img
                     src="/information.svg"
                     alt="info"

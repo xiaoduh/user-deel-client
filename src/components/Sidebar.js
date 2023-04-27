@@ -112,12 +112,6 @@ const Sidebar = () => {
                   <p>Crédits</p>
                 </NavLink>
               )}
-            </div>
-          </div>
-        </div>
-        <div className="lower-container">
-          <div className="navlinks">
-            <div className="navlinks-container">
               <NavLink
                 to="/info"
                 className={({ isActive }) =>
@@ -156,13 +150,9 @@ const Sidebar = () => {
                 </NavLink>
               )}
             </div>
-            <small>Version beta 0.1.1 2023</small>
           </div>
-
-          {/* <div className="release-version">
-          <small>version Beta 0.0.1</small>
-        </div> */}
         </div>
+        <small className="version">Version beta 0.1.1 2023</small>
       </nav>
     </>
   );

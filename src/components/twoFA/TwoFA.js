@@ -1,14 +1,16 @@
 import React, { useEffect, useState, useContext } from "react";
+import { useSelector } from "react-redux";
 import Logout from "../Log/Logout";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import { UidContext } from "../AppContext";
 
-const TwoFA = ({ handleTwoFA, userData }) => {
+const TwoFA = ({ handleTwoFA }) => {
   const [codeUser, setCodeUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isVerified, setIsVerified] = useState(false);
   const [codeGenerated, setCodeGenerated] = useState(null);
+  const userData = useSelector((state) => state.userReducer);
   const uid = useContext(UidContext);
 
   const verifyNumPhone = (e, codeUser, codeGenerated) => {
