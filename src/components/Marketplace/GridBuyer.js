@@ -75,6 +75,7 @@ const Grid = () => {
                 </th>
                 <th>Email</th>
                 <th>Téléphone</th>
+                <th>Fiche de poste</th>
                 <th>Statut</th>
                 <th className="disable">Ajouté le</th>
                 <th>Nombre de vue</th>
@@ -101,14 +102,15 @@ const Grid = () => {
             <tbody>
               {!isEmpty(leadsData[0]) &&
                 leadsData.map((lead) => {
-                  return (
-                    <Lead
-                      lead={lead}
-                      user={userData}
-                      users={usersData}
-                      key={lead}
-                    />
-                  );
+                  if (lead.status === "validated")
+                    return (
+                      <Lead
+                        lead={lead}
+                        user={userData}
+                        users={usersData}
+                        key={lead}
+                      />
+                    );
                 })}
             </tbody>
           </table>

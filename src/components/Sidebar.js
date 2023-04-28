@@ -150,6 +150,17 @@ const Sidebar = () => {
                   <p>Remboursement</p>
                 </NavLink>
               )}
+              {userData.isAdmin && (
+                <NavLink
+                  to="/admin"
+                  className={({ isActive }) =>
+                    isActive ? "active-left-nav" : ""
+                  }
+                >
+                  <img className="img-icon" src="./admin.svg" alt="report" />
+                  <p>Administrateur</p>
+                </NavLink>
+              )}
             </div>
           </div>
         </div>

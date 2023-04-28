@@ -12,12 +12,12 @@ const GridSeller = () => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
   const [edit, setEdit] = useState(false);
-  const [del, setDel] = useState(false);
+  const [disable, setDisable] = useState(false);
   //recuperation des data a modifier ou supp
   const [contactToEdit, setContactToEdit] = useState(null);
   const [contactToDel, setContactToDel] = useState(null);
 
-  console.log(Array.isArray(leadsData), leadsData);
+  // console.log(Array.isArray(leadsData), leadsData);
 
   useEffect(() => {
     if (isLoading) {
@@ -31,7 +31,7 @@ const GridSeller = () => {
   };
 
   const closePopupDel = () => {
-    setDel(false);
+    setDisable(false);
   };
 
   const handleEditContact = (contact) => {
@@ -39,9 +39,9 @@ const GridSeller = () => {
     setEdit(true);
   };
 
-  const handleDeleteContact = (contact) => {
+  const handleDisableContact = (contact) => {
     setContactToDel(contact);
-    setDel(true);
+    setDisable(true);
   };
 
   return (
@@ -70,6 +70,7 @@ const GridSeller = () => {
                   <th>Email</th>
                   <th>Téléphone</th>
                   <th>Ajouté le</th>
+                  <th>Etat</th>
                   <th>Gain(s)</th>
                   <th>Actions</th>
                 </tr>
@@ -79,7 +80,7 @@ const GridSeller = () => {
                 {userData.nb_lead > 0 ? (
                   Array.isArray(leadsData) &&
                   leadsData.map((contact) => {
-                    if (userData._id === contact.dealerID) {
+                    if (userData.isAdmin) {
                       return (
                         <tr contact={contact} key={contact._id}>
                           {" "}
@@ -122,6 +123,7 @@ const GridSeller = () => {
                           <td>{contact.email ? contact.email : "-"}</td>
                           <td>{contact.phone ? contact.phone : "-"}</td>
                           <td>{dateParser(contact.createdAt)}</td>
+                          <td>{contact.status}</td>
                           <td className="center">
                             {contact.buyer?.length > 0 ? (
                               <>
@@ -149,18 +151,114 @@ const GridSeller = () => {
                                 Modifier
                               </button>
                             ) : null}
-                            {!del ? (
+                            {contact.status === "validated" ? (
                               <button
                                 className="btn-cancel"
-                                onClick={() => handleDeleteContact(contact)}
+                                onClick={() => handleDisableContact(contact)}
                               >
-                                Supprimer
+                                Désactiver
+                              </button>
+                            ) : contact.status !== "pending" ? (
+                              <button
+                                className="btn-confirm"
+                                onClick={() => handleDisableContact(contact)}
+                              >
+                                Activer
                               </button>
                             ) : null}
                           </td>
                         </tr>
                       );
-                    }
+                    } else if (userData._id === contact.dealerID) {
+                      return (
+                        <tr contact={contact} key={contact._id}>
+                          {" "}
+                          <td>
+                            {contact._id.slice(
+                              contact._id.length - 4,
+                              contact._id.length
+                            )}
+                          </td>
+                          <td>
+                            {contact.lookingFor
+                              ? upperCase(contact.lookingFor)
+                              : "-"}
+                          </td>
+                          <td>
+                            {contact.company ? upperCase(contact.company) : "-"}
+                          </td>
+                          <td>
+                            {contact.sector ? upperCase(contact.sector) : "-"}
+                          </td>
+                          <td>{contact.region ? contact.region : "-"}</td>
+                          <td>
+                            {contact.skills ? upperCase(contact.skills) : "-"}
+                          </td>
+                          <td>
+                            {contact.last_name
+                              ? upperCase(contact.last_name)
+                              : "-"}
+                          </td>
+                          <td>
+                            {contact.first_name
+                              ? upperCase(contact.first_name)
+                              : "-"}
+                          </td>
+                          <td>
+                            {contact.position
+                              ? upperCase(contact.position)
+                              : "-"}
+                          </td>
+                          <td>{contact.email ? contact.email : "-"}</td>
+                          <td>{contact.phone ? contact.phone : "-"}</td>
+                          <td>{dateParser(contact.createdAt)}</td>
+                          <td>{contact.status}</td>
+                          <td className="center">
+                            {contact.buyer?.length > 0 ? (
+                              <>
+                                <span style={{ color: "#2ED47A" }}>
+                                  {contact.buyer?.length}
+                                </span>{" "}
+                                <p> Crédit(s)</p>
+                              </>
+                            ) : (
+                              <>
+                                <p>
+                                  <span style={{ color: "#F7685B" }}>
+                                    {contact.buyer?.length}{" "}
+                                  </span>{" "}
+                                  Crédit
+                                </p>
+                              </>
+                            )}
+                          </td>
+                          <td className="edit">
+                            {!edit ? (
+                              <button
+                                onClick={() => handleEditContact(contact)}
+                              >
+                                Modifier
+                              </button>
+                            ) : null}
+                            {contact.status === "validated" ? (
+                              <button
+                                className="btn-cancel"
+                                onClick={() => handleDisableContact(contact)}
+                              >
+                                Désactiver
+                              </button>
+                            ) : contact.status !== "pending" ? (
+                              <button
+                                className="btn-confirm"
+                                onClick={() => handleDisableContact(contact)}
+                              >
+                                Activer
+                              </button>
+                            ) : null}
+                          </td>
+                        </tr>
+                      );
+                    } else return null;
                   })
                 ) : (
                   <div className="popup-empty-list">
@@ -186,7 +284,7 @@ const GridSeller = () => {
                 contactToEdit={contactToEdit}
               />
             ) : null}
-            {del ? (
+            {disable ? (
               <PopupDeleteLead
                 closePopupDel={closePopupDel}
                 contactToDel={contactToDel}

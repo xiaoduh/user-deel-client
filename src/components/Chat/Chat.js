@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import ConversationThumbnail from "./ConversationThumbnail";
 
@@ -6,6 +6,23 @@ const Chat = () => {
   const user = useSelector((state) => state.userReducer);
   const leadsData = useSelector((state) => state.leadsReducer);
   const usersData = useSelector((state) => state.usersReducer);
+  const data = [];
+
+  const selectLead = () => {
+    Array.isArray(user.lead_bought) &&
+      user.lead_bought.map((id) => {
+        for (let i = 0; i < leadsData.length; i++) {
+          if (id === leadsData[i]._id) {
+            data.push(leadsData[i]);
+          }
+        }
+      });
+    console.log(data[0]);
+  };
+
+  useEffect(() => {
+    leadsData && selectLead();
+  }, [leadsData]);
 
   return (
     <main className="conversation-container">
@@ -18,6 +35,9 @@ const Chat = () => {
             : "vos acheteurs."}
           <div className="chat-container">
             <div className="conversation-list">
+              <div className="conversation-header">
+                <h4>Mes sujets de conversations</h4>
+              </div>
               {Array.isArray(user.lead_bought) &&
                 user.lead_bought
                   .sort((a, b) => {

@@ -101,6 +101,21 @@ const Lead = ({ lead, user, users }) => {
             )}
           </td>
           <td>
+            {true ? (
+              <img
+                src="./known.svg"
+                alt="known"
+                style={{ display: "block", margin: "0 auto" }}
+              />
+            ) : (
+              <img
+                src="./unknown.svg"
+                alt="unknown"
+                style={{ display: "block", margin: "0 auto" }}
+              />
+            )}
+          </td>
+          <td>
             {lead.isOpen == true ? (
               <p
                 style={{

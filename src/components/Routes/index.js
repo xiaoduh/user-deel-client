@@ -19,11 +19,15 @@ import Announce from "../../pages/Announce";
 import Transfert from "../../pages/Transfert";
 import AccountVerification from "../../pages/AccountVerification";
 import ProtectedRoutes from "./ProtectedRoutes";
+import Admin from "../../pages/Admin";
 
 const index = () => {
   return (
     <Router>
       <Routes>
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/admin" exact element={<Admin />} />
+        </Route>
         <Route path="/" exact element={<Marketplace />} />
         <Route
           path="/account-verification"

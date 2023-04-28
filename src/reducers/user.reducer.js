@@ -13,7 +13,7 @@ export default function userReducer(state = initialState, action) {
       return action.payload;
 
     case BUY_LEAD:
-      return action.payload;
+      return [action.payload, ...state];
 
     case WITHDRAW_CREDIT:
       return [action.payload, ...state];
