@@ -81,6 +81,7 @@ const Grid = () => {
             <tbody>
               {!isEmpty(leadsData[0]) &&
                 leadsData.map((lead) => {
+                if (lead.status === "validated")
                   return <Lead lead={lead} user={userData} key={lead} />;
                 })}
             </tbody>
