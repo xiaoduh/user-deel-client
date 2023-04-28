@@ -85,10 +85,11 @@ const GridSeller = () => {
                         <tr contact={contact} key={contact._id}>
                           {" "}
                           <td>
-                            {contact._id.slice(
-                              contact._id.length - 4,
-                              contact._id.length
-                            )}
+                            {contact._id &&
+                              contact._id.slice(
+                                contact._id.length - 4,
+                                contact._id.length
+                              )}
                           </td>
                           <td>
                             {contact.lookingFor
@@ -116,9 +117,7 @@ const GridSeller = () => {
                               : "-"}
                           </td>
                           <td>
-                            {contact.position
-                              ? upperCase(contact.position)
-                              : "-"}
+                            {contact.role ? upperCase(contact.role) : "-"}
                           </td>
                           <td>{contact.email ? contact.email : "-"}</td>
                           <td>{contact.phone ? contact.phone : "-"}</td>
@@ -174,10 +173,11 @@ const GridSeller = () => {
                         <tr contact={contact} key={contact._id}>
                           {" "}
                           <td>
-                            {contact._id.slice(
-                              contact._id.length - 4,
-                              contact._id.length
-                            )}
+                            {contact._id &&
+                              contact._id.slice(
+                                contact._id.length - 4,
+                                contact._id.length
+                              )}
                           </td>
                           <td>
                             {contact.lookingFor
@@ -205,9 +205,7 @@ const GridSeller = () => {
                               : "-"}
                           </td>
                           <td>
-                            {contact.position
-                              ? upperCase(contact.position)
-                              : "-"}
+                            {contact.role ? upperCase(contact.role) : "-"}
                           </td>
                           <td>{contact.email ? contact.email : "-"}</td>
                           <td>{contact.phone ? contact.phone : "-"}</td>

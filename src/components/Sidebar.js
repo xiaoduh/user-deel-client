@@ -110,7 +110,7 @@ const Sidebar = () => {
                   }
                 >
                   <img className="img-icon" src="./store.svg" alt="store" />
-                  <p>Crédits</p>
+                  <p>Acheter des crédits</p>
                 </NavLink>
               )}
               <NavLink
