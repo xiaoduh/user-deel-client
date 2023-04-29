@@ -1,4 +1,9 @@
-import { GET_LEADS, SELL_LEAD, UPDATE_LEAD } from "../actions/leads.actions";
+import {
+  GET_LEADS,
+  REMOVE_LEAD,
+  SELL_LEAD,
+  UPDATE_LEAD,
+} from "../actions/leads.actions";
 
 const initialState = {};
 
@@ -28,6 +33,9 @@ export default function leadsReducer(state = initialState, action) {
           };
         } else return lead;
       });
+
+    case REMOVE_LEAD:
+      return state.filter((lead) => lead._id !== action.payload.id);
 
     default:
       return state;

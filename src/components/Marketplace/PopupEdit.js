@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { editLead } from "../../actions/leads.actions";
+import { useDispatch, useSelector } from "react-redux";
+import { editLead, removeLead } from "../../actions/leads.actions";
 
 const PopupEdit = ({ closePopupEdit, contactToEdit }) => {
+  const user = useSelector((state) => state.userReducer);
   const [lookingFor, setLookingFor] = useState(contactToEdit.lookingFor);
   const [company, setCompany] = useState(contactToEdit.company);
   const [sector, setSector] = useState(contactToEdit.sector);
@@ -38,7 +39,11 @@ const PopupEdit = ({ closePopupEdit, contactToEdit }) => {
           phone
         )
       );
-    window.location.reload(false);
+    closePopupEdit();
+  };
+
+  const handleDelete = (id) => {
+    dispatch(removeLead(id));
     closePopupEdit();
   };
 
@@ -52,6 +57,20 @@ const PopupEdit = ({ closePopupEdit, contactToEdit }) => {
         <>
           <div className="left-side">
             <h3>Informations sur l' affaire</h3>
+            {/* <p
+              style={{
+                display: "flex",
+                // alignItems: "center",
+                marginBottom: "1.5rem",
+              }}
+            >
+              <img
+                style={{ widht: "20px", height: "20px", marginRight: ".5rem" }}
+                src="/important.svg"
+                alt="important"
+              />{" "}
+              ces informations sont obligatoires.
+            </p> */}
             <label
               style={{ color: "#109CF1" }}
               htmlFor="besoin"
@@ -265,9 +284,26 @@ const PopupEdit = ({ closePopupEdit, contactToEdit }) => {
           <button className="btn-confirm" onClick={() => handleEdit()}>
             Enregistrer
           </button>
-          <button className="btn-cancel" onClick={() => closePopupEdit()}>
+          <button
+            style={{ marginRight: "1rem" }}
+            className="btn-cancel"
+            onClick={() => closePopupEdit()}
+          >
             Annuler
           </button>
+          {user.isAdmin && (
+            <button
+              style={{ cursor: "pointer" }}
+              className="btn-not-allowed"
+              onClick={() => {
+                if (window.confirm("Voulez vous supprimer cette annonce ?")) {
+                  handleDelete(contactToEdit._id);
+                }
+              }}
+            >
+              Supprimer
+            </button>
+          )}
         </div>
       </div>
     </div>

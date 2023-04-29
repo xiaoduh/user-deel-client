@@ -3,6 +3,7 @@ import axios from "axios";
 export const GET_LEADS = "GET_LEADS";
 export const SELL_LEAD = "SELL_LEAD";
 export const UPDATE_LEAD = "UPDATE_LEAD";
+export const REMOVE_LEAD = "REMOVE_LEAD";
 
 // dispatch : ce qui est envoyé au reducer
 
@@ -12,6 +13,20 @@ export const getLeads = () => {
       .get(`http://localhost:5000/api/lead`)
       .then((res) => {
         dispatch({ type: GET_LEADS, payload: res.data });
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+export const removeLead = (id) => {
+  return (dispatch) => {
+    return axios
+      .delete(`http://localhost:5000/api/lead/${id}`)
+      .then((res) => {
+        dispatch({
+          type: REMOVE_LEAD,
+          payload: { id },
+        });
       })
       .catch((err) => console.log(err));
   };
