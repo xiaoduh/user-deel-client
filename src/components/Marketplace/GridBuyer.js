@@ -18,15 +18,6 @@ const Grid = () => {
   const [infoReview, setInfoReview] = useState(false);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (isLoading) {
-      dispatch(getLeads());
-      dispatch(getAllUsers());
-      if (!isEmpty(leadsData) && !isEmpty(userData) && !isEmpty(usersData)) {
-        setIsLoading(false);
-      }
-    }
-  }, [isLoading, leadsData, userData, usersData]);
 
   const closePopupInfo = () => {
     setPopupInfo(false);
@@ -53,7 +44,7 @@ const Grid = () => {
             savoir sur les besoins qui vous intéressent.
           </p>
         </div>
-        {isLoading ? (
+        {!isLoading ? (
           <i className="fas fa-spinner fa-spin loading"></i>
         ) : (
           <table style={{ marginTop: "2rem" }}>

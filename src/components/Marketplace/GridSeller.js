@@ -2,14 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { dateParser, upperCase } from "../../utils";
-import { getLeads } from "../../actions/leads.actions";
 import PopupEdit from "./PopupEdit";
-import PopupDeleteLead from "./PopupDeleteLead";
+import PopupDisableLead from "./PopupDisableLead";
 
 const GridSeller = () => {
   const leadsData = useSelector((state) => state.leadsReducer);
   const userData = useSelector((state) => state.userReducer);
-  const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
   const [edit, setEdit] = useState(false);
   const [disable, setDisable] = useState(false);
@@ -17,14 +15,7 @@ const GridSeller = () => {
   const [contactToEdit, setContactToEdit] = useState(null);
   const [contactToDel, setContactToDel] = useState(null);
 
-  // console.log(Array.isArray(leadsData), leadsData);
-
-  useEffect(() => {
-    if (isLoading) {
-      dispatch(getLeads());
-      leadsData && setIsLoading(false);
-    }
-  }, []);
+  useEffect(() => leadsData[0] && setIsLoading(false));
 
   const closePopupEdit = () => {
     setEdit(false);
@@ -283,7 +274,7 @@ const GridSeller = () => {
               />
             ) : null}
             {disable ? (
-              <PopupDeleteLead
+              <PopupDisableLead
                 closePopupDel={closePopupDel}
                 contactToDel={contactToDel}
               />

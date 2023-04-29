@@ -1,22 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { dateParser } from "../../utils";
-import { getLeads } from "../../actions/leads.actions";
 
 const TableLead = () => {
   const leadsData = useSelector((state) => state.leadsReducer);
   const userData = useSelector((state) => state.userReducer);
-  const dispatch = useDispatch();
 
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    if (isLoading) {
-      dispatch(getLeads());
-      setIsLoading(false);
-    }
-  }, [isLoading]);
+  useEffect(() => leadsData[0] && setIsLoading(false));
 
   return (
     <main>

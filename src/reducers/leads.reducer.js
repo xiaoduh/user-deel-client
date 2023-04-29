@@ -30,6 +30,7 @@ export default function leadsReducer(state = initialState, action) {
             role: action.payload.role,
             email: action.payload.email,
             phone: action.payload.phone,
+            status: action.payload.status,
           };
         } else return lead;
       });

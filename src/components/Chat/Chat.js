@@ -8,21 +8,21 @@ const Chat = () => {
   const usersData = useSelector((state) => state.usersReducer);
   const data = [];
 
-  const selectLead = () => {
-    Array.isArray(user.lead_bought) &&
-      user.lead_bought.map((id) => {
-        for (let i = 0; i < leadsData.length; i++) {
-          if (id === leadsData[i]._id) {
-            data.push(leadsData[i]);
-          }
-        }
-      });
-    console.log(data[0]);
-  };
+  // const selectLead = () => {
+  //   Array.isArray(user.lead_bought) &&
+  //     user.lead_bought.map((id) => {
+  //       for (let i = 0; i < leadsData.length; i++) {
+  //         if (id === leadsData[i]._id) {
+  //           // data.push(leadsData[i]);
+  //         }
+  //       }
+  //     });
+  //   // console.log(data[0]);
+  // };
 
-  useEffect(() => {
-    leadsData && selectLead();
-  }, [leadsData]);
+  // useEffect(() => {
+  //   leadsData && selectLead();
+  // }, [leadsData]);
 
   return (
     <main className="conversation-container">
