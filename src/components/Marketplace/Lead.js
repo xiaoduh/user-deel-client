@@ -182,10 +182,10 @@ const Lead = ({ lead, user, users }) => {
           <td>
             {user?.lead_bought?.find((el) => el === lead._id) ? (
               <NavLink to="/conversation">
-                <button className="btn-confirm">Voir</button>
+                <button className="btn-confirm">Contacter</button>
               </NavLink>
             ) : lead.buyer.length < 4 ? (
-              <button onClick={() => closePopup()}>Contacter</button>
+              <button onClick={() => closePopup()}>Acheter</button>
             ) : (
               <button className="btn-not-allowed">Fermé</button>
             )}
