@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Popup from "./Popup";
 import { dateParser, isEmpty, upperCase } from "../../utils";
 import { NavLink } from "react-router-dom";
-import PercentFiability from "../utils/PercentFiability";
 
 const Lead = ({ lead, user, users }) => {
   const [unlock, setUnlock] = useState(false);
@@ -10,11 +9,7 @@ const Lead = ({ lead, user, users }) => {
   let initialValue = 0;
 
   useEffect(() => {
-    if (isLoading) {
-      if (!isEmpty(lead) && !isEmpty(user) && !isEmpty(users)) {
-        setIsLoading(false);
-      }
-    }
+    lead && setIsLoading(false);
   }, [isLoading]);
 
   const closePopup = () => {
