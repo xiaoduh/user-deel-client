@@ -43,7 +43,10 @@ export const editLead = (
   last_name,
   role,
   email,
-  phone
+  phone,
+  isOpen,
+  isVerified,
+  status
 ) => {
   return (dispatch) => {
     return axios({
@@ -61,12 +64,30 @@ export const editLead = (
         role,
         email,
         phone,
+        isOpen,
+        isVerified,
+        status,
       },
     })
       .then((res) => {
         dispatch({
           type: UPDATE_LEAD,
-          payload: res.data,
+          payload: {
+            id,
+            lookingFor,
+            company,
+            sector,
+            region,
+            skills,
+            first_name,
+            last_name,
+            role,
+            email,
+            phone,
+            isOpen,
+            isVerified,
+            status,
+          },
         });
       })
       .catch((err) => console.log(err));

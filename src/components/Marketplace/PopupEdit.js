@@ -8,12 +8,15 @@ const PopupEdit = ({ closePopupEdit, contactToEdit }) => {
   const [company, setCompany] = useState(contactToEdit.company);
   const [sector, setSector] = useState(contactToEdit.sector);
   const [region, setRegion] = useState(contactToEdit.region);
-  const [skill, setSkill] = useState(contactToEdit.skill);
+  const [skill, setSkill] = useState(contactToEdit.skills);
   const [firstName, setFirstName] = useState(contactToEdit.first_name);
   const [lastName, setLastName] = useState(contactToEdit.last_name);
   const [position, setPosition] = useState(contactToEdit.role);
   const [email, setEmail] = useState(contactToEdit.email);
   const [phone, setPhone] = useState(contactToEdit.phone);
+  const [isOpen, setIsOpen] = useState(contactToEdit.isOpen);
+  const [isVerified, setIsVerified] = useState(contactToEdit.isVerified);
+  const [status, setStatus] = useState(contactToEdit.status);
   const dispatch = useDispatch();
 
   const handleEdit = () => {
@@ -36,7 +39,10 @@ const PopupEdit = ({ closePopupEdit, contactToEdit }) => {
           lastName,
           position,
           email,
-          phone
+          phone,
+          isOpen,
+          isVerified,
+          status
         )
       );
     closePopupEdit();
@@ -50,18 +56,169 @@ const PopupEdit = ({ closePopupEdit, contactToEdit }) => {
   return (
     <div className="popup">
       <div className="modal" id="edit-contact">
-        <h3>
-          Modifier l'apport d'affaire n°
-          <span style={{ color: "#109CF1" }}>{contactToEdit._id}</span>
-        </h3>
+        <div>
+          <h3>
+            Modifier l'apport d'affaire n°
+            <span style={{ color: "#109CF1" }}>{contactToEdit._id}</span>
+          </h3>
+          {user.isAdmin && contactToEdit.isOpen ? (
+            <>
+              {" "}
+              <label
+                style={{ color: "#109CF1" }}
+                htmlFor="isOpen"
+                class="form__label"
+              >
+                Ouvert
+              </label>
+              <br />
+              <select
+                style={{ border: "1px solid #C2CFE0" }}
+                class="form__field profil-required"
+                name="isOpen"
+                id="isOpen"
+                required
+                onChange={() => setIsOpen(!isOpen)}
+              >
+                <option>Ouvert</option>
+                <option>Fermé</option>{" "}
+              </select>
+              <br />
+            </>
+          ) : null}
+          {user.isAdmin && !contactToEdit.isOpen ? (
+            <>
+              {" "}
+              <label
+                style={{ color: "#109CF1" }}
+                htmlFor="isOpen"
+                class="form__label"
+              >
+                Ouvert
+              </label>
+              <br />
+              <select
+                style={{ border: "1px solid #C2CFE0" }}
+                class="form__field profil-required"
+                name="isOpen"
+                id="isOpen"
+                required
+                onChange={() => setIsOpen(!isOpen)}
+              >
+                <option>Fermé</option>
+                <option>Ouvert</option>{" "}
+              </select>
+              <br />
+            </>
+          ) : null}
+          {user.isAdmin && contactToEdit.isVerified ? (
+            <>
+              {" "}
+              <label
+                style={{ color: "#109CF1" }}
+                htmlFor="verified"
+                class="form__label"
+              >
+                Certifié
+              </label>
+              <br />
+              <select
+                style={{ border: "1px solid #C2CFE0" }}
+                class="form__field profil-required"
+                name="verified"
+                id="verified"
+                required
+                onChange={() => setIsVerified(!isVerified)}
+              >
+                <option>Certifié</option>
+                <option>Non certifié</option>{" "}
+              </select>
+              <br />
+            </>
+          ) : null}
+          {user.isAdmin && !contactToEdit.isVerified ? (
+            <>
+              {" "}
+              <label
+                style={{ color: "#109CF1" }}
+                htmlFor="verified"
+                class="form__label"
+              >
+                Certifié
+              </label>
+              <br />
+              <select
+                style={{ border: "1px solid #C2CFE0" }}
+                class="form__field profil-required"
+                name="verified"
+                id="verified"
+                required
+                onChange={() => setIsVerified(!isVerified)}
+              >
+                <option value="unverified">Non certifié</option>
+                <option value="verified">Certifié</option>{" "}
+              </select>
+              <br />
+            </>
+          ) : null}
+          {user.isAdmin ? (
+            <>
+              {" "}
+              <label
+                style={{ color: "#109CF1" }}
+                htmlFor="status"
+                class="form__label"
+              >
+                Status
+              </label>
+              <br />
+              <select
+                style={{ marginBottom: "2.5rem", border: "1px solid #C2CFE0" }}
+                class="form__field profil-required"
+                name="status"
+                id="status"
+                required
+                onChange={(e) => setStatus(e.target.value)}
+              >
+                {status == "validated" ? (
+                  <>
+                    <option value="validated" selected="selected">
+                      Publié
+                    </option>
+                    <option value="pending">Non publié</option>
+                    <option value="disabled">Archivé</option>
+                  </>
+                ) : (
+                  <>
+                    <option value="validated">Publié</option>
+                    <option value="pending" selected="selected">
+                      Non publié
+                    </option>
+                    <option value="disabled">Archivé</option>
+                  </>
+                )}
+                {status == "disabled" ? (
+                  <>
+                    <option value="validated">Publié</option>
+                    <option value="pending">Non publié</option>
+                    <option value="disabled" selected="selected">
+                      Archivé
+                    </option>
+                  </>
+                ) : null}
+              </select>
+              <br />
+            </>
+          ) : null}
+        </div>
+
         <>
           <div className="left-side">
             <h3>Informations sur l' affaire</h3>
-            {/* <p
+            <p
               style={{
                 display: "flex",
-                // alignItems: "center",
-                marginBottom: "1.5rem",
+                alignItems: "center",
               }}
             >
               <img
@@ -70,7 +227,7 @@ const PopupEdit = ({ closePopupEdit, contactToEdit }) => {
                 alt="important"
               />{" "}
               ces informations sont obligatoires.
-            </p> */}
+            </p>
             <label
               style={{ color: "#109CF1" }}
               htmlFor="besoin"
@@ -176,9 +333,14 @@ const PopupEdit = ({ closePopupEdit, contactToEdit }) => {
           </div>
           <div className="right-side">
             <h3>Informations sur le demandeur</h3>
-            <p>
+            <p
+              style={{
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
               <img
-                style={{ widht: "20px", height: "20px" }}
+                style={{ widht: "20px", height: "20px", marginRight: ".5rem" }}
                 src="/important.svg"
                 alt="important"
               />{" "}
