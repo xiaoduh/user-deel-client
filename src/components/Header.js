@@ -26,14 +26,14 @@ const Header = () => {
             {userData.coin > 0 ? (
               <>
                 <span>{!isEmpty(userData) && userData.coin}</span>{" "}
-                <p>Crédits</p>
+                <p style={{ fontSize: "1rem" }}>💰</p>
               </>
             ) : (
               <>
                 <span style={{ color: "#F7685B" }}>
                   {!isEmpty(userData) && userData.coin}
                 </span>{" "}
-                <p>Crédit</p>
+                <p style={{ fontSize: "1rem" }}>💰</p>
               </>
             )}
           </div>{" "}

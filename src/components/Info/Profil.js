@@ -11,7 +11,7 @@ const Profil = () => {
         <p>Ici, retrouvez toutes vos données personnelles et statistiques.</p>
       </div>
       <div className="profil-info">
-        <h3>Mes infos</h3>
+        <h3>Mes infos 📋</h3>
         <p>
           {user?.first_name} {user?.last_name}
         </p>
@@ -26,13 +26,13 @@ const Profil = () => {
         <p>{dateParser(user.createdAt)}</p>
       </div>
       <div className="user-credit-balance">
-        <h3>Mes crédits</h3>
+        <h3>Mes crédits 💰</h3>
         <div className="content">
           <span>{user?.coin}</span> <p>Crédits</p>
         </div>
       </div>
       <div className="user-lead-bought">
-        <h3>Mes stats</h3>
+        <h3>Mes stats 📊</h3>
         <div className="content">
           {user?.user_type === "business_provider" ? (
             <>

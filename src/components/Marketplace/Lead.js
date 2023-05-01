@@ -96,7 +96,7 @@ const Lead = ({ lead, user, users }) => {
             )}
           </td>
           <td>
-            {true ? (
+            {lead.jobDesc ? (
               <img
                 src="./known.svg"
                 alt="known"
@@ -158,16 +158,19 @@ const Lead = ({ lead, user, users }) => {
             )}
           </td>
           <td>
-            {users
-              .filter((el) => el._id.includes(lead.dealerID))
-              .map(
-                (el) =>
-                  el.review.reduce(
-                    (accumulator, currentValue) => accumulator + currentValue,
-                    initialValue
-                  ) / el.review.length
-              )}{" "}
-            / 5
+            {" "}
+            <p style={{ display: "block", margin: "0 auto" }}>
+              {users
+                .filter((el) => el._id.includes(lead.dealerID))
+                .map(
+                  (el) =>
+                    el.review.reduce(
+                      (accumulator, currentValue) => accumulator + currentValue,
+                      initialValue
+                    ) / el.review.length
+                )}{" "}
+              / 5
+            </p>
             {/* {users
               .filter((el) => el._id.includes(lead.dealerID))
               .map(

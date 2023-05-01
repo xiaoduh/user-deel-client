@@ -7,6 +7,8 @@ const Sidebar = () => {
   const userData = useSelector((state) => state.userReducer);
   const leadsData = useSelector((state) => state.leadsReducer);
 
+  console.log(userData.user_data == "business_provider");
+
   return (
     <>
       <nav>
@@ -19,12 +21,19 @@ const Sidebar = () => {
           <div className="profil-info">
             {/* <img className="img-profil" src="/profil.png" alt="alt-profil-user" /> */}
             <div className="user-info-container">
+              <p>Bonjour,</p>
               <h3>
                 {!isEmpty(userData.first_name) &&
                   upperCase(userData.first_name)}{" "}
-                {!isEmpty(userData.last_name) && upperCase(userData.last_name)}
+                {!isEmpty(userData.last_name) && upperCase(userData.last_name)}{" "}
+                <span style={{ fontSize: "1rem" }}>👋</span>
               </h3>
-              <small>{userData.email}</small>
+              <small>
+                Tu es{" "}
+                {userData.user_type == "business_provider"
+                  ? "apporteur d'affaires."
+                  : "commercial."}
+              </small>
             </div>
           </div>
           <div className="navlinks">
@@ -42,8 +51,9 @@ const Sidebar = () => {
                     alt="marketplace"
                   /> */}
                   <p>
-                    <span style={{ fontSize: "1rem" }}>🎯 </span>
-                    Marketplace ({!isEmpty(leadsData) && leadsData?.length})
+                    <span style={{ fontSize: "1rem" }}>🕵️ </span>
+                    Apports d'affaires (
+                    {!isEmpty(leadsData) && leadsData?.length})
                   </p>
                 </NavLink>
               )}
@@ -92,7 +102,7 @@ const Sidebar = () => {
                 >
                   {/* <img className="img-icon" src="./plus.svg" alt="sales" /> */}
                   <p>
-                    <span style={{ fontSize: "1rem" }}>🚀 </span> Apporter une
+                    <span style={{ fontSize: "1rem" }}>📁 </span> Apporter une
                     affaire
                   </p>
                 </NavLink>

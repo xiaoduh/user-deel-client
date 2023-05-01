@@ -3,17 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { dateParser, upperCase } from "../../utils";
 import PopupEdit from "./PopupEdit";
-import PopupDisableLead from "./PopupDisableLead";
 
 const GridSeller = () => {
   const leadsData = useSelector((state) => state.leadsReducer);
   const userData = useSelector((state) => state.userReducer);
   const [isLoading, setIsLoading] = useState(true);
   const [edit, setEdit] = useState(false);
-  const [disable, setDisable] = useState(false);
   //recuperation des data a modifier ou supp
   const [contactToEdit, setContactToEdit] = useState(null);
-  const [contactToDel, setContactToDel] = useState(null);
 
   useEffect(() => leadsData[0] && setIsLoading(false));
 
@@ -21,18 +18,9 @@ const GridSeller = () => {
     setEdit(false);
   };
 
-  const closePopupDel = () => {
-    setDisable(false);
-  };
-
   const handleEditContact = (contact) => {
     setContactToEdit(contact);
     setEdit(true);
-  };
-
-  const handleDisableContact = (contact) => {
-    setContactToDel(contact);
-    setDisable(true);
   };
 
   return (
@@ -230,19 +218,9 @@ const GridSeller = () => {
                               </button>
                             ) : null}
                             {contact.status === "validated" ? (
-                              <button
-                                className="btn-cancel"
-                                onClick={() => handleDisableContact(contact)}
-                              >
-                                Désactiver
-                              </button>
+                              <button className="btn-cancel">Désactiver</button>
                             ) : contact.status !== "pending" ? (
-                              <button
-                                className="btn-confirm"
-                                onClick={() => handleDisableContact(contact)}
-                              >
-                                Activer
-                              </button>
+                              <button className="btn-confirm">Activer</button>
                             ) : null}
                           </td>
                         </tr>
@@ -271,12 +249,6 @@ const GridSeller = () => {
               <PopupEdit
                 closePopupEdit={closePopupEdit}
                 contactToEdit={contactToEdit}
-              />
-            ) : null}
-            {disable ? (
-              <PopupDisableLead
-                closePopupDel={closePopupDel}
-                contactToDel={contactToDel}
               />
             ) : null}
           </div>
