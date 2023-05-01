@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import ConversationThumbnail from "./ConversationThumbnail";
 
-const Chat = () => {
+const Chat = ({ convs }) => {
   const user = useSelector((state) => state.userReducer);
   const leadsData = useSelector((state) => state.leadsReducer);
   const usersData = useSelector((state) => state.usersReducer);
@@ -38,23 +38,10 @@ const Chat = () => {
               <div className="conversation-header">
                 <h4>Mes sujets de conversations</h4>
               </div>
-              {Array.isArray(user.lead_bought) &&
-                user.lead_bought
-                  .sort((a, b) => {
-                    return b.createdAt - a.createdAt;
-                  })
-                  .map((id) => {
-                    for (let i = 0; i < leadsData.length; i++) {
-                      if (id === leadsData[i]._id) {
-                        return (
-                          <ConversationThumbnail
-                            key={leadsData[i]._id}
-                            leadData={leadsData[i]}
-                          />
-                        );
-                      }
-                    }
-                  })}
+              {Array.isArray(convs) &&
+                convs.map((chat) => {
+                  return chat._id;
+                })}
             </div>
             <div className="chat-room">
               <div className="messanges-container">messages</div>

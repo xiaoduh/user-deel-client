@@ -28,7 +28,7 @@
             cursor: pointer;
             padding: 10px;
             margin-bottom: 5px;
-            border-bottom: 1px solid $dark-blue-text;
+            border-bottom: 1px solid $icon-gray;
             display: flex;
 
             .info-container {
@@ -51,7 +51,7 @@
                     }
 
                     #sector {
-                        background: #ffb8462c;
+                        // background: #ffb8462c;
                         color: #FFB946;
                         border: 1px solid #FFB946;
                         border-radius: 20px;
@@ -59,7 +59,7 @@
                     }
 
                     #region {
-                        background: #875af82a;
+                        // background: #875af82a;
                         color: #885AF8;
                         border: 1px solid #885AF8;
                         border-radius: 20px;
@@ -67,7 +67,7 @@
                     }
 
                     #company {
-                        background: #109bf11f;
+                        // background: #109bf11f;
                         color: #109CF1;
                         border: 1px solid #109CF1;
                         border-radius: 20px;
@@ -104,7 +104,7 @@
                 overflow-x: hidden;
                 padding: 10px;
                 border-radius: 10px;
-                border: 1px solid $dark-blue-text;
+                border: 1px solid $icon-gray;
                 margin-right: 1rem;
             }
         }

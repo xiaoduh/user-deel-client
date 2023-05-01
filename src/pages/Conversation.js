@@ -5,9 +5,11 @@ import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import ReactGA from "react-ga";
 import Chat from "../components/Chat/Chat";
+import { useSelector } from "react-redux";
 
 const Conversation = () => {
   const uid = useContext(UidContext);
+  const convs = useSelector((state) => state.convsReducer);
 
   useEffect(() => {
     ReactGA.pageview(window.location.pathname);
@@ -19,7 +21,7 @@ const Conversation = () => {
         <div className="logged-user">
           <Header />
           <Sidebar />
-          <Chat />
+          <Chat convs={convs} />
         </div>
       ) : (
         <div className="log-container">
