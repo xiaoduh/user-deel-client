@@ -36,12 +36,13 @@ const Sidebar = () => {
                     isActive ? "active-left-nav" : ""
                   }
                 >
-                  <img
+                  {/* <img
                     className="img-icon"
                     src="./panier-ajouter.svg"
                     alt="marketplace"
-                  />
+                  /> */}
                   <p>
+                    <span style={{ fontSize: "1rem" }}>🎯 </span>
                     Marketplace ({!isEmpty(leadsData) && leadsData?.length})
                   </p>
                 </NavLink>
@@ -52,12 +53,13 @@ const Sidebar = () => {
                   isActive ? "active-left-nav" : ""
                 }
               >
-                <img
+                {/* <img
                   className="img-icon"
                   src="./commentaires.svg"
                   alt="mes échanges"
-                />
+                /> */}
                 <p>
+                  <span style={{ fontSize: "1rem" }}>💬 </span>
                   Mes échanges (
                   {!isEmpty(userData) && userData?.lead_bought.length})
                 </p>
@@ -69,12 +71,14 @@ const Sidebar = () => {
                     isActive ? "active-left-nav" : ""
                   }
                 >
-                  <img
+                  {/* <img
                     className="img-icon"
                     src="./dashboard.svg"
                     alt="contact"
-                  />
+                  /> */}
                   <p>
+                    {" "}
+                    <span style={{ fontSize: "1rem" }}>📊 </span>
                     Tableau de bord ({!isEmpty(userData) && userData.nb_lead})
                   </p>
                 </NavLink>
@@ -86,8 +90,11 @@ const Sidebar = () => {
                     isActive ? "active-left-nav" : ""
                   }
                 >
-                  <img className="img-icon" src="./plus.svg" alt="sales" />
-                  <p>Apporter une affaire</p>
+                  {/* <img className="img-icon" src="./plus.svg" alt="sales" /> */}
+                  <p>
+                    <span style={{ fontSize: "1rem" }}>🚀 </span> Apporter une
+                    affaire
+                  </p>
                 </NavLink>
               )}
               {userData.isBusinessProvider && (
@@ -97,8 +104,11 @@ const Sidebar = () => {
                     isActive ? "active-left-nav" : ""
                   }
                 >
-                  <img className="img-icon" src="./banque.svg" alt="store" />
-                  <p>Convertir mes crédits</p>
+                  {/* <img className="img-icon" src="./banque.svg" alt="store" /> */}
+                  <p>
+                    <span style={{ fontSize: "1rem" }}>🔄 </span> Convertir mes
+                    crédits
+                  </p>
                 </NavLink>
               )}
 
@@ -109,8 +119,11 @@ const Sidebar = () => {
                     isActive ? "active-left-nav" : ""
                   }
                 >
-                  <img className="img-icon" src="./store.svg" alt="store" />
-                  <p>Acheter des crédits</p>
+                  {/* <img className="img-icon" src="./store.svg" alt="store" /> */}
+                  <p>
+                    <span style={{ fontSize: "1rem" }}>💳 </span> Acheter des
+                    crédits
+                  </p>
                 </NavLink>
               )}
               <NavLink
@@ -119,8 +132,11 @@ const Sidebar = () => {
                   isActive ? "active-left-nav" : ""
                 }
               >
-                <img className="img-icon" src="./info.svg" alt="info" />
-                <p>Mon compte</p>
+                {/* <img className="img-icon" src="./info.svg" alt="info" /> */}
+                <p>
+                  {" "}
+                  <span style={{ fontSize: "1rem" }}>👀 </span>Mon compte
+                </p>
               </NavLink>
               <NavLink
                 to="/help"
@@ -128,12 +144,14 @@ const Sidebar = () => {
                   isActive ? "active-left-nav" : ""
                 }
               >
-                <img
+                {/* <img
                   className="img-icon"
                   src="./interrogatoire.svg"
                   alt="help"
-                />
-                <p>Aide</p>
+                /> */}
+                <p>
+                  <span style={{ fontSize: "1rem" }}>☎️ </span>Aide
+                </p>
               </NavLink>
               {userData.isSales && (
                 <NavLink
@@ -142,12 +160,14 @@ const Sidebar = () => {
                     isActive ? "active-left-nav" : ""
                   }
                 >
-                  <img
+                  {/* <img
                     className="img-icon"
                     src="./rafraichir.svg"
                     alt="report"
-                  />
-                  <p>Remboursement</p>
+                  /> */}
+                  <p>
+                    <span style={{ fontSize: "1rem" }}>📢 </span>Remboursement
+                  </p>
                 </NavLink>
               )}
               {userData.isAdmin && (
@@ -157,8 +177,10 @@ const Sidebar = () => {
                     isActive ? "active-left-nav" : ""
                   }
                 >
-                  <img className="img-icon" src="./admin.svg" alt="report" />
-                  <p>Administrateur</p>
+                  {/* <img className="img-icon" src="./admin.svg" alt="report" /> */}
+                  <p>
+                    <span style={{ fontSize: "1rem" }}>👑 </span>Administrateur
+                  </p>
                 </NavLink>
               )}
             </div>

@@ -141,7 +141,7 @@ const GridSeller = () => {
                                 Modifier
                               </button>
                             ) : null}
-                            {contact.status === "validated" ? (
+                            {/* {contact.status === "validated" ? (
                               <button
                                 className="btn-cancel"
                                 onClick={() => handleDisableContact(contact)}
@@ -155,7 +155,7 @@ const GridSeller = () => {
                               >
                                 Activer
                               </button>
-                            ) : null}
+                            ) : null} */}
                           </td>
                         </tr>
                       );
