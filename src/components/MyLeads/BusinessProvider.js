@@ -66,7 +66,7 @@ const Sales = () => {
     const errorSkillRequired = document.querySelector(".skill-required");
     const errorSectorRequired = document.querySelector(".sector-required");
     const errorRegionRequired = document.querySelector(".region-required");
-    e.preventDefault();
+    // e.preventDefault();
 
     if (profil === null || profil === "") {
       errorProfilRequired.style.border = "1px solid #F7685B";

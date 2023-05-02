@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { editLead, removeLead } from "../../actions/leads.actions";
+import { editLead, getLeads, removeLead } from "../../actions/leads.actions";
 
 const PopupEdit = ({ closePopupEdit, contactToEdit }) => {
   const user = useSelector((state) => state.userReducer);
@@ -20,31 +20,24 @@ const PopupEdit = ({ closePopupEdit, contactToEdit }) => {
   const dispatch = useDispatch();
 
   const handleEdit = () => {
-    if (
-      firstName != "" ||
-      lastName != "" ||
-      position != "" ||
-      email != "" ||
-      phone != ""
-    )
-      dispatch(
-        editLead(
-          contactToEdit._id,
-          lookingFor,
-          company,
-          sector,
-          region,
-          skill,
-          firstName,
-          lastName,
-          position,
-          email,
-          phone,
-          isOpen,
-          isVerified,
-          status
-        )
-      );
+    dispatch(
+      editLead(
+        contactToEdit._id,
+        lookingFor,
+        company,
+        sector,
+        region,
+        skill,
+        firstName,
+        lastName,
+        position,
+        email,
+        phone,
+        isOpen,
+        isVerified,
+        status
+      )
+    );
     closePopupEdit();
     window.location.reload(false);
   };
@@ -460,6 +453,7 @@ const PopupEdit = ({ closePopupEdit, contactToEdit }) => {
               className="btn-not-allowed"
               onClick={() => {
                 if (window.confirm("Voulez vous supprimer cette annonce ?")) {
+                  console.log(contactToEdit._id);
                   handleDelete(contactToEdit._id);
                 }
               }}

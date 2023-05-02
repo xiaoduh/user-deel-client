@@ -38,7 +38,7 @@ export default function leadsReducer(state = initialState, action) {
       });
 
     case REMOVE_LEAD:
-      return state.filter((lead) => lead._id !== action.payload.id);
+      return state.filter((lead) => lead._id != action.payload.id);
 
     default:
       return state;

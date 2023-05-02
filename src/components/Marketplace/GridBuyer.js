@@ -18,7 +18,6 @@ const Grid = () => {
   const [infoReview, setInfoReview] = useState(false);
   const dispatch = useDispatch();
 
-
   const closePopupInfo = () => {
     setPopupInfo(false);
   };
@@ -66,10 +65,10 @@ const Grid = () => {
                 </th>
                 <th>Email</th>
                 <th>Téléphone</th>
-                <th>Fiche de poste</th>
+                <th>Description</th>
                 <th>Statut</th>
                 <th className="disable">Ajouté le</th>
-                <th>Nombre de vue</th>
+                <th>Vue</th>
                 <th>
                   Fiabilité{" "}
                   <img
@@ -79,7 +78,7 @@ const Grid = () => {
                   />
                 </th>
                 <th>
-                  Rép. de l'apporteur{" "}
+                  Réputation{" "}
                   <img
                     src="/information.svg"
                     alt="info"

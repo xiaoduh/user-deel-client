@@ -38,7 +38,10 @@ const Chat = ({ convs }) => {
                       for (let i = 0; i < leadsData.length; i++) {
                         if (chat.leadID === leadsData[i]._id) {
                           return (
-                            <ConversationThumbnail leadData={leadsData[i]} />
+                            <ConversationThumbnail
+                              leadData={leadsData[i]}
+                              key={leadsData[i]._id}
+                            />
                           );
                         }
                       }
