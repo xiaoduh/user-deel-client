@@ -6,23 +6,16 @@ const Chat = ({ convs }) => {
   const user = useSelector((state) => state.userReducer);
   const leadsData = useSelector((state) => state.leadsReducer);
   const usersData = useSelector((state) => state.usersReducer);
-  const data = [];
 
-  // const selectLead = () => {
-  //   Array.isArray(user.lead_bought) &&
-  //     user.lead_bought.map((id) => {
-  //       for (let i = 0; i < leadsData.length; i++) {
-  //         if (id === leadsData[i]._id) {
-  //           // data.push(leadsData[i]);
-  //         }
-  //       }
-  //     });
-  //   // console.log(data[0]);
-  // };
+  const display = (id) => {
+    for (let i = 0; i < leadsData.length; i++) {
+      if (leadsData._id === id) {
+        return console.log("affiché");
+      } else return null;
+    }
+  };
 
-  // useEffect(() => {
-  //   leadsData && selectLead();
-  // }, [leadsData]);
+  // user.lead_bought.map((el) => (el == chat.leadID ? () => display(el) : null));
 
   return (
     <main className="conversation-container">
@@ -40,7 +33,17 @@ const Chat = ({ convs }) => {
               </div>
               {Array.isArray(convs) &&
                 convs.map((chat) => {
-                  return chat._id;
+                  for (let i = 0; i < user.lead_bought.length; i++) {
+                    if (chat.leadID === user.lead_bought[i]) {
+                      for (let i = 0; i < leadsData.length; i++) {
+                        if (chat.leadID === leadsData[i]._id) {
+                          return (
+                            <ConversationThumbnail leadData={leadsData[i]} />
+                          );
+                        }
+                      }
+                    }
+                  }
                 })}
             </div>
             <div className="chat-room">
