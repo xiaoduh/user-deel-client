@@ -66,7 +66,7 @@ const Sales = () => {
     const errorSkillRequired = document.querySelector(".skill-required");
     const errorSectorRequired = document.querySelector(".sector-required");
     const errorRegionRequired = document.querySelector(".region-required");
-    // e.preventDefault();
+    e.preventDefault();
 
     if (profil === null || profil === "") {
       errorProfilRequired.style.border = "1px solid #F7685B";
@@ -87,6 +87,8 @@ const Sales = () => {
       errorProfilRequired.style.border = "";
       errorCompanyRequired.style.border = "";
       errorSkillRequired.style.border = "";
+      errorSectorRequired.style.border = "";
+      errorRegionRequired.style.border = "";
       await dispatch(
         sellLead(
           user._id,
@@ -120,6 +122,7 @@ const Sales = () => {
 
           setTimeout(() => {
             formMess.innerHTML = "";
+            window.location.reload(false);
           }, 4500);
         })
         .catch((err) => console.log(err));
@@ -137,211 +140,222 @@ const Sales = () => {
           </p>
         </div>
         <>
-          <div className="left-side">
-            <h3>Informations sur l'affaire</h3>
-            <p>
-              <img
-                style={{ widht: "20px", height: "20px" }}
-                src="/important.svg"
-                alt="important"
-              />{" "}
-              ces informations sont obligatoires.
-            </p>{" "}
-            <label
-              style={{ color: "#109CF1" }}
-              htmlFor="besoin"
-              class="form__label"
-            >
-              Profil recherché
-            </label>
-            <br />
-            <input
-              class="form__field profil-required"
-              type="text"
-              name="besoin"
-              id="besoin"
-              autocomplete="off"
-              required
-              onChange={(e) => checkProfil(e)}
-              placeholder="Développeur React"
-              // value={profil}
-            />
-            <br />
-            <label
-              style={{ color: "#109CF1" }}
-              htmlFor="company"
-              class="form__label"
-            >
-              Entreprise
-            </label>
-            <br />
-            <input
-              class="form__field company-required"
-              type="text"
-              name="company"
-              id="company"
-              autocomplete="off"
-              required
-              onChange={(e) => checkCompany(e)}
-              placeholder="Google"
-            />
-            <br />
-            <label
-              style={{ color: "#109CF1" }}
-              htmlFor="sector"
-              class="form__label"
-            >
-              Secteur
-            </label>
-            <br />
-            <input
-              class="form__field sector-required"
-              type="text"
-              name="sector"
-              id="sector"
-              autocomplete="off"
-              required
-              onChange={(e) => checkSector(e)}
-              placeholder="Internet"
-            />
-            <br />
-            <label
-              style={{ color: "#109CF1" }}
-              htmlFor="sector"
-              class="form__label"
-            >
-              Département
-            </label>
-            <br />
-            <input
-              class="form__field region-required"
-              type="text"
-              name="region"
-              id="region"
-              autocomplete="off"
-              required
-              onChange={(e) => checkRegion(e)}
-              placeholder="75"
-            />
-            <label
-              style={{ color: "#109CF1" }}
-              htmlFor="skills"
-              class="form__label"
-            >
-              Compétences
-            </label>
-            <br />
-            <input
-              class="form__field skill-required"
-              type="text"
-              name="skills"
-              id="skills"
-              autocomplete="off"
-              required
-              onChange={(e) => checkSkills(e)}
-              placeholder="React, Redux, SASS..."
-            />
-          </div>
-          <div className="right-side">
-            <h3>Informations sur le demandeur</h3>
-            <p>
-              <img
-                style={{ widht: "20px", height: "20px" }}
-                src="/important.svg"
-                alt="important"
-              />{" "}
-              ce sont les données les plus importantes.
-            </p>{" "}
-            <label
-              style={{ color: "#109CF1" }}
-              htmlFor="last_name"
-              class="form__label"
-            >
-              Nom
-            </label>
-            <br />
-            <input
-              class="form__field"
-              type="text"
-              name="last_name"
-              id="last_name"
-              autocomplete="off"
-              onChange={(e) => setLastName(e.target.value)}
-              placeholder="Duff"
-            />
-            <br />
-            <label
-              style={{ color: "#109CF1" }}
-              htmlFor="first_name"
-              class="form__label"
-            >
-              Prénom
-            </label>
-            <br />
-            <input
-              class="form__field"
-              type="text"
-              name="first_name"
-              id="first_name"
-              autocomplete="off"
-              onChange={(e) => setFirstName(e.target.value)}
-              placeholder="John"
-            />
-            <br />
-            <label
-              style={{ color: "#109CF1" }}
-              htmlFor="role"
-              class="form__label"
-            >
-              Rôle
-            </label>
-            <br />
-            <input
-              class="form__field"
-              type="text"
-              name="role"
-              id="role"
-              autocomplete="off"
-              onChange={(e) => setRole(e.target.value)}
-              placeholder="VP of Engineering"
-            />
-            <br />
-            <label
-              style={{ color: "#109CF1" }}
-              htmlFor="email"
-              class="form__label"
-            >
-              Email
-            </label>
-            <br />
-            <input
-              class="form__field"
-              type="email"
-              name="email"
-              id="email"
-              autocomplete="off"
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="john.duff@google.com"
-            />
-            <br />
-            <label
-              style={{ color: "#109CF1" }}
-              htmlFor="phone"
-              class="form__label"
-            >
-              Téléphone
-            </label>
-            <br />
-            <input
-              class="form__field"
-              type="text"
-              name="phone"
-              id="phone"
-              autocomplete="off"
-              onChange={(e) => setPhone(e.target.value)}
-              placeholder="0669584702 ou 0145879558"
-            />
-          </div>
+          <form className="form-container">
+            <div className="left-side">
+              <h3>Informations sur l'affaire</h3>
+              <p>
+                <img
+                  style={{ widht: "20px", height: "20px" }}
+                  src="/important.svg"
+                  alt="important"
+                />{" "}
+                ces informations sont obligatoires.
+              </p>{" "}
+              <label
+                style={{ color: "#109CF1" }}
+                htmlFor="besoin"
+                class="form__label"
+              >
+                Profil recherché
+              </label>
+              <br />
+              <input
+                class="form__field profil-required"
+                type="text"
+                name="besoin"
+                id="besoin"
+                autocomplete="off"
+                required
+                onChange={(e) => checkProfil(e)}
+                placeholder="Développeur React"
+                value={profil}
+              />
+              <br />
+              <label
+                style={{ color: "#109CF1" }}
+                htmlFor="company"
+                class="form__label"
+              >
+                Entreprise
+              </label>
+              <br />
+              <input
+                class="form__field company-required"
+                type="text"
+                name="company"
+                id="company"
+                autocomplete="off"
+                required
+                onChange={(e) => checkCompany(e)}
+                placeholder="Google"
+                value={company}
+              />
+              <br />
+              <label
+                style={{ color: "#109CF1" }}
+                htmlFor="sector"
+                class="form__label"
+              >
+                Secteur
+              </label>
+              <br />
+              <input
+                class="form__field sector-required"
+                type="text"
+                name="sector"
+                id="sector"
+                autocomplete="off"
+                required
+                onChange={(e) => checkSector(e)}
+                placeholder="Internet"
+                value={sector}
+              />
+              <br />
+              <label
+                style={{ color: "#109CF1" }}
+                htmlFor="sector"
+                class="form__label"
+              >
+                Département
+              </label>
+              <br />
+              <input
+                class="form__field region-required"
+                type="text"
+                name="region"
+                id="region"
+                autocomplete="off"
+                required
+                onChange={(e) => checkRegion(e)}
+                placeholder="75"
+                value={region}
+              />
+              <label
+                style={{ color: "#109CF1" }}
+                htmlFor="skills"
+                class="form__label"
+              >
+                Compétences
+              </label>
+              <br />
+              <input
+                class="form__field skill-required"
+                type="text"
+                name="skills"
+                id="skills"
+                autocomplete="off"
+                required
+                onChange={(e) => checkSkills(e)}
+                placeholder="React, Redux, SASS..."
+                value={skill}
+              />
+            </div>
+            <div className="right-side">
+              <h3>Informations sur le demandeur</h3>
+              <p>
+                <img
+                  style={{ widht: "20px", height: "20px" }}
+                  src="/important.svg"
+                  alt="important"
+                />{" "}
+                ce sont les données les plus importantes.
+              </p>{" "}
+              <label
+                style={{ color: "#109CF1" }}
+                htmlFor="last_name"
+                class="form__label"
+              >
+                Nom
+              </label>
+              <br />
+              <input
+                class="form__field"
+                type="text"
+                name="last_name"
+                id="last_name"
+                autocomplete="off"
+                onChange={(e) => setLastName(e.target.value)}
+                placeholder="Duff"
+                value={lastName}
+              />
+              <br />
+              <label
+                style={{ color: "#109CF1" }}
+                htmlFor="first_name"
+                class="form__label"
+              >
+                Prénom
+              </label>
+              <br />
+              <input
+                class="form__field"
+                type="text"
+                name="first_name"
+                id="first_name"
+                autocomplete="off"
+                onChange={(e) => setFirstName(e.target.value)}
+                placeholder="John"
+                value={firstName}
+              />
+              <br />
+              <label
+                style={{ color: "#109CF1" }}
+                htmlFor="role"
+                class="form__label"
+              >
+                Rôle
+              </label>
+              <br />
+              <input
+                class="form__field"
+                type="text"
+                name="role"
+                id="role"
+                autocomplete="off"
+                onChange={(e) => setRole(e.target.value)}
+                placeholder="VP of Engineering"
+                value={role}
+              />
+              <br />
+              <label
+                style={{ color: "#109CF1" }}
+                htmlFor="email"
+                class="form__label"
+              >
+                Email
+              </label>
+              <br />
+              <input
+                class="form__field"
+                type="email"
+                name="email"
+                id="email"
+                autocomplete="off"
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="john.duff@google.com"
+                value={email}
+              />
+              <br />
+              <label
+                style={{ color: "#109CF1" }}
+                htmlFor="phone"
+                class="form__label"
+              >
+                Téléphone
+              </label>
+              <br />
+              <input
+                class="form__field"
+                type="text"
+                name="phone"
+                id="phone"
+                autocomplete="off"
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="0669584702 ou 0145879558"
+                value={phone}
+              />
+            </div>
+          </form>
           <div className="btn-container">
             <button onClick={(e) => handleFormSubmit(e)}>
               {loading ? (
