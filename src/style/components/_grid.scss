@@ -90,6 +90,11 @@
                     box-shadow: 0px 1px 0px #EBEFF2;
                 }
 
+                &:hover {
+                    cursor: pointer;
+                    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+                }
+
                 .disable {
 
                     @media screen and (max-width: 600px)  {
