@@ -29,7 +29,7 @@ const Lead = ({ lead, user }) => {
           </td>
           <td className="needs">{lead.lookingFor}</td>
           <td className="needs">{lead.skills}</td>
-          <td className="sector">{lead.sector}</td>
+          {/* <td className="sector">{lead.sector}</td> */}
           <td className="sector">{lead.region}</td>
           <td>
             {lead.company !== "" ? (
