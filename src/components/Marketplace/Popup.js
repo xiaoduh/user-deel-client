@@ -14,6 +14,7 @@ const Popup = ({ lead, closePopup }) => {
     await dispatch(getUser(user._id));
     dispatch(getLeads());
     closePopup();
+    window.location = "/lead";
   };
   return (
     <div className="popup">
