@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 const Sidebar = () => {
   const userData = useSelector((state) => state.userReducer);
   const leadsData = useSelector((state) => state.leadsReducer);
-  console.log(userData.lead_bought.length);
 
   return (
     <nav>
