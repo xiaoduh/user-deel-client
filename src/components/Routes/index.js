@@ -15,7 +15,7 @@ import EmailVerificator from "../Log/EmailVerificator";
 import ResetPW from "../ResetPW/ResetPW";
 import Report from "../../pages/Report";
 import Conversation from "../../pages/Conversation";
-import Announce from "../../pages/Announce";
+import Annonce from "../../pages/Annonce";
 import Transfert from "../../pages/Transfert";
 import AccountVerification from "../../pages/AccountVerification";
 import ProtectedRoutes from "./ProtectedRoutes";
@@ -34,7 +34,7 @@ const index = () => {
           exact
           element={<AccountVerification />}
         />
-        <Route path="/announce" exact element={<Announce />} />
+        <Route path="/annonce" exact element={<Annonce />} />
         <Route path="/lead" exact element={<MyLeads />} />
         <Route path="/store" exact element={<Store />} />
         <Route path="/transfert" exact element={<Transfert />} />

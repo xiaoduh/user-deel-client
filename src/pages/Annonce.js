@@ -7,7 +7,7 @@ import Header from "../components/Header";
 import GridSeller from "../components/Marketplace/GridSeller";
 import ReactGA from "react-ga";
 
-const Announce = () => {
+const Annonce = () => {
   const uid = useContext(UidContext);
   const userData = useSelector((state) => state.userReducer);
   useEffect(() => {
@@ -30,4 +30,4 @@ const Announce = () => {
   );
 };
 
-export default Announce;
+export default Annonce;

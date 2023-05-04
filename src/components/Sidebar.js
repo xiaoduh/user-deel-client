@@ -76,7 +76,7 @@ const Sidebar = () => {
               </NavLink>
               {userData.isBusinessProvider && (
                 <NavLink
-                  to="/announce"
+                  to="/annonce"
                   className={({ isActive }) =>
                     isActive ? "active-left-nav" : ""
                   }
