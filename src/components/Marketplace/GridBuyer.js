@@ -39,7 +39,7 @@ const Grid = () => {
             <span style={{ color: "#109CF1" }}> ({leadsData.length})</span>
           </h3>
           <p>
-            Ici, entrez en contact avec les apporteurs d'affaires pour tout
+            Ici, entrez en relation avec les apporteurs d'affaires pour tout
             savoir sur les besoins qui vous intéressent.
           </p>
         </div>
@@ -52,7 +52,7 @@ const Grid = () => {
                 <th className="disable">Id</th>
                 <th className="needs">Profil</th>
                 <th className="needs">Compétences</th>
-                <th className="sector">Secteur</th>
+                {/* <th className="sector">Secteur</th> */}
                 <th className="sector">Lieu</th>
                 <th>Société</th>
                 <th>

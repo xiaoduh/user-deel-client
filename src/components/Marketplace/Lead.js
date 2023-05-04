@@ -28,7 +28,7 @@ const Lead = ({ lead, user, users }) => {
           </td>
           <td className="needs">{upperCase(lead.lookingFor)}</td>
           <td className="needs">{lead.skills}</td>
-          <td className="sector">{upperCase(lead.sector)}</td>
+          {/* <td className="sector">{upperCase(lead.sector)}</td> */}
           <td className="sector">
             {" "}
             <p style={{ display: "inline-block", margin: "0 auto" }}>
