@@ -41,7 +41,7 @@ const Sidebar = () => {
               className={({ isActive }) => (isActive ? "active-left-nav" : "")}
             >
               <img className="img-icon" src="./lead.svg" alt="contact" />
-              <p>Mes besoins ({userData?.lead_bought.length})</p>
+              <p>Mes besoins </p>
             </NavLink>
             <NavLink
               to="/store"
