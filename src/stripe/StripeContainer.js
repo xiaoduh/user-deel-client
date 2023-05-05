@@ -3,7 +3,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 
 const PUBLIC_KEY =
-  "pk_test_51MmFnAAFkffstGESiUofja54O8QkibxvCmxb9eIKThBRJ5t0rWd0tgYBGXu9Vap29MQGppZ4kvddedOzx3F3yEDG00HbIU0Hoc";
+  "pk_live_51MmFnAAFkffstGEScgHou9CEY4fbTh8nu5nLW9D9CTVu7L3uk8CLmfK49N00i813C1Bd9Q8dMLFI1oTYepyzkFL800ydBeOcj1";
 const stripeTestPromise = loadStripe(PUBLIC_KEY);
 
 const Stripe = ({
