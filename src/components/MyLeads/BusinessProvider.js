@@ -122,7 +122,6 @@ const Sales = () => {
 
           setTimeout(() => {
             formMess.innerHTML = "";
-            window.location.reload(false);
           }, 4500);
         })
         .catch((err) => console.log(err));
