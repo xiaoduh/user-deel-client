@@ -44,7 +44,7 @@ const SignIn = () => {
 
     axios({
       method: "post",
-      url: `http://localhost:5000/api/user/login`,
+      url: `https://deeel-v0-test.onrender.com/api/user/login`,
       withCredentials: true,
       data: {
         email,
@@ -77,7 +77,7 @@ const SignIn = () => {
     console.log(email);
     axios({
       method: "post",
-      url: `http://localhost:5000/api/user/user-forgot-password/`,
+      url: `https://deeel-v0-test.onrender.com/api/user/user-forgot-password/`,
       withCredentials: true,
       data: {
         email,

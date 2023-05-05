@@ -11,7 +11,7 @@ const EmailVerificator = () => {
       try {
         await axios({
           method: "get",
-          url: `http://localhost:5000/api/user/${param.id}/verify/${param.token}`,
+          url: `https://deeel-v0-test.onrender.com/api/user/${param.id}/verify/${param.token}`,
         }).then((res) => {
           setValidUrl(true);
         });

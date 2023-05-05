@@ -14,6 +14,7 @@ const CheckoutForm = ({
   const stripe = useStripe();
   const elements = useElements();
   const uid = useContext(UidContext);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   console.log(plan.credit);
@@ -32,7 +33,7 @@ const CheckoutForm = ({
       try {
         const { id } = paymentMethod;
         const response = await axios.post(
-          `http://localhost:5000/api/stripe/charge/${uid}`,
+          `https://deeel-v0-test.onrender.com/api/stripe/charge/${uid}`,
           {
             amount: plan.amount,
             id: id,

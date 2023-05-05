@@ -15,7 +15,7 @@ const ResetPW = () => {
 
     const res = await axios({
       method: "put",
-      url: `http://localhost:5000/api/user/user-reset-password/${id}/${token}`,
+      url: `https://deeel-v0-test.onrender.com/api/user/user-reset-password/${id}/${token}`,
       data: { password: newPassword },
     });
     if (res.status === 200) {
