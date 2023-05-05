@@ -28,12 +28,12 @@ const Sidebar = () => {
                 {!isEmpty(userData.last_name) && upperCase(userData.last_name)}{" "}
                 <span style={{ fontSize: "1rem" }}>👋</span>
               </h3>
-              <small>
+              {/* <small>
                 Tu es{" "}
                 {userData.user_type == "business_provider"
                   ? "apporteur d'affaires."
                   : "commercial."}
-              </small>
+              </small> */}
             </div>
           </div>
           <div className="navlinks">
