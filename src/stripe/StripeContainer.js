@@ -12,15 +12,15 @@ const Stripe = ({
   paymentSuccessful,
   paymentFailed,
 }) => {
-  const options = {
-    // passing the client secret obtained from the server
-    clientSecret:
-      "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",
-  };
+  // const options = {
+  //   // passing the client secret obtained from the server
+  //   clientSecret:
+  //     "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",
+  // };
   return (
     <Elements
       stripe={stripeTestPromise}
-      options={options}
+      // options={options}
       closeCheckoutForm={closeCheckoutForm}
       plan={plan}
     >
