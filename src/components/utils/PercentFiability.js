@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
 import colors from "../../style/_settings.scss";
 
-const PercentFiability = ({ percent }) => {
+const PercentFiability = ({ int }) => {
+  console.log(int);
   const [color, setColor] = useState();
   useEffect(() => {
-    if (percent <= 33) {
+    if (int <= 2.5) {
       setColor(colors.red);
-    } else if (percent <= 66) {
+    } else if (int <= 3.5) {
       setColor(colors.yellow);
     } else {
       setColor(colors.green);
     }
-  }, [percent]);
+  }, [int]);
   return (
     <p className="percent-change-container" style={{ color }}>
-      {percent ? percent.toFixed(1) + "%" : " - "}
+      {int ? int.toFixed(1) + " /5" : " - "}
     </p>
   );
 };

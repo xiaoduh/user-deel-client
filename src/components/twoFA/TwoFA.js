@@ -1,20 +1,20 @@
 import React, { useEffect, useState, useContext } from "react";
+import { useSelector } from "react-redux";
 import Logout from "../Log/Logout";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import { UidContext } from "../AppContext";
 
-const TwoFA = ({ handleTwoFA, userData }) => {
+const TwoFA = ({ handleTwoFA }) => {
   const [codeUser, setCodeUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isVerified, setIsVerified] = useState(false);
   const [codeGenerated, setCodeGenerated] = useState(null);
+  const userData = useSelector((state) => state.userReducer);
   const uid = useContext(UidContext);
 
   const verifyNumPhone = (e, codeUser, codeGenerated) => {
     e.preventDefault();
-    // console.log(typeof codeUser);
-    // console.log(typeof codeGenerated);
     if (codeUser == codeGenerated) {
       console.log("vérifié");
       setIsVerified(true);
@@ -22,6 +22,7 @@ const TwoFA = ({ handleTwoFA, userData }) => {
       console.log("bad number");
     }
   };
+
 
   const sendCode = (codeGenerated, number) => {
     const url =
@@ -32,12 +33,14 @@ const TwoFA = ({ handleTwoFA, userData }) => {
       "Content-Type": "application/x-www-form-urlencoded",
       Authorization: "Basic " + btoa(auth),
     });
+
     const init = {
       method: "post",
       headers: headers,
       mode: "cors",
       body: `To=${number}&From=+16729060660&Body=Bonjour, voici votre code pour vous connecter sur deeel : ${codeGenerated}`,
     };
+    console.log(init);
     fetch(url, init)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
@@ -58,6 +61,7 @@ const TwoFA = ({ handleTwoFA, userData }) => {
         })
         .catch((err) => console.log(err));
     };
+
     if ((userData.isVerified = true)) {
       setLoading(false);
       generateCode();
