@@ -39,6 +39,7 @@ const PopupEdit = ({ closePopupEdit, contactToEdit }) => {
       )
     );
     closePopupEdit();
+    window.location("/");
     // window.location.reload(false);
   };
 
