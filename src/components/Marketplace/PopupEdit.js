@@ -39,7 +39,7 @@ const PopupEdit = ({ closePopupEdit, contactToEdit }) => {
       )
     );
     closePopupEdit();
-    window.location.reload(false);
+    // window.location.reload(false);
   };
 
   const handleDelete = (id) => {
