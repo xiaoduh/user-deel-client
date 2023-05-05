@@ -1,23 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { calcLeadQuality, dateParser } from "../../utils";
-import PercentFiability from "../utils/PercentFiability";
-import { getLeads } from "../../actions/leads.actions";
+import { dateParser } from "../../utils";
 
 const TableLead = () => {
   const leadsData = useSelector((state) => state.leadsReducer);
   const userData = useSelector((state) => state.userReducer);
-  const dispatch = useDispatch();
 
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    if (isLoading) {
-      dispatch(getLeads());
-      setIsLoading(false);
-    }
-  }, [isLoading]);
+  useEffect(() => leadsData[0] && setIsLoading(false));
 
   return (
     <main>
@@ -27,7 +19,7 @@ const TableLead = () => {
             Mes
             <span style={{ color: "#109CF1" }}>
               {" "}
-              Achats ({userData.lead_bought.length})
+              infos business ({userData.lead_bought.length})
             </span>
           </h3>
         </div>

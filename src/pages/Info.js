@@ -5,7 +5,7 @@ import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import Profil from "../components/Info/Profil";
 
-const Info = ({ uidLogout }) => {
+const Info = () => {
   const uid = useContext(UidContext);
   return (
     <>

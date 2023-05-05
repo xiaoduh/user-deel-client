@@ -40,6 +40,7 @@ $red: #F7685B;
 $green: #2ED47A;
 $yellow: #FFB946;
 $purple: #885AF8;
+$accent-purple: #9c75fd;
 $icon-gray: #C2CFE0;
 $gray: #90A0B7;
 $dark-blue-text: #334D6E;
@@ -69,6 +70,24 @@ $shadow: rgb(219, 218, 218);
     text-decoration: none;
   }
 
+  main {
+    position: absolute;
+    left: 260px;
+    width: calc(100% - 260px);
+    height: 90%;
+    padding: 1.5rem;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+
+    .loading {
+      font-size: 3rem;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+    }
+  }
+
+
 a,
 a:visited {
     color: $accent-blue;
@@ -85,16 +104,11 @@ h4 {
 }
 
 input,
-textarea {
+textarea, select {
     resize: none;
     width: 370px;
     font-family: $font-Regular;
     border-bottom: #109CF1;
-
-    &::placeholder {
-      color: $icon-gray;
-      font-size: .6rem;
-    }
 
     &:focus {
       border: 1px solid $accent-blue;
@@ -102,6 +116,9 @@ textarea {
   }
 
 textarea {
+  font-size: .8rem;
+  cursor: pointer;
+  
     &:focus {
       box-shadow: 0 0 4px rgba(0, 22, 44, 0.1);
     }
@@ -160,6 +177,16 @@ input[type="submit"] {
   }
 }
 
+.btn-purple {
+  background: $purple;
+  color: $white;
+  box-shadow: $accent-purple 1.95px 1.95px 2.6px;
+
+  &:hover {
+    background: $accent-purple;
+  }
+}
+
 .btn-not-allowed {
   background: $red;
   color: $white;
@@ -170,17 +197,27 @@ input[type="submit"] {
     background: #fa7d72;
   }
 }
-
-input[type="text"], input[type='password'], input[type='email'] {
+select {
   padding: .5rem .2rem;
   cursor: pointer;
   background-color: white;
   border-radius: 5px;
 
-  &::placeholder {
-    color: $icon-gray;
-    font-size: .6rem;
+  &:focus {
+    border: 1px solid $accent-blue;
   }
+}
+
+input[type="text"], input[type='password'], input[type='email'], input[type='select'] {
+  padding: .5rem .5rem;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 5px;
+  font-size: .8rem;
+
+  // &::placeholder {
+  //   color: $icon-gray;
+  // }
 
   &:focus {
     border: 1px solid $accent-blue;
@@ -208,7 +245,6 @@ body {
     background: $bg;
     color: $dark-blue-text;
 
-    
     @media screen and (max-width: 1500px)  {
       font-size: .7rem;
   }
@@ -216,11 +252,11 @@ body {
   @media screen and (max-width: 1200px)  {
     font-size: .6rem;
   }
-  }
+}
 
 .img-icon {
-    max-width: 24px;
-    max-height: 24px;
+    max-width: 17px;
+    max-height: 17px;
     cursor: pointer;
     transition: .5ms;
 

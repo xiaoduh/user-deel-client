@@ -1,76 +1,112 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import axios from "axios";
+import { isEmpty } from "../../utils";
 
 const SignUp = () => {
   const [formSubmit, setFormSubmit] = useState(false);
-  const [user_username, setUser_username] = useState("");
+  const [myType, setMyType] = useState("");
   const [first_name, setFirst_name] = useState("");
   const [last_name, setLast_name] = useState("");
   const [email, setEmail] = useState("");
   const [phone_number, setPhone_number] = useState("");
   const [password, setPassword] = useState("");
-  const [controlPassword, setControlPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const leadsData = useSelector((state) => state.leadsReducer);
+
+  const checkUserType = (e) => {
+    setMyType(e.target.value);
+    const errorUTRequired = document.querySelector(".utype");
+    if (!e.target.value || e.target.value === null)
+      errorUTRequired.style.border = "1px solid #F7685B";
+    else errorUTRequired.style.border = "1px solid #2ED47A";
+  };
+
+  const checkLastName = (e) => {
+    setLast_name(e.target.value);
+    const errorLastNameRequired = document.querySelector(".name");
+    if (!e.target.value || e.target.value === null)
+      errorLastNameRequired.style.border = "1px solid #F7685B";
+    else errorLastNameRequired.style.border = "1px solid #2ED47A";
+  };
+
+  const checkFirstName = (e) => {
+    setFirst_name(e.target.value);
+    const errorFirstNameRequired = document.querySelector(".firstname");
+    if (!e.target.value || e.target.value === null)
+      errorFirstNameRequired.style.border = "1px solid #F7685B";
+    else errorFirstNameRequired.style.border = "1px solid #2ED47A";
+  };
+
+  const checkPhone = (e) => {
+    setPhone_number(e.target.value.replace("0", "+33"));
+    const errorPhoneRequired = document.querySelector(".phone");
+    if (!e.target.value || e.target.value === null)
+      errorPhoneRequired.style.border = "1px solid #F7685B";
+    else errorPhoneRequired.style.border = "1px solid #2ED47A";
+  };
+
+  const checkEmail = (e) => {
+    setEmail(e.target.value);
+    const errorEmailRequired = document.querySelector(".email");
+    if (!e.target.value || e.target.value === null)
+      errorEmailRequired.style.border = "1px solid #F7685B";
+    else errorEmailRequired.style.border = "1px solid #2ED47A";
+  };
+
+  const checkPW = (e) => {
+    setPassword(e.target.value);
+    const errorPWRequired = document.querySelector(".pw");
+    if (!e.target.value || e.target.value === null)
+      errorPWRequired.style.border = "1px solid #F7685B";
+    else errorPWRequired.style.border = "1px solid #2ED47A";
+  };
 
   const handleRegister = async (e) => {
     setLoading(true);
     e.preventDefault();
     const terms = document.getElementById("terms");
-    const pseudoError = document.querySelector(".identifiant.error");
+    const typeError = document.querySelector(".type.error");
     const nomError = document.querySelector(".nom.error");
     const prenomError = document.querySelector(".prenom.error");
     const emailError = document.querySelector(".email.error");
     const telError = document.querySelector(".tel.error");
     const passwordError = document.querySelector(".password.error");
-    const passwordConfirmError = document.querySelector(
-      ".password-confirm.error"
-    );
     const termsError = document.querySelector(".terms.error");
     const register = document.getElementById("register");
     const login = document.getElementById("login");
 
-    passwordConfirmError.innerHTML = "";
     // termsError.innerHTML = "";
-
-    if (password !== controlPassword) {
-      if (password !== controlPassword)
-        passwordConfirmError.innerHTML =
-          "Les mots de passe ne correspondent pas";
-
-      if (!terms.checked)
-        termsError.innerHTML = "Veuillez valider les conditions générales";
-    } else {
-      await axios({
-        method: "post",
-        url: `https://deeel-v0-test.onrender.com/api/user/register`,
-        data: {
-          user_username: user_username,
-          first_name: first_name,
-          last_name: last_name,
-          email: email,
-          phone_number: phone_number.replace("0", "+33"),
-          password: password,
-        },
+    await axios({
+      method: "post",
+      url: `https://deeel-v0-test.onrender.com/api/user/register`,
+      data: {
+        user_type: myType,
+        first_name: first_name,
+        last_name: last_name,
+        email: email,
+        phone_number: phone_number,
+        password: password,
+      },
+    })
+      .then((res) => {
+        console.log(res);
+        if (res.data.errors) {
+          setLoading(false);
+          // typeError.innerHTML = res.data.errors.type;
+          nomError.innerHTML = res.data.errors.last_name;
+          prenomError.innerHTML = res.data.errors.first_name;
+          emailError.innerHTML = res.data.errors.email;
+          telError.innerHTML = res.data.errors.phone_number;
+          passwordError.innerHTML = res.data.errors.password;
+        } else {
+          setFormSubmit(true);
+          setLoading(false);
+          // register.classList.remove("active-btn");
+          // login.classList.add("active-btn");
+        }
       })
-        .then((res) => {
-          console.log(res);
-          if (res.data.errors) {
-            setLoading(false);
-            pseudoError.innerHTML = res.data.errors.user_username;
-            nomError.innerHTML = res.data.errors.last_name;
-            prenomError.innerHTML = res.data.errors.first_name;
-            emailError.innerHTML = res.data.errors.email;
-            telError.innerHTML = res.data.errors.phone_number;
-            passwordError.innerHTML = res.data.errors.password;
-          } else {
-            setFormSubmit(true);
-            setLoading(false);
-            // register.classList.remove("active-btn");
-            // login.classList.add("active-btn");
-          }
-        })
-        .catch((err) => console.log(err));
-    }
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -94,39 +130,48 @@ const SignUp = () => {
       ) : (
         <form action="" onSubmit={handleRegister} id="sign-up-form">
           <div className="title-connexion">
-            <img src="./logo.png" alt="logo" />
+            <img style={{ marginBottom: "0" }} src="./logo.png" alt="logo" />
+            <p style={{ marginBottom: "1.5rem" }}>
+              Il y a actuellement{" "}
+              <span>{!isEmpty(leadsData) && leadsData.length}</span> annonces
+              d'apports d'affaires en ligne.
+            </p>
             <h2>Inscription</h2>
           </div>
-          <label htmlFor="identifiant" class="form__label">
-            Identifiant
+          <br />
+          <label htmlFor="type" class="form__label">
+            Type d'utilisateur
           </label>
           <br />
-          <input
-            class="form__field"
-            type="text"
-            name="identifiant"
-            id="identifiant"
+          <select
+            class="form__field utype"
+            type="select"
+            name="type"
+            id="type"
             autocomplete="off"
             required
-            placeholder="JohnDuff"
-            onChange={(e) => setUser_username(e.target.value)}
-            value={user_username}
-          />
-          <div className="identifiant error"></div>
+            value={myType}
+            onChange={(e) => checkUserType(e)}
+          >
+            {!myType && <option value="">Choisissez votre type</option>}
+            <option value="sales">Commercial</option>
+            <option value="business_provider">Apporteur d'affaires</option>
+          </select>
+          <div className="type error"></div>
           <br />
           <label htmlFor="nom" class="form__label">
             Nom
           </label>
           <br />
           <input
-            class="form__field"
+            class="form__field name"
             type="text"
             name="nom"
             id="nom"
             autocomplete="off"
             required
             placeholder="Duff"
-            onChange={(e) => setLast_name(e.target.value)}
+            onChange={(e) => checkLastName(e)}
             value={last_name}
           />
           <div className="nom error"></div>
@@ -136,14 +181,14 @@ const SignUp = () => {
           </label>
           <br />
           <input
-            class="form__field"
+            class="form__field firstname"
             type="text"
             name="prenom"
             id="prenom"
             autocomplete="off"
             required
             placeholder="John"
-            onChange={(e) => setFirst_name(e.target.value)}
+            onChange={(e) => checkFirstName(e)}
             value={first_name}
           />
           <div className="prenom error"></div>
@@ -153,14 +198,14 @@ const SignUp = () => {
           </label>
           <br />
           <input
-            class="form__field"
+            class="form__field phone"
             type="text"
             name="tel"
             id="tel"
             autocomplete="off"
             required
-            placeholder="doit être vérifié pour vous connecter"
-            onChange={(e) => setPhone_number(e.target.value)}
+            placeholder="Un code vous sera envoyé à chaque connexion"
+            onChange={(e) => checkPhone(e)}
             value={phone_number}
           />
           <div className="tel error"></div>
@@ -170,14 +215,14 @@ const SignUp = () => {
           </label>
           <br />
           <input
-            class="form__field"
+            class="form__field email"
             type="text"
             name="email"
             id="email"
             autocomplete="off"
             required
             placeholder="doit être vérifié pour activer votre compte"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => checkEmail(e)}
             value={email}
           />
           <div className="email error"></div>
@@ -187,34 +232,18 @@ const SignUp = () => {
           </label>
           <br />
           <input
-            class="form__field"
+            class="form__field pw"
             type="password"
             name="password"
             id="password"
             autocomplete="off"
             placeholder="********"
             required
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => checkPW(e)}
             value={password}
           />
           <div className="password error"></div>
           <br />
-          <label htmlFor="password-conf" class="form__label">
-            Confirmer le mot de passe
-          </label>
-          <br />
-          <input
-            class="form__field"
-            type="password"
-            name="password"
-            id="password-conf"
-            autocomplete="off"
-            placeholder="********"
-            required
-            onChange={(e) => setControlPassword(e.target.value)}
-            value={controlPassword}
-          />
-          <div className="password-confirm error"></div>
           <br />
           {/* 
           <input type="checkbox" id="terms" />

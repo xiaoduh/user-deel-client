@@ -5,13 +5,13 @@ import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import Stripe from "../stripe/StripeContainer";
 
-const Payment = ({ uidLogout }) => {
+const Payment = () => {
   const uid = useContext(UidContext);
   return (
     <>
       {uid ? (
         <div className="logged-user">
-          <Header uidLogout={uidLogout} />
+          <Header />
           <Sidebar />
           <Stripe />
         </div>

@@ -1,4 +1,9 @@
-import { GET_USER, BUY_LEAD, VERIFY_NUMBER } from "../actions/user.actions";
+import {
+  GET_USER,
+  BUY_LEAD,
+  VERIFY_NUMBER,
+  WITHDRAW_CREDIT,
+} from "../actions/user.actions";
 
 const initialState = {};
 
@@ -8,7 +13,10 @@ export default function userReducer(state = initialState, action) {
       return action.payload;
 
     case BUY_LEAD:
-      return action.payload;
+      return [action.payload, ...state];
+
+    case WITHDRAW_CREDIT:
+      return [action.payload, ...state];
 
     case VERIFY_NUMBER:
       return {

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import axios from "axios";
+import { isEmpty } from "../../utils";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -7,6 +9,31 @@ const SignIn = () => {
   const [resetPassword, setResetPassword] = useState(false);
   const [emailToReset, setEmailToReset] = useState("");
   const [loading, setLoading] = useState(false);
+  const leadsData = useSelector((state) => state.leadsReducer);
+
+  const checkEmail2Reset = (e) => {
+    setEmailToReset(e.target.value);
+    const errorEmail2ResetRequired = document.querySelector(".email2reset");
+    if (!e.target.value || e.target.value === null)
+      errorEmail2ResetRequired.style.border = "1px solid #F7685B";
+    else errorEmail2ResetRequired.style.border = "1px solid #2ED47A";
+  };
+
+  const checkEmail = (e) => {
+    setEmail(e.target.value);
+    const errorEmailRequired = document.querySelector(".email");
+    if (!e.target.value || e.target.value === null)
+      errorEmailRequired.style.border = "1px solid #F7685B";
+    else errorEmailRequired.style.border = "1px solid #2ED47A";
+  };
+
+  const checkPW = (e) => {
+    setPassword(e.target.value);
+    const errorPWRequired = document.querySelector(".pw");
+    if (!e.target.value || e.target.value === null)
+      errorPWRequired.style.border = "1px solid #F7685B";
+    else errorPWRequired.style.border = "1px solid #2ED47A";
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -29,7 +56,9 @@ const SignIn = () => {
         if (res.data.errors) {
           emailError.innerHTML = res.data.errors.email;
           passwordError.innerHTML = res.data.errors.password;
+          setLoading(false);
         } else {
+          setLoading(false);
           window.location = "/";
         }
       })
@@ -63,6 +92,7 @@ const SignIn = () => {
       })
       .catch((err) => {
         if (err.response.data) emailError.innerHTML = err.response.data;
+        setLoading(false);
         setTimeout(() => {
           emailError.innerHTML = "";
         }, 5000);
@@ -88,9 +118,9 @@ const SignIn = () => {
               type="text"
               name="email"
               id="email"
-              onChange={(e) => setEmailToReset(e.target.value)}
+              onChange={(e) => checkEmail2Reset(e)}
               value={emailToReset}
-              class="form__field"
+              class="form__field email2reset"
             />
             <div className="email error"></div>
             <div className="email success"></div>
@@ -114,7 +144,14 @@ const SignIn = () => {
         <>
           {" "}
           <div className="title-connexion">
-            <img src="./logo.png" alt="logo" />
+            <img style={{ marginBottom: "0" }} src="./logo.png" alt="logo" />
+            <p style={{ marginBottom: "1.5rem" }}>
+              Il y a actuellement{" "}
+              <span style={{ color: "#109CF1" }}>
+                {!isEmpty(leadsData) && leadsData.length}
+              </span>{" "}
+              annonces d'apports d'affaires en ligne.
+            </p>
             <h2>Connexion</h2>
           </div>
           <form onSubmit={handleLogin} id="sign-up-form">
@@ -126,9 +163,9 @@ const SignIn = () => {
               type="text"
               name="email"
               id="email"
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => checkEmail(e)}
               value={email}
-              class="form__field"
+              class="form__field email"
             />
             <div className="email error"></div>
             <br />
@@ -140,9 +177,9 @@ const SignIn = () => {
               type="password"
               name="password"
               id="password"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => checkPW(e)}
               value={password}
-              class="form__field"
+              class="form__field pw"
             />
             <div className="password error"></div>
             <br />

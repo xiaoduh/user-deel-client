@@ -3,6 +3,7 @@ import axios from "axios";
 export const GET_USER = "GET_USER";
 export const BUY_LEAD = "BUY_LEAD";
 export const VERIFY_NUMBER = "VERIFY_NUMBER";
+export const WITHDRAW_CREDIT = "WITHDRAW_CREDIT";
 
 // dispatch : ce qui est envoyé au reducer
 
@@ -26,6 +27,20 @@ export const buyLead = (leadId, userId, dealerId) => {
     })
       .then((res) => {
         dispatch({ type: BUY_LEAD, payload: { leadId, userId, dealerId } });
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+export const withDraw = (userId, amount) => {
+  return (dispatch) => {
+    return axios({
+      method: "put",
+      url: `https://deeel-v0-test.onrender.com/api/user/withdraw/${userId}`,
+      data: { withdraw: amount },
+    })
+      .then((res) => {
+        dispatch({ type: WITHDRAW_CREDIT, payload: { withdraw: amount } });
       })
       .catch((err) => console.log(err));
   };

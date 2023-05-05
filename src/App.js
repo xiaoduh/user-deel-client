@@ -6,29 +6,27 @@ import { useDispatch } from "react-redux";
 import { getUser } from "./actions/user.actions";
 import ReactGA from "react-ga";
 
-ReactGA.initialize("G-PX6V2GRHT5");
+const TRACKING_ID = "G-PX6V2GRHT5";
+
+ReactGA.initialize(TRACKING_ID);
 
 function App() {
   const [uid, setUid] = useState(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    ReactGA.pageview(window.location.pathname + window.location.search);
-    if (uid !== "notoken") {
-      const fetchToken = async () => {
-        await axios({
-          method: "get",
-          url: `https://deeel-v0-test.onrender.com/jwtid`,
-          withCredentials: true,
+    const fetchToken = async () => {
+      await axios({
+        method: "get",
+        url: `https://deeel-v0-test.onrender.com/jwtid`,
+        withCredentials: true,
+      })
+        .then((res) => {
+          setUid(res.data.user._id);
         })
-          .then((res) => {
-            setUid(res.data.user._id);
-          })
-          .catch((err) => console.log("No token"));
-      };
-      fetchToken();
-    }
-
+        .catch((err) => console.log("No token"));
+    };
+    fetchToken();
     if (uid) dispatch(getUser(uid));
   }, [dispatch, uid]);
 

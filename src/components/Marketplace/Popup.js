@@ -14,14 +14,13 @@ const Popup = ({ lead, closePopup }) => {
     await dispatch(getUser(user._id));
     dispatch(getLeads());
     closePopup();
-    window.location = "/lead";
   };
   return (
     <div className="popup">
       <div className="modal">
         <h3>
           Voulez-vous dépenser <span style={{ color: "#109CF1" }}>1</span>{" "}
-          crédit pour débloquer ce contact ?
+          crédit pour contacter cet apporteur d'affaire ?
         </h3>
         <p>
           Votre solde est de{" "}

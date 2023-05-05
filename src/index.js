@@ -9,14 +9,18 @@ import thunk from "redux-thunk";
 import rootReducer from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import logger from "redux-logger";
-// import { getLeads } from "./actions/leads.actions";
+import { getLeads } from "./actions/leads.actions";
+import { getAllUsers } from "./actions/users.actions";
+import { getConvs } from "./actions/conversations.actions";
 
 const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk, logger))
 );
 
-// store.dispatch(getLeads());
+store.dispatch(getLeads());
+store.dispatch(getAllUsers());
+store.dispatch(getConvs());
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

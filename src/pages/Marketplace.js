@@ -1,12 +1,9 @@
 import React, { useContext, useEffect } from "react";
 import { UidContext } from "../components/AppContext";
-import { useSelector, useDispatch } from "react-redux";
 import Log from "../components/Log";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
-import Grid from "../components/Marketplace/Grid";
-// import TwoFA from "../components/twoFA/TwoFA";
-// import { verifyNumber } from "../actions/user.actions";
+import GridBuyer from "../components/Marketplace/GridBuyer";
 import ReactGA from "react-ga";
 
 const Marketplace = () => {
@@ -28,7 +25,7 @@ const Marketplace = () => {
         <div className="logged-user">
           <Header />
           <Sidebar />
-          <Grid />
+          <GridBuyer />
         </div>
       ) : (
         <div className="log-container">
