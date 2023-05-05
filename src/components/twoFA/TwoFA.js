@@ -23,7 +23,8 @@ const TwoFA = ({ handleTwoFA }) => {
     }
   };
 
-  const sendCode = async (codeGenerated, number) => {
+
+  const sendCode = (codeGenerated, number) => {
     const url =
       "https://api.twilio.com/2010-04-01/Accounts/ACb520541f549c9efe149f562714a5c72e/Messages.json";
     const auth =
@@ -50,7 +51,7 @@ const TwoFA = ({ handleTwoFA }) => {
       const code = await Math.round(Math.random() * 10000);
       await axios({
         method: "get",
-        url: `http://localhost:5000/api/user/${uid}`,
+        url: `https://deeel-v0-test.onrender.com/api/user/${uid}`,
       })
         .then((res) => {
           if (res.data.twoFA != true) {

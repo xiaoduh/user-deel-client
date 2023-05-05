@@ -10,7 +10,7 @@ export const REMOVE_LEAD = "REMOVE_LEAD";
 export const getLeads = () => {
   return (dispatch) => {
     return axios
-      .get(`http://localhost:5000/api/lead`)
+      .get(`https://deeel-v0-test.onrender.com/api/lead`)
       .then((res) => {
         dispatch({ type: GET_LEADS, payload: res.data });
       })
@@ -21,7 +21,7 @@ export const getLeads = () => {
 export const removeLead = (id) => {
   return (dispatch) => {
     return axios
-      .delete(`http://localhost:5000/api/lead/${id}`)
+      .delete(`https://deeel-v0-test.onrender.com/api/lead/${id}`)
       .then((res) => {
         dispatch({
           type: REMOVE_LEAD,
@@ -51,7 +51,7 @@ export const editLead = (
   return (dispatch) => {
     return axios({
       method: "put",
-      url: `http://localhost:5000/api/lead/${id}`,
+      url: `https://deeel-v0-test.onrender.com/api/lead/${id}`,
       data: {
         id,
         lookingFor,
@@ -110,7 +110,7 @@ export const sellLead = (
   return (dispatch) => {
     return axios({
       method: "post",
-      url: `http://localhost:5000/api/lead`,
+      url: `https://deeel-v0-test.onrender.com/api/lead`,
       data: {
         dealerID: dealerId,
         first_name: firstName,

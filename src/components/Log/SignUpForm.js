@@ -79,7 +79,7 @@ const SignUp = () => {
     // termsError.innerHTML = "";
     await axios({
       method: "post",
-      url: `http://localhost:5000/api/user/register`,
+      url: `https://deeel-v0-test.onrender.com/api/user/register`,
       data: {
         user_type: myType,
         first_name: first_name,
