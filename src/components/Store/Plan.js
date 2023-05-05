@@ -73,6 +73,7 @@ const Plan = () => {
                 </p>
                 <small>TTC</small>
               </div>
+
               <button
                 className="btn-confirm"
                 onClick={() => handleCheckoutForm(planA)}
