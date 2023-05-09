@@ -59,6 +59,7 @@ const SignIn = () => {
           passwordError.innerHTML = res.data.errors.password;
           setLoading(false);
         } else {
+          console.log(res.data);
           setLoading(false);
           // window.location = "/";
         }
