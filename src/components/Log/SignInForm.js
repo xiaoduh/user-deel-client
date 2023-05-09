@@ -46,6 +46,7 @@ const SignIn = () => {
       method: "post",
       url: `https://deeel-v0-test.onrender.com/api/user/login`,
       withCredentials: true,
+      credentials: "include",
       data: {
         email,
         password,
