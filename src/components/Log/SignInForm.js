@@ -61,7 +61,7 @@ const SignIn = () => {
         } else {
           console.log(res.data);
           setLoading(false);
-          // window.location = "/";
+          window.location = "/";
         }
       })
       .catch((err) => {
