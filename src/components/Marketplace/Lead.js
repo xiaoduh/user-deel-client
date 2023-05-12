@@ -172,8 +172,8 @@ const Lead = ({ lead, user, users }) => {
                       ) / el.review.length
                   )}{" "}
               / 5
-            </p> */}
-            {/* {users
+            </p>
+            {users
               .filter((el) => el._id.includes(lead.dealerID))
               .map(
                 (el) =>
@@ -182,8 +182,8 @@ const Lead = ({ lead, user, users }) => {
                     initialValue
                   ) / el.review.length
               )}{" "}
-            / 5 */}
-          </td>
+            / 5
+          </td> */}
           <td>
             {user?.lead_bought?.find((el) => el === lead._id) ? (
               <NavLink to="/conversation">
