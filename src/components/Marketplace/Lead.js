@@ -157,7 +157,7 @@ const Lead = ({ lead, user, users }) => {
               />
             )}
           </td>
-          <td>
+          {/* <td>
             {" "}
             <p style={{ display: "block", margin: "0 auto" }}>
               {users &&
@@ -172,7 +172,7 @@ const Lead = ({ lead, user, users }) => {
                       ) / el.review.length
                   )}{" "}
               / 5
-            </p>
+            </p> */}
             {/* {users
               .filter((el) => el._id.includes(lead.dealerID))
               .map(
