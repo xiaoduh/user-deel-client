@@ -39,7 +39,7 @@ const SignUp = () => {
   };
 
   const checkPhone = (e) => {
-    setPhone_number(e.target.value.replace("0", "+33"));
+    setPhone_number(e.target.value.trim().replace("0", "+33"));
     const errorPhoneRequired = document.querySelector(".phone");
     if (!e.target.value || e.target.value === null)
       errorPhoneRequired.style.border = "1px solid #F7685B";
