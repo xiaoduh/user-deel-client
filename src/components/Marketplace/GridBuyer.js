@@ -77,14 +77,14 @@ const Grid = () => {
                     onMouseOver={() => setInfoReliability(true)}
                   />
                 </th>
-                <th>
+                {/* <th>
                   Réputation{" "}
                   <img
                     src="/information.svg"
                     alt="info"
                     onMouseOver={() => setInfoReview(true)}
                   />
-                </th>
+                </th> */}
                 {/* <th className="disable">Dernière MAJ</th> */}
                 <th>Action</th>
               </tr>
