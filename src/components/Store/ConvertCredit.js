@@ -52,34 +52,40 @@ const ConvertCredit = () => {
               <span style={{ color: "#109CF1" }}>{user.coin * 12.5}</span> €
             </h3>
             <p>Choisissez le nombre de crédit à convertir</p>
-            <input
-              type="number"
-              id="amount-digit"
-              min={0}
-              max={user.coin}
-              onChange={(e) => setAmount(e.target.value)}
-              value={amount}
-              style={{
-                width: "auto",
-                padding: "10px",
-                fontWeight: "bold",
-                fontSize: "2rem",
-                border: "1px solid #109CF1",
-                borderRadius: "10px",
-                cursor: "pointer",
-                color: "#334D6E",
-              }}
-            />
-            <input
-              type="range"
-              id="amount"
-              min={0}
-              max={user.coin}
-              onChange={(e) => setAmount(e.target.value)}
-              style={{
-                cursor: "pointer",
-              }}
-            />
+            <div
+              className="input-amount"
+              style={{ display: "flex", flexDirection: "column" }}
+            >
+              <input
+                type="number"
+                id="amount-digit"
+                min={0}
+                max={user.coin}
+                onChange={(e) => setAmount(e.target.value)}
+                value={amount}
+                style={{
+                  width: "auto",
+                  padding: "10px",
+                  fontWeight: "bold",
+                  fontSize: "2rem",
+                  border: "1px solid #109CF1",
+                  borderRadius: "10px",
+                  cursor: "pointer",
+                  color: "#334D6E",
+                }}
+              />
+              <input
+                type="range"
+                id="amount"
+                min={0}
+                max={user.coin}
+                onChange={(e) => setAmount(e.target.value)}
+                style={{
+                  cursor: "pointer",
+                }}
+              />
+            </div>
+
             <div className="amount-container">
               <h2>
                 <span style={{ color: "#2ED47A" }}>{amount}</span> crédits,
