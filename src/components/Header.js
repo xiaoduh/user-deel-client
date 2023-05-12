@@ -40,6 +40,9 @@ const Header = () => {
           <NavLink to="/help">
             <button className="btn-cancel">Aide</button>
           </NavLink>
+          <NavLink to="/lead">
+            <button className="btn-purple">Apporter un besoin</button>
+          </NavLink>
           {userData.isBusinessProvider && (
             <NavLink to="/transfert">
               <button className="btn-purple">Convertir mes crédits</button>
