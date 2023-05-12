@@ -204,7 +204,7 @@ const SignUp = () => {
             id="tel"
             autocomplete="off"
             required
-            placeholder="Un code vous sera envoyé à chaque connexion"
+            placeholder="Vous recevrez un code de validation"
             onChange={(e) => checkPhone(e)}
             value={phone_number}
           />
