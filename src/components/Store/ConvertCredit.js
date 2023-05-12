@@ -64,7 +64,6 @@ const ConvertCredit = () => {
                 onChange={(e) => setAmount(e.target.value)}
                 value={amount}
                 style={{
-                  width: "auto",
                   padding: "10px",
                   fontWeight: "bold",
                   fontSize: "2rem",
