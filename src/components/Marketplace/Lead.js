@@ -3,7 +3,7 @@ import Popup from "./Popup";
 import { dateParser, isEmpty, upperCase } from "../../utils";
 import { NavLink } from "react-router-dom";
 
-const Lead = ({ lead, user, users }) => {
+const Lead = ({ lead, user }) => {
   const [unlock, setUnlock] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   let initialValue = 0;
@@ -20,7 +20,9 @@ const Lead = ({ lead, user, users }) => {
   return (
     <tr className="lead" key={lead._id}>
       {isLoading ? (
-        <i className="fas fa-spinner fa-spin"></i>
+        <>
+          Chargement... <i className="fas fa-spinner fa-spin"></i>
+        </>
       ) : (
         <>
           <td className="disable">
@@ -142,7 +144,7 @@ const Lead = ({ lead, user, users }) => {
               {lead?.buyer?.length} / 4
             </p>{" "}
           </td>
-          <td>
+          {/* <td>
             {lead?.isVerified === true ? (
               <img
                 src="./verified.svg"
@@ -157,7 +159,7 @@ const Lead = ({ lead, user, users }) => {
               />
             )}
           </td>
-          {/* <td>
+          <td>
             {" "}
             <p style={{ display: "block", margin: "0 auto" }}>
               {users &&
@@ -184,6 +186,7 @@ const Lead = ({ lead, user, users }) => {
               )}{" "}
             / 5
           </td> */}
+          <td>Intermédiaire</td>
           <td>
             {user?.lead_bought?.find((el) => el === lead._id) ? (
               <NavLink to="/conversation">

@@ -65,7 +65,9 @@ const HelpForm = ({ title, p, subject }) => {
             <button style={{ width: "200px" }} type="submit">
               {" "}
               {loading ? (
-                <i className="fas fa-spinner fa-spin"></i>
+                <>
+                  Chargement... <i className="fas fa-spinner fa-spin"></i>
+                </>
               ) : (
                 <p>Envoyer</p>
               )}

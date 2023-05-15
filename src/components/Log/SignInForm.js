@@ -131,7 +131,9 @@ const SignIn = () => {
               <button type="submit">
                 {" "}
                 {loading ? (
-                  <i className="fas fa-spinner fa-spin"></i>
+                  <>
+                    Chargement... <i className="fas fa-spinner fa-spin"></i>
+                  </>
                 ) : (
                   <p>Demander un nouveau mot de passe</p>
                 )}{" "}
@@ -189,7 +191,9 @@ const SignIn = () => {
               <button type="submit">
                 {" "}
                 {loading ? (
-                  <i className="fas fa-spinner fa-spin"></i>
+                  <>
+                    Chargement... <i className="fas fa-spinner fa-spin"></i>
+                  </>
                 ) : (
                   <p>Se connecter</p>
                 )}{" "}

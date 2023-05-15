@@ -24,7 +24,9 @@ const TableLead = () => {
           </h3>
         </div>
         {isLoading ? (
-          <i className="fas fa-spinner fa-spin"></i>
+          <>
+            Chargement... <i className="fas fa-spinner fa-spin"></i>
+          </>
         ) : (
           <table>
             <thead>

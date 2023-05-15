@@ -31,6 +31,19 @@
             img { margin-right: .5rem;}
         }
 
+        .radio-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            text-align: center;
+
+            input {
+                cursor: pointer;
+                width: auto;
+                margin: 0 1rem 0 0;
+            }
+        }
+
         label {
             cursor: pointer;
         }

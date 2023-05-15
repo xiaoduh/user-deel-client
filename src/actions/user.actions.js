@@ -23,7 +23,7 @@ export const buyLead = (leadId, userId, dealerId) => {
     return axios({
       method: "patch",
       url: `https://deeel-v0-test.onrender.com/api/lead/buy-lead/` + leadId,
-      data: { userID: userId, dealerID: dealerId },
+      data: { userID: userId, dealerID: dealerId, leadID: leadId },
     })
       .then((res) => {
         dispatch({ type: BUY_LEAD, payload: { leadId, userId, dealerId } });

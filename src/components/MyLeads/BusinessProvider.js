@@ -6,10 +6,10 @@ import { getLeads, sellLead } from "../../actions/leads.actions";
 const Sales = () => {
   const user = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
+  const [provider, setProvider] = useState(null);
   const [profil, setProfil] = useState(null);
   const [company, setCompany] = useState(null);
   const [skill, setSkill] = useState(null);
-  const [sector, setSector] = useState(null);
   const [region, setRegion] = useState(null);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -17,6 +17,14 @@ const Sales = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
+
+  // const checkProvider = (e) => {
+  //   setProvider(e.target.value);
+  //   const errorProviderRequired = document.querySelector(".provider-required");
+  //   if (!e.target.value || e.target.value === null)
+  //     errorProviderRequired.style.border = "1px solid #F7685B";
+  //   else errorProviderRequired.style.border = "1px solid #2ED47A";
+  // };
 
   const checkProfil = (e) => {
     setProfil(e.target.value);
@@ -32,14 +40,6 @@ const Sales = () => {
     if (e.target.value === "" || e.target.value === null)
       errorCompanyRequired.style.border = "1px solid #F7685B";
     else errorCompanyRequired.style.border = "1px solid #2ED47A";
-  };
-
-  const checkSector = (e) => {
-    setSector(e.target.value);
-    const errorSectorRequired = document.querySelector(".sector-required");
-    if (e.target.value === "" || e.target.value === null)
-      errorSectorRequired.style.border = "1px solid #F7685B";
-    else errorSectorRequired.style.border = "1px solid #2ED47A";
   };
 
   const checkRegion = (e) => {
@@ -61,24 +61,24 @@ const Sales = () => {
   const handleFormSubmit = async (e) => {
     setLoading(true);
     const formMess = document.querySelector(".form-message");
+    const errorProviderRequired = document.querySelector(".provider-required");
     const errorProfilRequired = document.querySelector(".profil-required");
     const errorCompanyRequired = document.querySelector(".company-required");
     const errorSkillRequired = document.querySelector(".skill-required");
-    const errorSectorRequired = document.querySelector(".sector-required");
     const errorRegionRequired = document.querySelector(".region-required");
     e.preventDefault();
 
     if (profil === null || profil === "") {
       errorProfilRequired.style.border = "1px solid #F7685B";
       setLoading(false);
+    } else if (provider === null || provider === "") {
+      errorProviderRequired.style.border = "1px solid #F7685B";
+      setLoading(false);
     } else if (company === null || company === "") {
       errorCompanyRequired.style.border = "1px solid #F7685B";
       setLoading(false);
     } else if (skill === null || skill === "") {
       errorSkillRequired.style.border = "1px solid #F7685B";
-      setLoading(false);
-    } else if (sector === null || sector === "") {
-      errorSectorRequired.style.border = "1px solid #F7685B";
       setLoading(false);
     } else if (region === null || sector === "") {
       errorRegionRequired.style.border = "1px solid #F7685B";
@@ -92,15 +92,15 @@ const Sales = () => {
       await dispatch(
         sellLead(
           user._id,
+          provider,
+          profil,
+          company,
+          region,
+          skill,
           firstName,
           lastName,
           email,
           role,
-          company,
-          skill,
-          profil,
-          sector,
-          region,
           phone
         )
       )
@@ -108,10 +108,10 @@ const Sales = () => {
           dispatch(getUser(user._id));
           dispatch(getLeads);
           setLoading(false);
+          setProvider(null);
           setProfil(null);
           setCompany(null);
           setSkill(null);
-          setSector(null);
           setRegion(null);
           setFirstName("");
           setLastName("");
@@ -150,6 +150,45 @@ const Sales = () => {
                 />{" "}
                 ces informations sont obligatoires.
               </p>{" "}
+              <div className="radio-container">
+                <input
+                  class="form__field provider-required"
+                  type="radio"
+                  name="esn"
+                  id="esn"
+                  required
+                  onChange={(e) => setProvider(e.target.value)}
+                  value="esn"
+                  checked={provider === "esn"}
+                />
+                <label
+                  style={{ color: "#109CF1" }}
+                  htmlFor="esn"
+                  class="form__label"
+                >
+                  Intermédiaire (ESN, cabinet de conseils ou équivalents)
+                </label>
+              </div>
+              <div className="radio-container">
+                <input
+                  class="form__field provider-required"
+                  type="radio"
+                  name="client"
+                  id="client"
+                  required
+                  onChange={(e) => setProvider(e.target.value)}
+                  value="client"
+                  checked={provider === "client"}
+                />
+                <label
+                  style={{ color: "#109CF1" }}
+                  htmlFor="client"
+                  class="form__label"
+                >
+                  Client final
+                </label>
+              </div>
+              <br />
               <label
                 style={{ color: "#109CF1" }}
                 htmlFor="besoin"
@@ -192,27 +231,7 @@ const Sales = () => {
               <br />
               <label
                 style={{ color: "#109CF1" }}
-                htmlFor="sector"
-                class="form__label"
-              >
-                Secteur
-              </label>
-              <br />
-              <input
-                class="form__field sector-required"
-                type="text"
-                name="sector"
-                id="sector"
-                autocomplete="off"
-                required
-                onChange={(e) => checkSector(e)}
-                placeholder="Internet"
-                value={sector}
-              />
-              <br />
-              <label
-                style={{ color: "#109CF1" }}
-                htmlFor="sector"
+                htmlFor="region"
                 class="form__label"
               >
                 Département
@@ -358,7 +377,9 @@ const Sales = () => {
           <div className="btn-container">
             <button onClick={(e) => handleFormSubmit(e)}>
               {loading ? (
-                <i className="fas fa-spinner fa-spin"></i>
+                <>
+                  Chargement... <i className="fas fa-spinner fa-spin"></i>
+                </>
               ) : (
                 <p>Publier mon annonce</p>
               )}

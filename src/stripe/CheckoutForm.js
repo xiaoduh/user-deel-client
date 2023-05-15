@@ -68,7 +68,9 @@ const CheckoutForm = ({
           <button type="submit">
             {" "}
             {loading ? (
-              <i className="fas fa-spinner fa-spin"></i>
+              <>
+                Chargement... <i className="fas fa-spinner fa-spin"></i>
+              </>
             ) : (
               <p style={{ color: "white", margin: "0" }}>
                 Confirmer mon paiement

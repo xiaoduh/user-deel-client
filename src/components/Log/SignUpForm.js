@@ -259,7 +259,9 @@ const SignUp = () => {
             <button type="submit">
               {" "}
               {loading ? (
-                <i className="fas fa-spinner fa-spin"></i>
+                <>
+                  Chargement... <i className="fas fa-spinner fa-spin"></i>
+                </>
               ) : (
                 <p>S'inscrire</p>
               )}{" "}
