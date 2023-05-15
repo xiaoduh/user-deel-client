@@ -186,11 +186,35 @@ const Lead = ({ lead, user }) => {
               )}{" "}
             / 5
           </td> */}
-          <td>Intermédiaire</td>
+          <td>
+            {lead.provider !== "esn" ? (
+              <p
+                style={{
+                  color: "#2ED47A",
+                  fontWeight: "bold",
+                  display: "block",
+                  margin: "0 auto",
+                }}
+              >
+                Client final
+              </p>
+            ) : (
+              <p
+                style={{
+                  color: "#FFB946",
+                  fontWeight: "bold",
+                  display: "block",
+                  margin: "0 auto",
+                }}
+              >
+                Sous-traitance
+              </p>
+            )}
+          </td>
           <td>
             {user?.lead_bought?.find((el) => el === lead._id) ? (
               <NavLink to="/conversation">
-                <button className="btn-confirm">Contacter</button>
+                <button className="btn-confirm">Voir</button>
               </NavLink>
             ) : lead.buyer.length < 4 ? (
               <button onClick={() => closePopup()}>Débloquer</button>
