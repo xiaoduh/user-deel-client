@@ -217,7 +217,7 @@ const Lead = ({ lead, user }) => {
                 <button className="btn-confirm">Voir</button>
               </NavLink>
             ) : lead.buyer.length < 4 ? (
-              <button onClick={() => closePopup()}>1 💎</button>
+              <button onClick={() => closePopup()}>Coût 1 💎</button>
             ) : (
               <button className="btn-not-allowed">Fermé</button>
             )}
