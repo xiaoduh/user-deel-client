@@ -25,7 +25,7 @@ export const buyLead = (leadId, userId, dealerId) => {
     return axios({
       method: "patch",
       url: `http://localhost:5000/api/lead/buy-lead/` + leadId,
-      data: { userID: userId, dealerID: dealerId },
+      data: { userID: userId, dealerID: dealerId, leadID: leadId },
     })
       .then((res) => {
         dispatch({ type: BUY_LEAD, payload: { leadId, userId, dealerId } });

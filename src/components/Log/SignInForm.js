@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { isEmpty } from "../../utils";
@@ -9,7 +9,12 @@ const SignIn = () => {
   const [resetPassword, setResetPassword] = useState(false);
   const [emailToReset, setEmailToReset] = useState("");
   const [loading, setLoading] = useState(false);
+  const [dataLoaded, setDataLoaded] = useState(false);
   const leadsData = useSelector((state) => state.leadsReducer);
+
+  useEffect(() => {
+    leadsData[0] && setDataLoaded(true);
+  }, []);
 
   const checkEmail2Reset = (e) => {
     setEmailToReset(e.target.value);
@@ -129,7 +134,9 @@ const SignIn = () => {
               <button type="submit">
                 {" "}
                 {loading ? (
-                  <i className="fas fa-spinner fa-spin"></i>
+                  <>
+                    Chargement... <i className="fas fa-spinner fa-spin"></i>
+                  </>
                 ) : (
                   <p>Demander un nouveau mot de passe</p>
                 )}{" "}
@@ -148,7 +155,7 @@ const SignIn = () => {
             <p style={{ marginBottom: "1.5rem" }}>
               Il y a actuellement{" "}
               <span style={{ color: "#109CF1" }}>
-                {!isEmpty(leadsData) && leadsData.length}
+                {leadsData[0] && leadsData.length}
               </span>{" "}
               annonces d'apports d'affaires en ligne.
             </p>
@@ -187,7 +194,9 @@ const SignIn = () => {
               <button type="submit">
                 {" "}
                 {loading ? (
-                  <i className="fas fa-spinner fa-spin"></i>
+                  <>
+                    Chargement... <i className="fas fa-spinner fa-spin"></i>
+                  </>
                 ) : (
                   <p>Se connecter</p>
                 )}{" "}

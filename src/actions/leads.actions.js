@@ -96,15 +96,15 @@ export const editLead = (
 
 export const sellLead = (
   dealerId,
+  provider,
+  profil,
+  company,
+  region,
+  skill,
   firstName,
   lastName,
   email,
   role,
-  company,
-  skill,
-  profil,
-  sector,
-  region,
   phone
 ) => {
   return (dispatch) => {
@@ -118,10 +118,10 @@ export const sellLead = (
         email: email,
         role: role,
         company: company,
+        region: region,
         lookingFor: profil,
         skills: skill,
-        sector: sector,
-        region: region,
+        provider: provider,
         phone: phone,
         status: "pending",
       },
@@ -136,10 +136,10 @@ export const sellLead = (
             email,
             role,
             company,
+            region,
             skill,
             profil,
-            sector,
-            region,
+            provider,
             phone,
           },
         });

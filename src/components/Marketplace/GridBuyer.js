@@ -69,23 +69,24 @@ const Grid = () => {
                 <th>Statut</th>
                 <th className="disable">Ajouté le</th>
                 <th>Vue</th>
-                <th>
+                {/* <th>
                   Fiabilité{" "}
                   <img
                     src="/information.svg"
                     alt="info"
                     onMouseOver={() => setInfoReliability(true)}
                   />
-                </th>
-                <th>
+                </th> */}
+                {/* <th>
                   Réputation{" "}
                   <img
                     src="/information.svg"
                     alt="info"
                     onMouseOver={() => setInfoReview(true)}
                   />
-                </th>
+                </th> */}
                 {/* <th className="disable">Dernière MAJ</th> */}
+                <th>Type</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -98,7 +99,7 @@ const Grid = () => {
                         lead={lead}
                         user={userData}
                         users={usersData}
-                        key={lead}
+                        key={lead._id}
                       />
                     );
                 })}

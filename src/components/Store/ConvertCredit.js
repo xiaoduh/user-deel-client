@@ -37,26 +37,20 @@ const ConvertCredit = () => {
     <main>
       <div className="grid-form-need">
         <div className="title-container" style={{ marginBottom: "2rem" }}>
-          <h3>Transferer votre solde sur votre compte</h3>
-          <p>
-            Convertissez vos crédits en € et faites une demande de virement sur
-            votre compte bancaire.
-          </p>
+          <h3>Transferer vos gains sur votre compte</h3>
+          <p>Faites une demande de virement sur votre compte bancaire.</p>
         </div>
         <>
           <div className="left-side">
             <h3>
-              Vous avez
-              <span style={{ color: "#109CF1" }}> {user.coin}</span> crédits
-              soit une somme totale de{" "}
-              <span style={{ color: "#109CF1" }}>{user.coin * 12.5}</span> €
+              Votre cagnotte s'éleve à
+              <span style={{ color: "#109CF1" }}> {user.solde}</span> €
             </h3>
-            <p>Choisissez le nombre de crédit à convertir</p>
-            <input
+            {/* <input
               type="number"
               id="amount-digit"
               min={0}
-              max={user.coin}
+              max={user.solde}
               onChange={(e) => setAmount(e.target.value)}
               value={amount}
               style={{
@@ -69,23 +63,22 @@ const ConvertCredit = () => {
                 cursor: "pointer",
                 color: "#334D6E",
               }}
-            />
+            /> */}
             <input
               type="range"
               id="amount"
               min={0}
-              max={user.coin}
+              max={user.solde}
               onChange={(e) => setAmount(e.target.value)}
               style={{
                 cursor: "pointer",
               }}
             />
             <div className="amount-container">
-              <h2>
-                <span style={{ color: "#2ED47A" }}>{amount}</span> crédits,
-                <span> soit un montant net de </span>{" "}
-                <span style={{ color: "#2ED47A" }}>{amount * 12.5}</span> €
-              </h2>
+              <h3>
+                Votre demande de retrait s'éleve à
+                <span style={{ color: "#109CF1" }}> {amount}</span> €
+              </h3>
             </div>
             <div className="form-message"></div>
           </div>
@@ -93,7 +86,11 @@ const ConvertCredit = () => {
           <div className="btn-container">
             <button onClick={(e) => handleWithdraw(e)}>
               {loading ? (
-                <i className="fas fa-spinner fa-spin"></i>
+                <>
+                  <>
+                    Chargement... <i className="fas fa-spinner fa-spin"></i>
+                  </>{" "}
+                </>
               ) : (
                 <p>Valider ma demande de virement</p>
               )}

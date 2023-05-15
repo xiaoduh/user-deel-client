@@ -133,8 +133,8 @@ const SignUp = () => {
             <img style={{ marginBottom: "0" }} src="./logo.png" alt="logo" />
             <p style={{ marginBottom: "1.5rem" }}>
               Il y a actuellement{" "}
-              <span>{!isEmpty(leadsData) && leadsData.length}</span> annonces
-              d'apports d'affaires en ligne.
+              <span>{leadsData[0] && leadsData.length}</span> annonces d'apports
+              d'affaires en ligne.
             </p>
             <h2>Inscription</h2>
           </div>
@@ -259,7 +259,9 @@ const SignUp = () => {
             <button type="submit">
               {" "}
               {loading ? (
-                <i className="fas fa-spinner fa-spin"></i>
+                <>
+                  Chargement... <i className="fas fa-spinner fa-spin"></i>
+                </>
               ) : (
                 <p>S'inscrire</p>
               )}{" "}

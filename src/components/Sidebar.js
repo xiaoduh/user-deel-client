@@ -69,8 +69,8 @@ const Sidebar = () => {
                   alt="mes échanges"
                 /> */}
                 <p>
-                  <span style={{ fontSize: "1rem" }}>💬 </span>
-                  Mes échanges (
+                  <span style={{ fontSize: "1rem" }}>🎯 </span>
+                  Mes affaires (
                   {!isEmpty(userData) && userData?.lead_bought.length})
                 </p>
               </NavLink>
@@ -88,8 +88,8 @@ const Sidebar = () => {
                   /> */}
                   <p>
                     {" "}
-                    <span style={{ fontSize: "1rem" }}>📊 </span>
-                    Tableau de bord ({!isEmpty(userData) && userData.nb_lead})
+                    <span style={{ fontSize: "1rem" }}>🚨 </span>
+                    Mes annonces ({!isEmpty(userData) && userData.nb_lead})
                   </p>
                 </NavLink>
               )}
@@ -116,8 +116,8 @@ const Sidebar = () => {
                 >
                   {/* <img className="img-icon" src="./banque.svg" alt="store" /> */}
                   <p>
-                    <span style={{ fontSize: "1rem" }}>🔄 </span> Convertir mes
-                    crédits
+                    <span style={{ fontSize: "1rem" }}>🔄 </span> Retirer mes
+                    gains
                   </p>
                 </NavLink>
               )}
