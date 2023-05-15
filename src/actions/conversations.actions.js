@@ -7,7 +7,7 @@ export const GET_CONVS = "GET_CONVS";
 export const getConvs = () => {
   return (dispatch) => {
     return axios
-      .get(`https://deeel-v0-test.onrender.com/api/conversation`)
+      .get(`http://localhost:5000/api/conversation`)
       .then((res) => {
         dispatch({ type: GET_CONVS, payload: res.data });
       })

@@ -16,7 +16,6 @@ const CheckoutForm = ({
   const uid = useContext(UidContext);
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
-  const [loading, setLoading] = useState(false);
   console.log(plan.credit);
 
   const handleSubmit = async (e) => {

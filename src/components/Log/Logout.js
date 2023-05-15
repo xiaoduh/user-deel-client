@@ -15,7 +15,7 @@ const Logout = ({ uidLogout }) => {
   const logout = async () => {
     await axios({
       method: "get",
-      url: `https://deeel-v0-test.onrender.com/api/user/logout/${uid}`,
+      url: `http://localhost:5000/api/user/logout/${uid}`,
       withCredentials: true,
     })
       .then(() => {

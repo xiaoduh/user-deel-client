@@ -18,7 +18,7 @@ function App() {
     const fetchToken = async () => {
       await axios({
         method: "get",
-        url: `https://deeel-v0-test.onrender.com/jwtid`,
+        url: `http://localhost:5000/jwtid`,
         withCredentials: true,
       })
         .then((res) => {
