@@ -165,7 +165,8 @@ const Sales = () => {
                   htmlFor="esn"
                   class="form__label"
                 >
-                  Intermédiaire (ESN, cabinet de conseils ou équivalents)
+                  Intermédiaire (ESN, cabinet de conseils ou équivalents Gains :
+                  15€)
                 </label>
               </div>
               <div className="radio-container">
@@ -184,7 +185,7 @@ const Sales = () => {
                   htmlFor="client"
                   class="form__label"
                 >
-                  Client final
+                  Client final (Gains : 60€)
                 </label>
               </div>
               <br />
