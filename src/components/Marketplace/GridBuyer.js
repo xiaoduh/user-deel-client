@@ -65,7 +65,7 @@ const Grid = () => {
                 </th>
                 <th>Email</th>
                 <th>Téléphone</th>
-                <th>Description</th>
+                {/* <th>Description</th> */}
                 <th>Statut</th>
                 <th className="disable">Ajouté le</th>
                 <th>Vue</th>

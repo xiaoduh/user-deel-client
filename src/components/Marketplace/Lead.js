@@ -97,7 +97,7 @@ const Lead = ({ lead, user }) => {
               />
             )}
           </td>
-          <td>
+          {/* <td>
             {lead.jobDesc ? (
               <img
                 src="./known.svg"
@@ -111,7 +111,7 @@ const Lead = ({ lead, user }) => {
                 style={{ display: "block", margin: "0 auto" }}
               />
             )}
-          </td>
+          </td> */}
           <td>
             {lead.isOpen == true ? (
               <p
