@@ -80,14 +80,13 @@ const Sales = () => {
     } else if (skill === null || skill === "") {
       errorSkillRequired.style.border = "1px solid #F7685B";
       setLoading(false);
-    } else if (region === null || sector === "") {
+    } else if (region === null || region === "") {
       errorRegionRequired.style.border = "1px solid #F7685B";
       setLoading(false);
     } else {
       errorProfilRequired.style.border = "";
       errorCompanyRequired.style.border = "";
       errorSkillRequired.style.border = "";
-      errorSectorRequired.style.border = "";
       errorRegionRequired.style.border = "";
       await dispatch(
         sellLead(
