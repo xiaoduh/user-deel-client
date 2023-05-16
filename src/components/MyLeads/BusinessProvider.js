@@ -93,13 +93,14 @@ const Sales = () => {
       errorRegionRequired.style.border = "1px solid #F7685B";
       setLoading(false);
     } else if (fdp === null || fdp === "") {
-      errorRegionRequired.style.border = "1px solid #F7685B";
+      errorFdpRequired.style.border = "1px solid #F7685B";
       setLoading(false);
     } else {
       errorProfilRequired.style.border = "";
       errorCompanyRequired.style.border = "";
       errorSkillRequired.style.border = "";
       errorRegionRequired.style.border = "";
+      errorFdpRequired.style.border = "";
       await dispatch(
         sellLead(
           user._id,
