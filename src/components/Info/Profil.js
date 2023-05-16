@@ -32,17 +32,11 @@ const Profil = () => {
         </div>
       </div>
       <div className="user-lead-bought">
-        <h3>Mes stats 📊</h3>
+        <h3>Mes gains 💎</h3>
         <div className="content">
-          {user?.user_type === "business_provider" ? (
-            <>
-              <span>{user.nb_lead}</span> <p>Annonces publiées</p>
-            </>
-          ) : (
-            <>
-              <span>{user?.lead_bought?.length}</span> <p>Mises en ralation</p>
-            </>
-          )}
+          <>
+            <span>{user.solde}</span> <p>€ cumulés</p>
+          </>
         </div>
       </div>
     </main>
