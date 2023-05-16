@@ -138,7 +138,7 @@ const Lead = ({ lead, user }) => {
             )}
           </td> */}
           <td>
-            {lead.desc !== "" ? (
+            {lead.desc !== "" && lead.desc ? (
               <img
                 src="./known.svg"
                 alt="known"
