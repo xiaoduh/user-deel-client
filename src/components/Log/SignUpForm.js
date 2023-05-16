@@ -133,7 +133,7 @@ const SignUp = () => {
             <img style={{ marginBottom: "0" }} src="./logo.png" alt="logo" />
             <p style={{ marginBottom: "1.5rem" }}>
               Il y a actuellement{" "}
-              <span>{!isEmpty(leadsData) && leadsData.length}</span> annonces
+              <span>{!isEmpty(leadsData) && leadsData.length}76</span> annonces
               d'apports d'affaires en ligne.
             </p>
             <h2>Inscription</h2>

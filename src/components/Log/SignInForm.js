@@ -152,7 +152,7 @@ const SignIn = () => {
             <p style={{ marginBottom: "1.5rem" }}>
               Il y a actuellement{" "}
               <span style={{ color: "#109CF1" }}>
-                {leadsData[0] && leadsData.length}
+                {/* {leadsData[0] && leadsData.length} */} 76
               </span>{" "}
               annonces d'apports d'affaires en ligne.
             </p>
