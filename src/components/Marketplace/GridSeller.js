@@ -78,9 +78,6 @@ const GridSeller = () => {
                           <td>
                             {contact.company ? upperCase(contact.company) : "-"}
                           </td>
-                          <td>
-                            {contact.sector ? upperCase(contact.sector) : "-"}
-                          </td>
                           <td>{contact.region ? contact.region : "-"}</td>
                           <td>
                             {contact.skills ? upperCase(contact.skills) : "-"}
