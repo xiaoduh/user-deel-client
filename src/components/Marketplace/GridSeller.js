@@ -101,7 +101,17 @@ const GridSeller = () => {
                           <td>{contact.email ? contact.email : "-"}</td>
                           <td>{contact.phone ? contact.phone : "-"}</td>
                           <td>{dateParser(contact.createdAt)}</td>
-                          <td>{contact.status}</td>
+                          <td>
+                            {contact.status === "pending" ? (
+                              <span style={{ color: "#F7685B" }}>
+                                {contact.status}
+                              </span>
+                            ) : (
+                              <span style={{ color: "#2ED47A" }}>
+                                {contact.status}
+                              </span>
+                            )}
+                          </td>
                           <td className="center">
                             {contact.buyer?.length > 0 ? (
                               <>
