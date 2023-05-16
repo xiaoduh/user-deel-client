@@ -19,19 +19,11 @@ const MyLeads = () => {
   return (
     <>
       {uid ? (
-        userData.user_type === "sales" ? (
-          <div className="logged-user">
-            <Header />
-            <Sidebar />
-            <TableLead />
-          </div>
-        ) : (
-          <div className="logged-user">
-            <Header />
-            <Sidebar />
-            <Sales />
-          </div>
-        )
+        <div className="logged-user">
+          <Header />
+          <Sidebar />
+          <Sales />
+        </div>
       ) : (
         <div className="log-container">
           <Log signin={true} signup={false} />
