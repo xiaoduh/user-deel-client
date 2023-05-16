@@ -112,7 +112,7 @@ const Lead = ({ lead, user }) => {
               />
             )}
           </td> */}
-          <td>
+          {/* <td>
             {lead.isOpen == true ? (
               <p
                 style={{
@@ -136,12 +136,27 @@ const Lead = ({ lead, user }) => {
                 ?
               </p>
             )}
+          </td> */}
+          <td>
+            {lead.desc !== "" ? (
+              <img
+                src="./known.svg"
+                alt="known"
+                style={{ display: "block", margin: "0 auto" }}
+              />
+            ) : (
+              <img
+                src="./unknown.svg"
+                alt="unknown"
+                style={{ display: "block", margin: "0 auto" }}
+              />
+            )}
           </td>
           <td className="disable">{dateParser(lead.createdAt)}</td>
           <td>
             {" "}
             <p style={{ display: "block", margin: "0 auto" }}>
-              {lead?.buyer?.length} / 4
+              {lead?.buyer?.length}
             </p>{" "}
           </td>
           {/* <td>
