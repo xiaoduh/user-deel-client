@@ -324,7 +324,10 @@ const Sales = () => {
                   alt="important"
                 />{" "}
                 le nom et le prénom doivent être renseignés pour que l'annonce
-                soit publiée.
+                soit publiée. S'ils ne sont pas renseignés à la création, ils le
+                devront être par la suite. Grâce aux informations sur le besoin
+                et notamment la fiche de poste, nous pouvons être en mesure
+                d'identifier pour vous un contact potentiel.
               </p>{" "}
               <label
                 style={{ color: "#109CF1" }}
