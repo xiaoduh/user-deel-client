@@ -245,16 +245,20 @@ const SignUp = () => {
           <div className="password error"></div>
           <br />
           <br />
-          {/* 
-          <input type="checkbox" id="terms" />
+
+          <input type="checkbox" id="terms" required />
           <label htmlFor="terms">
             J'accepte les{" "}
-            <a href="/" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://deeel.netlify.app/cgu"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               conditions générales
             </a>
           </label>
           <div className="terms error"></div>
-          <br /> */}
+          <br />
           <>
             <button type="submit">
               {" "}

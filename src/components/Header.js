@@ -66,7 +66,7 @@ const Header = () => {
           </NavLink>
           {userData.isBusinessProvider && (
             <NavLink to="/transfert">
-              <button className="btn-purple">Convertir mes crédits</button>
+              <button className="btn-purple">Retirer mes gains</button>
             </NavLink>
           )}
           {userData.isSales && (
