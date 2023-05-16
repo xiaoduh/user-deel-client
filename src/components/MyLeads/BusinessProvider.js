@@ -75,6 +75,7 @@ const Sales = () => {
     const errorCompanyRequired = document.querySelector(".company-required");
     const errorSkillRequired = document.querySelector(".skill-required");
     const errorRegionRequired = document.querySelector(".region-required");
+    const errorFdpRequired = document.querySelector(".region-required");
     e.preventDefault();
 
     if (profil === null || profil === "") {
