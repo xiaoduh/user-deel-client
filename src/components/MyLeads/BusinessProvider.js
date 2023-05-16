@@ -11,6 +11,7 @@ const Sales = () => {
   const [company, setCompany] = useState(null);
   const [skill, setSkill] = useState(null);
   const [region, setRegion] = useState(null);
+  const [fdp, setFdp] = useState(null);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [role, setRole] = useState("");
@@ -58,6 +59,14 @@ const Sales = () => {
     else errorSkillRequired.style.border = "1px solid #2ED47A";
   };
 
+  const checkFdp = (e) => {
+    setFdp(e.target.value);
+    const errorFdpRequired = document.querySelector(".fdp-required");
+    if (e.target.value === "" || e.target.value === null)
+      errorFdpRequired.style.border = "1px solid #F7685B";
+    else errorFdpRequired.style.border = "1px solid #2ED47A";
+  };
+
   const handleFormSubmit = async (e) => {
     setLoading(true);
     const formMess = document.querySelector(".form-message");
@@ -96,6 +105,7 @@ const Sales = () => {
           company,
           region,
           skill,
+          fdp,
           firstName,
           lastName,
           email,
@@ -107,17 +117,31 @@ const Sales = () => {
           dispatch(getUser(user._id));
           dispatch(getLeads);
           setLoading(false);
-          setProvider(null);
-          setProfil(null);
-          setCompany(null);
-          setSkill(null);
-          setRegion(null);
-          setFirstName("");
-          setLastName("");
-          setRole("");
-          setEmail("");
-          setPhone("");
-          formMess.innerHTML = `<p class='success'>Votre annonce d'apport d'affaire a bien été envoyée. elle sera vérifiée avant d'être publiée sur la marketplace.</p>`;
+          if (firstName && lastName) {
+            formMess.innerHTML = `<p class='success'>Votre annonce d'apport d'affaire a bien été envoyée. elle sera vérifiée avant d'être publiée sur la marketplace. une fois publiée, vous serez crédité de 60€.</p>`;
+            setProvider(null);
+            setProfil(null);
+            setCompany(null);
+            setSkill(null);
+            setRegion(null);
+            setFirstName("");
+            setLastName("");
+            setRole("");
+            setEmail("");
+            setPhone("");
+          } else {
+            formMess.innerHTML = `<p class='success'>Envoyée. Votre annonce est incomplète, sans le contact nous ne pouvons publier votre annonce. Une fois publiée, vous serez crédité de 60€.</p>`;
+            setProvider(null);
+            setProfil(null);
+            setCompany(null);
+            setSkill(null);
+            setRegion(null);
+            setFirstName("");
+            setLastName("");
+            setRole("");
+            setEmail("");
+            setPhone("");
+          }
 
           setTimeout(() => {
             formMess.innerHTML = "";
@@ -267,6 +291,24 @@ const Sales = () => {
                 placeholder="React, Redux, SASS..."
                 value={skill}
               />
+              <label
+                style={{ color: "#109CF1" }}
+                htmlFor="fdp"
+                class="form__label"
+              >
+                Fiche de poste ou descriptif de mission
+              </label>
+              <br />
+              <textarea
+                class="form__field fdp-required"
+                name="fdp"
+                id="fdp"
+                autocomplete="off"
+                required
+                onChange={(e) => checkFdp(e)}
+                placeholder="Au sein du pole...sur le projet...sous la responsabilité du... sont autant d'informations nous permettant d'identifier le demandeur par la suite pour passer votre annonce au statut « publié ». N'hésitez pas à la demander 🧐."
+                value={fdp}
+              />
             </div>
             <div className="right-side">
               <h3>Informations sur le demandeur</h3>
@@ -276,7 +318,8 @@ const Sales = () => {
                   src="/important.svg"
                   alt="important"
                 />{" "}
-                ce sont les données les plus importantes.
+                le nom et le prénom doivent être renseignés pour que l'annonce
+                soit publiée.
               </p>{" "}
               <label
                 style={{ color: "#109CF1" }}
@@ -375,6 +418,21 @@ const Sales = () => {
             </div>
           </form>
           <div className="btn-container">
+            <div className="alert">
+              <p>
+                <img
+                  style={{ widht: "20px", height: "20px" }}
+                  src="/important.svg"
+                  alt="important"
+                />{" "}
+                Votre annonce doit passer au statut « publié » pour que vos
+                gains soient comptabilisés. Pour qu'une annonce passe du statut
+                « pending » au statut « publié », elle doit être complète. A
+                savoir, Entreprise, Profil, et contact. Pas de panique, nous
+                vous aidons à compléter les informations. Le but, offrir un
+                service de qualité à nos utilisateurs.
+              </p>
+            </div>
             <button onClick={(e) => handleFormSubmit(e)}>
               {loading ? (
                 <>

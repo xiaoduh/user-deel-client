@@ -64,16 +64,12 @@ const Header = () => {
           <NavLink to="/lead">
             <button className="btn-confirm">Apporter un besoin</button>
           </NavLink>
-          {userData.isBusinessProvider && (
-            <NavLink to="/transfert">
-              <button className="btn-purple">Retirer mes gains</button>
-            </NavLink>
-          )}
-          {userData.isSales && (
-            <NavLink to="/store">
-              <button>Acheter des crédits</button>
-            </NavLink>
-          )}
+          <NavLink to="/transfert">
+            <button className="btn-purple">Retirer mes gains</button>
+          </NavLink>
+          <NavLink to="/store">
+            <button>Acheter des crédits</button>
+          </NavLink>
           {uid ? <Logout /> : <></>}
         </div>
       </header>

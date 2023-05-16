@@ -40,9 +40,9 @@ const GridSeller = () => {
                   <th className="disable">Id</th>
                   <th className="needs">Profil recherché</th>
                   <th className="sector">Entreprise</th>
-                  <th className="sector">Secteur</th>
-                  <th>Département</th>
+                  <th>Localité</th>
                   <th>Compétences</th>
+                  <th>Desc.</th>
                   <th>Nom</th>
                   <th>Prénom</th>
                   <th>Rôle</th>
@@ -84,6 +84,9 @@ const GridSeller = () => {
                           <td>{contact.region ? contact.region : "-"}</td>
                           <td>
                             {contact.skills ? upperCase(contact.skills) : "-"}
+                          </td>
+                          <td style={{ maxWidth: "300px" }}>
+                            {contact.desc ? upperCase(contact.desc) : "-"}
                           </td>
                           <td>
                             {contact.last_name
@@ -166,12 +169,12 @@ const GridSeller = () => {
                           <td>
                             {contact.company ? upperCase(contact.company) : "-"}
                           </td>
-                          <td>
-                            {contact.sector ? upperCase(contact.sector) : "-"}
-                          </td>
                           <td>{contact.region ? contact.region : "-"}</td>
                           <td>
                             {contact.skills ? upperCase(contact.skills) : "-"}
+                          </td>
+                          <td style={{ maxWidth: "300px" }}>
+                            {contact.desc ? upperCase(contact.desc) : "-"}
                           </td>
                           <td>
                             {contact.last_name
