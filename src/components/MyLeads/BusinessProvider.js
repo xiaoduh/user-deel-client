@@ -92,6 +92,9 @@ const Sales = () => {
     } else if (region === null || region === "") {
       errorRegionRequired.style.border = "1px solid #F7685B";
       setLoading(false);
+    } else if (fdp === null || fdp === "") {
+      errorRegionRequired.style.border = "1px solid #F7685B";
+      setLoading(false);
     } else {
       errorProfilRequired.style.border = "";
       errorCompanyRequired.style.border = "";
