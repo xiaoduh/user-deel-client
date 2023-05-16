@@ -166,7 +166,7 @@ const Sales = () => {
                   class="form__label"
                 >
                   Intermédiaire (ESN, cabinet de conseils ou équivalents Gains :
-                  15€)
+                  5€)
                 </label>
               </div>
               <div className="radio-container">
