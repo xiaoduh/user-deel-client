@@ -11,20 +11,20 @@ const Plan = () => {
 
   const planA = {
     credit: 1,
-    amount: 2990,
-    price: "29,90",
+    amount: 1990,
+    price: "19,90",
   };
 
   const planB = {
     credit: 5,
-    amount: 12450,
-    price: "124,50",
+    amount: 9950,
+    price: "99,50",
   };
 
   const planC = {
     credit: 10,
-    amount: 19090,
-    price: "199,90",
+    amount: 19000,
+    price: "199,00",
   };
 
   const handleCheckoutForm = (plan) => {
@@ -65,11 +65,11 @@ const Plan = () => {
                 <h2>
                   <span>1</span> Crédit
                 </h2>
-                <small>29,90€ par apport d'affaire</small>
+                <small>19,90€ par apport d'affaire</small>
               </div>
               <div className="plan-content">
                 <p>
-                  29,<span> 90 €</span>
+                  19,<span> 90 €</span>
                 </p>
                 <small>TTC</small>
               </div>
@@ -85,11 +85,11 @@ const Plan = () => {
                 <h2>
                   <span>5</span> Crédits
                 </h2>
-                <small>24,90€ par apport d'affaire</small>
+                <small>19,90€ par apport d'affaire</small>
               </div>
               <div className="plan-content">
                 <p>
-                  124,<span> 50 €</span>
+                  99,<span> 50 €</span>
                 </p>
                 <small>TTC</small>
               </div>
@@ -109,7 +109,7 @@ const Plan = () => {
               </div>
               <div className="plan-content">
                 <p>
-                  199,<span> 90 €</span>
+                  199,<span> 00 €</span>
                 </p>
                 <small>TTC</small>
               </div>
