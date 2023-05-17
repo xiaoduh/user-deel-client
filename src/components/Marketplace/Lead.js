@@ -232,7 +232,7 @@ const Lead = ({ lead, user }) => {
                 <button className="btn-confirm">Voir</button>
               </NavLink>
             ) : lead.buyer.length < 4 ? (
-              <button onClick={() => closePopup()}>Ça m'intéresse</button>
+              <button onClick={() => closePopup()}>Voir</button>
             ) : (
               <button className="btn-not-allowed">Fermé</button>
             )}
