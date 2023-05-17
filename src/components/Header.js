@@ -58,9 +58,9 @@ const Header = () => {
               </>
             )}
           </div>{" "}
-          <NavLink to="/help">
+          {/* <NavLink to="/help">
             <button className="btn-cancel">Aide</button>
-          </NavLink>
+          </NavLink> */}
           <NavLink to="/lead">
             <button className="btn-confirm">Apporter un besoin</button>
           </NavLink>

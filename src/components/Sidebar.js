@@ -139,21 +139,6 @@ const Sidebar = () => {
                 </p>
               </NavLink>
               <NavLink
-                to="/help"
-                className={({ isActive }) =>
-                  isActive ? "active-left-nav" : ""
-                }
-              >
-                {/* <img
-                  className="img-icon"
-                  src="./interrogatoire.svg"
-                  alt="help"
-                /> */}
-                <p>
-                  <span style={{ fontSize: "1rem" }}>☎️ </span>Aide
-                </p>
-              </NavLink>
-              <NavLink
                 to="/report"
                 className={({ isActive }) =>
                   isActive ? "active-left-nav" : ""
