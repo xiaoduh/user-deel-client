@@ -45,8 +45,15 @@ const Grid = () => {
           <div className="alert-info">
             <div className="pastille pulse"></div>{" "}
             <p>
-              A l'attention des commerciaux. Ne jamais citer vos sources lors de
-              votre prospection
+              A l'attention des commerciaux.{" "}
+              <span style={{ color: "#F7685B" }}>Ne jamais citer deeel</span>{" "}
+              lors de votre prospection. Les besoins diponibles sur deeel, ne
+              sont pas publiés à l'initiative des demandeurs. En revanche, lors
+              de votre prospection vous pouvez dire que vous avez eu l'info{" "}
+              <span style={{ color: "#2ED47A" }}>
+                par des candidats qui ont été contactés pour cette mission
+              </span>{" "}
+              .
             </p>
           </div>
         </div>
