@@ -153,12 +153,12 @@ const Lead = ({ lead, user }) => {
             )}
           </td>
           <td className="disable">{dateParser(lead.createdAt)}</td>
-          <td>
+          {/* <td>
             {" "}
             <p style={{ display: "block", margin: "0 auto" }}>
               {lead?.buyer?.length}
             </p>{" "}
-          </td>
+          </td> */}
           {/* <td>
             {lead?.isVerified === true ? (
               <img
@@ -232,7 +232,7 @@ const Lead = ({ lead, user }) => {
                 <button className="btn-confirm">Voir</button>
               </NavLink>
             ) : lead.buyer.length < 4 ? (
-              <button onClick={() => closePopup()}>Coût 1 💎</button>
+              <button onClick={() => closePopup()}>Ça m'intéresse</button>
             ) : (
               <button className="btn-not-allowed">Fermé</button>
             )}

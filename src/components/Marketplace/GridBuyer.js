@@ -81,7 +81,7 @@ const Grid = () => {
                 {/* <th>Description</th> */}
                 <th>Desc.</th>
                 <th className="disable">Ajouté le</th>
-                <th>Vue</th>
+                {/* <th>Vue</th> */}
                 {/* <th>
                   Fiabilité{" "}
                   <img
