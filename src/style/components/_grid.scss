@@ -17,6 +17,57 @@
         h3 {
             font-size: 1.5rem;
         }
+
+        .alert-info {
+            display: flex;
+            align-items: center;
+    
+            .pastille {
+                background: #F7685B;
+                border-radius: 50%;
+            }
+        
+            .pulse {
+                          margin-right: 1rem;
+                          animation: pulse 2s infinite;
+                          cursor: pointer;
+                          width: 20px;
+                          height: 20px;
+                          border-radius: 50%;
+                          display: block;
+                          box-shadow: 0 0 0 #F7685B;
+        
+                          @-webkit-keyframes pulse {
+                              0% {
+                                -webkit-box-shadow: 0 0 0 0 #F7685B;
+                              }
+                              70% {
+                                  -webkit-box-shadow: 0 0 0 10px #F7685B;
+                              }
+                              100% {
+                                  -webkit-box-shadow: 0 0 0 0 #F7685B;
+                              }
+                            }
+                            @keyframes pulse {
+                              0% {
+                                -moz-box-shadow: 0 0 0 0 #F7685B;
+                                box-shadow: 0 0 0 0 #F7685B;
+                              }
+                              70% {
+                                  -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+                                  box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+                              }
+                              100% {
+                                  -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+                                  box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+                              }
+                            }
+        
+                            &:hover {
+                              animation: none;
+                            }
+                      }
+        }
     }
 
     @media screen and (max-width: 1500px)  {

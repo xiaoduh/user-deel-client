@@ -42,6 +42,13 @@ const Grid = () => {
             Ici, entrez en relation avec les apporteurs d'affaires pour tout
             savoir sur les besoins qui vous intéressent.
           </p>
+          <div className="alert-info">
+            <div className="pastille pulse"></div>{" "}
+            <p>
+              A l'attention des commerciaux. Ne jamais citer vos sources lors de
+              votre prospection
+            </p>
+          </div>
         </div>
         {!isLoading ? (
           <i className="fas fa-spinner fa-spin loading"></i>
