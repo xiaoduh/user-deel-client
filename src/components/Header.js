@@ -22,6 +22,13 @@ const Header = () => {
               alt="menu-burger"
             />
           </div>
+          <div className="alert-info">
+            <div className="pastille pulse"></div>{" "}
+            <p>
+              A l'attention des commerciaux. Ne jamais citer vos sources lors de
+              votre prospection
+            </p>
+          </div>
           <div className="credit-balance">
             {userData.solde > 0 ? (
               <>
