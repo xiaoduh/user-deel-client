@@ -10,7 +10,7 @@ const ConvertCredit = () => {
 
   const handleWithdraw = async (e) => {
     const formMess = document.querySelector(".form-message");
-    if (amount > 0 && user.solde > 0)
+    if (amount > 0 && user.solde > 0) {
       try {
         e.preventDefault();
         console.log("retrait: " + amount);
@@ -27,11 +27,12 @@ const ConvertCredit = () => {
       } catch (error) {
         console.log(error);
       }
-    else
+    } else {
       formMess.innerHTML = `<p class='error'>Votre demande de retrait n'a pas pu aboutir.</p>`;
-    setTimeout(() => {
-      formMess.innerHTML = "";
-    }, 4500);
+      setTimeout(() => {
+        formMess.innerHTML = "";
+      }, 4500);
+    }
   };
   return (
     <main>
