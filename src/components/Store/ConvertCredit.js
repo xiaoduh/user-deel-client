@@ -10,7 +10,7 @@ const ConvertCredit = () => {
 
   const handleWithdraw = async (e) => {
     const formMess = document.querySelector(".form-message");
-    if (amount > 0)
+    if (amount > 0 && user.solde > 0)
       try {
         e.preventDefault();
         console.log("retrait: " + amount);
