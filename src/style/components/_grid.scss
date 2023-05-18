@@ -17,57 +17,6 @@
         h3 {
             font-size: 1.5rem;
         }
-
-        .alert-info {
-            display: flex;
-            align-items: center;
-    
-            .pastille {
-                background: #F7685B;
-                border-radius: 50%;
-            }
-        
-            .pulse {
-                          margin-right: 1rem;
-                          animation: pulse 2s infinite;
-                          cursor: pointer;
-                          width: 20px;
-                          height: 20px;
-                          border-radius: 50%;
-                          display: block;
-                          box-shadow: 0 0 0 #F7685B;
-        
-                          @-webkit-keyframes pulse {
-                              0% {
-                                -webkit-box-shadow: 0 0 0 0 #F7685B;
-                              }
-                              70% {
-                                  -webkit-box-shadow: 0 0 0 10px #F7685B;
-                              }
-                              100% {
-                                  -webkit-box-shadow: 0 0 0 0 #F7685B;
-                              }
-                            }
-                            @keyframes pulse {
-                              0% {
-                                -moz-box-shadow: 0 0 0 0 #F7685B;
-                                box-shadow: 0 0 0 0 #F7685B;
-                              }
-                              70% {
-                                  -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
-                                  box-shadow: 0 0 0 10px rgba(204,169,44, 0);
-                              }
-                              100% {
-                                  -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
-                                  box-shadow: 0 0 0 0 rgba(204,169,44, 0);
-                              }
-                            }
-        
-                            &:hover {
-                              animation: none;
-                            }
-                      }
-        }
     }
 
     @media screen and (max-width: 1500px)  {
@@ -78,6 +27,117 @@
     @media screen and (max-width: 800px)  {
         left: 0px;
         width: calc(100%);
+    }
+
+    .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            grid-column-gap: 20px;
+            grid-row-gap: 20px;
+            width: 90%;
+            max-width: 1000px;
+
+
+        .card-container {
+            padding: 10px;
+            background-color: white;
+            border-radius: 16px;
+            // box-shadow: 0 30px 30px -25px rgba(65, 51, 183, 0.25);
+            width: 380px;
+
+            &:hover {
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            }
+
+            .inner {
+                height: 100%;
+                padding: 20px;
+                padding-top: 40px;
+                border-radius: 12px;
+                position: relative;
+                overflow: hidden;
+
+                .pricing {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    background-color: #2ed47956;
+                    border-radius: 99em 0 0 99em;
+                    display: flex;
+                    align-items: center;
+                    padding: .625em .75em;
+                    font-size: .8rem; 
+                }
+
+                .title {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 2rem;
+
+                    h3 {
+                        margin-right: 1rem;
+                    }
+                }
+
+                .skill {
+                    height: auto;
+                    overflow-y: hidden;
+                    margin-bottom: .5rem;
+
+                    p {
+                        font-size: .7rem;
+                    }
+                }
+
+                .localisation {
+                    margin-bottom: .5rem;
+
+                    p {
+                        font-size: .7rem;
+                    }
+                }
+
+                .info-container {
+                    margin-bottom: 2rem;
+
+                    .title-information-container {
+                        margin-bottom: .5rem;
+                    }
+    
+                    .grid-icon {
+                        display: flex;
+    
+                        .icon-container {
+                            display: flex;
+                            flex-direction: row;
+    
+                            img {
+                                width: 18px;
+                                margin-right: 1rem;
+                            }
+    
+                            p {
+                                margin-left: 1rem;
+                                font-size: .7rem;
+                                // font-weight: bold;
+                            }
+                        }
+                    }
+
+                }
+
+                button {
+                    width: 100%;
+                }
+
+
+
+            }
+
+
+            
+        }
     }
 
 
