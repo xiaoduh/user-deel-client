@@ -38,7 +38,6 @@ const TableLead = () => {
                 <th>Téléphone</th>
                 <th>Entreprise</th>
                 <th>Profil recherché</th>
-                <th>Fiabilité</th>
                 <th>Ajouté le</th>
               </tr>
             </thead>
@@ -65,16 +64,6 @@ const TableLead = () => {
                           <td>{leadsData[i].phone}</td>
                           <td>{leadsData[i].company}</td>
                           <td>{leadsData[i].lookingFor}</td>
-                          <td>
-                            {leadsData[i].isVerified ? (
-                              <img src="./verified.svg" alt="verified" />
-                            ) : (
-                              <img
-                                src="./interrogatoire.svg"
-                                alt="no-verified"
-                              />
-                            )}
-                          </td>
                           <td>{dateParser(leadsData[i].createdAt)}</td>
                         </tr>
                       );

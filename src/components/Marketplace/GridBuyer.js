@@ -34,54 +34,52 @@ const Grid = () => {
 
   return (
     <main>
-        <div className="title-container">
-          <h3>
-            Annonces d'apports d'affaires
-            <span style={{ color: "#109CF1" }}> ({leadsData.length})</span>
-          </h3>
+      <div className="title-container">
+        <h3>
+          Annonces d'apports d'affaires
+          <span style={{ color: "#109CF1" }}> ({leadsData.length})</span>
+        </h3>
+        <p>
+          Ici, entrez en relation avec les apporteurs d'affaires pour tout
+          savoir sur les besoins qui vous intéressent.
+        </p>
+        <div className="alert-info">
+          <div className="pastille pulse"></div>{" "}
           <p>
-            Ici, entrez en relation avec les apporteurs d'affaires pour tout
-            savoir sur les besoins qui vous intéressent.
+            🚨 A l'attention des commerciaux.{" "}
+            <span style={{ color: "#F7685B" }}>Ne jamais citer deeel</span> lors
+            de votre prospection. En revanche, lors de votre prospection vous
+            pouvez dire que vous avez eu l'info{" "}
+            <span style={{ color: "#2ED47A" }}>
+              par des candidats qui ont été contactés pour cette mission
+            </span>
+            .
           </p>
-          <div className="alert-info">
-            <div className="pastille pulse"></div>{" "}
-            <p>
-              A l'attention des commerciaux.{" "}
-              <span style={{ color: "#F7685B" }}>Ne jamais citer deeel</span>{" "}
-              lors de votre prospection. En revanche, lors de votre prospection
-              vous pouvez dire que vous avez eu l'info{" "}
-              <span style={{ color: "#2ED47A" }}>
-                par des candidats qui ont été contactés pour cette mission
-              </span>{" "}
-              .
-            </p>
-          </div>
         </div>
-        {isLoading ? (
-          <i className="fas fa-spinner fa-spin loading"></i>
-        ) : (
-          <div className="grid-container">
-            {!isEmpty(leadsData[0]) &&
-              leadsData.map((lead) => {
-                if (lead.status === "validated")
-                  return (
-                    <Card
-                      lead={lead}
-                      user={userData}
-                      users={usersData}
-                      key={lead._id}
-                    />
-                  );
-              })}
-          </div>
-        )}
-        {popupInfo ? <PopupInfo closePopupInfo={closePopupInfo} /> : null}
-        {infoReliability ? (
-          <PopupReliability closePopupReliability={closePopupReliability} />
-        ) : null}
-        {infoReview ? (
-          <PopupReview closePopupReview={closePopupReview} />
-        ) : null}
+      </div>
+      {isLoading ? (
+        <i className="fas fa-spinner fa-spin loading"></i>
+      ) : (
+        <div className="grid-container">
+          {!isEmpty(leadsData[0]) &&
+            leadsData.map((lead) => {
+              if (lead.status === "validated")
+                return (
+                  <Card
+                    lead={lead}
+                    user={userData}
+                    users={usersData}
+                    key={lead._id}
+                  />
+                );
+            })}
+        </div>
+      )}
+      {popupInfo ? <PopupInfo closePopupInfo={closePopupInfo} /> : null}
+      {infoReliability ? (
+        <PopupReliability closePopupReliability={closePopupReliability} />
+      ) : null}
+      {infoReview ? <PopupReview closePopupReview={closePopupReview} /> : null}
     </main>
   );
 };
