@@ -34,7 +34,6 @@ const Grid = () => {
 
   return (
     <main>
-      <div className="table-grid">
         <div className="title-container">
           <h3>
             Annonces d'apports d'affaires
@@ -83,7 +82,6 @@ const Grid = () => {
         {infoReview ? (
           <PopupReview closePopupReview={closePopupReview} />
         ) : null}
-      </div>
     </main>
   );
 };

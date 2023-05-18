@@ -1,18 +1,7 @@
-.table-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 50px auto;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    // position: absolute;
-    // left: 300px;
-    // width: calc(100% - 300px);
-    // height: 90%;
-    // padding: 1.5rem;
-    // overflow-y: scroll;
-    // scrollbar-width: thin;
+main {
 
     .title-container {
+        margin-bottom: 4rem;
 
         h3 {
             font-size: 1.5rem;
@@ -110,11 +99,9 @@
                     margin-bottom: 2rem;
 
                     .title-information-container {
-                        
                         h5 {
                             font-size: .8rem;
                         }
-
                         margin-bottom: .5rem;
                     }
     
@@ -154,136 +141,7 @@
     }
 
 
-    table {
-        width: 100%;
-        height: auto;
-        background: $white;
-        padding: 1rem;
-        border-radius: 10px;
-        text-align : left;
-        border-spacing: 20px 0;
-        // table-layout : fixed;
 
-        thead {
-
-            .disable {
-
-                @media screen and (max-width: 600px)  {
-                    display: none;
-                  }
-            }
-
-            .needs {
-                // width: 300px;
-                text-align: left;
-            }
-
-            .sector {
-                text-align: left;
-            }
-
-
-            th {
-                // text-align: left;
-                box-shadow: 0px 1px 0px #EBEFF2;
-                padding-bottom: 2rem;
-
-
-                img {
-                    max-width: 12px;
-                    max-height: 12px;
-                    cursor: pointer;
-                }
-            }
-
-
-
-
-            
-        }
-
-
-
-        tbody {
-            font-size: .7rem;
-
-            tr {
-                box-shadow: 0px 1px 0px #EBEFF2;
-
-                &:first-child {
-                    box-shadow: 0px 1px 0px #EBEFF2;
-                }
-
-                &:hover {
-                    cursor: pointer;
-                    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
-                }
-
-                .disable {
-
-                    @media screen and (max-width: 600px)  {
-                        display: none;
-                      }
-                }
-
-                .needs {
-                    width: 300px;
-                    text-align: left;
-                }
-
-                .sector {
-                    text-align: left;
-                }
-
-                .center {
-                    text-align: left;
-                }
-
-                .edit {
-                    display: flex;
-                    flex-direction: column;
-                    text-align: center;
-
-                    button {
-
-                        &:nth-child(2) {
-                            margin-top: .5rem;
-                        }
-                    }
-                }
-
-                td {
-                    padding: .5rem 0;
-
-                    img {
-                        max-width: 24px;
-                        max-height: 24px;
-                    }
-                }
-            }
-
-            .popup-empty-list {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                position: absolute;
-                top: 40%;
-                left: 50%;
-                transform: translateX(-50%);
-
-                h3 {
-                    margin-bottom: .5rem;
-                }
-
-                p {
-                    margin-bottom: 2rem;
-                }
-            }
-        }
-
-
-    }
 
     .popup {
         z-index: 100;
@@ -397,5 +255,9 @@
             }
           }
     }
+
+
 }
+
+    
     
