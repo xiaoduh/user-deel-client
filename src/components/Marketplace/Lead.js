@@ -186,7 +186,7 @@ const Lead = ({ lead, user }) => {
           </td> */}
           <td>Type</td>
           <td>
-            {user?.lead_bought?.find((el) => el === lead._id) ? (
+            {user?.lead_bought?.find((el) => el == lead._id) ? (
               <NavLink to="/conversation">
                 <button className="btn-confirm">Contacter</button>
               </NavLink>

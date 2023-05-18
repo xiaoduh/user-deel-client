@@ -38,25 +38,23 @@ const Sidebar = () => {
           </div>
           <div className="navlinks">
             <div className="navlinks-container">
-              {userData.isSales && (
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    isActive ? "active-left-nav" : ""
-                  }
-                >
-                  {/* <img
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "active-left-nav" : ""
+                }
+              >
+                {/* <img
                     className="img-icon"
                     src="./panier-ajouter.svg"
                     alt="marketplace"
                   /> */}
-                  <p>
-                    <span style={{ fontSize: "1rem" }}>🕵️ </span>
-                    Apports d'affaires (
-                    {!isEmpty(leadsData) && leadsData?.length})
-                  </p>
-                </NavLink>
-              )}
+                <p>
+                  <span style={{ fontSize: "1rem" }}>🕵️ </span>
+                  Apports d'affaires ({!isEmpty(leadsData) && leadsData?.length}
+                  )
+                </p>
+              </NavLink>
               <NavLink
                 to="/conversation"
                 className={({ isActive }) =>
@@ -74,68 +72,59 @@ const Sidebar = () => {
                   {!isEmpty(userData) && userData?.lead_bought.length})
                 </p>
               </NavLink>
-              {userData.isBusinessProvider && (
-                <NavLink
-                  to="/annonce"
-                  className={({ isActive }) =>
-                    isActive ? "active-left-nav" : ""
-                  }
-                >
-                  {/* <img
+              <NavLink
+                to="/annonce"
+                className={({ isActive }) =>
+                  isActive ? "active-left-nav" : ""
+                }
+              >
+                {/* <img
                     className="img-icon"
                     src="./dashboard.svg"
                     alt="contact"
                   /> */}
-                  <p>
-                    {" "}
-                    <span style={{ fontSize: "1rem" }}>🚨 </span>
-                    Mes annonces ({!isEmpty(userData) && userData.nb_lead})
-                  </p>
-                </NavLink>
-              )}
-              {userData.isBusinessProvider && (
-                <NavLink
-                  to="/lead"
-                  className={({ isActive }) =>
-                    isActive ? "active-left-nav" : ""
-                  }
-                >
-                  {/* <img className="img-icon" src="./plus.svg" alt="sales" /> */}
-                  <p>
-                    <span style={{ fontSize: "1rem" }}>📁 </span> Apporter une
-                    affaire
-                  </p>
-                </NavLink>
-              )}
-              {userData.isBusinessProvider && (
-                <NavLink
-                  to="/transfert"
-                  className={({ isActive }) =>
-                    isActive ? "active-left-nav" : ""
-                  }
-                >
-                  {/* <img className="img-icon" src="./banque.svg" alt="store" /> */}
-                  <p>
-                    <span style={{ fontSize: "1rem" }}>🔄 </span> Retirer mes
-                    gains
-                  </p>
-                </NavLink>
-              )}
-
-              {userData.isSales && (
-                <NavLink
-                  to="/store"
-                  className={({ isActive }) =>
-                    isActive ? "active-left-nav" : ""
-                  }
-                >
-                  {/* <img className="img-icon" src="./store.svg" alt="store" /> */}
-                  <p>
-                    <span style={{ fontSize: "1rem" }}>💳 </span> Acheter des
-                    crédits
-                  </p>
-                </NavLink>
-              )}
+                <p>
+                  {" "}
+                  <span style={{ fontSize: "1rem" }}>🚨 </span>
+                  Mes annonces ({!isEmpty(userData) && userData.nb_lead})
+                </p>
+              </NavLink>
+              <NavLink
+                to="/lead"
+                className={({ isActive }) =>
+                  isActive ? "active-left-nav" : ""
+                }
+              >
+                {/* <img className="img-icon" src="./plus.svg" alt="sales" /> */}
+                <p>
+                  <span style={{ fontSize: "1rem" }}>📁 </span> Apporter une
+                  affaire
+                </p>
+              </NavLink>
+              <NavLink
+                to="/transfert"
+                className={({ isActive }) =>
+                  isActive ? "active-left-nav" : ""
+                }
+              >
+                {/* <img className="img-icon" src="./banque.svg" alt="store" /> */}
+                <p>
+                  <span style={{ fontSize: "1rem" }}>🔄 </span> Retirer mes
+                  gains
+                </p>
+              </NavLink>
+              <NavLink
+                to="/store"
+                className={({ isActive }) =>
+                  isActive ? "active-left-nav" : ""
+                }
+              >
+                {/* <img className="img-icon" src="./store.svg" alt="store" /> */}
+                <p>
+                  <span style={{ fontSize: "1rem" }}>💳 </span> Acheter des
+                  crédits
+                </p>
+              </NavLink>
               <NavLink
                 to="/info"
                 className={({ isActive }) =>

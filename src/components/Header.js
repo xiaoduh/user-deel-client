@@ -61,16 +61,12 @@ const Header = () => {
           <NavLink to="/help">
             <button className="btn-cancel">Aide</button>
           </NavLink>
-          {userData.isBusinessProvider && (
-            <NavLink to="/transfert">
-              <button className="btn-purple">Convertir mes crédits</button>
-            </NavLink>
-          )}
-          {userData.isSales && (
-            <NavLink to="/store">
-              <button>Acheter des crédits</button>
-            </NavLink>
-          )}
+          <NavLink to="/transfert">
+            <button className="btn-purple">Convertir mes crédits</button>
+          </NavLink>
+          <NavLink to="/store">
+            <button>Acheter des crédits</button>
+          </NavLink>
           {uid ? <Logout /> : <></>}
         </div>
       </header>
