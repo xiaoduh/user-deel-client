@@ -52,7 +52,7 @@
 
             .inner {
                 height: 100%;
-                padding: 20px;
+                padding: 15px;
                 padding-top: 40px;
                 border-radius: 12px;
                 position: relative;
@@ -85,6 +85,10 @@
                     overflow-y: hidden;
                     margin-bottom: .5rem;
 
+                    h5 {
+                        font-size: .8rem;
+                    }
+
                     p {
                         font-size: .7rem;
                     }
@@ -92,6 +96,10 @@
 
                 .localisation {
                     margin-bottom: .5rem;
+
+                    h5 {
+                        font-size: .8rem;
+                    }
 
                     p {
                         font-size: .7rem;
@@ -102,6 +110,11 @@
                     margin-bottom: 2rem;
 
                     .title-information-container {
+                        
+                        h5 {
+                            font-size: .8rem;
+                        }
+
                         margin-bottom: .5rem;
                     }
     

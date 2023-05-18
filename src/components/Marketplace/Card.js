@@ -70,8 +70,9 @@ const Card = ({ lead, user }) => {
               <p>{lead?.skills?.slice(0, 140)}</p>
             </div>
             <div className="localisation">
+              <h5>📍 Localisation : </h5>
               <p style={{ display: "inline-block", margin: "0 auto" }}>
-                <strong>📍 Localisation :</strong> {lead.region}
+                {lead.region}
               </p>
             </div>
             <div className="info-container">
