@@ -174,14 +174,16 @@ const Card = ({ lead, user }) => {
             <p>
               {user?.lead_bought?.find((el) => el === lead._id) ? (
                 <NavLink to="/conversation">
-                  <button className="btn-confirm">Voir les informations</button>
+                  <button className="btn-confirm">
+                    Voir les informations 🔎
+                  </button>
                 </NavLink>
               ) : lead.buyer.length < 4 ? (
                 <button onClick={() => closePopup()}>
-                  Obtenir les informations
+                  Obtenir les informations 🚀
                 </button>
               ) : (
-                <button className="btn-not-allowed">Fermé</button>
+                <button className="btn-not-allowed">Fermé ⛔️</button>
               )}
             </p>
           </>
