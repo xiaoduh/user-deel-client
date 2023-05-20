@@ -10,21 +10,21 @@ const Plan = () => {
   const [plan, setPlan] = useState();
 
   const planA = {
-    credit: 1,
-    amount: 1990,
-    price: "19,90",
+    credit: 10,
+    amount: 1000,
+    price: "10,00",
   };
 
   const planB = {
-    credit: 5,
-    amount: 9950,
-    price: "99,50",
+    credit: 50,
+    amount: 5000,
+    price: "50,00",
   };
 
   const planC = {
-    credit: 10,
-    amount: 19000,
-    price: "199,00",
+    credit: 100,
+    amount: 10000,
+    price: "100,00",
   };
 
   const handleCheckoutForm = (plan) => {
@@ -63,13 +63,13 @@ const Plan = () => {
             <div className="wrapper planA">
               <div className="header-plan">
                 <h2>
-                  <span>1</span> Crédit
+                  <span>10</span> Crédit
                 </h2>
-                <small>19,90€ par apport d'affaire</small>
+                <small>1€ par crédit</small>
               </div>
               <div className="plan-content">
                 <p>
-                  19,<span> 90 €</span>
+                  10<span> €</span>
                 </p>
                 <small>TTC</small>
               </div>
@@ -83,13 +83,13 @@ const Plan = () => {
             <div className="wrapper planB">
               <div className="header-plan">
                 <h2>
-                  <span>5</span> Crédits
+                  <span>50</span> Crédits
                 </h2>
-                <small>19,90€ par apport d'affaire</small>
+                <small>1€ par crédit</small>
               </div>
               <div className="plan-content">
                 <p>
-                  99,<span> 50 €</span>
+                  50,<span> 00 €</span>
                 </p>
                 <small>TTC</small>
               </div>
@@ -103,13 +103,13 @@ const Plan = () => {
             <div className="wrapper planC">
               <div className="header-plan">
                 <h2>
-                  <span>10</span> Crédits
+                  <span>100</span> Crédits
                 </h2>
-                <small>19,90€ par apport d'affaire</small>
+                <small>1€ par crédit</small>
               </div>
               <div className="plan-content">
                 <p>
-                  199,<span> 00 €</span>
+                  100,<span> 00 €</span>
                 </p>
                 <small>TTC</small>
               </div>
