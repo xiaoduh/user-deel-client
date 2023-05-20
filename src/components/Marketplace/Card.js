@@ -190,23 +190,45 @@ const Card = ({ lead, user }) => {
 
             {user?.lead_bought?.find((el) => el === lead._id) ? (
               <NavLink to="/conversation">
-                <button className="btn-confirm">Voir les informations</button>
+                <button className="btn-confirm">
+                  Voir les informations 🔎
+                </button>
+                <small
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  Vous avez raflé la mise.
+                </small>
               </NavLink>
             ) : lead.buyer.length < 1 ? (
-              <button onClick={() => closePopup()}>
-                Obtenir en exclusivité les informations
-              </button>
+              <>
+                <button onClick={() => closePopup()}>
+                  Obtenir en exclusivité les informations 🚀
+                </button>
+                <small
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  Après vous, personne n'aura accès aux infos.
+                </small>
+              </>
             ) : (
-              <button className="btn-not-allowed">Vendu</button>
+              <>
+                <button className="btn-not-allowed">Vendu 🛑</button>
+                <small
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  Un concurrent est passé par là.
+                </small>
+              </>
             )}
-            <small
-              style={{
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
-              Après vous, personne n'aura accès aux infos.
-            </small>
           </>
         )}
       </div>
