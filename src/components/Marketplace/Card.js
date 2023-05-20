@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Popup from "./Popup";
-import { dateParser, upperCase } from "../../utils";
+import { dateParser, isEmpty, upperCase } from "../../utils";
 import { NavLink } from "react-router-dom";
 
 const Card = ({ lead, user }) => {
   const [unlock, setUnlock] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-
-  console.log(typeof lead.skills);
 
   useEffect(() => {
     lead && setIsLoading(false);
@@ -46,7 +44,7 @@ const Card = ({ lead, user }) => {
                   margin: "0 auto",
                 }}
               >
-                Sous-traitance
+                Sous-traitant
               </span>
             </span>
           </span>
@@ -169,23 +167,46 @@ const Card = ({ lead, user }) => {
                   <p>Fiche de poste</p>
                 </div>
               </div>
+
+              <div className="price-container">
+                <div className="title-information-container">
+                  <h5>🥇 Soyez le seul à obtenir les infos pour :</h5>
+                </div>
+                {lead.provider == "esn" ? (
+                  <>
+                    <p>
+                      4,90 <span>€</span>
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <p>
+                      19,90 <span>€</span>
+                    </p>
+                  </>
+                )}
+              </div>
             </div>
 
-            <p>
-              {user?.lead_bought?.find((el) => el === lead._id) ? (
-                <NavLink to="/conversation">
-                  <button className="btn-confirm">
-                    Voir les informations 🔎
-                  </button>
-                </NavLink>
-              ) : lead.buyer.length < 4 ? (
-                <button onClick={() => closePopup()}>
-                  Obtenir les informations 🚀
-                </button>
-              ) : (
-                <button className="btn-not-allowed">Fermé ⛔️</button>
-              )}
-            </p>
+            {user?.lead_bought?.find((el) => el === lead._id) ? (
+              <NavLink to="/conversation">
+                <button className="btn-confirm">Voir les informations</button>
+              </NavLink>
+            ) : lead.buyer.length < 1 ? (
+              <button onClick={() => closePopup()}>
+                Obtenir en exclusivité les informations
+              </button>
+            ) : (
+              <button className="btn-not-allowed">Vendu</button>
+            )}
+            <small
+              style={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              Après vous, personne n'aura accès aux infos.
+            </small>
           </>
         )}
       </div>

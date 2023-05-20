@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { isEmpty } from "../../utils";
-import Lead from "./Lead";
-import PopupInfo from "./PopupInfo";
-import PopupReliability from "./PopupReliability";
-import PopupReview from "./PopupReview";
 import Card from "./Card";
 
 const Grid = () => {
@@ -12,25 +8,10 @@ const Grid = () => {
   const userData = useSelector((state) => state.userReducer);
   const usersData = useSelector((state) => state.usersReducer);
   const [isLoading, setIsLoading] = useState(true);
-  const [popupInfo, setPopupInfo] = useState(false);
-  const [infoReliability, setInfoReliability] = useState(false);
-  const [infoReview, setInfoReview] = useState(false);
-
-  const closePopupInfo = () => {
-    setPopupInfo(false);
-  };
-
-  const closePopupReliability = () => {
-    setInfoReliability(false);
-  };
-
-  const closePopupReview = () => {
-    setInfoReview(false);
-  };
 
   useEffect(() => {
-    leadsData && setIsLoading(false);
-  }, []);
+    leadsData[0] && setIsLoading(false);
+  }, [isLoading, leadsData]);
 
   return (
     <main>
@@ -75,11 +56,6 @@ const Grid = () => {
             })}
         </div>
       )}
-      {popupInfo ? <PopupInfo closePopupInfo={closePopupInfo} /> : null}
-      {infoReliability ? (
-        <PopupReliability closePopupReliability={closePopupReliability} />
-      ) : null}
-      {infoReview ? <PopupReview closePopupReview={closePopupReview} /> : null}
     </main>
   );
 };

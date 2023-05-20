@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
-import { dateParser, upperCase } from "../../utils";
+import { dateParser, upperCase, isEmpty } from "../../utils";
 import PopupEdit from "./PopupEdit";
 
 const GridSeller = () => {
@@ -12,7 +11,9 @@ const GridSeller = () => {
   //recuperation des data a modifier ou supp
   const [contactToEdit, setContactToEdit] = useState(null);
 
-  useEffect(() => leadsData[0] && setIsLoading(false));
+  useEffect(() => {
+    leadsData[0] && setIsLoading(false);
+  }, [isLoading, leadsData]);
 
   const closePopupEdit = () => {
     setEdit(false);
@@ -25,245 +26,402 @@ const GridSeller = () => {
 
   return (
     <main>
+      <div className="title-container">
+        <h3>Mes annonces d'apports d'affaire en ligne</h3>
+        <p>Ici, gérez vos annonces en ligne sur la place de marché.</p>
+      </div>
       {isLoading ? (
         <i className="fas fa-spinner fa-spin loading"></i>
       ) : (
-        <>
-          <div className="table-grid">
-            <div className="title-container">
-              <h3>Mes annonces d'apports d'affaire en ligne</h3>
-              <p>Ici, gérez vos annonces en ligne sur la place de marché.</p>
-            </div>
-            <table style={{ marginTop: "2rem" }}>
-              <thead>
-                <tr>
-                  <th className="disable">Id</th>
-                  <th className="needs">Profil recherché</th>
-                  <th className="sector">Entreprise</th>
-                  <th>Localité</th>
-                  <th>Compétences</th>
-                  <th>Desc.</th>
-                  <th>Nom</th>
-                  <th>Prénom</th>
-                  <th>Rôle</th>
-                  <th>Email</th>
-                  <th>Téléphone</th>
-                  <th>Ajouté le</th>
-                  <th>Etat</th>
-                  <th>Gain(s)</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                {userData.nb_lead > 0 ? (
-                  Array.isArray(leadsData) &&
-                  leadsData.map((contact) => {
-                    if (userData.isAdmin) {
-                      return (
-                        <tr contact={contact} key={contact._id}>
-                          {" "}
-                          <td>
-                            {contact._id &&
-                              contact._id.slice(
-                                contact._id.length - 4,
-                                contact._id.length
-                              )}
-                          </td>
-                          <td>
-                            {contact.lookingFor
-                              ? upperCase(contact.lookingFor)
-                              : "-"}
-                          </td>
-                          <td>
-                            {contact.company ? upperCase(contact.company) : "-"}
-                          </td>
-                          <td>{contact.region ? contact.region : "-"}</td>
-                          <td>
-                            {contact.skills ? upperCase(contact.skills) : "-"}
-                          </td>
-                          <td style={{ maxWidth: "300px" }}>
-                            {contact.desc ? upperCase(contact.desc) : "-"}
-                          </td>
-                          <td>
-                            {contact.last_name
-                              ? upperCase(contact.last_name)
-                              : "-"}
-                          </td>
-                          <td>
-                            {contact.first_name
-                              ? upperCase(contact.first_name)
-                              : "-"}
-                          </td>
-                          <td>
-                            {contact.role ? upperCase(contact.role) : "-"}
-                          </td>
-                          <td>{contact.email ? contact.email : "-"}</td>
-                          <td>{contact.phone ? contact.phone : "-"}</td>
-                          <td>{dateParser(contact.createdAt)}</td>
-                          <td>
-                            {contact.status === "pending" ? (
-                              <span style={{ color: "#F7685B" }}>
-                                {contact.status}
-                              </span>
-                            ) : (
-                              <span style={{ color: "#2ED47A" }}>
-                                {contact.status}
-                              </span>
+        <div className="grid-container seller">
+          {!isEmpty(leadsData[0]) &&
+            leadsData.map((lead) => {
+              if (userData.isAdmin) {
+                return (
+                  <div className="card-container">
+                    <div className="inner">
+                      {lead.provider !== "esn" ? (
+                        <span class="pricing">
+                          <span>
+                            <span
+                              style={{
+                                color: "#2ED47A",
+                                fontWeight: "bold",
+                                display: "block",
+                                margin: "0 auto",
+                              }}
+                            >
+                              Client final
+                            </span>
+                          </span>
+                        </span>
+                      ) : (
+                        <span
+                          class="pricing"
+                          style={{ backgroundColor: "#ffb84652" }}
+                        >
+                          <span>
+                            <span
+                              style={{
+                                color: "#FFB946",
+                                fontWeight: "bold",
+                                display: "block",
+                                margin: "0 auto",
+                              }}
+                            >
+                              Sous-traitant
+                            </span>
+                          </span>
+                        </span>
+                      )}
+                      {isLoading ? (
+                        <>
+                          Chargement...{" "}
+                          <i className="fas fa-spinner fa-spin"></i>
+                        </>
+                      ) : (
+                        <>
+                          <small className="disable">
+                            ref:{" "}
+                            {lead._id.slice(
+                              lead._id.length - 4,
+                              lead._id.length
                             )}
-                          </td>
-                          <td className="center">
-                            {contact.buyer?.length > 0 ? (
-                              <>
-                                <span style={{ color: "#2ED47A" }}>
-                                  {contact.buyer?.length}
-                                </span>{" "}
-                                <p> Crédit(s)</p>
-                              </>
-                            ) : (
-                              <>
+                          </small>
+                          <div className="title">
+                            <h3 className="needs">
+                              👨‍💻 {upperCase(lead.lookingFor)}
+                            </h3>{" "}
+                            <small>
+                              Ajouté le {dateParser(lead.createdAt)}
+                            </small>
+                          </div>
+                          <div className="skill">
+                            <h5>✅ Compétences recherchées :</h5>
+                            <p>{lead?.skills?.slice(0, 140)}</p>
+                          </div>
+                          <div className="localisation">
+                            <h5>📍 Localisation : </h5>
+                            <p
+                              style={{
+                                display: "inline-block",
+                                margin: "0 auto",
+                              }}
+                            >
+                              {lead.region}
+                            </p>
+                          </div>
+                          <div className="info-container">
+                            <div className="title-information-container">
+                              <h5>
+                                🕵️‍♂️ Informations détenues par l'apporteur
+                                d'affaire :
+                              </h5>
+                            </div>
+                            <div className="grid-icon">
+                              <div className="icon-container">
+                                {lead.company !== "" ? (
+                                  <img
+                                    src="./known.svg"
+                                    alt="known"
+                                    style={{
+                                      display: "block",
+                                      margin: "0 auto",
+                                    }}
+                                  />
+                                ) : (
+                                  <img
+                                    src="./unknown.svg"
+                                    alt="unknown"
+                                    style={{
+                                      display: "block",
+                                      margin: "0 auto",
+                                    }}
+                                  />
+                                )}{" "}
+                                <p>{lead.company ? lead.company : "-"}</p>
+                              </div>
+                            </div>
+                            <div className="grid-icon">
+                              <div className="icon-container">
+                                {lead.first_name && lead.last_name !== "" ? (
+                                  <img
+                                    src="./known.svg"
+                                    alt="known"
+                                    style={{
+                                      display: "block",
+                                      margin: "0 auto",
+                                    }}
+                                  />
+                                ) : (
+                                  <img
+                                    src="./unknown.svg"
+                                    alt="unknown"
+                                    style={{
+                                      display: "block",
+                                      margin: "0 auto",
+                                    }}
+                                  />
+                                )}{" "}
                                 <p>
-                                  <span style={{ color: "#F7685B" }}>
-                                    {contact.buyer?.length}{" "}
-                                  </span>{" "}
-                                  Crédit
+                                  {lead.first_name ? lead.first_name : "-"}{" "}
+                                  {lead.last_name ? lead.last_name : "-"}
                                 </p>
-                              </>
-                            )}
-                          </td>
-                          <td className="edit">
-                            {!edit ? (
-                              <button
-                                onClick={() => handleEditContact(contact)}
-                              >
-                                Modifier
-                              </button>
-                            ) : null}
-                            {/* {contact.status === "validated" ? (
-                              <button
-                                className="btn-cancel"
-                                onClick={() => handleDisableContact(contact)}
-                              >
-                                Désactiver
-                              </button>
-                            ) : contact.status !== "pending" ? (
-                              <button
-                                className="btn-confirm"
-                                onClick={() => handleDisableContact(contact)}
-                              >
-                                Activer
-                              </button>
-                            ) : null} */}
-                          </td>
-                        </tr>
-                      );
-                    } else if (userData._id === contact.dealerID) {
-                      return (
-                        <tr contact={contact} key={contact._id}>
-                          {" "}
-                          <td>
-                            {contact._id &&
-                              contact._id.slice(
-                                contact._id.length - 4,
-                                contact._id.length
-                              )}
-                          </td>
-                          <td>
-                            {contact.lookingFor
-                              ? upperCase(contact.lookingFor)
-                              : "-"}
-                          </td>
-                          <td>
-                            {contact.company ? upperCase(contact.company) : "-"}
-                          </td>
-                          <td>{contact.region ? contact.region : "-"}</td>
-                          <td>
-                            {contact.skills ? upperCase(contact.skills) : "-"}
-                          </td>
-                          <td style={{ maxWidth: "300px" }}>
-                            {contact.desc ? upperCase(contact.desc) : "-"}
-                          </td>
-                          <td>
-                            {contact.last_name
-                              ? upperCase(contact.last_name)
-                              : "-"}
-                          </td>
-                          <td>
-                            {contact.first_name
-                              ? upperCase(contact.first_name)
-                              : "-"}
-                          </td>
-                          <td>
-                            {contact.role ? upperCase(contact.role) : "-"}
-                          </td>
-                          <td>{contact.email ? contact.email : "-"}</td>
-                          <td>{contact.phone ? contact.phone : "-"}</td>
-                          <td>{dateParser(contact.createdAt)}</td>
-                          <td>{contact.status}</td>
-                          <td className="center">
-                            {contact.buyer?.length > 0 ? (
-                              <>
-                                <span style={{ color: "#2ED47A" }}>
-                                  {contact.buyer?.length}
-                                </span>{" "}
-                                <p> Crédit(s)</p>
-                              </>
-                            ) : (
-                              <>
-                                <p>
-                                  <span style={{ color: "#F7685B" }}>
-                                    {contact.buyer?.length}{" "}
-                                  </span>{" "}
-                                  Crédit
-                                </p>
-                              </>
-                            )}
-                          </td>
-                          <td className="edit">
-                            {!edit ? (
-                              <button
-                                onClick={() => handleEditContact(contact)}
-                              >
-                                Modifier
-                              </button>
-                            ) : null}
-                            {contact.status === "validated" ? (
-                              <button className="btn-cancel">Désactiver</button>
-                            ) : contact.status !== "pending" ? (
-                              <button className="btn-confirm">Activer</button>
-                            ) : null}
-                          </td>
-                        </tr>
-                      );
-                    } else return null;
-                  })
-                ) : (
-                  <div className="popup-empty-list">
-                    <h3>
-                      Vous avez 0 annonce d'apport d'affaires en ligne sur la
-                      plateforme.
-                    </h3>
-                    <p>
-                      Pour déposer une annonce d'apport d'affaire RDV sur
-                      l'onglet « Apporter une affaire ».
-                    </p>
-                    <NavLink to="/lead">
-                      {" "}
-                      <button>Publier une affaire</button>
-                    </NavLink>
+                              </div>
+                            </div>
+                            <div className="grid-icon">
+                              <div className="icon-container">
+                                {lead.email !== "" ? (
+                                  <img
+                                    src="./known.svg"
+                                    alt="known"
+                                    style={{
+                                      display: "block",
+                                      margin: "0 auto",
+                                    }}
+                                  />
+                                ) : (
+                                  <img
+                                    src="./unknown.svg"
+                                    alt="unknown"
+                                    style={{
+                                      display: "block",
+                                      margin: "0 auto",
+                                    }}
+                                  />
+                                )}{" "}
+                                <p>{lead.email ? lead.email : "-"}</p>
+                              </div>
+                            </div>
+                            <div className="grid-icon">
+                              <div className="icon-container">
+                                {lead.phone !== "" ? (
+                                  <img
+                                    src="./known.svg"
+                                    alt="known"
+                                    style={{
+                                      display: "block",
+                                      margin: "0 auto",
+                                    }}
+                                  />
+                                ) : (
+                                  <img
+                                    src="./unknown.svg"
+                                    alt="unknown"
+                                    style={{
+                                      display: "block",
+                                      margin: "0 auto",
+                                    }}
+                                  />
+                                )}{" "}
+                                <p>{lead.phone ? lead.phone : "-"}</p>
+                              </div>
+                            </div>
+                            <div className="grid-icon">
+                              <div className="icon-container">
+                                {lead.desc !== "" && lead.desc ? (
+                                  <img
+                                    src="./known.svg"
+                                    alt="known"
+                                    style={{
+                                      display: "block",
+                                      margin: "0 auto",
+                                    }}
+                                  />
+                                ) : (
+                                  <img
+                                    src="./unknown.svg"
+                                    alt="unknown"
+                                    style={{
+                                      display: "block",
+                                      margin: "0 auto",
+                                    }}
+                                  />
+                                )}{" "}
+                                <p>{lead.desc ? lead.desc : "-"}</p>
+                              </div>
+                            </div>
+                          </div>
+                          {!edit ? (
+                            <button onClick={() => handleEditContact(lead)}>
+                              Modifier
+                            </button>
+                          ) : null}
+                        </>
+                      )}
+                    </div>
                   </div>
-                )}
-              </tbody>
-            </table>
-            {edit ? (
-              <PopupEdit
-                closePopupEdit={closePopupEdit}
-                contactToEdit={contactToEdit}
-              />
-            ) : null}
-          </div>
-        </>
+                );
+              } else if (userData._id === lead.dealerID) {
+                return (
+                  <>
+                    <small className="disable">
+                      ref:{" "}
+                      {lead._id.slice(lead._id.length - 4, lead._id.length)}
+                    </small>
+                    <div className="title">
+                      <h3 className="needs">👨‍💻 {upperCase(lead.lookingFor)}</h3>{" "}
+                      <small>Ajouté le {dateParser(lead.createdAt)}</small>
+                    </div>
+                    <div className="skill">
+                      <h5>✅ Compétences recherchées :</h5>
+                      <p>{lead?.skills?.slice(0, 140)}</p>
+                    </div>
+                    <div className="localisation">
+                      <h5>📍 Localisation : </h5>
+                      <p
+                        style={{
+                          display: "inline-block",
+                          margin: "0 auto",
+                        }}
+                      >
+                        {lead.region}
+                      </p>
+                    </div>
+                    <div className="info-container">
+                      <div className="title-information-container">
+                        <h5>
+                          🕵️‍♂️ Informations détenues par l'apporteur d'affaire :
+                        </h5>
+                      </div>
+                      <div className="grid-icon">
+                        <div className="icon-container">
+                          {lead.company !== "" ? (
+                            <img
+                              src="./known.svg"
+                              alt="known"
+                              style={{
+                                display: "block",
+                                margin: "0 auto",
+                              }}
+                            />
+                          ) : (
+                            <img
+                              src="./unknown.svg"
+                              alt="unknown"
+                              style={{
+                                display: "block",
+                                margin: "0 auto",
+                              }}
+                            />
+                          )}{" "}
+                          <p>Entreprise</p>
+                        </div>
+                      </div>
+                      <div className="grid-icon">
+                        <div className="icon-container">
+                          {lead.first_name && lead.last_name !== "" ? (
+                            <img
+                              src="./known.svg"
+                              alt="known"
+                              style={{
+                                display: "block",
+                                margin: "0 auto",
+                              }}
+                            />
+                          ) : (
+                            <img
+                              src="./unknown.svg"
+                              alt="unknown"
+                              style={{
+                                display: "block",
+                                margin: "0 auto",
+                              }}
+                            />
+                          )}{" "}
+                          <p>Demandeur</p>
+                        </div>
+                      </div>
+                      <div className="grid-icon">
+                        <div className="icon-container">
+                          {lead.email !== "" ? (
+                            <img
+                              src="./known.svg"
+                              alt="known"
+                              style={{
+                                display: "block",
+                                margin: "0 auto",
+                              }}
+                            />
+                          ) : (
+                            <img
+                              src="./unknown.svg"
+                              alt="unknown"
+                              style={{
+                                display: "block",
+                                margin: "0 auto",
+                              }}
+                            />
+                          )}{" "}
+                          <p>Email</p>
+                        </div>
+                      </div>
+                      <div className="grid-icon">
+                        <div className="icon-container">
+                          {lead.phone !== "" ? (
+                            <img
+                              src="./known.svg"
+                              alt="known"
+                              style={{
+                                display: "block",
+                                margin: "0 auto",
+                              }}
+                            />
+                          ) : (
+                            <img
+                              src="./unknown.svg"
+                              alt="unknown"
+                              style={{
+                                display: "block",
+                                margin: "0 auto",
+                              }}
+                            />
+                          )}{" "}
+                          <p>Téléphone</p>
+                        </div>
+                      </div>
+                      <div className="grid-icon">
+                        <div className="icon-container">
+                          {lead.desc !== "" && lead.desc ? (
+                            <img
+                              src="./known.svg"
+                              alt="known"
+                              style={{
+                                display: "block",
+                                margin: "0 auto",
+                              }}
+                            />
+                          ) : (
+                            <img
+                              src="./unknown.svg"
+                              alt="unknown"
+                              style={{
+                                display: "block",
+                                margin: "0 auto",
+                              }}
+                            />
+                          )}{" "}
+                          <p>Fiche de poste</p>
+                        </div>
+                      </div>
+                    </div>
+                    {!edit ? (
+                      <button onClick={() => handleEditContact(lead)}>
+                        Modifier
+                      </button>
+                    ) : null}
+                  </>
+                );
+              } else return null;
+            })}
+        </div>
       )}
+      {edit ? (
+        <PopupEdit
+          closePopupEdit={closePopupEdit}
+          contactToEdit={contactToEdit}
+        />
+      ) : null}
     </main>
   );
 };
