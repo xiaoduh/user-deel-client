@@ -172,19 +172,13 @@ const Card = ({ lead, user }) => {
                 <div className="title-information-container">
                   <h5>🥇 Soyez le seul à obtenir les infos pour :</h5>
                 </div>
-                {lead.provider == "esn" ? (
-                  <>
-                    <p>
-                      4,90 <span>€</span>
-                    </p>
-                  </>
-                ) : (
-                  <>
-                    <p>
-                      19,90 <span>€</span>
-                    </p>
-                  </>
-                )}
+
+                <>
+                  <p>
+                    {parseFloat(lead.price) * 0.2 + parseFloat(lead.price)}{" "}
+                    <span>€</span>
+                  </p>
+                </>
               </div>
             </div>
 
