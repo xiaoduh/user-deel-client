@@ -37,8 +37,8 @@ const Grid = () => {
             .
           </p>
           <p>
-            🚨 il ne peut y avoir qu'une seule et unique mise en relation. Les
-            mises en relation sont exlusives.
+            🚨 Les mises en relation sont exlusives. Il ne peut y avoir qu'une
+            seule et unique mise en relation par annonce.
           </p>
         </div>
       </div>
