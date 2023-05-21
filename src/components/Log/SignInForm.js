@@ -148,15 +148,7 @@ const SignIn = () => {
         <>
           {" "}
           <div className="title-connexion">
-            <img style={{ marginBottom: "0" }} src="./logo.png" alt="logo" />
-            <p style={{ marginBottom: "1.5rem" }}>
-              Il y a actuellement{" "}
-              <span style={{ color: "#109CF1" }}>
-                {/* {leadsData[0] && leadsData.length} */} 76
-              </span>{" "}
-              annonces d'apports d'affaires en ligne.
-            </p>
-            <h2>Connexion</h2>
+            <h2>Connexion 🔓</h2>
           </div>
           <form onSubmit={handleLogin} id="sign-up-form">
             <label htmlFor="email" class="form__label">

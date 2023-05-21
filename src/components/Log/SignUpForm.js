@@ -128,15 +128,14 @@ const SignUp = () => {
           </div>
         </>
       ) : (
-        <form action="" onSubmit={handleRegister} id="sign-up-form">
+        <form
+          action=""
+          onSubmit={handleRegister}
+          id="sign-up-form"
+          style={{ marginBottom: "1rem" }}
+        >
           <div className="title-connexion">
-            <img style={{ marginBottom: "0" }} src="./logo.png" alt="logo" />
-            <p style={{ marginBottom: "1.5rem" }}>
-              Il y a actuellement{" "}
-              <span>{!isEmpty(leadsData) && leadsData.length}76</span> annonces
-              d'apports d'affaires en ligne.
-            </p>
-            <h2>Inscription</h2>
+            <h2>Inscription 📝</h2>
           </div>
           <br />
           <label htmlFor="type" class="form__label">
@@ -204,7 +203,7 @@ const SignUp = () => {
             id="tel"
             autocomplete="off"
             required
-            placeholder="Vous recevrez un code de validation"
+            placeholder="Un code vous sera envoyé à chaque connexion"
             onChange={(e) => checkPhone(e)}
             value={phone_number}
           />
@@ -245,20 +244,16 @@ const SignUp = () => {
           <div className="password error"></div>
           <br />
           <br />
-
-          <input type="checkbox" id="terms" required />
+          {/* 
+          <input type="checkbox" id="terms" />
           <label htmlFor="terms">
             J'accepte les{" "}
-            <a
-              href="https://deeel.netlify.app/cgu"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="/" target="_blank" rel="noopener noreferrer">
               conditions générales
             </a>
           </label>
           <div className="terms error"></div>
-          <br />
+          <br /> */}
           <>
             <button type="submit">
               {" "}
