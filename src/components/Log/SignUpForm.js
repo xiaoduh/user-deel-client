@@ -120,10 +120,10 @@ const SignUp = () => {
               <h4>
                 Inscription bien{" "}
                 <span className="success">prise en compte</span>. <br></br>
-                <span className="success">Validez</span> votre Email pour vous
-                connecter.
+                {/* <span className="success">Validez</span> votre Email pour vous
+                connecter. */}
               </h4>
-              <small>Pensez à vérifier vos spams.</small>
+              {/* <small>Pensez à vérifier vos spams.</small> */}
             </div>
           </div>
         </>

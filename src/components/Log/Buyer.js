@@ -119,7 +119,7 @@ const Buyer = ({ leadsData }) => {
               style={{ width: "24px", marginRight: "1rem" }}
             />{" "}
             <h3 style={{ textAlign: "left" }}>
-              Faites de la veille sur les tendendances du marché pour guider vos
+              Faites de la veille sur les tendances du marché pour guider vos
               activités de recrutement 🔎.
             </h3>
           </li>
