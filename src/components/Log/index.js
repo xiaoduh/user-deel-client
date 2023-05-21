@@ -38,7 +38,10 @@ const Log = (props) => {
   return (
     <>
       {isLoading ? (
-        <i className="fas fa-spinner fa-spin loading"></i>
+        <i
+          className="fas fa-spinner fa-spin loading"
+          style={{ fontSize: "3rem" }}
+        ></i>
       ) : (
         <>
           <Navbar leadsData={leadsData} />
