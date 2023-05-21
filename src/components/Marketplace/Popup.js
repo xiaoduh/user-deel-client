@@ -7,12 +7,15 @@ import { getUser } from "../../actions/user.actions";
 
 const Popup = ({ lead, closePopup }) => {
   const user = useSelector((state) => state.userReducer);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
   const confirmBuy = async () => {
+    setLoading(true);
     await dispatch(buyLead(lead._id, user._id, lead.dealerID));
     await dispatch(getUser(user._id));
     dispatch(getLeads());
+    setLoading(false);
     closePopup();
   };
   return (
@@ -40,9 +43,15 @@ const Popup = ({ lead, closePopup }) => {
           </button>
           {parseFloat(user.coin) >
           parseFloat(lead.price) * 0.2 + parseFloat(lead.price) ? (
-            <button className="btn-confirm" onClick={confirmBuy}>
-              Confirmer
-            </button>
+            loading ? (
+              <>
+                Chargement... <i className="fas fa-spinner fa-spin"></i>
+              </>
+            ) : (
+              <button className="btn-confirm" onClick={confirmBuy}>
+                Confirmer
+              </button>
+            )
           ) : (
             <NavLink to="/store">
               <button className="btn-confirm">Acheter des crédits</button>
