@@ -21,7 +21,7 @@ const Report = () => {
         </div>
       ) : (
         <div className="log-container">
-          <Log signin={true} signup={false} />
+          <Log signin={true} signup={false} buyer={true} seller={false} />
         </div>
       )}
     </>

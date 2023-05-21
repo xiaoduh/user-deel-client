@@ -5,7 +5,7 @@ import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import ReactGA from "react-ga";
 // import Chat from "../components/Chat/Chat";
-import TableLead from "../components/MyLeads/TableLead"
+import TableLead from "../components/MyLeads/TableLead";
 // import { useSelector } from "react-redux";
 
 const Conversation = () => {
@@ -27,7 +27,7 @@ const Conversation = () => {
         </div>
       ) : (
         <div className="log-container">
-          <Log signin={true} signup={false} />
+          <Log signin={true} signup={false} buyer={true} seller={false} />
         </div>
       )}
     </>
