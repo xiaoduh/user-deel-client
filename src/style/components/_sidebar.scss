@@ -1,6 +1,6 @@
 .logged-user {
 
-    nav {
+    .nav {
         position: absolute;
         top: 0;
         left: 0;
@@ -79,6 +79,9 @@
             
             .active-left-nav {
                 color: $accent-blue;
+                background: #34adf92d;
+                padding: 10px;
+                border-radius: 10px;
             }
 
             .navlinks-container {

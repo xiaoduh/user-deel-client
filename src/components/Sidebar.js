@@ -11,7 +11,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <nav>
+      <div className="nav">
         <div className="sidebar-header">
           <NavLink to="/">
             <img src="./logo.png" alt="logo" />
@@ -186,7 +186,7 @@ const Sidebar = () => {
           </div>
         </div>
         <small className="version">Version beta 0.1.1 2023</small>
-      </nav>
+      </div>
     </>
   );
 };
