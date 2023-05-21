@@ -1,8 +1,54 @@
 .connection-form {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 100px;
+    grid-row-gap: 0px;
     align-items: center;
     justify-content: center;
-    margin-top: 5rem;
+    margin: 2rem 5rem 0 5rem;
+
+    .info-container {
+
+
+        ul {
+            display: flex;
+            margin: 2rem 0;
+            align-items: center;
+
+            li {
+                display: flex;
+                cursor: pointer;
+
+                img {
+                    width: 24px;
+                    height: 24px;
+                }
+
+                &:hover {
+                    color: $accent-blue-hover;
+                }
+
+                &:first-child {
+                    margin-right: 1rem;
+                }
+            }
+
+            .active-btn {
+                color: $accent-blue;
+                background: #34adf92d;
+                padding: 10px;
+                border-radius: 10px;
+            }
+
+            .seller {
+                background: #ffb84652;
+                padding: 10px;
+                border-radius: 10px;
+            }
+
+        }
+    }
 
 
     .form-container {
@@ -52,8 +98,10 @@
         ul {
             display: flex;
             margin: 2rem 0;
+            align-items: center;
 
             li {
+                
                 cursor: pointer;
 
                 &:hover {
@@ -67,6 +115,9 @@
 
             .active-btn {
                 color: $accent-blue;
+                background: #34adf92d;
+                padding: 10px;
+                border-radius: 10px;
             }
 
         }

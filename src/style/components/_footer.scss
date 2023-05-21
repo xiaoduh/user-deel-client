@@ -1,0 +1,28 @@
+footer {
+    display: flex;
+    justify-content: space-between;
+    background: $bg1;
+    padding: 2rem 15rem 2rem;
+
+    @media screen and (max-width: 414px) {
+        padding: 1rem 2rem;
+    }
+
+    @media screen and (max-width: 1400px) {
+        padding: 1rem 5rem;
+    }
+
+    .cta-nav-container {
+
+        @media screen and (max-width: 550px) {
+            display: none;
+        }
+    }
+
+    .logo-container {
+
+        img {
+            width: 150px;
+        }
+    }
+}

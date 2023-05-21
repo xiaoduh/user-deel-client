@@ -36,6 +36,10 @@ const Grid = () => {
             </span>
             .
           </p>
+          <p>
+            🚨 il ne peut y avoir qu'une seule et unique mise en relation. Les
+            mises en relation sont exlusives.
+          </p>
         </div>
       </div>
       {isLoading ? (

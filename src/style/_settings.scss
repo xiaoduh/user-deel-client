@@ -33,6 +33,7 @@ $font-Medium: "font-Medium", serif;
 $font-light: "font-light", serif;
 $font-EL: "font-EL", serif;
 
+$bg1: #2F81FB;
 $bg: #E5E5E5;
 $accent-blue-hover: #34AFF9;
 $accent-blue: #109CF1;
@@ -209,7 +210,7 @@ select {
   }
 }
 
-input[type="text"], input[type='password'], input[type='email'], input[type='select'] {
+input[type="text"], input[type='password'], input[type='email'], input[type='select'], input[type='number'] {
   padding: .5rem .5rem;
   cursor: pointer;
   background-color: white;

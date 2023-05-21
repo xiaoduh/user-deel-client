@@ -19,19 +19,27 @@ const Popup = ({ lead, closePopup }) => {
     <div className="popup">
       <div className="modal">
         <h3>
-          Voulez-vous dépenser <span style={{ color: "#109CF1" }}>1</span>{" "}
-          crédit pour contacter cet apporteur d'affaire ?
+          Voulez-vous dépenser{" "}
+          <span style={{ color: "#109CF1" }}>
+            {parseFloat(lead.price) * 0.2 + parseFloat(lead.price)}
+          </span>{" "}
+          {lead.price > 1 ? "crédits" : "crédit"} pour contacter cet apporteur
+          d'affaire ?
         </h3>
         <p>
-          Votre solde est de{" "}
-          <span style={{ color: "#109CF1" }}>{user.coin}</span>{" "}
+          Votre solde sera de{" "}
+          <span style={{ color: "#109CF1" }}>
+            {parseFloat(user.coin) -
+              (parseFloat(lead.price) * 0.2 + parseFloat(lead.price))}
+          </span>{" "}
           {user.coin > 1 ? "crédits" : "crédit"}
         </p>
         <div className="btn-unlock">
           <button className="btn-cancel" onClick={() => closePopup()}>
             Annuler
           </button>
-          {user.coin > 0 ? (
+          {parseFloat(user.coin) >
+          parseFloat(lead.price) * 0.2 + parseFloat(lead.price) ? (
             <button className="btn-confirm" onClick={confirmBuy}>
               Confirmer
             </button>

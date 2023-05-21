@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getUser } from "../../actions/user.actions";
 import { getLeads, sellLead } from "../../actions/leads.actions";
@@ -17,6 +17,7 @@ const Sales = () => {
   const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [price, setPrice] = useState(null);
   const [loading, setLoading] = useState(false);
 
   // const checkProvider = (e) => {
@@ -67,6 +68,19 @@ const Sales = () => {
     else errorFdpRequired.style.border = "1px solid #2ED47A";
   };
 
+  const checkPrice = (e) => {
+    setPrice(parseInt(e.target.value));
+    const errorPriceRequired = document.querySelector(".price-required");
+    const borderPrice = document.querySelector(".display-price");
+    if (price === "" || price === null || price == 0 || price == "0") {
+      errorPriceRequired.style.border = "1px solid #F7685B";
+      borderPrice.style.border = "1px solid #F7685B";
+    } else {
+      errorPriceRequired.style.border = "1px solid #2ED47A";
+      borderPrice.style.border = "1px solid #2ED47A";
+    }
+  };
+
   const handleFormSubmit = async (e) => {
     setLoading(true);
     const formMess = document.querySelector(".form-message");
@@ -75,6 +89,9 @@ const Sales = () => {
     const errorCompanyRequired = document.querySelector(".company-required");
     const errorSkillRequired = document.querySelector(".skill-required");
     const errorRegionRequired = document.querySelector(".region-required");
+    const errorFdpRequired = document.querySelector(".fdp-required");
+    const errorPriceRequired = document.querySelector(".price-required");
+    const borderPrice = document.querySelector(".display-price");
     e.preventDefault();
 
     if (profil === null || profil === "") {
@@ -92,11 +109,18 @@ const Sales = () => {
     } else if (region === null || region === "") {
       errorRegionRequired.style.border = "1px solid #F7685B";
       setLoading(false);
+    } else if (price === null || price === "") {
+      errorPriceRequired.style.border = "1px solid #F7685B";
+      borderPrice.style.border = "1px solid #F7685B";
+      setLoading(false);
     } else {
       errorProfilRequired.style.border = "";
       errorCompanyRequired.style.border = "";
       errorSkillRequired.style.border = "";
       errorRegionRequired.style.border = "";
+      errorFdpRequired.style.border = "";
+      errorPriceRequired.style.border = "";
+      borderPrice.style.border = "";
       await dispatch(
         sellLead(
           user._id,
@@ -110,7 +134,8 @@ const Sales = () => {
           lastName,
           email,
           role,
-          phone
+          phone,
+          price
         )
       )
         .then((res) => {
@@ -129,6 +154,7 @@ const Sales = () => {
             setRole("");
             setEmail("");
             setPhone("");
+            setPrice("");
           } else {
             formMess.innerHTML = `<p class='success'>Envoyée. Votre annonce est incomplète, sans le contact nous ne pouvons publier votre annonce. Une fois publiée, vous serez crédité de 60€.</p>`;
             setProvider(null);
@@ -141,6 +167,7 @@ const Sales = () => {
             setRole("");
             setEmail("");
             setPhone("");
+            setPrice("");
           }
 
           setTimeout(() => {
@@ -415,6 +442,50 @@ const Sales = () => {
                 placeholder="0669584702 ou 0145879558"
                 value={phone}
               />
+            </div>
+            <div className="price">
+              <h3>Définissez votre prix</h3>
+              <p>
+                <img
+                  style={{ widht: "20px", height: "20px" }}
+                  src="/important.svg"
+                  alt="important"
+                />{" "}
+                Définissez le prix que vous souhaitez toucher pour cette mise en
+                relation. Les apports d'affaires chez un client final sont 8x
+                plus prisées.
+              </p>
+              <label
+                style={{ color: "#109CF1" }}
+                htmlFor="price"
+                class="form__label"
+              >
+                Choisissez votre prix
+              </label>
+              <br />
+              <input
+                class="form__field price-required"
+                type="number"
+                name="price"
+                id="price"
+                autocomplete="off"
+                min={0}
+                defaultValue={1}
+                placeholder="130 €"
+                required
+                onChange={(e) => checkPrice(e)}
+                value={price}
+              />
+              <p style={{ color: "#109CF1", margin: "0" }}>
+                Votre prix commission deeel incluse
+              </p>
+              <p className="display-price price-required">
+                {price * 0.2 + price}{" "}
+                <small style={{ fontSize: "1rem", marginLeft: ".5rem" }}>
+                  {" "}
+                  €
+                </small>
+              </p>
             </div>
           </form>
           <div className="btn-container">

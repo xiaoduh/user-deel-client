@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 import axios from "axios";
-import { isEmpty } from "../../utils";
 
-const SignUp = () => {
+const SignUp = ({ leadsData }) => {
   const [formSubmit, setFormSubmit] = useState(false);
   const [myType, setMyType] = useState("");
   const [first_name, setFirst_name] = useState("");
@@ -12,7 +10,6 @@ const SignUp = () => {
   const [phone_number, setPhone_number] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const leadsData = useSelector((state) => state.leadsReducer);
 
   const checkUserType = (e) => {
     setMyType(e.target.value);
@@ -128,15 +125,14 @@ const SignUp = () => {
           </div>
         </>
       ) : (
-        <form action="" onSubmit={handleRegister} id="sign-up-form">
+        <form
+          action=""
+          onSubmit={handleRegister}
+          id="sign-up-form"
+          style={{ marginBottom: "1rem" }}
+        >
           <div className="title-connexion">
-            <img style={{ marginBottom: "0" }} src="./logo.png" alt="logo" />
-            <p style={{ marginBottom: "1.5rem" }}>
-              Il y a actuellement{" "}
-              <span>{leadsData[0] && leadsData.length}</span> annonces d'apports
-              d'affaires en ligne.
-            </p>
-            <h2>Inscription</h2>
+            <h2>Inscription 📝</h2>
           </div>
           <br />
           <label htmlFor="type" class="form__label">

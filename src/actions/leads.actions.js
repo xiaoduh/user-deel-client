@@ -46,7 +46,8 @@ export const editLead = (
   phone,
   isOpen,
   isVerified,
-  status
+  status,
+  price
 ) => {
   return (dispatch) => {
     return axios({
@@ -67,6 +68,7 @@ export const editLead = (
         isOpen,
         isVerified,
         status,
+        price,
       },
     })
       .then((res) => {
@@ -87,6 +89,7 @@ export const editLead = (
             isOpen,
             isVerified,
             status,
+            price,
           },
         });
       })
@@ -106,7 +109,8 @@ export const sellLead = (
   lastName,
   email,
   role,
-  phone
+  phone,
+  price
 ) => {
   return (dispatch) => {
     return axios({
@@ -126,6 +130,7 @@ export const sellLead = (
         provider: provider,
         phone: phone,
         status: "pending",
+        price: price,
       },
     })
       .then((res) => {
@@ -144,6 +149,7 @@ export const sellLead = (
             profil,
             provider,
             phone,
+            price,
           },
         });
       })

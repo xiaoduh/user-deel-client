@@ -1,20 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
 import axios from "axios";
-import { isEmpty } from "../../utils";
 
-const SignIn = () => {
+const SignIn = ({ leadsData }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [resetPassword, setResetPassword] = useState(false);
   const [emailToReset, setEmailToReset] = useState("");
   const [loading, setLoading] = useState(false);
-  const [dataLoaded, setDataLoaded] = useState(false);
-  const leadsData = useSelector((state) => state.leadsReducer);
-
-  useEffect(() => {
-    leadsData[0] && setDataLoaded(true);
-  }, []);
 
   const checkEmail2Reset = (e) => {
     setEmailToReset(e.target.value);
@@ -151,15 +143,7 @@ const SignIn = () => {
         <>
           {" "}
           <div className="title-connexion">
-            <img style={{ marginBottom: "0" }} src="./logo.png" alt="logo" />
-            <p style={{ marginBottom: "1.5rem" }}>
-              Il y a actuellement{" "}
-              <span style={{ color: "#109CF1" }}>
-                {leadsData[0] && leadsData.length}
-              </span>{" "}
-              annonces d'apports d'affaires en ligne.
-            </p>
-            <h2>Connexion</h2>
+            <h2>Connexion 🔓</h2>
           </div>
           <form onSubmit={handleLogin} id="sign-up-form">
             <label htmlFor="email" class="form__label">
