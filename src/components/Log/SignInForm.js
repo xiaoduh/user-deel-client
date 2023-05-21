@@ -107,9 +107,8 @@ const SignIn = () => {
         <>
           <form onSubmit={handleResetPassword} id="reset-password-form">
             <div className="title-connexion">
-              <img src="./logo.png" alt="logo" />
               <h2>
-                Mot de passe <span>oublié</span>
+                Mot de passe <span>oublié</span> 🧠
               </h2>
             </div>
             <label htmlFor="email" id="email" class="form__label">
