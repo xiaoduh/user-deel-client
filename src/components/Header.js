@@ -26,17 +26,17 @@ const Header = () => {
             {userData.solde > 0 ? (
               <>
                 <p style={{ fontSize: ".8rem" }}>
-                  Mes gains
-                  <span> {!isEmpty(userData) && userData.solde}</span>
-                  <span style={{ fontSize: "1rem" }}>💰</span>
+                  💰 Mes gains{" "}
+                  <span>{!isEmpty(userData) && userData.solde}</span>
+                  <span style={{ color: "#109CF1" }}>€</span>
                 </p>
               </>
             ) : (
               <>
                 <p style={{ fontSize: ".8rem" }}>
-                  Mes gains
-                  <span> {!isEmpty(userData) && userData.solde}</span>
-                  <span style={{ fontSize: "1rem" }}>💰</span>
+                  💰 Mes gains
+                  <span>{!isEmpty(userData) && userData.solde}</span>
+                  <span style={{ color: "#109CF1" }}>€</span>
                 </p>
               </>
             )}
@@ -44,16 +44,16 @@ const Header = () => {
           <div className="credit-balance">
             {userData.coin > 0 ? (
               <p style={{ fontSize: ".8rem" }}>
-                Mes crédits
+                💎 Mon solde
                 <span> {!isEmpty(userData) && userData.coin}</span>
-                <span style={{ fontSize: "1rem" }}>💎</span>
+                <span style={{ color: "#109CF1" }}>€</span>
               </p>
             ) : (
               <>
                 <p style={{ fontSize: ".8rem" }}>
-                  Mes crédits
+                  💎 Mon solde
                   <span> {!isEmpty(userData) && userData.coin}</span>
-                  <span style={{ fontSize: "1rem" }}>💎</span>
+                  <span style={{ color: "#109CF1" }}>€</span>
                 </p>
               </>
             )}
@@ -62,10 +62,10 @@ const Header = () => {
             <button className="btn-cancel">Aide</button>
           </NavLink>
           <NavLink to="/transfert">
-            <button className="btn-purple">Convertir mes crédits</button>
+            <button className="btn-purple">Retirer mes gains</button>
           </NavLink>
           <NavLink to="/store">
-            <button>Acheter des crédits</button>
+            <button>Charger mon compte en €</button>
           </NavLink>
           {uid ? <Logout /> : <></>}
         </div>
