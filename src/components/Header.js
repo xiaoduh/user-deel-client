@@ -34,7 +34,7 @@ const Header = () => {
             ) : (
               <>
                 <p style={{ fontSize: ".8rem" }}>
-                  💰 Mes gains
+                  💰 Mes gains{" "}
                   <span>{!isEmpty(userData) && userData.solde}</span>
                   <span style={{ color: "#109CF1" }}>€</span>
                 </p>
@@ -44,14 +44,13 @@ const Header = () => {
           <div className="credit-balance">
             {userData.coin > 0 ? (
               <p style={{ fontSize: ".8rem" }}>
-                💎 Mon solde
-                <span> {!isEmpty(userData) && userData.coin}</span>
+                💎 Mon solde <span> {!isEmpty(userData) && userData.coin}</span>
                 <span style={{ color: "#109CF1" }}>€</span>
               </p>
             ) : (
               <>
                 <p style={{ fontSize: ".8rem" }}>
-                  💎 Mon solde
+                  💎 Mon solde{" "}
                   <span> {!isEmpty(userData) && userData.coin}</span>
                   <span style={{ color: "#109CF1" }}>€</span>
                 </p>
