@@ -86,7 +86,7 @@ const Sidebar = () => {
                 <p>
                   {" "}
                   <span style={{ fontSize: "1rem" }}>🚨 </span>
-                  Mes annonces ({!isEmpty(userData) && userData.nb_lead})
+                  Mes annonces
                 </p>
               </NavLink>
               <NavLink
