@@ -26,7 +26,7 @@ const Popup = ({ lead, closePopup }) => {
           <span style={{ color: "#109CF1" }}>
             {parseFloat(lead.price) * 0.2 + parseFloat(lead.price)}
           </span>{" "}
-          {lead.price > 1 ? "crédits" : "crédit"} pour contacter cet apporteur
+          {lead.price > 1 ? "euros" : "euro"} pour contacter cet apporteur
           d'affaire ?
         </h3>
         <p>
@@ -35,7 +35,7 @@ const Popup = ({ lead, closePopup }) => {
             {parseFloat(user.coin) -
               (parseFloat(lead.price) * 0.2 + parseFloat(lead.price))}
           </span>{" "}
-          {user.coin > 1 ? "crédits" : "crédit"}
+          {user.coin > 1 ? "euros" : "euro"}
         </p>
         <div className="btn-unlock">
           <button className="btn-cancel" onClick={() => closePopup()}>
@@ -54,7 +54,7 @@ const Popup = ({ lead, closePopup }) => {
             )
           ) : (
             <NavLink to="/store">
-              <button className="btn-confirm">Acheter des crédits</button>
+              <button className="btn-confirm">Charger mon compte en €</button>
             </NavLink>
           )}
         </div>
