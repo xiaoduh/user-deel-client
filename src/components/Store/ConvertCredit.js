@@ -10,7 +10,7 @@ const ConvertCredit = () => {
 
   const handleWithdraw = async (e) => {
     const formMess = document.querySelector(".form-message");
-    if (amount > 0 && user.solde > 0) {
+    if (amount > 0 && parseInt(user.solde) > 0) {
       try {
         e.preventDefault();
         console.log("retrait: " + amount);
@@ -45,7 +45,8 @@ const ConvertCredit = () => {
           <div className="left-side">
             <h3>
               Votre cagnotte s'éleve à
-              <span style={{ color: "#109CF1" }}> {user.solde}</span> €
+              <span style={{ color: "#109CF1" }}> {parseInt(user.solde)}</span>{" "}
+              €
             </h3>
             {/* <input
               type="number"
