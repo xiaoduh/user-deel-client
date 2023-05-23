@@ -123,7 +123,7 @@ const Sidebar = () => {
                 {/* <img className="img-icon" src="./store.svg" alt="store" /> */}
                 <p>
                   <span style={{ fontSize: "1rem" }}>💳 </span> Charger mon
-                  compte en €
+                  compte
                 </p>
               </NavLink>
               <NavLink
