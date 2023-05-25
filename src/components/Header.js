@@ -67,7 +67,7 @@ const Header = () => {
             <button className="btn-purple">Retirer mes gains</button>
           </NavLink>
           <NavLink to="/store">
-            <button>Charger mon compte</button>
+            <button>Créditer mon compte</button>
           </NavLink>
           {uid ? <Logout /> : <></>}
         </div>
