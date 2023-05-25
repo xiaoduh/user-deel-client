@@ -7,6 +7,28 @@
     grid-row-gap: 0px;
     margin: 2rem 5rem 0 5rem;
 
+    @media screen and (max-width: 375px) {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        margin: 0;
+        height: auto;
+    }
+
+    input {
+
+        @media screen and (max-width: 375px) {
+            width: auto;
+        }
+    }
+
+    select {
+        
+        @media screen and (max-width: 375px) {
+            width: auto;
+        }
+    }
+
     .info-container {
 
         ul {
@@ -82,6 +104,13 @@
 
         .title-connexion {
             margin-bottom: 2rem;
+
+            h2 {
+
+                @media screen and (max-width: 375px) {
+                    font-size: 1rem;
+                }
+            }
 
             img {
                 width: 200px;

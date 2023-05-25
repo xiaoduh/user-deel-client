@@ -6,18 +6,18 @@ footer {
     align-items: center;
     text-align: center;
 
-    @media screen and (max-width: 414px) {
-        padding: 1rem 2rem;
-    }
-
     @media screen and (max-width: 1400px) {
         padding: 1rem 5rem;
     }
 
+    @media screen and (max-width: 375px) {
+        padding: 1rem 1rem;
+    }
+
     .cta-nav-container {
 
-        @media screen and (max-width: 550px) {
-            display: none;
+        @media screen and (max-width: 375px) {
+            padding: 1rem 1rem;
         }
     }
 
