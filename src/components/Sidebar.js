@@ -138,21 +138,6 @@ const Sidebar = () => {
                   <span style={{ fontSize: "1rem" }}>👀 </span>Mon compte
                 </p>
               </NavLink>
-              <NavLink
-                to="/report"
-                className={({ isActive }) =>
-                  isActive ? "active-left-nav" : ""
-                }
-              >
-                {/* <img
-                    className="img-icon"
-                    src="./rafraichir.svg"
-                    alt="report"
-                  /> */}
-                <p>
-                  <span style={{ fontSize: "1rem" }}>📢 </span>Remboursement
-                </p>
-              </NavLink>
               {userData.isAdmin && (
                 <NavLink
                   to="/admin"

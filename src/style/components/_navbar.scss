@@ -1,8 +1,10 @@
 nav {
     display: flex;
     justify-content: space-between;
-    background: $bg1;
-    padding: 2rem 15rem 0;
+    background: #2F81FB;
+    padding: 2rem 5rem;
+    align-items: center;
+    text-align: center;
 
 
     @media screen and (max-width: 1400px) {
