@@ -217,7 +217,8 @@ const Sales = () => {
                   htmlFor="esn"
                   class="form__label"
                 >
-                  Intermédiaire (ESN, cabinet de conseils ou équivalents)
+                  Prestataire Intermédiaire (ESN, cabinet de conseils ou
+                  équivalents. Les cabinets de recrutement sont refusés.)
                 </label>
               </div>
               <div className="radio-container">
@@ -345,8 +346,8 @@ const Sales = () => {
                   src="/important.svg"
                   alt="important"
                 />{" "}
-                le nom et le prénom doivent être renseignés pour que l'annonce
-                soit publiée.
+                data les plus importants pour les potentiels acheteurs sur la
+                plateforme.
               </p>{" "}
               <label
                 style={{ color: "#109CF1" }}
