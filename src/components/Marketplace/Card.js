@@ -212,7 +212,7 @@ const Card = ({ lead, user }) => {
               </>
             ) : (
               <>
-                <button className="btn-not-allowed">Vendu 🛑</button>
+                <button className="btn-not-allowed">Trop tard 🛑</button>
                 <small
                   style={{
                     display: "flex",
