@@ -24,7 +24,7 @@ const Chat = ({ convs, buyer, seller }) => {
 
   useEffect(() => {
     leadsData[0] && setIsLoading(false);
-    const ws = new WebSocket("ws://deeel-v0-test.onrender.com");
+    const ws = new WebSocket("wss://deeel-v0-test.onrender.com");
     setWs(ws);
     ws.addEventListener("message", handleMessage);
     ws.addEventListener("close", () => {
@@ -36,7 +36,7 @@ const Chat = ({ convs, buyer, seller }) => {
   }, [isLoading, leadsData, selectedConv]);
 
   function connectToWs() {
-    const ws = new WebSocket("ws://deeel-v0-test.onrender.com");
+    const ws = new WebSocket("wss://deeel-v0-test.onrender.com");
     setWs(ws);
   }
 
