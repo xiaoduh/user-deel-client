@@ -80,8 +80,9 @@
             .active-left-nav {
                 color: $accent-blue;
                 background: #34adf92d;
-                padding: 10px;
-                border-radius: 10px;
+                padding:  10px 10px 10px 2px;
+                border-radius: 5px;
+                margin-bottom: 1rem;
             }
 
             .navlinks-container {
@@ -124,9 +125,6 @@
                 
                 .active-left-nav {
                     color: $accent-blue;
-                    background: #34adf92d;
-                    padding: 10px;
-                    border-radius: 10px;
                 }
     
                 .navlinks-container {

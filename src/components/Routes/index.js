@@ -20,6 +20,7 @@ import Transfert from "../../pages/Transfert";
 import AccountVerification from "../../pages/AccountVerification";
 import ProtectedRoutes from "./ProtectedRoutes";
 import Admin from "../../pages/Admin";
+import Message from "../../pages/Message";
 
 const index = () => {
   return (
@@ -36,6 +37,7 @@ const index = () => {
         />
         <Route path="/annonce" exact element={<Annonce />} />
         <Route path="/lead" exact element={<MyLeads />} />
+        <Route path="/message" exact element={<Message />} />
         <Route path="/store" exact element={<Store />} />
         <Route path="/transfert" exact element={<Transfert />} />
         <Route path="/info" exact element={<Info />} />

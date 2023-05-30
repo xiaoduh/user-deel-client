@@ -180,423 +180,332 @@ const Sales = () => {
   };
 
   return (
-    <main>
-      <div className="grid-form-need">
-        <div className="title-container" style={{ marginBottom: "2rem" }}>
-          <h3>Publier une annonce d'apport d'affaire</h3>
-          <p>
-            Ici, publiez l'annonce sur l'affaire que vous souhaitez revendre aux
-            commerciaux.
-          </p>
-        </div>
-        <>
-          <form className="form-container">
-            <div className="left-side">
-              <h3>Informations sur l'affaire</h3>
-              <p>
-                <img
-                  style={{ widht: "20px", height: "20px" }}
-                  src="/important.svg"
-                  alt="important"
-                />{" "}
-                ces informations sont obligatoires.
-              </p>{" "}
-              <div className="radio-container">
-                <input
-                  class="form__field provider-required"
-                  type="radio"
-                  name="esn"
-                  id="esn"
-                  required
-                  onChange={(e) => setProvider(e.target.value)}
-                  value="esn"
-                  checked={provider === "esn"}
-                />
-                <label
-                  style={{ color: "#109CF1" }}
-                  htmlFor="esn"
-                  class="form__label"
-                >
-                  Prestataire Intermédiaire (ESN, cabinet de conseils ou
-                  équivalents. Les cabinets de recrutement sont refusés.)
-                </label>
-              </div>
-              <div className="radio-container">
-                <input
-                  class="form__field provider-required"
-                  type="radio"
-                  name="client"
-                  id="client"
-                  required
-                  onChange={(e) => setProvider(e.target.value)}
-                  value="client"
-                  checked={provider === "client"}
-                />
-                <label
-                  style={{ color: "#109CF1" }}
-                  htmlFor="client"
-                  class="form__label"
-                >
-                  Client final
-                </label>
-              </div>
-              <br />
-              <label
-                style={{ color: "#109CF1" }}
-                htmlFor="besoin"
-                class="form__label"
-              >
-                Profil recherché
-              </label>
-              <br />
-              <input
-                class="form__field profil-required"
-                type="text"
-                name="besoin"
-                id="besoin"
-                autocomplete="off"
-                required
-                onChange={(e) => checkProfil(e)}
-                placeholder="Développeur React"
-                value={profil}
-              />
-              <br />
-              <label
-                style={{ color: "#109CF1" }}
-                htmlFor="company"
-                class="form__label"
-              >
-                Entreprise
-              </label>
-              <br />
-              <input
-                class="form__field company-required"
-                type="text"
-                name="company"
-                id="company"
-                autocomplete="off"
-                required
-                onChange={(e) => checkCompany(e)}
-                placeholder="Google"
-                value={company}
-              />
-              <br />
-              <label
-                style={{ color: "#109CF1" }}
-                htmlFor="region"
-                class="form__label"
-              >
-                Département
-              </label>
-              <br />
-              <input
-                class="form__field region-required"
-                type="text"
-                name="region"
-                id="region"
-                autocomplete="off"
-                required
-                onChange={(e) => checkRegion(e)}
-                placeholder="75"
-                value={region}
-              />
-              <label
-                style={{ color: "#109CF1" }}
-                htmlFor="skills"
-                class="form__label"
-              >
-                Compétences
-              </label>
-              <br />
-              <input
-                class="form__field skill-required"
-                type="text"
-                name="skills"
-                id="skills"
-                autocomplete="off"
-                required
-                onChange={(e) => checkSkills(e)}
-                placeholder="React, Redux, SASS..."
-                value={skill}
-              />
-              <label
-                style={{ color: "#109CF1" }}
-                htmlFor="fdp"
-                class="form__label"
-              >
-                Fiche de poste ou descriptif de mission
-              </label>
-              <br />
-              <textarea
-                class="form__field fdp-required"
-                name="fdp"
-                id="fdp"
-                autocomplete="off"
-                required
-                onChange={(e) => checkFdp(e)}
-                placeholder="Au sein du pole...sur le projet...sous la responsabilité du... sont autant d'informations nous permettant d'identifier le demandeur par la suite pour passer votre annonce au statut « publié ». N'hésitez pas à la demander 🧐."
-                value={fdp}
-              />
-            </div>
-            <div className="right-side">
-              <h3>Informations sur le demandeur</h3>
-              <p>
-                <img
-                  style={{ widht: "20px", height: "20px" }}
-                  src="/important.svg"
-                  alt="important"
-                />{" "}
-                data les plus importants pour les potentiels acheteurs sur la
-                plateforme.
-              </p>{" "}
-              <label
-                style={{ color: "#109CF1" }}
-                htmlFor="last_name"
-                class="form__label"
-              >
-                Nom
-              </label>
-              <br />
-              <input
-                class="form__field"
-                type="text"
-                name="last_name"
-                id="last_name"
-                autocomplete="off"
-                onChange={(e) => setLastName(e.target.value)}
-                placeholder="Duff"
-                value={lastName}
-              />
-              <br />
-              <label
-                style={{ color: "#109CF1" }}
-                htmlFor="first_name"
-                class="form__label"
-              >
-                Prénom
-              </label>
-              <br />
-              <input
-                class="form__field"
-                type="text"
-                name="first_name"
-                id="first_name"
-                autocomplete="off"
-                onChange={(e) => setFirstName(e.target.value)}
-                placeholder="John"
-                value={firstName}
-              />
-              <br />
-              <label
-                style={{ color: "#109CF1" }}
-                htmlFor="role"
-                class="form__label"
-              >
-                Rôle
-              </label>
-              <br />
-              <input
-                class="form__field"
-                type="text"
-                name="role"
-                id="role"
-                autocomplete="off"
-                onChange={(e) => setRole(e.target.value)}
-                placeholder="VP of Engineering"
-                value={role}
-              />
-              <br />
-              <label
-                style={{ color: "#109CF1" }}
-                htmlFor="email"
-                class="form__label"
-              >
-                Email
-              </label>
-              <br />
-              <input
-                class="form__field"
-                type="email"
-                name="email"
-                id="email"
-                autocomplete="off"
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="john.duff@google.com"
-                value={email}
-              />
-              <br />
-              <label
-                style={{ color: "#109CF1" }}
-                htmlFor="phone"
-                class="form__label"
-              >
-                Téléphone
-              </label>
-              <br />
-              <input
-                class="form__field"
-                type="text"
-                name="phone"
-                id="phone"
-                autocomplete="off"
-                onChange={(e) => setPhone(e.target.value)}
-                placeholder="0669584702 ou 0145879558"
-                value={phone}
-              />
-            </div>
-            <div className="price">
-              <h3>Définissez votre prix</h3>
-              <p>
-                <img
-                  style={{ widht: "20px", height: "20px" }}
-                  src="/important.svg"
-                  alt="important"
-                />{" "}
-                Définissez le prix que vous souhaitez toucher pour cette mise en
-                relation. Les apports d'affaires chez un client final sont 8x
-                plus prisées.
-              </p>
-              <label
-                style={{ color: "#109CF1" }}
-                htmlFor="price"
-                class="form__label"
-              >
-                Choisissez votre prix
-              </label>
-              <br />
-              <input
-                class="form__field price-required"
-                type="number"
-                name="price"
-                id="price"
-                autocomplete="off"
-                min={0}
-                defaultValue={1}
-                placeholder="130 €"
-                required
-                onChange={(e) => checkPrice(e)}
-                value={price}
-              />
-              <p style={{ color: "#109CF1", margin: "0" }}>
-                Votre prix commission deeel incluse
-              </p>
-              <p className="display-price price-required">
-                {price * 0.2 + price}{" "}
-                <small style={{ fontSize: "1rem", marginLeft: ".5rem" }}>
-                  {" "}
-                  €
-                </small>
-              </p>
-            </div>
-          </form>
-          <div className="btn-container">
-            <div className="alert">
-              <p>
-                <img
-                  style={{ widht: "20px", height: "20px" }}
-                  src="/important.svg"
-                  alt="important"
-                />{" "}
-                Votre annonce doit passer au statut « publié » pour que vos
-                gains soient comptabilisés. Pour qu'une annonce passe du statut
-                « pending » au statut « publié », elle doit être complète. A
-                savoir, Entreprise, Profil, et contact. Pas de panique, nous
-                vous aidons à compléter les informations. Le but, offrir un
-                service de qualité à nos utilisateurs.
-              </p>
-            </div>
-
-            <button onClick={(e) => handleFormSubmit(e)}>
-              {loading ? (
-                <>
-                  Chargement... <i className="fas fa-spinner fa-spin"></i>
-                </>
-              ) : (
-                <p>Publier mon annonce</p>
-              )}
-            </button>
-
-            <div className="form-message"></div>
-          </div>
-        </>
-      </div>
-      {/* <div className="help-container">
-        <h3 style={{ marginBottom: "1rem", display: "flex" }}>
-          <img
-            src="./info-2.svg"
-            style={{ width: "20px", marginRight: ".5rem" }}
-          />{" "}
-          Comment s'y prendre pour publier une annonce d'apport d'affaire sur
-          deeel ?
-        </h3>
+    <>
+      <div className="title-container" style={{ marginBottom: "2rem" }}>
+        <h3>Publier une annonce d'apport d'affaire</h3>
         <p>
-          La mise en relation entre acheteurs et apporteurs d'affaires se fait
-          de manière totalement anonyme, dans les deux sens. La mise en relation
-          se fait à travers notre plateforme d'échange. Pour être visible des
-          acheteurs sur la marketplace, vous devez publier une annonce «
-          d'apport d'affaire ».
+          Ici, publiez l'annonce sur l'affaire que vous souhaitez revendre aux
+          commerciaux.
         </p>
-        <ol>
-          <li>
-            Un <span style={{ color: "#109CF1" }}> apport d'affaire </span>:
-            c'est un ensemble d'informations sur une société, un demandeur et le
-            profil recherché. Plus il y a d'informations, plus votre apport
-            d'affaire est susceptible d'être acheté sur la marketplace.
-          </li>
-          <li>
-            Le <span style={{ color: "#109CF1" }}> Profil rehcerché</span> : est
-            requis pour créer votre apport d'affaire.
-          </li>
-          <li>
-            L'<span style={{ color: "#109CF1" }}>entreprise</span> : est requise
-            pour créer votre apport d'affaire.
-          </li>
-          <li>
-            Les<span style={{ color: "#109CF1" }}> compétences</span> : sont
-            requisent pour créer votre apport d'affaire.
-          </li>
-          <li>
-            Le<span style={{ color: "#109CF1" }}> nom</span> du demandeur :
-            n'est pas requis pour la création de l'apport d'affaire. Mais{" "}
-            <span style={{ color: "#109CF1" }}>fortement recommandé</span> car
-            c'est ce qui représente{" "}
-            <span style={{ color: "#109CF1" }}>le plus de valeur</span>.
-          </li>
-          <li>
-            Le<span style={{ color: "#109CF1" }}> prénom</span> du demandeur :
-            n'est pas requis pour la création de l'apport d'affaire. Mais{" "}
-            <span style={{ color: "#109CF1" }}>fortement recommandé</span> car
-            c'est ce qui représente{" "}
-            <span style={{ color: "#109CF1" }}>le plus de valeur</span>.
-          </li>
-          <li>
-            L<span style={{ color: "#109CF1" }}> email</span> du demandeur :
-            n'est pas requis pour la création de l'apport d'affaire. Mais{" "}
-            <span style={{ color: "#109CF1" }}>fortement recommandé</span> car
-            c'est ce qui représente{" "}
-            <span style={{ color: "#109CF1" }}>le plus de valeur</span>.
-          </li>
-          <li>
-            Le<span style={{ color: "#109CF1" }}> téléphone</span> du demandeur
-            : n'est pas requis pour la création de l'apport d'affaire. Mais{" "}
-            <span style={{ color: "#109CF1" }}>fortement recommandé</span> car
-            c'est ce qui représente{" "}
-            <span style={{ color: "#109CF1" }}>le plus de valeur</span>.
-          </li>
-          <li>
-            Une fois créé, votre apport d'affaire passe à la validation au sein
-            de nos services, nous pouvons enrichir votre apport d'affaire avec
-            nos informations internes (Identité du demandeur, email et
-            téléphone).
-          </li>
-          <li>
-            Une fois créé, vous pouvez modifier votre apport d'affaire si vous
-            obtenez des informations complémentaires. Pour cela RDV sur votre{" "}
-            <a href="/dashboard">Tableau de bord</a>
-          </li>
-        </ol>
-      </div> */}
-    </main>
+      </div>
+      <main style={{ top: "130px", height: "85%" }}>
+        <div className="grid-form-need">
+          <>
+            <form className="form-container">
+              <div className="left-side">
+                <h3>Informations sur l'affaire</h3>
+                <p>
+                  <img
+                    style={{ widht: "20px", height: "20px" }}
+                    src="/important.svg"
+                    alt="important"
+                  />{" "}
+                  ces informations sont obligatoires.
+                </p>{" "}
+                <div className="radio-container">
+                  <input
+                    class="form__field provider-required"
+                    type="radio"
+                    name="esn"
+                    id="esn"
+                    required
+                    onChange={(e) => setProvider(e.target.value)}
+                    value="esn"
+                    checked={provider === "esn"}
+                  />
+                  <label
+                    style={{ color: "#109CF1" }}
+                    htmlFor="esn"
+                    class="form__label"
+                  >
+                    Intermédiaire (ESN ou équivalents)
+                  </label>
+                </div>
+                <div className="radio-container">
+                  <input
+                    class="form__field provider-required"
+                    type="radio"
+                    name="client"
+                    id="client"
+                    required
+                    onChange={(e) => setProvider(e.target.value)}
+                    value="client"
+                    checked={provider === "client"}
+                  />
+                  <label
+                    style={{ color: "#109CF1" }}
+                    htmlFor="client"
+                    class="form__label"
+                  >
+                    Client final
+                  </label>
+                </div>
+                <br />
+                <label
+                  style={{ color: "#109CF1" }}
+                  htmlFor="besoin"
+                  class="form__label"
+                >
+                  Profil recherché
+                </label>
+                <br />
+                <input
+                  class="form__field profil-required"
+                  type="text"
+                  name="besoin"
+                  id="besoin"
+                  autocomplete="off"
+                  required
+                  onChange={(e) => checkProfil(e)}
+                  placeholder="Développeur React"
+                  value={profil}
+                />
+                <br />
+                <label
+                  style={{ color: "#109CF1" }}
+                  htmlFor="company"
+                  class="form__label"
+                >
+                  Entreprise
+                </label>
+                <br />
+                <input
+                  class="form__field company-required"
+                  type="text"
+                  name="company"
+                  id="company"
+                  autocomplete="off"
+                  required
+                  onChange={(e) => checkCompany(e)}
+                  placeholder="Google"
+                  value={company}
+                />
+                <br />
+                <label
+                  style={{ color: "#109CF1" }}
+                  htmlFor="region"
+                  class="form__label"
+                >
+                  Département
+                </label>
+                <br />
+                <input
+                  class="form__field region-required"
+                  type="text"
+                  name="region"
+                  id="region"
+                  autocomplete="off"
+                  required
+                  onChange={(e) => checkRegion(e)}
+                  placeholder="75"
+                  value={region}
+                />
+                <label
+                  style={{ color: "#109CF1" }}
+                  htmlFor="skills"
+                  class="form__label"
+                >
+                  Compétences
+                </label>
+                <br />
+                <input
+                  class="form__field skill-required"
+                  type="text"
+                  name="skills"
+                  id="skills"
+                  autocomplete="off"
+                  required
+                  onChange={(e) => checkSkills(e)}
+                  placeholder="React, Redux, SASS..."
+                  value={skill}
+                />
+                <label
+                  style={{ color: "#109CF1" }}
+                  htmlFor="fdp"
+                  class="form__label"
+                >
+                  Fiche de poste ou descriptif de mission
+                </label>
+                <br />
+                <textarea
+                  class="form__field fdp-required"
+                  name="fdp"
+                  id="fdp"
+                  autocomplete="off"
+                  required
+                  onChange={(e) => checkFdp(e)}
+                  placeholder="Au sein du pole...sur le projet...sous la responsabilité du... sont autant d'informations nous permettant d'identifier le demandeur par la suite pour passer votre annonce au statut « publié ». N'hésitez pas à la demander 🧐."
+                  value={fdp}
+                />
+              </div>
+              <div className="right-side">
+                <h3>Informations sur le demandeur</h3>
+                <p>
+                  <img
+                    style={{ widht: "20px", height: "20px" }}
+                    src="/important.svg"
+                    alt="important"
+                  />{" "}
+                  le nom et le prénom doivent être renseignés pour que l'annonce
+                  soit publiée.
+                </p>{" "}
+                <label
+                  style={{ color: "#109CF1" }}
+                  htmlFor="last_name"
+                  class="form__label"
+                >
+                  Nom
+                </label>
+                <br />
+                <input
+                  class="form__field"
+                  type="text"
+                  name="last_name"
+                  id="last_name"
+                  autocomplete="off"
+                  onChange={(e) => setLastName(e.target.value)}
+                  placeholder="Duff"
+                  value={lastName}
+                />
+                <br />
+                <label
+                  style={{ color: "#109CF1" }}
+                  htmlFor="first_name"
+                  class="form__label"
+                >
+                  Prénom
+                </label>
+                <br />
+                <input
+                  class="form__field"
+                  type="text"
+                  name="first_name"
+                  id="first_name"
+                  autocomplete="off"
+                  onChange={(e) => setFirstName(e.target.value)}
+                  placeholder="John"
+                  value={firstName}
+                />
+                <br />
+                <label
+                  style={{ color: "#109CF1" }}
+                  htmlFor="role"
+                  class="form__label"
+                >
+                  Rôle
+                </label>
+                <br />
+                <input
+                  class="form__field"
+                  type="text"
+                  name="role"
+                  id="role"
+                  autocomplete="off"
+                  onChange={(e) => setRole(e.target.value)}
+                  placeholder="VP of Engineering"
+                  value={role}
+                />
+                <br />
+                <label
+                  style={{ color: "#109CF1" }}
+                  htmlFor="email"
+                  class="form__label"
+                >
+                  Email
+                </label>
+                <br />
+                <input
+                  class="form__field"
+                  type="email"
+                  name="email"
+                  id="email"
+                  autocomplete="off"
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="john.duff@google.com"
+                  value={email}
+                />
+                <br />
+                <label
+                  style={{ color: "#109CF1" }}
+                  htmlFor="phone"
+                  class="form__label"
+                >
+                  Téléphone
+                </label>
+                <br />
+                <input
+                  class="form__field"
+                  type="text"
+                  name="phone"
+                  id="phone"
+                  autocomplete="off"
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="0669584702 ou 0145879558"
+                  value={phone}
+                />
+              </div>
+              <div className="price">
+                <h3>Définissez votre prix</h3>
+                <p>
+                  <img
+                    style={{ widht: "20px", height: "20px" }}
+                    src="/important.svg"
+                    alt="important"
+                  />{" "}
+                  Définissez le prix que vous souhaitez toucher pour cette mise
+                  en relation. Les apports d'affaires chez un client final sont
+                  8x plus prisées.
+                </p>
+                <label
+                  style={{ color: "#109CF1" }}
+                  htmlFor="price"
+                  class="form__label"
+                >
+                  Choisissez votre prix
+                </label>
+                <br />
+                <input
+                  class="form__field price-required"
+                  type="number"
+                  name="price"
+                  id="price"
+                  autocomplete="off"
+                  min={0}
+                  defaultValue={1}
+                  placeholder="130 €"
+                  required
+                  onChange={(e) => checkPrice(e)}
+                  value={price}
+                />
+                <p style={{ color: "#109CF1", margin: "0" }}>
+                  Votre prix commission deeel incluse
+                </p>
+                <p className="display-price price-required">
+                  {price * 0.2 + price}{" "}
+                  <small style={{ fontSize: "1rem", marginLeft: ".5rem" }}>
+                    {" "}
+                    €
+                  </small>
+                </p>
+              </div>
+            </form>
+            <div className="btn-container">
+              <button onClick={(e) => handleFormSubmit(e)}>
+                {loading ? (
+                  <>
+                    Chargement... <i className="fas fa-spinner fa-spin"></i>
+                  </>
+                ) : (
+                  <p>Publier mon annonce</p>
+                )}
+              </button>
+
+              <div className="form-message"></div>
+            </div>
+          </>
+        </div>
+      </main>
+    </>
   );
 };
 

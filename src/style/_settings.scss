@@ -37,11 +37,14 @@ $bg1: #2F81FB;
 $bg: #E5E5E5;
 $accent-blue-hover: #34AFF9;
 $accent-blue: #109CF1;
+$accent-blue-2: #109bf13a;
 $red: #F7685B;
 $green: #2ED47A;
+$green-2: #2ed4794d;
 $yellow: #FFB946;
 $yellow-2: #ffb84652;
 $purple: #885AF8;
+$purple-2: #875af849;
 $accent-purple: #9c75fd;
 $icon-gray: #C2CFE0;
 $gray: #90A0B7;
@@ -75,11 +78,11 @@ $shadow: rgb(219, 218, 218);
   main {
     position: absolute;
     left: 260px;
+    top: 175px;
     width: calc(100% - 260px);
-    height: 90%;
+    height: 80%;
     padding: 1.5rem;
     overflow-y: scroll;
-    scrollbar-width: thin;
 
     .loading {
       font-size: 3rem;
@@ -89,6 +92,74 @@ $shadow: rgb(219, 218, 218);
     }
   }
 
+  .title-container {
+    position: absolute;
+    left: 260px;
+    width: calc(100% - 260px);
+    margin-bottom: 4rem;
+    padding: 1.5rem;
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    .alert-info {
+      display: flex;
+      align-items: center;
+
+
+      .pastille {
+        background: #FFB946;
+        border-radius: 50%;
+    }
+
+    .pulse {
+                  margin-right: 1rem;
+                  animation: pulse2 2s infinite;
+                  cursor: pointer;
+                  width: 20px;
+                  height: 20px;
+                  border-radius: 50%;
+                  display: block;
+                  box-shadow: 0 0 0 #ffb84652;
+
+                  @media screen and (max-width: 375px) {
+                    width: 6px;
+                    height: 6px;
+                }
+
+                  @-webkit-keyframes pulse2 {
+                      0% {
+                        -webkit-box-shadow: 0 0 0 0 #ffb84652 !important;
+                      }
+                      70% {
+                          -webkit-box-shadow: 0 0 0 10px #ffb84652 !important;
+                      }
+                      100% {
+                          -webkit-box-shadow: 0 0 0 0 #ffb84652 !important;
+                      }
+                    }
+                    @keyframes pulse2 {
+                      0% {
+                        -moz-box-shadow: 0 0 0 0 #ffb84652 !important;
+                        box-shadow: 0 0 0 0 #ffb84652 !important;
+                      }
+                      70% {
+                          -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+                          box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+                      }
+                      100% {
+                          -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+                          box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+                      }
+                    }
+
+                    &:hover {
+                      animation: none;
+                    }
+              }
+    }
+  }
 
 a,
 a:visited {
