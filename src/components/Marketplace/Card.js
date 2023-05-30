@@ -170,7 +170,7 @@ const Card = ({ lead, user }) => {
 
               <div className="price-container">
                 <div className="title-information-container">
-                  <h5>🥇 Soyez le seul à obtenir les infos pour :</h5>
+                  <h5>🥇 Mise en relation exclusive pour :</h5>
                 </div>
 
                 <>
