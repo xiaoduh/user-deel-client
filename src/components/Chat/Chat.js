@@ -23,7 +23,6 @@ const Chat = ({ convs, buyer, seller }) => {
   const uid = useContext(UidContext);
 
   useEffect(() => {
-    console.log(user.lead_bought);
     leadsData[0] && setIsLoading(false);
     const ws = new WebSocket("ws://deeel-v0-test.onrender.com");
     setWs(ws);
