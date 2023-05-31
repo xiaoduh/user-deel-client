@@ -2,10 +2,12 @@ import React, { useContext, useEffect, useRef } from "react";
 import { UidContext } from "../AppContext";
 
 const Messages = ({ messages, buyerModal }) => {
+  const [isLoading, setIsLoading] = useState(true);
   const uid = useContext(UidContext);
   const divUnderMessages = useRef();
 
   useEffect(() => {
+    messages && setIsLoading(false);
     const div = divUnderMessages.current;
     if (div) {
       div.scrollIntoView({ behavior: "smooth", block: "end" });
@@ -28,7 +30,11 @@ const Messages = ({ messages, buyerModal }) => {
               <div
                 className={message.senderID === uid ? "my-msg" : "not-my-msg"}
               >
-                <p>{message.text}</p>
+                {isLoading ? (
+                  <i className="fas fa-spinner fa-spin loading"></i>
+                ) : (
+                  <p>{message.text}</p>
+                )}
               </div>
             </div>
           ))}
