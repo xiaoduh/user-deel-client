@@ -132,6 +132,10 @@ const Chat = ({ convs, buyer, seller }) => {
     <>
       <div className="title-container">
         <h3 style={{ fontSize: "1.5rem" }}>Conversations anonymes</h3>
+        <p>
+          Utilisez la messagerie anonyme pour discuter avec vos apporteurs
+          d'affaires ou clients.
+        </p>
       </div>
       <main
         className="conversation-container"
