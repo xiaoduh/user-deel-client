@@ -184,8 +184,7 @@ const Sales = () => {
       <div className="title-container" style={{ marginBottom: "2rem" }}>
         <h3>Publier une annonce d'apport d'affaire</h3>
         <p>
-          Ici, publiez l'annonce sur l'affaire que vous souhaitez revendre aux
-          commerciaux.
+          Publiez l'annonce sur l'affaire que vous souhaitez mettre en ligne.
         </p>
       </div>
       <main style={{ top: "130px", height: "85%" }}>
@@ -206,25 +205,6 @@ const Sales = () => {
                   <input
                     class="form__field provider-required"
                     type="radio"
-                    name="esn"
-                    id="esn"
-                    required
-                    onChange={(e) => setProvider(e.target.value)}
-                    value="esn"
-                    checked={provider === "esn"}
-                  />
-                  <label
-                    style={{ color: "#109CF1" }}
-                    htmlFor="esn"
-                    class="form__label"
-                  >
-                    Intermédiaire (ESN ou équivalents)
-                  </label>
-                </div>
-                <div className="radio-container">
-                  <input
-                    class="form__field provider-required"
-                    type="radio"
                     name="client"
                     id="client"
                     required
@@ -238,6 +218,44 @@ const Sales = () => {
                     class="form__label"
                   >
                     Client final
+                  </label>
+                </div>
+                <div className="radio-container">
+                  <input
+                    class="form__field provider-required"
+                    type="radio"
+                    name="esn"
+                    id="esn"
+                    required
+                    onChange={(e) => setProvider(e.target.value)}
+                    value="esn"
+                    checked={provider === "esn"}
+                  />
+                  <label
+                    style={{ color: "#109CF1" }}
+                    htmlFor="esn"
+                    class="form__label"
+                  >
+                    ESN
+                  </label>
+                </div>
+                <div className="radio-container">
+                  <input
+                    class="form__field provider-required"
+                    type="radio"
+                    name="cabinet"
+                    id="cabinet"
+                    required
+                    onChange={(e) => setProvider(e.target.value)}
+                    value="cabinet"
+                    checked={provider === "cabinet"}
+                  />
+                  <label
+                    style={{ color: "#109CF1" }}
+                    htmlFor="cabinet"
+                    class="form__label"
+                  >
+                    Cabinet de recrutement
                   </label>
                 </div>
                 <br />
@@ -334,7 +352,7 @@ const Sales = () => {
                   autocomplete="off"
                   required
                   onChange={(e) => checkFdp(e)}
-                  placeholder="Au sein du pole...sur le projet...sous la responsabilité du... sont autant d'informations nous permettant d'identifier le demandeur par la suite pour passer votre annonce au statut « publié ». N'hésitez pas à la demander 🧐."
+                  placeholder="Au sein du pole..."
                   value={fdp}
                 />
               </div>
@@ -446,37 +464,47 @@ const Sales = () => {
               </div>
               <div className="price">
                 <h3>Définissez votre prix</h3>
-                <p>
-                  <img
-                    style={{ widht: "20px", height: "20px" }}
-                    src="/important.svg"
-                    alt="important"
-                  />{" "}
-                  Définissez le prix que vous souhaitez toucher pour cette mise
-                  en relation. Les apports d'affaires chez un client final sont
-                  8x plus prisées.
-                </p>
+                {provider === "esn" || provider === "cabinet" ? (
+                  <p>
+                    <img
+                      style={{ widht: "20px", height: "20px" }}
+                      src="/important.svg"
+                      alt="important"
+                    />{" "}
+                    Prix maximum pour une mission via ESN ou cabinet de
+                    recrutement 3€.
+                  </p>
+                ) : (
+                  ""
+                )}
                 <label
-                  style={{ color: "#109CF1" }}
+                  style={{ color: "#109CF1", borderColor: "#109CF1" }}
                   htmlFor="price"
                   class="form__label"
                 >
                   Choisissez votre prix
                 </label>
                 <br />
-                <input
-                  class="form__field price-required"
-                  type="number"
-                  name="price"
-                  id="price"
-                  autocomplete="off"
-                  min={0}
-                  defaultValue={1}
-                  placeholder="130 €"
-                  required
-                  onChange={(e) => checkPrice(e)}
-                  value={price}
-                />
+                {provider ? (
+                  <input
+                    class="form__field price-required"
+                    type="number"
+                    name="price"
+                    id="price"
+                    autocomplete="off"
+                    min={0}
+                    max={provider === "esn" || provider === "cabinet" ? 3 : ""}
+                    required
+                    onChange={(e) => checkPrice(e)}
+                    value={price}
+                    style={{ border: "1px solid #109CF1" }}
+                  />
+                ) : (
+                  <p style={{ color: "#FFB946" }}>
+                    Veuillez saisir le type de lead avant de pouvoir définir
+                    votre prix de vente.
+                  </p>
+                )}
                 <p style={{ color: "#109CF1", margin: "0" }}>
                   Votre prix commission deeel incluse
                 </p>
