@@ -57,9 +57,13 @@ const Header = () => {
               </>
             )}
           </div>{" "}
-          {/* <NavLink to="/help">
-            <button className="btn-cancel">Aide</button>
-          </NavLink> */}
+          <NavLink to="/message" className="notification">
+            <button className="notification">
+              <p style={{ marginRight: "1rem" }}>Ma messagerie</p>
+
+              <div className="noti pulse">1</div>
+            </button>
+          </NavLink>
           <NavLink to="/lead">
             <button className="btn-confirm">Apporter un besoin</button>
           </NavLink>
