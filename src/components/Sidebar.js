@@ -54,23 +54,6 @@ const Sidebar = () => {
                 </p>
               </NavLink>
               <NavLink
-                to="/annonce"
-                className={({ isActive }) =>
-                  isActive ? "active-left-nav" : ""
-                }
-              >
-                {/* <img
-                    className="img-icon"
-                    src="./dashboard.svg"
-                    alt="contact"
-                  /> */}
-                <p>
-                  {" "}
-                  <span style={{ fontSize: "1rem" }}>🚨 </span>
-                  Mes annonces
-                </p>
-              </NavLink>
-              <NavLink
                 to="/message"
                 className={({ isActive }) =>
                   isActive ? "active-left-nav" : ""
