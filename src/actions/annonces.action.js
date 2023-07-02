@@ -6,7 +6,7 @@ export const POST_ANNONCE = "POST_ANNONCE";
 export const getAnnonces = (num) => {
   return (dispatch) => {
     return axios
-      .get(`http://deeel-v0-test.onrender.com/api/annonce`)
+      .get(`https://deeel-v0-test.onrender.com/api/annonce`)
       .then((res) => {
         const array = res.data.slice(0, num);
         dispatch({ type: GET_ANNONCES, payload: array });
