@@ -5,8 +5,7 @@ import { useSelector } from "react-redux";
 
 const ProtectedRoutes = () => {
   const user = useSelector((state) => state.userReducer);
-  console.log(user.isAdmin);
-  return user.isAdmin ? <Outlet /> : <TwoFA />;
+  return user.isAdmin ? <Outlet /> : "";
 };
 
 export default ProtectedRoutes;

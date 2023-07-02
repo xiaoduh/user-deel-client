@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 import axios from "axios";
-import { isEmpty } from "../../utils";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -9,7 +7,6 @@ const SignIn = () => {
   const [resetPassword, setResetPassword] = useState(false);
   const [emailToReset, setEmailToReset] = useState("");
   const [loading, setLoading] = useState(false);
-  const leadsData = useSelector((state) => state.leadsReducer);
 
   const checkEmail2Reset = (e) => {
     setEmailToReset(e.target.value);
@@ -46,7 +43,6 @@ const SignIn = () => {
       method: "post",
       url: `https://deeel-v0-test.onrender.com/api/user/login`,
       withCredentials: true,
-      credentials: "include",
       data: {
         email,
         password,
@@ -59,7 +55,6 @@ const SignIn = () => {
           passwordError.innerHTML = res.data.errors.password;
           setLoading(false);
         } else {
-          console.log(res.data);
           setLoading(false);
           window.location = "/";
         }
@@ -109,23 +104,26 @@ const SignIn = () => {
             <div className="title-connexion">
               <h2>Mot de passe oublié 🧠</h2>
             </div>
-            <label htmlFor="email" id="email" class="form__label">
-              Email
-            </label>
-            <br />
-            <input
-              type="text"
-              name="email"
-              id="email"
-              onChange={(e) => checkEmail2Reset(e)}
-              value={emailToReset}
-              class="form__field email2reset"
-            />
-            <div className="email error"></div>
-            <div className="email success"></div>
-            <br />
+            <div
+              className="input"
+              style={{ display: "flex", flexDirection: "column" }}
+            >
+              <label htmlFor="email" id="email" class="form__label">
+                Email
+              </label>
+              <input
+                type="text"
+                name="email"
+                id="email"
+                onChange={(e) => checkEmail2Reset(e)}
+                value={emailToReset}
+                class="form__field email2reset"
+              />
+              <div className="email error"></div>
+              <div className="email success"></div>
+            </div>
             <>
-              <button type="submit">
+              <button type="submit" style={{ marginTop: "1rem" }}>
                 {" "}
                 {loading ? (
                   <>
@@ -148,36 +146,36 @@ const SignIn = () => {
             <h2>Connexion 🔓</h2>
           </div>
           <form onSubmit={handleLogin} id="sign-up-form">
-            <label htmlFor="email" class="form__label">
-              Email
-            </label>
-            <br />
-            <input
-              type="text"
-              name="email"
-              id="email"
-              onChange={(e) => checkEmail(e)}
-              value={email}
-              class="form__field email"
-            />
-            <div className="email error"></div>
-            <br />
-            <label htmlFor="password" class="form__label">
-              Mot de passe
-            </label>
-            <br />
-            <input
-              type="password"
-              name="password"
-              id="password"
-              onChange={(e) => checkPW(e)}
-              value={password}
-              class="form__field pw"
-            />
-            <div className="password error"></div>
-            <br />
+            <div className="input">
+              <label htmlFor="email" class="form__label">
+                Email
+              </label>
+              <input
+                type="text"
+                name="email"
+                id="email"
+                onChange={(e) => checkEmail(e)}
+                value={email}
+                class="form__field email"
+              />
+              <div className="email error"></div>
+            </div>
+            <div className="input">
+              <label htmlFor="password" class="form__label">
+                Mot de passe
+              </label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                onChange={(e) => checkPW(e)}
+                value={password}
+                class="form__field pw"
+              />
+              <div className="password error"></div>
+            </div>
             <>
-              <button type="submit">
+              <button type="submit" style={{ marginTop: "1rem" }}>
                 {" "}
                 {loading ? (
                   <>

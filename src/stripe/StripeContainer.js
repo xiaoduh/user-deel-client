@@ -7,28 +7,28 @@ const PUBLIC_KEY =
 const stripeTestPromise = loadStripe(PUBLIC_KEY);
 
 const Stripe = ({
-  closeCheckoutForm,
-  plan,
-  paymentSuccessful,
-  paymentFailed,
+  closePayement,
+  price,
+  handlePopupSuccess,
+  handlePopupFailed,
+  offer,
 }) => {
   // const options = {
   //   // passing the client secret obtained from the server
-  //   clientSecret:
-  //     "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",
+  //   clientSecret: "{{CLIENT_SECRET}}",
   // };
   return (
     <Elements
       stripe={stripeTestPromise}
       // options={options}
-      closeCheckoutForm={closeCheckoutForm}
-      plan={plan}
+      price={price}
     >
       <CheckoutForm
-        closeCheckoutForm={closeCheckoutForm}
-        plan={plan}
-        paymentSuccessful={paymentSuccessful}
-        paymentFailed={paymentFailed}
+        price={price}
+        closePayement={closePayement}
+        handlePopupFailed={handlePopupFailed}
+        handlePopupSuccess={handlePopupSuccess}
+        offer={offer}
       />
     </Elements>
   );

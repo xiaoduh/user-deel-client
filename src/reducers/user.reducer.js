@@ -1,8 +1,9 @@
 import {
   GET_USER,
-  BUY_LEAD,
+  COUNT_ANNONCE,
   VERIFY_NUMBER,
   WITHDRAW_CREDIT,
+  COUNT_RESPONSE,
 } from "../actions/user.actions";
 
 const initialState = {};
@@ -12,7 +13,10 @@ export default function userReducer(state = initialState, action) {
     case GET_USER:
       return action.payload;
 
-    case BUY_LEAD:
+    case COUNT_ANNONCE:
+      return [action.payload, ...state];
+
+    case COUNT_RESPONSE:
       return [action.payload, ...state];
 
     case WITHDRAW_CREDIT:

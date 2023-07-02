@@ -12,3 +12,5 @@ export const getAllUsers = () => {
       .catch((err) => console.log(err));
   };
 };
+
+export const updateUser = () => {};

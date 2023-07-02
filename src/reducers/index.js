@@ -1,12 +1,14 @@
 import { combineReducers } from "redux";
 import userReducer from "./user.reducer";
-import leadsReducer from "./leads.reducer";
 import usersReducer from "./users.reducer";
-import convsReducer from "./convs.reducer";
+import annoncesReducer from "./annonces.reducer";
+import roomsReducer from "./rooms.reducer";
+import offersReducer from "./offers.reducer";
 
 export default combineReducers({
   userReducer,
   usersReducer,
-  leadsReducer,
-  convsReducer,
+  annoncesReducer,
+  roomsReducer,
+  offersReducer,
 });

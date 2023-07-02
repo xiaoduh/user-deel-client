@@ -30,7 +30,7 @@ const Logout = ({ uidLogout }) => {
   return (
     <div className="deconnexion" onClick={logout}>
       <p>Déconnexion</p>
-      <img className="img-icon" src="./sortir.svg" alt="logout" />
+      <img src="./sortir.svg" alt="exit" className="exit" />
     </div>
   );
 };
