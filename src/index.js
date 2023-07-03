@@ -23,6 +23,8 @@ if (process.env.REACT_APP_NODE_ENV === "production") {
   disableReactDevTools();
 }
 
+disableReactDevTools();
+
 store.dispatch(getAllUsers());
 store.dispatch(getAnnonces());
 store.dispatch(getRooms());
