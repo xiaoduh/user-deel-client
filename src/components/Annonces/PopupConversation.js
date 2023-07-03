@@ -43,7 +43,7 @@ const PopupConversation = ({ closeConversation, dataAnnonce, roomID }) => {
   }, [offers]);
 
   useEffect(() => {
-    const ws = new WebSocket("ws://deeel-v0-test.onrender.com");
+    const ws = new WebSocket("wss://deeel-v0-test.onrender.com");
     setWs(ws);
     ws.addEventListener("message", handleMessage);
     ws.addEventListener("close", () => {
@@ -75,7 +75,7 @@ const PopupConversation = ({ closeConversation, dataAnnonce, roomID }) => {
   }, [roomID, offer]);
 
   function connectToWs() {
-    const ws = new WebSocket("ws://deeel-v0-test.onrender.com");
+    const ws = new WebSocket("wss://deeel-v0-test.onrender.com");
     setWs(ws);
   }
 
