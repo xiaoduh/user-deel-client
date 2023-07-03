@@ -40,7 +40,9 @@ const PopupDiscussions = ({ closeDiscussions }) => {
   useEffect(() => {
     if (roomInfo) {
       axios
-        .get(`http://localhost:5000/api/offer/${roomInfo.uniqueID}`)
+        .get(
+          `https://deeel-v0-test.onrender.com/api/offer/${roomInfo.uniqueID}`
+        )
         .then((res) => {
           setOffer(res.data[0]);
         });
@@ -83,7 +85,9 @@ const PopupDiscussions = ({ closeDiscussions }) => {
   useEffect(() => {
     if (roomInfo) {
       axios
-        .get(`http://localhost:5000/api/message/${roomInfo.uniqueID}`)
+        .get(
+          `https://deeel-v0-test.onrender.com/api/message/${roomInfo.uniqueID}`
+        )
         .then((res) => {
           setMessages(res.data);
         });
@@ -119,7 +123,7 @@ const PopupDiscussions = ({ closeDiscussions }) => {
   };
 
   useEffect(() => {
-    const ws = new WebSocket("ws://localhost:5000");
+    const ws = new WebSocket("ws://deeel-v0-test.onrender.com");
     setWs(ws);
     ws.addEventListener("message", handleMessage);
     ws.addEventListener("close", () => {
@@ -131,7 +135,7 @@ const PopupDiscussions = ({ closeDiscussions }) => {
   }, [selectedRoom]);
 
   function connectToWs() {
-    const ws = new WebSocket("ws://localhost:5000");
+    const ws = new WebSocket("ws://deeel-v0-test.onrender.com");
     setWs(ws);
   }
 

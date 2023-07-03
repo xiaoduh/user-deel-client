@@ -1,5 +1,5 @@
 import React from "react";
-import { dateParser, upperCase } from "../../utils";
+import { dateParser } from "../../utils";
 
 const Recipient = ({ recipient }) => {
   const review = 5;
