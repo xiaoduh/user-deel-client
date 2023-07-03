@@ -19,9 +19,9 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(thunk))
 );
 
-// if (process.env.REACT_APP_NODE_ENV === "production") {
-//   disableReactDevTools();
-// }
+if (process.env.REACT_APP_NODE_ENV === "production") {
+  disableReactDevTools();
+}
 
 store.dispatch(getAllUsers());
 store.dispatch(getAnnonces());
