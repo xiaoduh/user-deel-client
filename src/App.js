@@ -21,6 +21,7 @@ function App() {
         url: `https://deeel-v0-test.onrender.com/jwtid`,
         withCredentials: true,
         credentials: "include",
+        SameSite: "None",
       })
         .then((res) => {
           setUid(res.data.user._id);
