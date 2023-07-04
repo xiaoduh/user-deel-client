@@ -54,7 +54,7 @@ const Home = () => {
           openGain={openGain}
         />
         {!loading ? (
-          <main style={{width: '100%'}}>
+          <main style={{ width: "100%" }}>
             <div
               className="loading-container"
               style={{
@@ -62,7 +62,7 @@ const Home = () => {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                width: '100%'
+                width: "100%",
               }}
             >
               <p>Chragement des annonces</p>
