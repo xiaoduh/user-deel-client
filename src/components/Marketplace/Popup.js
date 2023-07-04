@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { getLeads } from "../../actions/leads.actions";
 import { buyLead } from "../../actions/user.actions";
 import { getUser } from "../../actions/user.actions";
+import { getConvs } from "../../actions/conversations.actions";
 
 const Popup = ({ lead, closePopup }) => {
   const user = useSelector((state) => state.userReducer);
@@ -12,7 +13,8 @@ const Popup = ({ lead, closePopup }) => {
   const confirmBuy = async () => {
     await dispatch(buyLead(lead._id, user._id, lead.dealerID));
     await dispatch(getUser(user._id));
-    dispatch(getLeads());
+    await dispatch(getLeads());
+    await dispatch(getConvs());
     closePopup();
   };
   return (

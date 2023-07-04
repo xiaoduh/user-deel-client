@@ -1,13 +1,5 @@
 main {
 
-    .title-container {
-        margin-bottom: 4rem;
-
-        h3 {
-            font-size: 1.5rem;
-        }
-    }
-
     @media screen and (max-width: 1500px)  {
         left: 220px;
         width: calc(100% - 220px);
@@ -26,11 +18,14 @@ main {
             grid-template-rows: repeat(5, 1fr);
             grid-column-gap: 20px;
             grid-row-gap: 20px;
-            width: 90%;
-            max-width: 1000px;
+
+            @media screen and (max-width: 1900px) {
+                grid-template-columns: repeat(3, 1fr);
+                grid-column-gap: 20px;
+            }
 
             @media screen and (max-width: 1400px) {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
                 grid-column-gap: 20px;
             }
 
@@ -42,8 +37,12 @@ main {
             // box-shadow: 0 30px 30px -25px rgba(65, 51, 183, 0.25);
             width: 380px;
 
+            @media screen and (max-width: 1900px) {
+                width: auto;
+            }
+
             @media screen and (max-width: 1400px) {
-                width: 310px;
+                width: auto;
             }
 
             &:hover {

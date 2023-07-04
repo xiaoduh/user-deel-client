@@ -7,8 +7,6 @@ const Sidebar = () => {
   const userData = useSelector((state) => state.userReducer);
   const leadsData = useSelector((state) => state.leadsReducer);
 
-  console.log(userData.user_data == "business_provider");
-
   return (
     <>
       <div className="nav">
@@ -56,23 +54,6 @@ const Sidebar = () => {
                 </p>
               </NavLink>
               <NavLink
-                to="/conversation"
-                className={({ isActive }) =>
-                  isActive ? "active-left-nav" : ""
-                }
-              >
-                {/* <img
-                  className="img-icon"
-                  src="./commentaires.svg"
-                  alt="mes échanges"
-                /> */}
-                <p>
-                  <span style={{ fontSize: "1rem" }}>🎯 </span>
-                  Mes affaires (
-                  {!isEmpty(userData) && userData?.lead_bought.length})
-                </p>
-              </NavLink>
-              <NavLink
                 to="/annonce"
                 className={({ isActive }) =>
                   isActive ? "active-left-nav" : ""
@@ -90,6 +71,18 @@ const Sidebar = () => {
                 </p>
               </NavLink>
               <NavLink
+                to="/message"
+                className={({ isActive }) =>
+                  isActive ? "active-left-nav" : ""
+                }
+              >
+                {/* <img className="img-icon" src="./plus.svg" alt="sales" /> */}
+                <p>
+                  <span style={{ fontSize: "1rem" }}>💬 </span> Mes
+                  conversations
+                </p>
+              </NavLink>
+              <NavLink
                 to="/lead"
                 className={({ isActive }) =>
                   isActive ? "active-left-nav" : ""
@@ -101,6 +94,7 @@ const Sidebar = () => {
                   affaire
                 </p>
               </NavLink>
+
               <NavLink
                 to="/transfert"
                 className={({ isActive }) =>
@@ -122,7 +116,7 @@ const Sidebar = () => {
                 {/* <img className="img-icon" src="./store.svg" alt="store" /> */}
                 <p>
                   <span style={{ fontSize: "1rem" }}>💳 </span> Charger mon
-                  compte en €
+                  compte
                 </p>
               </NavLink>
               <NavLink
@@ -135,21 +129,6 @@ const Sidebar = () => {
                 <p>
                   {" "}
                   <span style={{ fontSize: "1rem" }}>👀 </span>Mon compte
-                </p>
-              </NavLink>
-              <NavLink
-                to="/help"
-                className={({ isActive }) =>
-                  isActive ? "active-left-nav" : ""
-                }
-              >
-                {/* <img
-                  className="img-icon"
-                  src="./interrogatoire.svg"
-                  alt="help"
-                /> */}
-                <p>
-                  <span style={{ fontSize: "1rem" }}>☎️ </span>Aide
                 </p>
               </NavLink>
               {userData.isSales && (
@@ -185,7 +164,7 @@ const Sidebar = () => {
             </div>
           </div>
         </div>
-        <small className="version">Version beta 0.1.1 2023</small>
+        <small className="version">Version beta 0.1.2 2023</small>
       </div>
     </>
   );

@@ -183,9 +183,9 @@ const Card = ({ lead, user }) => {
             </div>
 
             {user?.lead_bought?.find((el) => el === lead._id) ? (
-              <NavLink to="/conversation">
+              <NavLink to="/message">
                 <button className="btn-confirm">
-                  Voir les informations 🔎
+                  Contacter l'apporteur 💬
                 </button>
                 <small
                   style={{
@@ -199,7 +199,7 @@ const Card = ({ lead, user }) => {
             ) : lead.buyer.length < 1 ? (
               <>
                 <button onClick={() => closePopup()}>
-                  Obtenir en exclusivité les informations 🚀
+                  Contacter en exclusivité l'apporteur 🚀
                 </button>
                 <small
                   style={{
@@ -212,7 +212,7 @@ const Card = ({ lead, user }) => {
               </>
             ) : (
               <>
-                <button className="btn-not-allowed">Vendu 🛑</button>
+                <button className="btn-not-allowed">Trop tard 🛑</button>
                 <small
                   style={{
                     display: "flex",
