@@ -63,7 +63,7 @@ const Home = () => {
                 width: "100%",
               }}
             >
-              <p>Chragement des annonces</p>
+              <p>Chargement des annonces</p>
               <div>
                 {" "}
                 <i className="fas fa-spinner fa-spin loading"></i>
