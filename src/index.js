@@ -8,18 +8,20 @@ import thunk from "redux-thunk";
 // dev tools
 import rootReducer from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { getLeads } from "./actions/leads.actions";
 import { getAllUsers } from "./actions/users.actions";
-import { getConvs } from "./actions/conversations.actions";
+import { getAnnonces } from "./actions/annonces.action";
+import { getRooms } from "./actions/room.action";
+import { getOffers } from "./actions/offers.actions";
 
 const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk))
 );
 
-store.dispatch(getLeads());
 store.dispatch(getAllUsers());
-store.dispatch(getConvs());
+store.dispatch(getAnnonces());
+store.dispatch(getRooms());
+store.dispatch(getOffers());
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

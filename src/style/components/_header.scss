@@ -1,4 +1,4 @@
-header {
+nav {
     min-height: 60px;
     background: $white;
     display: flex;
@@ -6,41 +6,186 @@ header {
     padding: 0 1rem;
     align-items: center;
     border-bottom: 1px solid #EBEFF2;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
 
-    a {
-        margin-left: 1rem;
+    .left-container {
+        display: flex;
+        align-items: center;
 
-        img {
-            cursor: pointer;
-            width: 100px;
+        a {
+            display: flex;
+            align-items: center;
+    
+            img {
+                cursor: pointer;
+                width: 100px;
+    
+                @media screen and (max-width: 900px) {
+                    width: 80px;
+                }
 
-            @media screen and (max-width: 600px)  {
-                display: none;
-              }
+                
+            }
+        }
+
+        
+
+        .user-info-container {
+            display: flex;
+            align-items: center;
+
+            p {
+                margin-right: 2px;
+                font-size: 1rem;
+
+                @media screen and (max-width: 900px) {
+                    font-size: .8rem;
+                }
+
+            }
+
+            h3 {
+                margin-left: 2px;
+                font-size: 1rem;
+                cursor: pointer;
+
+                @media screen and (max-width: 900px) {
+                    font-size: .8rem;
+                }
+            }
+        }
+
+        
+    }
+
+    .menu-responsive {
+        display: flex;
+
+        ul {
+            position: fixed;
+            left: -100%;
+            top: 6%;
+            flex-direction: column;
+            background: $white;
+            width: 100%;
+            text-align: center;
+            transition: 0.22s;
+            padding: 1rem 0;
+
+            li {
+                padding: 4px 0;
+                cursor: pointer;
+
+                &:hover {
+                    color: $accent-blue;
+                    background: #109bf13a;
+                }
+            }
+        }
+
+        @media screen and (max-width: 650px) {
+            display: block;
         }
     }
 
-    .menu-burger {
-        display: none;
+    .active {
 
-        img { 
-            width: 24px;
+        ul {
+            left: 0;
+        }
+    }
+
+    .login-container {
+        display: flex;
+        align-items: center;
+
+
+        button {
+
+            @media screen and (max-width: 650px) {
+                display: none;
+            }
+        }
+
+
+        .burger-menu {
             cursor: pointer;
+            display: none;
+
+            &::before {
+                content: "\2630";
+                font-size: 1.5rem;
+            }
+
+            @media screen and (max-width: 650px) {
+                        display: block;
+
+
+                    }
         }
 
-        @media screen and (max-width: 900px)  {
-            display: flex;
-            margin-right: 2rem;
+        .active {
+
+            &::before {
+                content:'\2613';
+                font-size: 1.5rem;
+            }
+
+        }
+    }
+
+
+    
+
+    .chat {
+        display: flex;
+        margin-right: 2rem;
+        cursor: pointer;
+
+        @media screen and (max-width: 650px) {
+                display: none;
+            }
+
+        .text {
+
+            @media screen and (max-width: 450px) {
+                display: none;
+            }  
         }
 
-        @media screen and (max-width: 600px)  {
-            margin: 0;
-          }
+        img {
+            width: 24px;
+            margin-right: 0.6rem;
+
+            @media screen and (max-width: 900px) {
+                width: 18px;
+                margin-right: .6rem !important;
+            }
+        }
     }
 
     .credit-balance {
         display: flex;
+        align-items: center;
         margin-right: 2rem;
+        cursor: pointer;
+
+        @media screen and (max-width: 650px) {
+            display: none;
+        }
+
+        img {
+            width: 24px;
+            margin-right: .6rem;
+
+                @media screen and (max-width: 900px) {
+                    width: 18px;
+                    margin-right: .6rem !important;
+                }
+
+        }
 
         span {
             margin-right: .5rem;
@@ -49,25 +194,64 @@ header {
         }
     }
 
+    .research {
+        height: 30px;
+        display: flex;
+        align-items: center;
+
+        @media screen and (max-width: 650px) {
+                display: none;
+            }
+
+        @media screen and (max-width: 1200px) {
+            height: 26px;
+        }
+
+        @media screen and (max-width: 380px) {
+            font-size: .5rem;
+        }
+
+        .words {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            padding-left: 5px;
+            overflow-y: hidden;
+            height: 22px;
+
+            @media screen and (max-width: 1200px) {
+                height: 12px;
+            }
+
+            span { 
+                display: block;
+                color: $white;
+                animation: spin_words 12s infinite
+            }
+        }
+    }
+
     .deconnexion {
         display: flex;
+
+        img {
+            width: 10px;
+            display: none;
+
+            @media screen and (max-width: 900px) {
+                display: flex;
+            }
+        }
 
         p {
             margin-right: 1rem;
             cursor: pointer;
 
-            @media screen and (max-width: 600px)  {
-                display: none;
-              }
         }
     }
 
     a {
         margin-right: 2rem;
-
-        @media screen and (max-width: 600px)  {
-            display: none;
-          }
     }
 
     h2 {
@@ -79,9 +263,53 @@ header {
         display: flex;
         align-items: center;
 
-        @media screen and (max-width: 600px)  {
-            width: 100%;
-            justify-content: space-between;
-          }
+        @media screen and (max-width: 650px) {
+                display: none;
+            }
+
+        button {
+            margin-right: 2rem;
+        }
+
+        img {
+            width: 24px;
+            margin-right: .6rem;
+
+                @media screen and (max-width: 900px) {
+                    width: 20px;
+                    margin: 0;
+                }
+
+        }
+
     }
+}
+
+@keyframes spin_words {
+    10%{
+        transform: translateY(-112%)
+    } 
+    25% {
+        transform: translateY(-100%);
+    }
+
+    35% {
+        transform: translateY((-212%));
+    } 
+    50% {
+        transform: translateY(-200%);
+    }
+    60% {
+        transform: translateY(-312%);
+    }
+    75% {
+        transform: translateY(-300%);
+    }
+    85% {
+        transform: translateY(-412%);
+    } 
+    100% {
+        transform: translateY(-400%);
+    }   
+    
 }

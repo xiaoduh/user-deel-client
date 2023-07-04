@@ -7,10 +7,11 @@ const PUBLIC_KEY =
 const stripeTestPromise = loadStripe(PUBLIC_KEY);
 
 const Stripe = ({
-  closeCheckoutForm,
-  plan,
-  paymentSuccessful,
-  paymentFailed,
+  closePayement,
+  price,
+  handlePopupSuccess,
+  handlePopupFailed,
+  offer,
 }) => {
   // const options = {
   //   // passing the client secret obtained from the server
@@ -20,14 +21,14 @@ const Stripe = ({
     <Elements
       stripe={stripeTestPromise}
       // options={options}
-      closeCheckoutForm={closeCheckoutForm}
-      plan={plan}
+      price={price}
     >
       <CheckoutForm
-        closeCheckoutForm={closeCheckoutForm}
-        plan={plan}
-        paymentSuccessful={paymentSuccessful}
-        paymentFailed={paymentFailed}
+        price={price}
+        closePayement={closePayement}
+        handlePopupFailed={handlePopupFailed}
+        handlePopupSuccess={handlePopupSuccess}
+        offer={offer}
       />
     </Elements>
   );

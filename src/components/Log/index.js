@@ -1,23 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
 import SignIn from "./SignInForm";
 import SignUp from "./SignUpForm";
-import Navbar from "../Navbar/Navbar";
-import Seller from "./Seller";
-import Buyer from "./Buyer";
-import Footer from "../Footer/Footer";
 
-const Log = (props) => {
-  const leadsData = useSelector((state) => state.leadsReducer);
+const Log = ({ signup, signin, closeLog, fromPopupIsLogged }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [signUpModal, setSignUpModal] = useState(props.signup);
-  const [signInModal, setSignInModal] = useState(props.signin);
-  const [sellerModal, setSellerModal] = useState(props.seller);
-  const [buyerModal, setBuyerModal] = useState(props.buyer);
-
-  useEffect(() => {
-    leadsData[0] && setIsLoading(false);
-  }, [isLoading, leadsData]);
+  const [signUpModal, setSignUpModal] = useState(signup);
+  const [signInModal, setSignInModal] = useState(signin);
 
   const handleModals = (e) => {
     if (e.target.id === "register") {
@@ -26,24 +14,21 @@ const Log = (props) => {
     } else if (e.target.id === "login") {
       setSignUpModal(false);
       setSignInModal(true);
-    } else if (e.target.id === "seller") {
-      setSellerModal(true);
-      setBuyerModal(false);
-    } else if (e.target.id === "buyer") {
-      setSellerModal(false);
-      setBuyerModal(true);
     }
   };
 
   return (
     <>
-      {isLoading ? (
-        <i className="fas fa-spinner fa-spin loading"></i>
-      ) : (
-        <>
-          <Navbar leadsData={leadsData} />
-          <div className="connection-form">
-            <div className="info-container">
+      {/* <Navbar leadsData={leadsData} /> */}
+      <div className="log">
+        {fromPopupIsLogged ? null : (
+          <div className="closeLog">
+            <img src="./traverser.svg" alt="close" onClick={() => closeLog()} />
+          </div>
+        )}
+
+        <div className="connection-form">
+          {/* <div className="info-container">
               <ul style={{ marginBottom: "2rem" }}>
                 <li
                   onClick={handleModals}
@@ -62,32 +47,29 @@ const Log = (props) => {
               </ul>
               {sellerModal && <Seller leadsData={leadsData} />}
               {buyerModal && <Buyer leadsData={leadsData} />}
-            </div>
-            <div className="form-container">
-              <ul>
-                <li
-                  onClick={handleModals}
-                  id="register"
-                  className={signUpModal ? "active-btn" : null}
-                >
-                  S'inscrire
-                </li>
-                <li
-                  onClick={handleModals}
-                  id="login"
-                  className={signInModal ? "active-btn" : null}
-                >
-                  Se connecter
-                </li>
-              </ul>
-              {signUpModal && <SignUp leadsData={leadsData} />}
-              {signInModal && <SignIn leadsData={leadsData} />}
-            </div>
+            </div> */}
+          <div className="form-container" style={{ margin: "0 auto" }}>
+            <ul>
+              <li
+                onClick={handleModals}
+                id="register"
+                className={signUpModal ? "active-btn" : null}
+              >
+                Créer un compte
+              </li>
+              <li
+                onClick={handleModals}
+                id="login"
+                className={signInModal ? "active-btn" : null}
+              >
+                Se connecter
+              </li>
+            </ul>
+            {signUpModal && <SignUp />}
+            {signInModal && <SignIn />}
           </div>
-          <Footer />
-        </>
-      )}
-      {}
+        </div>
+      </div>
     </>
   );
 };

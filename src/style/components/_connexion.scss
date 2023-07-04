@@ -1,163 +1,203 @@
-.connection-form {
-    height: 100vh;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 100px;
-    grid-row-gap: 0px;
-    margin: 2rem 5rem 0 5rem;
+.log {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 10000;
+    width: 100%;
+    height: auto;
+    background: rgb(255, 255, 255);
 
-    @media screen and (max-width: 375px) {
-        display: flex;
-        flex-direction: column;
-        padding: 1rem;
-        margin: 0;
-        height: auto;
-    }
+    .closeLog {
 
-    input {
-
-        @media screen and (max-width: 375px) {
-            width: auto;
+        img {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 24px;
+            cursor: pointer;
         }
     }
 
-    select {
-        
-        @media screen and (max-width: 375px) {
-            width: auto;
+    .connection-form {
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: 100px;
+        grid-row-gap: 0px;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+    
+    
+        input {
+            border: 1px solid $accent-blue;
+
+            @media screen and (max-width: 450px) {
+                width: auto;
+            }
+
         }
-    }
-
-    .info-container {
-
-        ul {
-            display: flex;
-            margin: 2rem 0;
-            align-items: center;
-
-            li {
+    
+        select {
+            border: 1px solid $accent-blue;
+            
+            @media screen and (max-width: 450px) {
+                width: auto;
+            }
+        }
+    
+        .info-container {
+    
+            ul {
                 display: flex;
-                cursor: pointer;
-
-                img {
-                    width: 24px;
-                    height: 24px;
+                margin: 2rem 0;
+                align-items: center;
+    
+                li {
+                    display: flex;
+                    cursor: pointer;
+    
+                    img {
+                        width: 24px;
+                        height: 24px;
+                    }
+    
+                    &:hover {
+                        color: $accent-blue-hover;
+                    }
+    
+                    &:first-child {
+                        margin-right: 1rem;
+                    }
                 }
-
-                &:hover {
-                    color: $accent-blue-hover;
+    
+                .active-btn {
+                    color: $accent-blue;
+                    background: #34adf92d;
+                    padding: 10px;
+                    border-radius: 10px;
                 }
-
-                &:first-child {
-                    margin-right: 1rem;
+    
+                .seller {
+                    background: #ffb84652;
+                    padding: 10px;
+                    border-radius: 10px;
                 }
-            }
-
-            .active-btn {
-                color: $accent-blue;
-                background: #34adf92d;
-                padding: 10px;
-                border-radius: 10px;
-            }
-
-            .seller {
-                background: #ffb84652;
-                padding: 10px;
-                border-radius: 10px;
-            }
-
-        }
-    }
-
-
-    .form-container {
-        display: flex;
-        flex-direction: column;
-
-        .register-confirmation {
-            display: flex;
-
-            img {
-                max-width: 68px;
-                max-height: 68px;
-                margin-right: 1rem;
+    
             }
         }
-
-        .validation-message {
+    
+    
+        .form-container {
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
 
-            img {
-                max-width: 68px;
-                max-height: 68px;
-                margin-bottom: 1rem;
-            }
+            #sign-up-form {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
 
-            h4 {
-                margin-bottom: 1rem;
-            }
-        }
-
-        .title-connexion {
-            margin-bottom: 2rem;
-
-            h2 {
-
-                @media screen and (max-width: 375px) {
-                    font-size: 1rem;
+                .input {
+                    display: flex;
+                    flex-direction: column;
                 }
             }
 
-            img {
-                width: 200px;
-            }
+            #reset-password-form {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin: 0 auto;
 
-            span {
-                color: $accent-blue;
-            }
-        }
-
-        ul {
-            display: flex;
-            margin: 2rem 0;
-            align-items: start;
-
-            li {
-                
-                cursor: pointer;
-
-                &:hover {
-                    color: $accent-blue-hover;
+                .input {
+                    display: flex;
+                    flex-direction: column;
                 }
-
-                &:first-child {
+            }
+    
+            .register-confirmation {
+                display: flex;
+    
+                img {
+                    max-width: 68px;
+                    max-height: 68px;
                     margin-right: 1rem;
                 }
             }
-
-            .active-btn {
-                color: $accent-blue;
-                background: #34adf92d;
-                padding: 10px;
-                border-radius: 10px;
+    
+            .validation-message {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+    
+                img {
+                    max-width: 68px;
+                    max-height: 68px;
+                    margin-bottom: 1rem;
+                }
+    
+                h4 {
+                    margin-bottom: 1rem;
+                }
             }
-
+    
+            .title-connexion {
+    
+                h2 {
+    
+                    @media screen and (max-width: 375px) {
+                        font-size: 1rem;
+                    }
+                }
+    
+                img {
+                    width: 200px;
+                }
+    
+                span {
+                    color: $accent-blue;
+                }
+            }
+    
+            ul {
+                display: flex;
+                margin: 2rem 0;
+                align-items: center;
+    
+                li {
+                    
+                    cursor: pointer;
+    
+                    &:hover {
+                        color: $accent-blue-hover;
+                    }
+    
+                    &:first-child {
+                        margin-right: 1rem;
+                    }
+                }
+    
+                .active-btn {
+                    color: $accent-blue;
+                    background: #34adf92d;
+                    padding: 10px;
+                    border-radius: 10px;
+                }
+    
+            }
+    
+            .reset-password {
+                margin: 2rem 0;
+    
+                p { cursor: pointer;
+                
+                &:hover {
+                    color: $accent-blue;
+                }}
+            }
+    
+    
         }
-
-        .reset-password {
-            margin: 2rem 0;
-
-            p { cursor: pointer;
-            
-            &:hover {
-                color: $accent-blue;
-            }}
-        }
-
-
     }
+
 }

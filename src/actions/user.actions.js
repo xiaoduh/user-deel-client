@@ -2,7 +2,8 @@ import axios from "axios";
 
 export const GET_USER = "GET_USER";
 
-export const BUY_LEAD = "BUY_LEAD";
+export const COUNT_ANNONCE = "COUNT_ANNONCE";
+export const COUNT_RESPONSE = "COUNT_RESPONSE";
 export const VERIFY_NUMBER = "VERIFY_NUMBER";
 
 export const WITHDRAW_CREDIT = "WITHDRAW_CREDIT";
@@ -20,15 +21,27 @@ export const getUser = (uid) => {
   };
 };
 
-export const buyLead = (leadId, userId, dealerId) => {
+export const updateCountAnnonce = (id) => {
   return (dispatch) => {
     return axios({
-      method: "patch",
-      url: `http://localhost:5000/api/lead/buy-lead/` + leadId,
-      data: { userID: userId, dealerID: dealerId, leadID: leadId },
+      method: "put",
+      url: `http://localhost:5000/api/user/count${id}`,
     })
       .then((res) => {
-        dispatch({ type: BUY_LEAD, payload: { leadId, userId, dealerId } });
+        dispatch({ type: COUNT_ANNONCE, payload: res.data });
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+export const updateCountResponse = (id) => {
+  return (dispatch) => {
+    return axios({
+      method: "put",
+      url: `http://localhost:5000/api/user/count-response/${id}`,
+    })
+      .then((res) => {
+        dispatch({ type: COUNT_RESPONSE, payload: res.data });
       })
       .catch((err) => console.log(err));
   };

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const SignIn = ({ leadsData }) => {
+const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [resetPassword, setResetPassword] = useState(false);
@@ -102,28 +102,28 @@ const SignIn = ({ leadsData }) => {
         <>
           <form onSubmit={handleResetPassword} id="reset-password-form">
             <div className="title-connexion">
-              <img src="./logo.png" alt="logo" />
-              <h2>
-                Mot de passe <span>oublié</span>
-              </h2>
+              <h2>Mot de passe oublié 🧠</h2>
             </div>
-            <label htmlFor="email" id="email" class="form__label">
-              Email
-            </label>
-            <br />
-            <input
-              type="text"
-              name="email"
-              id="email"
-              onChange={(e) => checkEmail2Reset(e)}
-              value={emailToReset}
-              class="form__field email2reset"
-            />
-            <div className="email error"></div>
-            <div className="email success"></div>
-            <br />
+            <div
+              className="input"
+              style={{ display: "flex", flexDirection: "column" }}
+            >
+              <label htmlFor="email" id="email" class="form__label">
+                Email
+              </label>
+              <input
+                type="text"
+                name="email"
+                id="email"
+                onChange={(e) => checkEmail2Reset(e)}
+                value={emailToReset}
+                class="form__field email2reset"
+              />
+              <div className="email error"></div>
+              <div className="email success"></div>
+            </div>
             <>
-              <button type="submit">
+              <button type="submit" style={{ marginTop: "1rem" }}>
                 {" "}
                 {loading ? (
                   <>
@@ -146,36 +146,36 @@ const SignIn = ({ leadsData }) => {
             <h2>Connexion 🔓</h2>
           </div>
           <form onSubmit={handleLogin} id="sign-up-form">
-            <label htmlFor="email" class="form__label">
-              Email
-            </label>
-            <br />
-            <input
-              type="text"
-              name="email"
-              id="email"
-              onChange={(e) => checkEmail(e)}
-              value={email}
-              class="form__field email"
-            />
-            <div className="email error"></div>
-            <br />
-            <label htmlFor="password" class="form__label">
-              Mot de passe
-            </label>
-            <br />
-            <input
-              type="password"
-              name="password"
-              id="password"
-              onChange={(e) => checkPW(e)}
-              value={password}
-              class="form__field pw"
-            />
-            <div className="password error"></div>
-            <br />
+            <div className="input">
+              <label htmlFor="email" class="form__label">
+                Email
+              </label>
+              <input
+                type="text"
+                name="email"
+                id="email"
+                onChange={(e) => checkEmail(e)}
+                value={email}
+                class="form__field email"
+              />
+              <div className="email error"></div>
+            </div>
+            <div className="input">
+              <label htmlFor="password" class="form__label">
+                Mot de passe
+              </label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                onChange={(e) => checkPW(e)}
+                value={password}
+                class="form__field pw"
+              />
+              <div className="password error"></div>
+            </div>
             <>
-              <button type="submit">
+              <button type="submit" style={{ marginTop: "1rem" }}>
                 {" "}
                 {loading ? (
                   <>
