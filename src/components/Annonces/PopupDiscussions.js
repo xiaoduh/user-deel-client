@@ -76,7 +76,7 @@ const PopupDiscussions = ({ closeDiscussions }) => {
 
   const selectedRoomData = (annonceData, user, poster, roomInfo) => {
     setSelectedData(annonceData);
-    setSelectedRoom(annonceData._id);
+    setSelectedRoom(roomInfo._id);
     setSelectedRoomUser(user);
     setSelectedRoomPoster(poster);
     setRoomInfo(roomInfo);
