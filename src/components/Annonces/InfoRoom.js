@@ -35,9 +35,7 @@ const InfoRoom = ({
           <div
             className={
               "room-info-container-1" +
-              (selectedRoom.annonceID === annonceData?._id
-                ? " selectedRoom-1"
-                : "")
+              (roomInfo.annonceID === annonceData?._id ? " selectedRoom-1" : "")
             }
             style={{ background: "#875af849", color: "#885AF8" }}
             onClick={() => selectRoom(annonceData, user, poster, roomInfo)}
@@ -56,9 +54,7 @@ const InfoRoom = ({
           <div
             className={
               "room-info-container-2" +
-              (selectedRoom.annonceID === annonceData?._id
-                ? " selectedRoom-2"
-                : "")
+              (roomInfo.annonceID === annonceData?._id ? " selectedRoom-2" : "")
             }
             onClick={() => selectRoom(annonceData, user, poster, roomInfo)}
           >
