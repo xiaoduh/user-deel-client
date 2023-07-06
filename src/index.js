@@ -14,10 +14,7 @@ import { getRooms } from "./actions/room.action";
 import { getOffers } from "./actions/offers.actions";
 import { disableReactDevTools } from "@fvilers/disable-react-devtools";
 
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(thunk))
-);
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 if (process.env.REACT_APP_NODE_ENV === "production") {
   disableReactDevTools();
