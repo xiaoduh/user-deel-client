@@ -177,7 +177,7 @@ const PopupPostAnnonce = ({ closeIsPosting }) => {
                 <div className="container">
                   <div className="flex-container">
                     <img src="./3.svg" />
-                    <h2>Détaillez précisement ce que vous rehcerchez</h2>
+                    <h2>Détaillez précisement ce que vous recherchez</h2>
                   </div>
                   <textarea
                     type="text"
@@ -185,11 +185,11 @@ const PopupPostAnnonce = ({ closeIsPosting }) => {
                     required
                     value={content}
                     onChange={(e) => checkContent(e)}
-                    maxlength="160"
+                    maxlength="200"
                     style={{ width: "100%" }}
                     placeholder="Ex: Bonjour, je recherche un contact chez Tartempion sur le projet Y."
                   />
-                  <small>{160 - content.length} characteres disponibles</small>
+                  <small>{200 - content.length} characteres disponibles</small>
                 </div>
               </div>
             )}
